@@ -1,0 +1,122 @@
+
+0 - article
+* depth: 0
+* 94.5 %
+* 90.2 %
+
+  388 - body
+  * depth: 1
+  * 90.6 %
+  * 83.0 %
+
+    389 - sec
+    * sec1-remotesensing-10-00641
+    * 1. Introduction
+    * depth: 2
+    * 47.0 %
+    * 4.4 %
+
+      390 - title
+      * depth: 3
+      * move
+      * movedFrom
+
+      392 - p
+      * depth: 3
+      * move
+      * movedFrom
+
+      394 - p
+      * depth: 3
+      * move
+      * movedFrom
+
+      396 - p
+      * depth: 3
+      * move
+      * movedFrom
+
+      398 - p
+      * depth: 3
+      * move
+      * movedFrom
+
+      400 - p
+      * depth: 3
+      * move
+      * movedFrom
+
+      402 - p
+      * depth: 3
+      * move
+      * movedFrom
+
+      404 - p
+      * depth: 3
+      * move
+      * movedFrom
+
+      406 - p
+      * depth: 3
+      * move
+      * movedFrom
+
+      408 - p
+      * depth: 3
+      * split
+      * splitedFrom
+
+      432 - title
+      * depth: 3
+      * move
+      * movedTo
+
+      434 - p
+      * depth: 3
+      * move
+      * movedTo
+
+      436 - p
+      * depth: 3
+      * move
+      * movedTo
+
+      438 - p
+      * depth: 3
+      * move
+      * movedTo
+
+      440 - p
+      * depth: 3
+      * move
+      * movedTo
+
+      442 - p
+      * depth: 3
+      * move
+      * movedTo
+
+      444 - p
+      * depth: 3
+      * move
+      * movedTo
+
+      446 - p
+      * depth: 3
+      * move
+      * movedTo
+
+      448 - p
+      * depth: 3
+      * move
+      * movedTo
+
+      450 - p
+      * depth: 3
+      * split
+      * splitedTo
+
+      452 - p
+      * depth: 3
+      * split
+      * splitedTo

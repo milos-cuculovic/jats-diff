@@ -1,0 +1,31 @@
+
+0 - article
+* depth: 0
+* 99.9 %
+* 88.2 %
+
+  388 - body
+  * depth: 1
+  * 99.9 %
+  * 79.7 %
+
+    410 - sec
+    * sec2-remotesensing-10-00641
+    * 2. Data Collection, Processing, and Limitations
+    * depth: 2
+    * 84.2 %
+    * 70.2 %
+
+      452 - sec
+      * sec2dot3-remotesensing-10-00641
+      * 2.3. Final Remarks and Challenges
+      * depth: 3
+      * downgrade
+      * downgradedTo
+
+    517 - sec
+    * sec5-remotesensing-10-00641
+    * 5. Final Remarks and Challenges
+    * depth: 2
+    * downgrade
+    * downgradedFrom

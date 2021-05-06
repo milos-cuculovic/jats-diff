@@ -1,0 +1,27 @@
+
+0 - article
+* depth: 0
+* 99.7 %
+* 99.6 %
+
+  1 - front
+  * depth: 1
+  * 97.6 %
+  * 96.9 %
+
+    17 - article-meta
+    * depth: 2
+    * 97.6 %
+    * 96.9 %
+
+      115 - abstract
+      * depth: 3
+      * 96.2 %
+      * 95.1 %
+
+        116 - p
+        * depth: 4
+        * text-style-delete
+        * delete-style
+        * 95.9 %
+        * 94.7 %

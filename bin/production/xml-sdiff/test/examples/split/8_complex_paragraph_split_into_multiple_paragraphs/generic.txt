@@ -1,0 +1,37 @@
+
+0 - article
+* depth: 0
+* 100.0 %
+* 100.0 %
+
+  388 - body
+  * depth: 1
+  * 99.9 %
+  * 100.0 %
+
+    389 - sec
+    * sec1-remotesensing-10-00641
+    * 1. Introduction
+    * depth: 2
+    * 99.7 %
+    * 99.8 %
+
+      408 - p
+      * depth: 3
+      * split
+      * splitedTo
+
+      408 - p
+      * depth: 3
+      * split
+      * splitedFrom
+
+      410 - p
+      * depth: 3
+      * split
+      * splitedTo
+
+      412 - p
+      * depth: 3
+      * split
+      * splitedTo

@@ -1,0 +1,39 @@
+
+0 - article
+* depth: 0
+* 99.7 %
+* 89.9 %
+
+  139 - body
+  * depth: 1
+  * 99.6 %
+  * 85.4 %
+
+    149 - sec
+    * sec2-remotesensing-10-00641
+    * 2. Data Collection, Processing, and Limitations
+    * depth: 2
+    * update-attribute
+    * change-attr
+    * 99.7 %
+    * 99.7 %
+
+    149 - sec
+    * sec2-remotesensing-10-00641
+    * 2. Monitoring Agricultural and Natural Ecosystems
+    * depth: 2
+    * move
+    * movedTo
+
+      150 - title
+      * depth: 3
+      * text-update
+      * 93.2 %
+      * 83.3 %
+
+    154 - sec
+    * sec3-remotesensing-10-00641
+    * 3. Monitoring Agricultural and Natural Ecosystems
+    * depth: 2
+    * move
+    * movedFrom

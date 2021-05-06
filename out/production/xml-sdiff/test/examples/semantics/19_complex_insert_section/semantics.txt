@@ -1,0 +1,23 @@
+
+0 - article
+* depth: 0
+* 99.7 %
+* 99.6 %
+
+  139 - body
+  * depth: 1
+  * 99.7 %
+  * 99.5 %
+
+    165 - sec
+    * sec3-remotesensing-10-00641
+    * 3. Monitoring Agricultural and Natural Ecosystems
+    * depth: 2
+    * 99.4 %
+    * 99.2 %
+
+      197 - sec
+      * sec3dot2-remotesensing-10-00641
+      * 3.2. Some section here
+      * depth: 3
+      * insert

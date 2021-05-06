@@ -1,0 +1,30 @@
+
+0 - article
+* depth: 0
+* 100.0 %
+* 100.0 %
+
+  388 - body
+  * depth: 1
+  * 100.0 %
+  * 100.0 %
+
+    389 - sec
+    * sec1-remotesensing-10-00641
+    * 1. Introduction
+    * depth: 2
+    * 99.9 %
+    * 99.9 %
+
+      408 - p
+      * depth: 3
+      * text-update
+      * text-move-to
+      * 51.2 %
+      * 60.1 %
+
+      408 - p
+      * depth: 3
+      * text-update
+      * 69.4 %
+      * 72.1 %

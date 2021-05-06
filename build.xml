@@ -1,0 +1,249 @@
+<project basedir="." default="help" name="Jndiff">
+
+	<target description="Init parameters" name="init">
+
+		<property name="component.name" value="jndiff" />
+		<property name="component.title" value="Jndiff" />
+		<property name="component.version" value="1.4" />
+
+		<property name="build.encoding" value="UTF-8" />
+
+		<property name="build.home" value="build" />
+		<property name="build.lib" value="lib" />
+
+		<property name="test.build.home" value="build/test" />
+
+		<property name="dist.home" value="dist" />
+		<property name="report.home" value="reports" />
+		<property name="docs.home" value="docs" />
+		<property name="source.home" value="src/main/diff_L1_L2" />
+		<property name="source.test" value="src/test/diff_L1_L2" />
+		<property name="source.resources" value="resources" />
+		<property name="source.javadoc" value="${dist.home}/docs/javadoc" />
+
+		<property name="compile.debug" value="false" />
+		<property name="compile.deprecation" value="true" />
+		<property name="compile.optimize" value="true" />
+
+		<property file="${basedir}/build.properties" />
+
+		<property name="docbook.home" value="${source.resources}/externaltools/docbook-xsl-1.75.2" />
+
+		<property name="fo.dir" value="${dist.home}/docs/fo" />
+		<property name="pdf.dir" value="${dist.home}/docs/pdf" />
+		<property name="man.dir" value="${dist.home}/docs/man" />
+
+
+
+
+
+		<path id="compile.classpath">
+			<pathelement location="${build.home}/classes" />
+			<fileset dir="./lib">
+				<include name="*.jar" />
+			</fileset>
+
+		</path>
+
+		<path id="javadoc.path">
+			<pathelement path="${source.home}" />
+		</path>
+
+		<property name="fop.home" value="resources/externaltools/fop-0.20.5" />
+
+		<taskdef name="fop" classname="org.apache.fop.tools.anttasks.Fop">
+			<classpath>
+				<fileset dir="${fop.home}/lib">
+					<include name="*.jar" />
+				</fileset>
+				<fileset dir="${fop.home}/build">
+					<include name="fop.jar" />
+					<include name="fop-hyph.jar" />
+				</fileset>
+			</classpath>
+		</taskdef>
+
+
+	</target>
+
+	<target name="generate-pdf" description="Generate PDF documentation" depends="generate-fo">
+		<fop format="application/pdf" fofile="${fo.dir}/documentazione.fo" outfile="${pdf.dir}/documentazione.pdf" />
+		<fop format="application/pdf" fofile="${fo.dir}/user_manual.fo" outfile="${pdf.dir}/user_manual.pdf" />
+		<fop format="application/pdf" fofile="${fo.dir}/jnmerge_markup_reference.fo" outfile="${pdf.dir}/jnmerge_markup_reference.pdf" />
+	</target>
+
+
+	<target name="generate-man" description="Generate MANpage" depends="init">
+		<xslt style="${docbook.home}/manpages/docbook.xsl" in="docs/jndiff_manpage_it.xml" out="${man.dir}/jndiff.1" classpath="${fop.home}/lib/xalan-2.4.1.jar" />
+	</target>
+
+
+	<target name="generate-fo" depends="init" description="Convert documentation from docbook to xml fo">
+		<xslt style="${docbook.home}/fo/docbook.xsl" in="${docs.home}/chapters/documentazione.xml" out="${fo.dir}/documentazione.fo" classpath="${fop.home}/lib/xalan-2.4.1.jar" />
+        <xslt style="${docbook.home}/fo/docbook.xsl" in="${docs.home}/chapters/user_manual.xml" out="${fo.dir}/user_manual.fo" classpath="${fop.home}/lib/xalan-2.4.1.jar" />
+        <xslt style="${docbook.home}/fo/docbook.xsl" in="${docs.home}/chapters/jnmerge_markup_reference.xml" out="${fo.dir}/jnmerge_markup_reference.fo" classpath="${fop.home}/lib/xalan-2.4.1.jar" />
+	</target>
+
+	<target name="full-release" depends="release-test,javadoc,generate-pdf" />
+
+	<target name="project_prepare" />
+
+	<target depends="init,project_prepare" description="Create folders" name="prepare">
+		<mkdir dir="${build.home}" />
+		<mkdir dir="${build.home}/classes" />
+		<mkdir dir="${test.build.home}/classes" />
+	</target>
+
+	<target depends="prepare" description="Compile source code" name="compile">
+		<javac debug="${compile.debug}" deprecation="${compile.deprecation}" destdir="${build.home}/classes" target="13" source="13" optimize="${compile.optimize}" srcdir="${source.home}" encoding="${build.encoding}">
+			<classpath refid="compile.classpath" />
+
+		</javac>
+
+		<copy todir="${build.home}/classes">
+			<fileset dir="src/main/diff_L1_L2/ui/i18n/messages" />
+		</copy>
+	</target>
+
+	<target description="" name="project_clean" />
+
+	<target depends="init,project_clean,distclean,reportclean" description="Delete all generated files" name="clean">
+		<delete dir="${build.home}" />
+	</target>
+
+	<target depends="init,project_clean" description="Delete only dist directory (generated jars)" name="distclean">
+		<delete dir="${dist.home}" />
+	</target>
+
+	<target depends="init,project_clean" description="Delete report directory" name="reportclean">
+		<delete dir="${report.home}" />
+	</target>
+
+
+
+	<target depends="clean,compile" description="Delete all generated file and compile source code" name="all" />
+
+	<target depends="compile" description="Generate javadocs (on docs directory)" name="javadoc">
+		<javadoc author="true" bottom="Jndiff - XML DIFFING Algorithm" destdir="${source.javadoc}" source="1.6" Encoding="${build.encoding}" doctitle="${component.title}" packagenames="miloscuculovic.*" access="public" sourcepathref="javadoc.path" version="true" windowtitle="${component.title} (Version ${component.version})" />
+	</target>
+
+	<target depends="compile" name="build-test">
+		<javac debug="${compile.debug}" deprecation="${compile.deprecation}" destdir="${test.build.home}/classes" target="1.6" source="1.6" optimize="${compile.optimize}" srcdir="${source.test}" encoding="${build.encoding}">
+			<classpath refid="compile.classpath" />
+		</javac>
+	</target>
+
+	<target name="release-test" depends="release" description="Generate main (with test suite) jars">
+		<copy file="${build.lib}/saxon9he.jar" todir="${dist.home}/lib" />
+		<copy file="${build.lib}/JMeasurement-0.71.141.jar" todir="${dist.home}/lib" />
+		<copy file="${source.resources}/bin/phaseInfo.sh" todir="${dist.home}" />
+		<copy file="${source.resources}/bin/xsltTransform.sh" todir="${dist.home}" />
+
+
+
+		<chmod dir="${dist.home}/" perm="ugo+rx" includes="**/*.sh" />
+
+
+		<jar basedir="${test.build.home}/classes" jarfile="${dist.home}/${component.name}-testutils-${component.version}.jar">
+			<include name="**/*" />
+			<manifest>
+				<!-- <attribute name="Main-Class" value="Main" /> -->
+				<attribute name="Class-Path" value="lib/jaxp-api.jar lib/jaxp-ri.jar lib/log4j-1.2.15.jar lib/JMeasurement-0.71.141.jar lib/saxon9he.jar lib/xmlunit-1.3.jar lib/lib${component.name}-${component.version}.jar" />
+			</manifest>
+		</jar>
+
+	</target>
+
+	<target depends="compile,build-test,distclean" description="Create dist folder which contains generated jars library and executables" name="release">
+		<mkdir dir="${dist.home}" />
+		<mkdir dir="${dist.home}/lib" />
+		<mkdir dir="${build.home}/src" />
+
+		<copy file="lgpl.txt" todir="${build.home}/classes" />
+		<copy file="${source.resources}/main/log4j.properties" todir="${build.home}/classes" />
+		<copy file="${build.lib}/jaxp-api.jar" todir="${dist.home}/lib" />
+		<copy file="${build.lib}/jaxp-ri.jar" todir="${dist.home}/lib" />
+		<copy file="${build.lib}/log4j-1.2.15.jar" todir="${dist.home}/lib" />
+		<copy file="${build.lib}/java-getopt-1.0.13.jar" todir="${dist.home}/lib" />
+
+
+
+		<jar basedir="${build.home}/classes" jarfile="${dist.home}/lib/lib${component.name}-${component.version}.jar">
+			<include name="**/*" />
+			<exclude name="**/it/unibo/cs/ndiff/ui/**" />
+			<manifest>
+				<!-- <attribute name="Main-Class" value="Main" /> -->
+				<attribute name="Class-Path" value="jaxp-api.jar jaxp-ri.jar log4j-1.2.15.jar" />
+			</manifest>
+		</jar>
+
+
+
+		<jar basedir="${build.home}/classes" jarfile="${dist.home}/${component.name}-ui.jar" includes="**/it/unibo/cs/ndiff/ui/**,**/it/unibo/cs/ndiff/ui/i18n/messages/*.properties">
+			<manifest>
+				<attribute name="Main-Class" value="main.diff_L1_L2.ui.Main" />
+				<attribute name="Class-Path" value="lib/lib${component.name}-${component.version}.jar lib/java-getopt-1.0.13.jar" />
+				<attribute name="Implementation-Version" value="${component.version}" />
+
+			</manifest>
+		</jar>
+
+		<copy todir="${dist.home}/">
+			<fileset dir="${source.resources}/bin" includes="**/*/" excludes="phaseInfo.sh,xsltTransform.sh" />
+		</copy>
+
+		<chmod dir="${dist.home}/" perm="ugo+rx" includes="**/*.sh" />
+
+
+		<tar destfile="${dist.home}/${component.name}-${component.version}.tar.bz2" compression="bzip2">
+			<tarfileset dir="${dist.home}/lib" prefix="lib/" includes="java-getopt-1.0.13.jar,jaxp-api.jar,jaxp-ri.jar,lib${component.name}-${component.version}.jar,log4j-1.2.15.jar" />
+			<tarfileset dir="${dist.home}/" includes="jndiff-gui.bat,jndiff.bat" />
+			<tarfileset dir="${dist.home}/" includes="jndiff.sh,jndiff-gui.sh,jndiff-ui.jar" filemode="755" />
+
+		</tar>
+
+
+	</target>
+
+	<target name="test" depends="compile,reportclean,build-test" description="Execute junit test and generate reports">
+		<mkdir dir="${report.home}" />
+		<mkdir dir="${report.home}/xml" />
+		<mkdir dir="${report.home}/html" />
+
+		<junit>
+			<classpath refid="compile.classpath" />
+			<classpath>
+				<pathelement location="${build.home}/test/classes" />
+				<pathelement location="${build.home}/classes" />
+			</classpath>
+			<formatter type="brief" usefile="false" />
+			<test name="main.diff_L1_L2.test.RemergeTest" todir="${report.home}/xml" haltonfailure="no">
+				<formatter type="xml" />
+
+			</test>
+		</junit>
+		<junitreport todir="${report.home}/xml">
+			<fileset dir="${report.home}/xml">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${report.home}/html" />
+		</junitreport>
+
+	</target>
+
+	<target name="help">
+		<echo message="JNDiff build option:" />
+		<echo>
+ant compile (Compile source code)
+ant release (Compile and create a release distribution in dist directory)
+ant release-test (Compile main jars and testsuite jar in dist directory)
+ant full-release (Same as release-test but also generate documentation, javadoc)
+ant test (Execute Tests and write results on reports directory)
+ant javadoc (Generate javadoc in dist/docs/javadoc directory)
+ant generate-fo (Convert docbook documentation in fo XML)
+ant generate-pdf (Convert docbook documentation in PDF format)
+
+	    	</echo>
+	</target>
+
+</project>

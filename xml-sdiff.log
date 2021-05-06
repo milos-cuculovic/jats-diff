@@ -1,0 +1,8 @@
+ERROR main main.diff_L1_L2.phases.FindUpgrade - Upgrade : 0:00:00.207
+ERROR main main.diff_L1_L2.phases.FindDowngrade - Downgrade : 0:00:00.393
+ERROR main main.diff_L1_L2.phases.FindMerge - Merge : 0:00:00.094
+ERROR main main.diff_L1_L2.phases.FindSplit - Split : 0:00:00.012
+ERROR main main.diff_L1_L2.phases.FindUpgrade - Upgrade : 0:00:00.140
+ERROR main main.diff_L1_L2.phases.FindDowngrade - Downgrade : 0:00:00.263
+ERROR main main.diff_L1_L2.phases.FindMerge - Merge : 0:00:00.087
+ERROR main main.diff_L1_L2.phases.FindSplit - Split : 0:00:00.011

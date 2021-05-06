@@ -1,0 +1,33 @@
+<Nconfig>
+	<!-- ltrim: Elimina gli spazi a sinistra nei nodi di testo
+		 rtrim: Elimina gli spazi a destra nei nodi di testo
+		 collapse: Collassa gli spazi interni a un nodo di testo in un'univo spazio
+		 emptynode: Non considera i nodi di testo composti da soli spazi bianchi
+		 commentnode: Non considera i nodi commento
+		 -->
+	<normalize ltrim="true" rtrim="true" collapse="true" emptynode="false" commentnode="false"/>
+	
+	
+	<phases>
+		<Partition/>
+		
+		<!-- level: prende un valore in [0,100], indica il livello di somiglianza minimo richiesto per
+			 		cui un frammento venga considerato aggiornato 
+					-->
+		<FindUpdate level="10"/>
+		
+		<!-- 	 range: prende un valore in [0,100], indica la distanza entro la quale un frammento viene 
+			 		    considerato come spostato.
+			 minweight: indica il peso minimo(numero di caratteri) entro il quale un frammento viene considerato
+			 			come spostato 
+			 			-->
+		<FindMove range="10" minweight="31"/>
+		
+		<!-- attsimilarity: prende un valore in [0,100], indica il livello di somiglianza richiesto a livello di
+							attributi, per cui due nodi vengono considerati aggiornati 
+			    forcematch: Forza il match durante la propagazione -->  
+		<Propagation attsimilarity="40" forcematch="false"/>
+		
+	</phases>
+	
+</Nconfig>

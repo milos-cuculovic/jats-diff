@@ -1,0 +1,50 @@
+
+0 - article
+* depth: 0
+* 99.9 %
+* 99.3 %
+
+  173 - body
+  * depth: 1
+  * 99.9 %
+  * 98.9 %
+
+    174 - sec
+    * sec1-molecules-25-00430
+    * 1. Introduction
+    * depth: 2
+    * merge
+    * mergedFrom
+
+      189 - p
+      * depth: 3
+      * text-update
+      * text-move-from
+      * 35.1 %
+      * 42.7 %
+
+    191 - sec
+    * sec2-molecules-25-00430
+    * 2. Basic principles of Transient Absorption Spectroscopy (TAS) and Its Application to Study Push-Pull Molecules
+    * depth: 2
+    * merge
+    * mergedTo
+
+    191 - sec
+    * sec2-molecules-25-00430
+    * 2. Basic principles of Transient Absorption Spectroscopy (TAS) and Its Application to Study Push-Pull Molecules
+    * depth: 2
+    * merge
+    * mergedFrom
+
+      212 - sec
+      * depth: 3
+      * 97.8 %
+      * 98.5 %
+
+        245 - p
+        * depth: 4
+        * text-update
+        * text-move-to
+        * 64.9 %
+        * 76.2 %

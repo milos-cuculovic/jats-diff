@@ -1,0 +1,1 @@
+java -jar jndiff-ui.jar %*

@@ -1,0 +1,52 @@
+
+0 - article
+* depth: 0
+* 99.4 %
+* 99.4 %
+
+  388 - body
+  * depth: 1
+  * 99.1 %
+  * 99.1 %
+
+    389 - sec
+    * sec1-remotesensing-10-00641
+    * 1. Introduction
+    * depth: 2
+    * 99.9 %
+    * 99.9 %
+
+      408 - p
+      * depth: 3
+      * merge
+      * mergedTo
+
+      408 - p
+      * depth: 3
+      * merge
+      * mergedFrom
+
+      410 - p
+      * depth: 3
+      * merge
+      * mergedFrom
+
+    454 - sec
+    * sec3-remotesensing-10-00641
+    * depth: 2
+    * 96.7 %
+    * 96.8 %
+
+      457 - p
+      * depth: 3
+      * text-update
+      * text-move-to
+      * 69.3 %
+      * 73.7 %
+
+      459 - p
+      * depth: 3
+      * text-update
+      * text-move-from
+      * 3.3 %
+      * 0.7 %

@@ -1,0 +1,39 @@
+
+0 - article
+* depth: 0
+* 100.0 %
+* 100.0 %
+
+  155 - body
+  * depth: 1
+  * 100.0 %
+  * 100.0 %
+
+    258 - sec
+    * sec3-remotesensing-12-02506
+    * depth: 2
+    * 100.0 %
+    * 100.0 %
+
+      276 - sec
+      * sec3dot2-remotesensing-12-02506
+      * depth: 3
+      * 100.0 %
+      * 100.0 %
+
+        305 - sec
+        * sec3dot2dot1-remotesensing-12-02506
+        * depth: 4
+        * 99.9 %
+        * 100.0 %
+
+          308 - p
+          * depth: 5
+          * 99.8 %
+          * 99.9 %
+
+            372 - inline-formula
+            * depth: 6
+            * formula-edit
+            * 0.0 %
+            * 50.0 %

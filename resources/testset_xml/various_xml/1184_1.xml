@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<NIR>
+  <DisegnoLegge>
+    <meta>
+      <descrittori>
+        <approvazione internal_id="" leg="" norm="" tipodoc=""/>
+        <redazione nome="" norm=""/>
+        <urn></urn>
+      </descrittori>
+    </meta>
+    <intestazione>
+<?error SENATO DELLA REPUBBLICA 
+ 
+  
+XIV 
+ 
+  1184&#x2013;B 
+ 
+ 
+Attesto che il Senato della Repubblica, 
+il 13 luglio 2005, ha approvato il seguente disegno di legge, d&#x2019;iniziativa dei senatori Meduri, D&#x2019;Ippolito Vitale, Crin&#xF2;, Bevilacqua, Gentile, Nocco, Veraldi, Florino, Pedrizzi, Valditara, Bucciero, Specchia, Battaglia Antonio, Tofani, Bongiorno, Collino, Curto, Danieli Paolo, De Corato, Demasi, Magnalb&#xF2;, Grillotti, Kappler, Mugnai, Mulas, Pellicini, Ragno, Zappacosta, Semeraro e Delogu, gi&#xE0; approvato dal Senato e modificato dalla Camera dei deputati: 
+ 
+Delega al Governo per la disciplina dell&#x2019;ordinamento 
+della carriera dirigenziale penitenziaria 
+ 
+  
+  
+ 
+?>
+      <emanante></emanante>
+      <legislatura></legislatura>
+      <numDoc></numDoc>
+      <tipoDoc></tipoDoc>
+      <dataDoc norm=""></dataDoc>
+      <titoloDoc></titoloDoc>
+    </intestazione>
+    <articolato>
+      <articolo id="art1">
+        <num>Art. 1. </num>
+        <rubrica>
+ 
+(Carriera dirigenziale penitenziaria) 
+ 
+</rubrica>
+        <comma id="art1-com1">
+          <num>    1.</num>
+          <alinea> Il Governo è delegato ad adottare, entro sei mesi dalla data di entrata in vigore della presente legge, uno o più decreti legislativi al fine di disciplinare l’ordinamento della carriera dirigenziale penitenziaria ed il trattamento giuridico ed economico di tale carriera nella quale ricomprendere il personale direttivo e dirigenziale dell’Amministrazione penitenziaria appartenente agli ex profili professionali di direttore penitenziario, di direttore di ospedale psichiatrico giudiziario e di direttore di servizio sociale, ai quali hanno avuto accesso a seguito di concorso, nonchè il personale del ruolo amministrativo ad esaurimento della medesima Amministrazione penitenziaria, nel rispetto dei seguenti princìpi e criteri direttivi: 
+ 
+</alinea>
+          <el id="art1-com1-leta">
+            <num>        a)</num>
+            <corpo> revisione delle qualifiche mediante il massimo accorpamento possibile, prevedendo all’interno di ciascuna di esse la specificazione del particolare settore dell’amministrazione al quale il personale è preposto (direzione di istituto penitenziario, di centro di servizio sociale per adulti, di ospedale psichiatrico giudiziario) e la loro convergenza in un unico livello dirigenziale apicale; </corpo>
+          </el>
+          <el id="art1-com1-letb">
+            <num>
+ 
+        b)</num>
+            <corpo> previsione dell’accesso alla carriera dirigenziale penitenziaria esclusivamente dal grado iniziale, mediante concorso pubblico, con esclusione di ogni immissione dall’esterno; </corpo>
+          </el>
+          <el id="art1-com1-letc">
+            <num>
+        c)</num>
+            <corpo> individuazione della pianta organica dirigenziale penitenziaria in relazione alle unità di personale in servizio alla data di entrata in vigore della presente legge e appartenenti alle qualifiche indicate nell’alinea del presente comma, destinando allo scopo anche le risorse di organico previste dall’articolo 3, comma 3, del decreto legislativo 21 maggio 2000, n. 146, e le risorse finanziarie previste dall’articolo 50, comma 9, lettera d), della legge 23 dicembre 2000, n. 388; </corpo>
+          </el>
+          <el id="art1-com1-letd">
+            <num>
+        d)</num>
+            <corpo> previsione di un procedimento negoziale fra una delegazione di parte pubblica e una delegazione delle organizzazioni sindacali rappresentative del personale della carriera dirigenziale penitenziaria, da attivare con cadenza quadriennale per gli aspetti giuridici e biennale per quelli economici del rapporto di impiego del personale della carriera stessa, i cui contenuti sono recepiti con decreto del Presidente della Repubblica, finalizzato alla determinazione di un trattamento economico onnicomprensivo, non inferiore a quello della dirigenza statale contrattualizzata, articolato in una componente stipendiale di base, in una componente correlata alle posizioni funzionali ricoperte e agli incarichi di responsabilità esercitati, in una componente rapportata ai risultati conseguiti rispetto agli obiettivi fissati ed alle risorse assegnate e alla disciplina di quanto attiene l’orario di lavoro, il congedo ordinario e straordinario, la reperibilità, l’aspettativa per motivi di salute e di famiglia, i permessi brevi, le aspettative e i permessi sindacali; </corpo>
+          </el>
+          <el id="art1-com1-lete">
+            <num>
+        e)</num>
+            <corpo> individuazione di criteri obiettivi per l’avanzamento di carriera secondo il principio dello scrutinio per merito comparativo in ragione degli incarichi espletati, delle responsabilità assunte, dei percorsi di formazione seguiti; </corpo>
+          </el>
+          <el id="art1-com1-letf">
+            <num>
+        f)</num>
+            <corpo> individuazione, nell’organizzazione degli uffici centrali e periferici dell’Amministrazione penitenziaria, degli incarichi e delle funzioni da attribuire ai funzionari della carriera dirigenziale penitenziaria; </corpo>
+          </el>
+          <el id="art1-com1-letg">
+            <num>
+        g)</num>
+            <corpo> previsione dell’applicabilità al personale della carriera dirigenziale penitenziaria delle disposizioni di cui all’articolo 17 della legge 28 luglio 1999, n. 266, e successive modificazioni, e alla legge 29 marzo 2001, n. 86, per favorirne la mobilità; </corpo>
+          </el>
+          <el id="art1-com1-leth">
+            <num>
+        h)</num>
+            <corpo> previsione della copertura assicurativa del rischio di responsabilità civile e patrocinio da parte dell’Avvocatura dello Stato in tutte le controversie insorte per motivi di servizio con estranei all’amministrazione. </corpo>
+          </el>
+        </comma>
+        <comma id="art1-com2">
+          <num>
+ 
+    2.</num>
+          <corpo> Gli schemi dei decreti legislativi di cui al comma 1, ciascuno dei quali deve essere corredato di relazione tecnica sugli effetti finanziari delle disposizioni in esso contenute, sono trasmessi alle Camere ai fini dell’espressione dei pareri da parte delle Commissioni parlamentari competenti per materia e per le conseguenze di carattere finanziario, che sono resi entro quaranta giorni dall’assegnazione, trascorsi i quali i decreti sono adottati anche in assenza del parere. 
+ 
+</corpo>
+        </comma>
+      </articolo>
+      <articolo id="art2">
+        <num>Art. 2. </num>
+        <rubrica>
+ 
+(Natura del rapporto di impiego del personale della carriera dirigenziale penitenziaria) 
+ 
+</rubrica>
+        <comma id="art2-com1">
+          <num>    1.</num>
+          <corpo> In considerazione della particolare natura delle funzioni esercitate dal personale appartenente alla carriera dirigenziale penitenziaria, il relativo rapporto di lavoro è riconosciuto come rapporto di diritto pubblico. </corpo>
+        </comma>
+        <comma id="art2-com2">
+          <num>
+ 
+    2.</num>
+          <corpo>
+            <mod id="art2-com2-mod1"> In attuazione del comma 1 del presente articolo, dopo il comma 1-bis dell’articolo 3 del decreto legislativo 30 marzo 2001, n. 165, è inserito il seguente: 
+ 
+    «<virgolette id="art2-com2-mod1-vir1">1-ter. In deroga all’articolo 2, commi 2 e 3, il personale della carriera dirigenziale penitenziaria è disciplinato dal rispettivo ordinamento</virgolette>». 
+ 
+</mod>
+          </corpo>
+        </comma>
+      </articolo>
+      <articolo id="art3">
+        <num>Art. 3. </num>
+        <rubrica>
+ 
+(Esecuzione penale esterna) 
+ 
+</rubrica>
+        <comma id="art3-com1">
+          <num>    1.</num>
+          <alinea> Alla legge 26 luglio 1975, n. 354, sono apportate le seguenti modificazioni: 
+ 
+</alinea>
+          <el id="art3-com1-leta">
+            <num>        a)</num>
+            <corpo>
+              <mod id="art3-com1-leta-mod2"> la rubrica del capo III del titolo II è sostituita dalla seguente: «<virgolette id="art3-com1-leta-mod2-vir2">ESECUZIONE PENALE ESTERNA ED ASSISTENZA</virgolette>»; </mod>
+            </corpo>
+          </el>
+          <el id="art3-com1-letb">
+            <num>
+ 
+        b)</num>
+            <corpo>
+              <mod id="art3-com1-letb-mod3"> l’articolo 72 è sostituito dal seguente: 
+ 
+    «<virgolette id="art3-com1-letb-mod3-vir3">Art. 72. – (Uffici locali di esecuzione penale esterna). – 1. Gli uffici locali di esecuzione penale esterna dipendono dal Ministero della giustizia e la loro organizzazione è disciplinata con regolamento adottato dal Ministro ai sensi dell’articolo 17, comma 3, della legge 23 agosto 1988, n. 400, e successive modificazioni. 
+    2. Gli uffici: 
+        a) svolgono, su richiesta dell’autorità giudiziaria, le inchieste utili a fornire i dati occorrenti per l’applicazione, la modificazione, la proroga e la revoca delle misure di sicurezza; 
+ 
+        b) svolgono le indagini socio-familiari per l’applicazione delle misure alternative alla detenzione ai condannati; 
+        c) propongono all’autorità giudiziaria il programma di trattamento da applicare ai condannati che chiedono di essere ammessi all’affidamento in prova e alla detenzione domiciliare; 
+        d) controllano l’esecuzione dei programmi da parte degli ammessi alle misure alternative, ne riferiscono all’autorità giudiziaria, proponendo eventuali interventi di modificazione o di revoca; 
+        e) su richiesta delle direzioni degli istituti penitenziari, prestano consulenza per favorire il buon esito del trattamento penitenziario; 
+        f) svolgono ogni altra attività prescritta dalla legge e dal regolamento</virgolette>». </mod>
+            </corpo>
+          </el>
+        </comma>
+        <comma id="art3-com2">
+          <num>
+ 
+    2.</num>
+          <corpo> I riferimenti ai centri di servizio sociale per adulti contenuti in disposizioni di leggi e di regolamenti si intendono effettuati, dalla data di entrata in vigore della presente legge, agli uffici locali di esecuzione penale esterna. </corpo>
+        </comma>
+        <comma id="art3-com3">
+          <num>
+ 
+    3.</num>
+          <corpo> Le risorse e il personale previsti per i centri di servizio sociale per adulti alla data di entrata in vigore della presente legge sono destinati agli uffici locali di esecuzione penale esterna di cui al comma 1. </corpo>
+        </comma>
+        <comma id="art3-com4">
+          <num>
+    4.</num>
+          <corpo> Dalle disposizioni del presente articolo non devono derivare nuovi o maggiori oneri per il bilancio dello Stato. 
+ 
+</corpo>
+        </comma>
+      </articolo>
+      <articolo id="art4">
+        <num>Art. 4. </num>
+        <rubrica>
+ 
+(Disposizioni transitorie e finali) 
+ 
+</rubrica>
+        <comma id="art4-com1">
+          <num>    1.</num>
+          <corpo> Fermo restando quanto previsto dall’articolo 1, comma 1, in fase di prima attuazione e per le immediate esigenze di funzionamento dell’Amministrazione penitenziaria, il personale che alla data di entrata in vigore della presente legge è inquadrato nella posizione economica C3, già appartenente ai profili professionali di direttore coordinatore di istituto penitenziario, di direttore medico coordinatore e di direttore coordinatore di servizio sociale dell’Amministrazione penitenziaria, ai quali hanno avuto accesso mediante concorso pubblico, nonchè gli ispettori generali del ruolo ad esaurimento, sono nominati dirigenti secondo la posizione occupata da ciascuno nel rispettivo ruolo, in considerazione della esperienza professionale maturata nel settore avendo già svolto funzioni riconosciute di livello dirigenziale. </corpo>
+        </comma>
+        <comma id="art4-com2">
+          <num>
+ 
+    2.</num>
+          <corpo> Per le medesime esigenze di cui al comma 1, fino alla data di entrata in vigore dei decreti legislativi previsti dall’articolo 1, comma 1, il personale non inquadrato nella posizione economica C3 delle medesime figure professionali indicate al comma 1 del presente articolo consegue l’inquadramento nella posizione economica superiore, in relazione alle vacanze determinate nel ruolo, secondo la posizione nello stesso occupata. </corpo>
+        </comma>
+        <comma id="art4-com3">
+          <num>
+    3.</num>
+          <corpo> Nelle more dell’entrata in vigore dei decreti legislativi previsti dall’articolo 1, comma 1, il rapporto di lavoro del personale nominato dirigente ai sensi del comma 1 del presente articolo e del personale già appartenente alle medesime qualifiche dirigenziali è regolato dalle disposizioni previste per il personale statale in regime di diritto pubblico. </corpo>
+        </comma>
+        <comma id="art4-com4">
+          <num>
+    4.</num>
+          <corpo>
+            <mod id="art4-com4-mod4"> All’articolo 4, comma 3, del decreto legislativo 21 maggio 2000, n. 146, le lettere a), b), d), e) ed l) sono abrogate. 
+ 
+</mod>
+          </corpo>
+        </comma>
+      </articolo>
+      <articolo id="art5">
+        <num>Art. 5. </num>
+        <rubrica>
+ 
+(Copertura finanziaria) 
+ 
+</rubrica>
+        <comma id="art5-com1">
+          <num>    1.</num>
+          <corpo> Agli oneri derivanti dall’attuazione delle disposizioni di cui agli articoli 1 e 4, valutati in euro 4.021.784 annui per le differenze stipendiali connesse ai passaggi di qualifica e determinati nel limite massimo di euro 1.240.505 annui per le maggiori prestazioni di lavoro straordinario, è autorizzata la spesa complessiva di euro 5.262.289 annui a decorrere dall’anno 2005. </corpo>
+        </comma>
+        <comma id="art5-com2">
+          <num>
+ 
+    2.</num>
+          <corpo> Per l’attuazione delle disposizioni di cui all’articolo 1, comma 1, lettera g), è autorizzata la spesa nel limite massimo di euro 70.711 annui a decorrere dall’anno 2005. </corpo>
+        </comma>
+        <comma id="art5-com3">
+          <num>
+    3.</num>
+          <corpo> All’onere complessivo di cui ai commi 1 e 2 si provvede mediante corrispondente riduzione, a decorrere dall’anno 2005, dell’autorizzazione di spesa di cui all’articolo 33, comma 7, della legge 27 dicembre 2002, n. 289. </corpo>
+        </comma>
+        <comma id="art5-com4">
+          <num>
+    4.</num>
+          <corpo> Il Ministro dell’economia e delle finanze provvede al monitoraggio dell’attuazione delle disposizioni di cui al comma 1 del presente articolo limitatamente alle differenze stipendiali per passaggi di qualifica, valutate in euro 4.021.784, anche ai fini dell’applicazione dell’articolo 11-ter, comma 7, della legge 5 agosto 1978, n. 468, e successive modificazioni, e trasmette alle Camere, corredati da apposite relazioni, gli eventuali decreti adottati ai sensi dell’articolo 7, secondo comma, numero 2), della legge n. 468 del 1978. </corpo>
+        </comma>
+        <comma id="art5-com5">
+          <num>
+    5.</num>
+          <corpo> Il Ministro dell’economia e delle finanze è autorizzato ad apportare, con propri decreti, le occorrenti variazioni di bilancio. 
+</corpo>
+        </comma>
+      </articolo>
+    </articolato>
+<?error  
+ 
+ 
+ 
+IL PRESIDENTE 
+
+?>
+  </DisegnoLegge>
+</NIR>

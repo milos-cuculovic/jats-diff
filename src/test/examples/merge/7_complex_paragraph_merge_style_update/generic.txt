@@ -1,0 +1,42 @@
+
+0 - article
+* depth: 0
+* 100.0 %
+* 100.0 %
+
+  388 - body
+  * depth: 1
+  * 100.0 %
+  * 100.0 %
+
+    389 - sec
+    * sec1-remotesensing-10-00641
+    * 1. Introduction
+    * depth: 2
+    * 99.9 %
+    * 99.9 %
+
+      408 - p
+      * depth: 3
+      * merge
+      * mergedTo
+
+      408 - p
+      * depth: 3
+      * text-style-insert
+      * insert-style
+      * text-style-update
+      * update-style-to
+      * merge
+      * mergedFrom
+      * 12.3 %
+      * 7.9 %
+
+      410 - p
+      * depth: 3
+      * text-style-update
+      * update-style-from
+      * merge
+      * mergedFrom
+      * 8.0 %
+      * 1.9 %

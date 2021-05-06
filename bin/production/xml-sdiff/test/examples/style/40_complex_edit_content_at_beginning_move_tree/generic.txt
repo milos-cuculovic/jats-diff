@@ -1,0 +1,44 @@
+
+0 - article
+* depth: 0
+* 99.9 %
+* 99.6 %
+
+  1 - front
+  * depth: 1
+  * 99.4 %
+  * 97.2 %
+
+    17 - article-meta
+    * depth: 2
+    * 99.4 %
+    * 97.1 %
+
+      115 - abstract
+      * depth: 3
+      * 99.1 %
+      * 95.5 %
+
+        116 - p
+        * depth: 4
+        * text-style-update
+        * update-style-from
+        * 95.8 %
+        * 94.8 %
+
+        116 - p
+        * depth: 4
+        * move
+        * movedTo
+
+        118 - p
+        * depth: 4
+        * text-style-update
+        * update-style-to
+        * 5.8 %
+        * 8.6 %
+
+        120 - p
+        * depth: 4
+        * move
+        * movedFrom

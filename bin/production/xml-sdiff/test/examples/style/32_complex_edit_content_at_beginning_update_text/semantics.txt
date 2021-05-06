@@ -1,0 +1,30 @@
+
+0 - article
+* depth: 0
+* 100.0 %
+* 100.0 %
+
+  1 - front
+  * depth: 1
+  * 99.8 %
+  * 99.8 %
+
+    17 - article-meta
+    * depth: 2
+    * 99.8 %
+    * 99.8 %
+
+      115 - abstract
+      * depth: 3
+      * 99.8 %
+      * 99.7 %
+
+        118 - p
+        * depth: 4
+        * text-style-update
+        * update-style-to
+        * text-style-update
+        * update-style-from
+        * text-update
+        * 93.0 %
+        * 90.9 %

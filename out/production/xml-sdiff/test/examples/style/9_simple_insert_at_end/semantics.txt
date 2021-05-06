@@ -1,0 +1,27 @@
+
+0 - article
+* depth: 0
+* 99.8 %
+* 99.8 %
+
+  1 - front
+  * depth: 1
+  * 98.6 %
+  * 98.7 %
+
+    17 - article-meta
+    * depth: 2
+    * 98.6 %
+    * 98.7 %
+
+      115 - abstract
+      * depth: 3
+      * 97.9 %
+      * 97.9 %
+
+        120 - p
+        * depth: 4
+        * text-style-insert
+        * insert-style
+        * 3.8 %
+        * 7.3 %

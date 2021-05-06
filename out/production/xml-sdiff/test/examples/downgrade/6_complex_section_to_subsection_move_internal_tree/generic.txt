@@ -1,0 +1,56 @@
+
+0 - article
+* depth: 0
+* 99.8 %
+* 88.2 %
+
+  388 - body
+  * depth: 1
+  * 99.7 %
+  * 79.7 %
+
+    410 - sec
+    * sec2-remotesensing-10-00641
+    * 2. Data Collection, Processing, and Limitations
+    * depth: 2
+    * 84.8 %
+    * 72.2 %
+
+      452 - sec
+      * sec2dot4-remotesensing-10-00641
+      * 2.4. Final Remarks and Challenges
+      * depth: 3
+      * move
+      * movedTo
+
+    517 - sec
+    * sec5-remotesensing-10-00641
+    * 5. Final Remarks and Challenges
+    * depth: 2
+    * move
+    * movedFrom
+
+      522 - p
+      * depth: 3
+      * 99.8 %
+      * 99.8 %
+
+        524 - list
+        * depth: 4
+        * 99.8 %
+        * 99.8 %
+
+          540 - list-item
+          * depth: 5
+          * 98.4 %
+          * 98.4 %
+
+            541 - label
+            * depth: 6
+            * 0.0 %
+            * 0.0 %
+
+      544 - p
+      * depth: 3
+      * move
+      * movedTo

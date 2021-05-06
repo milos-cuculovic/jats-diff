@@ -1,0 +1,55 @@
+
+0 - article
+* depth: 0
+* 95.9 %
+* 96.0 %
+
+  139 - body
+  * depth: 1
+  * 95.2 %
+  * 95.5 %
+
+    140 - sec
+    * sec1-remotesensing-10-00641
+    * 1. Introduction
+    * depth: 2
+    * 88.5 %
+    * 90.5 %
+
+      147 - p
+      * depth: 3
+      * delete
+
+    149 - sec
+    * sec2-remotesensing-10-00641
+    * depth: 2
+    * 91.2 %
+    * 91.5 %
+
+      154 - sec
+      * sec2dot1-remotesensing-10-00641
+      * 2.1. Preflight Planning
+      * depth: 3
+      * 85.5 %
+      * 85.9 %
+
+        157 - p
+        * depth: 4
+        * delete
+
+    165 - sec
+    * sec3-remotesensing-10-00641
+    * depth: 2
+    * 99.0 %
+    * 98.5 %
+
+      170 - sec
+      * sec3dot1-remotesensing-10-00641
+      * 3.1. Vegetation Monitoring and Precision Agriculture
+      * depth: 3
+      * 98.9 %
+      * 98.4 %
+
+        195 - p
+        * depth: 4
+        * delete

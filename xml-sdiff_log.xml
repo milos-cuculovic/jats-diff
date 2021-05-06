@@ -1,0 +1,16 @@
+<log4j:event logger="main.diff_L1_L2.phases.FindUpgrade" timestamp="1620312118842" level="ERROR" thread="main">
+<log4j:message><![CDATA[Upgrade : 0:00:00.147]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="main.diff_L1_L2.phases.FindDowngrade" timestamp="1620312119240" level="ERROR" thread="main">
+<log4j:message><![CDATA[Downgrade : 0:00:00.316]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="main.diff_L1_L2.phases.FindMerge" timestamp="1620312119392" level="ERROR" thread="main">
+<log4j:message><![CDATA[Merge : 0:00:00.091]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="main.diff_L1_L2.phases.FindSplit" timestamp="1620312119462" level="ERROR" thread="main">
+<log4j:message><![CDATA[Split : 0:00:00.013]]></log4j:message>
+</log4j:event>
+
