@@ -1,0 +1,34 @@
+
+0 - article
+* depth: 0
+* 99.9 %
+* 100.0 %
+
+  139 - body
+  * depth: 1
+  * 99.9 %
+  * 100.0 %
+
+    165 - sec
+    * sec3-remotesensing-10-00641
+    * depth: 2
+    * 99.8 %
+    * 99.8 %
+
+      170 - sec
+      * sec3dot1-remotesensing-10-00641
+      * depth: 3
+      * 99.8 %
+      * 99.8 %
+
+        193 - p
+        * depth: 4
+        * text-update
+        * 98.4 %
+        * 98.9 %
+
+        195 - p
+        * depth: 4
+        * text-update
+        * 96.3 %
+        * 96.6 %

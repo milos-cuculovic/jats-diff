@@ -1,0 +1,65 @@
+
+0 - article
+* depth: 0
+* 99.6 %
+* 86.5 %
+
+  1 - front
+  * depth: 1
+  * 99.5 %
+  * 99.5 %
+
+    17 - article-meta
+    * depth: 2
+    * 99.5 %
+    * 99.5 %
+
+      124 - kwd-group
+      * depth: 3
+      * 85.4 %
+      * 85.3 %
+
+        137 - kwd
+        * depth: 4
+        * 0.5 %
+        * 0.1 %
+
+  139 - body
+  * depth: 1
+  * 99.6 %
+  * 84.7 %
+
+    149 - sec
+    * sec2-remotesensing-10-00641
+    * 2. Data Collection, Processing, and Limitations
+    * depth: 2
+    * merge
+    * mergedFrom
+
+    154 - sec
+    * sec3-remotesensing-10-00641
+    * 3. Monitoring Agricultural and Natural Ecosystems
+    * depth: 2
+    * merge
+    * mergedTo
+
+      154 - sec
+      * sec2dot1-remotesensing-10-00641
+      * 2.1. Preflight Planning
+      * depth: 3
+      * move
+      * movedFrom
+
+    165 - sec
+    * sec3-remotesensing-10-00641
+    * 3. Monitoring Agricultural and Natural Ecosystems
+    * depth: 2
+    * merge
+    * mergedFrom
+
+      186 - sec
+      * sec3dot2-remotesensing-10-00641
+      * 3.2. Preflight Planning
+      * depth: 3
+      * move
+      * movedTo

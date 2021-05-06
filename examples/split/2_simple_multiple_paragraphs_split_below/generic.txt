@@ -1,0 +1,54 @@
+
+0 - article
+* depth: 0
+* 100.0 %
+* 100.0 %
+
+  388 - body
+  * depth: 1
+  * 100.0 %
+  * 100.0 %
+
+    389 - sec
+    * sec1-remotesensing-10-00641
+    * 1. Introduction
+    * depth: 2
+    * 99.9 %
+    * 99.9 %
+
+      408 - p
+      * depth: 3
+      * split
+      * splitedTo
+
+      408 - p
+      * depth: 3
+      * split
+      * splitedFrom
+
+      410 - p
+      * depth: 3
+      * split
+      * splitedTo
+
+    452 - sec
+    * sec3-remotesensing-10-00641
+    * 3. Monitoring Agricultural and Natural Ecosystems
+    * depth: 2
+    * 100.0 %
+    * 99.9 %
+
+      455 - p
+      * depth: 3
+      * split
+      * splitedFrom
+
+      457 - p
+      * depth: 3
+      * split
+      * splitedTo
+
+      459 - p
+      * depth: 3
+      * split
+      * splitedTo

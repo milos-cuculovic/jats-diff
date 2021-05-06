@@ -1,0 +1,52 @@
+
+0 - article
+* depth: 0
+* 99.8 %
+* 94.6 %
+
+  388 - body
+  * depth: 1
+  * 99.7 %
+  * 90.6 %
+
+    410 - sec
+    * sec2-remotesensing-10-00641
+    * 2. Data Collection, Processing, and Limitations
+    * depth: 2
+    * 94.6 %
+    * 94.8 %
+
+      447 - sec
+      * sec2dot3-remotesensing-10-00641
+      * 2.3. Software
+      * depth: 3
+      * upgrade
+      * upgradedFrom
+
+    452 - sec
+    * sec3-remotesensing-10-00641
+    * 3. Monitoring Agricultural and Natural Ecosystems
+    * depth: 2
+    * 88.0 %
+    * 84.7 %
+
+      484 - sec
+      * sec3dot2-remotesensing-10-00641
+      * 3.2. Monitoring of Natural Ecosystems
+      * depth: 3
+      * upgrade
+      * upgradedFrom
+
+    588 - sec
+    * sec6-remotesensing-10-00641
+    * 6. Software
+    * depth: 2
+    * upgrade
+    * upgradedTo
+
+    593 - sec
+    * sec7-remotesensing-10-00641
+    * 7. Monitoring of Natural Ecosystems
+    * depth: 2
+    * upgrade
+    * upgradedTo

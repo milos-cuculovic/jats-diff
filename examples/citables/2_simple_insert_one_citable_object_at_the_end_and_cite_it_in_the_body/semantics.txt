@@ -1,0 +1,35 @@
+
+0 - article
+* depth: 0
+* 99.9 %
+* 99.9 %
+
+  173 - body
+  * depth: 1
+
+    174 - sec
+    * sec1-molecules-25-00430
+    * depth: 2
+
+      187 - p
+      * depth: 3
+      * ref-update
+      * insert
+
+  342 - back
+  * depth: 1
+  * 99.8 %
+  * 99.8 %
+
+    358 - ref-list
+    * Initial: 139
+    * Modified: 1
+    * Final: 140
+    * depth: 2
+    * 99.8 %
+    * 99.8 %
+
+      6280 - ref
+      * B140-molecules-25-00430
+      * depth: 3
+      * insert

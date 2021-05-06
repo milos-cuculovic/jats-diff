@@ -1,0 +1,45 @@
+
+0 - article
+* depth: 0
+* 99.9 %
+* 81.6 %
+
+  388 - body
+  * depth: 1
+  * 99.9 %
+  * 68.3 %
+
+    410 - sec
+    * sec2-remotesensing-10-00641
+    * 2. Data Collection, Processing, and Limitations
+    * depth: 2
+    * 76.6 %
+    * 60.2 %
+
+      452 - sec
+      * sec2dot4-remotesensing-10-00641
+      * 2.4. Final Remarks and Challenges
+      * depth: 3
+      * downgrade
+      * downgradedTo
+
+    497 - sec
+    * sec4-remotesensing-10-00641
+    * 4. River Systems and Floods
+    * depth: 2
+    * downgrade
+    * downgradedFrom
+
+    517 - sec
+    * sec5-remotesensing-10-00641
+    * 5. Final Remarks and Challenges
+    * depth: 2
+    * downgrade
+    * downgradedFrom
+
+      541 - sec
+      * sec2dot5-remotesensing-10-00641
+      * 2.5. River Systems and Floods
+      * depth: 3
+      * downgrade
+      * downgradedTo

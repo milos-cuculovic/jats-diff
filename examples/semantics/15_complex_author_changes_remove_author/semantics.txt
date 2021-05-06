@@ -1,0 +1,24 @@
+
+0 - article
+* depth: 0
+* 99.8 %
+* 99.7 %
+
+  1 - front
+  * depth: 1
+  * 98.1 %
+  * 97.3 %
+
+    17 - article-meta
+    * depth: 2
+    * 98.0 %
+    * 97.2 %
+
+      33 - contrib-group
+      * depth: 3
+      * 79.2 %
+      * 70.6 %
+
+        43 - contrib
+        * depth: 4
+        * delete

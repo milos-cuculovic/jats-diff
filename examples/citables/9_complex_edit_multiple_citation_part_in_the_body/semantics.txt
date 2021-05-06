@@ -1,0 +1,23 @@
+
+0 - article
+* depth: 0
+* 100.0 %
+* 100.0 %
+
+  173 - body
+  * depth: 1
+  * 100.0 %
+  * 100.0 %
+
+    174 - sec
+    * sec1-molecules-25-00430
+    * depth: 2
+    * 99.8 %
+    * 99.8 %
+
+      177 - p
+      * depth: 3
+      * figure-update
+      * delete
+      * 99.0 %
+      * 99.2 %
