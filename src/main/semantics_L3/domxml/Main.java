@@ -24,7 +24,6 @@ public class Main {
 	public static void main(String args[])
 			throws ParserConfigurationException, SAXException, IOException, InputFileException, TransformerException {
 
-		// Get Document Builder
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();
 
@@ -49,9 +48,6 @@ public class Main {
 				filesList[0] = filesParam;
 			}
 
-			//File p = new File("examples/compare.txt");
-			//PrintWriter pr=new PrintWriter(p);
-
 		} else {
 			filesParam = "examples/citables/7_complex_move_one_cited_section/orig.xml examples/citables/7_complex_move_one_cited_section/new.xml examples/citables/7_complex_move_one_cited_section/delta.xml examples/citables/7_complex_move_one_cited_section/semantics.xml";
 			filesList = new String[1];
@@ -70,7 +66,7 @@ public class Main {
 			System.out.println("jats-diff START");
 			String[] paramsJnDiff = { "-d", fileSplit[0], fileSplit[1], fileSplit[2] };
 			jnDiff.main(paramsJnDiff);
-			System.out.println("jats-diff DONE");
+			System.out.println("jats-diff DONE: " + fileSplit[2]);
 
 			System.out.println("change-semantics START");
 			// Build Document
@@ -104,10 +100,9 @@ public class Main {
 			File semantics = new File(fileSplit[3]);
 			semantics.delete();
 
-			System.out.println("change-semantics DONE");
+			System.out.println("change-semantics DONE: " + fileSplit[3]);
 
 			for (NodeChanged nc : modif) {
-
 				String indent = "";
 				if (nc.getDepth() != null) {
 					for (int i = 0; i < Integer.parseInt(nc.getDepth()); i++) {
@@ -115,20 +110,17 @@ public class Main {
 					}
 				}
 
-				// Creating a File object that represents the disk file.
 				PrintStream o = new PrintStream(new FileOutputStream(fileSplit[3], true));
-
-				// Store current System.out before assigning a new value
 				PrintStream console = System.out;
 
-				PrintStream printStreamList[] = new PrintStream[2];
+				PrintStream printStreamList[] = new PrintStream[1];
+				//PrintStream printStreamList[] = new PrintStream[2];
 				printStreamList[0] = o;
-				printStreamList[1] = console;
+				//printStreamList[1] = console;
 
-				for (int i = 0; i < 2; i++) {
+				for (int i = 0; i < printStreamList.length; i++) {
 
 					System.setOut(printStreamList[i]);
-
 					System.out.println("");
 
 					System.out.println(indent + nc.getNodenumberA() + " - " + nc.getNodetype());
