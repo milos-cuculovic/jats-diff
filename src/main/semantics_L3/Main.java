@@ -105,13 +105,14 @@ public class Main {
 				filesList[0] = filesParam;
 			}
 			else {
-				System.err.println("Not enough parameters, taking the default values");
+				System.err.println("Not enough arguments, taking the default values");
 				filesParam = "examples/citables/7_complex_move_one_cited_section/orig.xml examples/citables/7_complex_move_one_cited_section/new.xml examples/citables/7_complex_move_one_cited_section/delta.xml examples/citables/7_complex_move_one_cited_section/semantics.xml";
 				filesList = new String[1];
 				filesList[0] = filesParam;
 			}
 
 		} else {
+			System.err.println("Not enough arguments, taking the default values");
 			doDiff = true;
 			doSemantics = true;
 			filesParam = "examples/citables/7_complex_move_one_cited_section/orig.xml examples/citables/7_complex_move_one_cited_section/new.xml examples/citables/7_complex_move_one_cited_section/delta.xml examples/citables/7_complex_move_one_cited_section/semantics.xml";
