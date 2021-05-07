@@ -8,17 +8,19 @@ import java.util.HashMap;
 import java.util.stream.Collectors;
 
 public class TextChange {
-	Similarity sim=new Similarity();
+	Similarity sim = new Similarity();
+
 	public ArrayList<NodeChanged> objupdate(ArrayList<NodeChanged> modif) {
-		modif=update(modif,"text-update");
-		modif=update(modif,"ref-update");
-		modif=update(modif,"sec-update");
-		modif=update(modif,"figure-update");
-		modif=update(modif,"table-update");
+		modif = update(modif, "text-update");
+		modif = update(modif, "ref-update");
+		modif = update(modif, "sec-update");
+		modif = update(modif, "figure-update");
+		modif = update(modif, "table-update");
 		return modif;
-		
+
 	}
-	public ArrayList<NodeChanged> update(ArrayList<NodeChanged> modif,String changeName) {
+
+	public ArrayList<NodeChanged> update(ArrayList<NodeChanged> modif, String changeName) {
 		for (NodeChanged nCh : modif) {
 			if (nCh.hasChangelist()) {
 				int i = 0;
@@ -54,81 +56,81 @@ public class TextChange {
 		for (ChangeObject co : bd.getChangeList()) {
 			if (co.getChangement().equals("text-update") || co.getChangement().equals("delete")
 					|| co.getChangement().equals("insert")) {
-				String texte = co.getTextContent();
-				texte = texte.replaceAll("\\p{Punct}", " $0 ");
-				ArrayList<String> listword = sim.listWords(texte);
-				// y verifie si on a deja cette clef ou non
-				int y = 0;
-				ArrayList<ArrayList<String>> info = new ArrayList<ArrayList<String>>();
-				Collections.sort(listword);
-				for (ArrayList<String> key : listtext.keySet()) {
-					if (sim.similarTextword1(key, listword) > 95) {
-						y = 1;
-						info.addAll(listtext.get(key));
-						ArrayList<String> TextContent = new ArrayList<String>();
-						if (co.getChangement().equals("text-update")
-								|| co.getChangement().equals("text-style-update")) {
-							TextContent.add(co.getNodenumA());
-						} else {
-							if (co.hasNodenumberA()) {
+				if (co.hasText()) {
+					String texte = co.getTextContent();
+					texte = texte.replaceAll("\\p{Punct}", " $0 ");
+					ArrayList<String> listword = sim.listWords(texte);
+					// y verifie si on a deja cette clef ou non
+					int y = 0;
+					ArrayList<ArrayList<String>> info = new ArrayList<ArrayList<String>>();
+					Collections.sort(listword);
+					for (ArrayList<String> key : listtext.keySet()) {
+						if (sim.similarTextword1(key, listword) > 95) {
+							y = 1;
+							info.addAll(listtext.get(key));
+							ArrayList<String> TextContent = new ArrayList<String>();
+							if (co.getChangement().equals("text-update")
+									|| co.getChangement().equals("text-style-update")) {
 								TextContent.add(co.getNodenumA());
 							} else {
-								TextContent.add(co.getNodenumB());
+								if (co.hasNodenumberA()) {
+									TextContent.add(co.getNodenumA());
+								} else {
+									TextContent.add(co.getNodenumB());
+								}
+							}
+							if (co.hasOp()) {
+								TextContent.add(co.getOp());
+							} else {
+								if (co.getChangement().contains("delete")) {
+									TextContent.add("text-deleted");
+								} else if (co.getChangement().contains("insert")) {
+									TextContent.add("text-inserted");
+								}
+							}
+							TextContent.add(co.getChangement());
+							TextContent.add("equals");
+							info.add(TextContent);
+							if (key.size() >= listword.size()) {
+								listtext.put(key, info);
+								break;
+							}
+							if (key.size() < listword.size()) {
+								listtext.put(listword, info);
+								listtext.remove(key);
+								break;
+							}
+						}
+					}
+					// sortie for
+					if (y == 0) {
+						ArrayList<String> textContent = new ArrayList<String>();
+						if (co.getChangement().equals("text-update")) {
+							textContent.add(co.getNodenumA());
+						} else {
+							if (co.hasNodenumberA()) {
+								textContent.add(co.getNodenumA());
+							} else {
+								textContent.add(co.getNodenumB());
 							}
 						}
 						if (co.hasOp()) {
-							TextContent.add(co.getOp());
+							textContent.add(co.getOp());
 						} else {
 							if (co.getChangement().contains("delete")) {
-								TextContent.add("text-deleted");
+								textContent.add("text-deleted");
 							} else if (co.getChangement().contains("insert")) {
-								TextContent.add("text-inserted");
+								textContent.add("text-inserted");
 							}
 						}
-						TextContent.add(co.getChangement());
-						TextContent.add("equals");
-						info.add(TextContent);
-						if (key.size() >= listword.size()) {
-							listtext.put(key, info);
-							break;
-						}
-						if (key.size() < listword.size()) {
-							listtext.put(listword, info);
-							listtext.remove(key);
-							break;
-						}
+
+						textContent.add(co.getChangement());
+						textContent.add("first");
+						info.add(textContent);
+						listtext.put(listword, info);
 					}
 				}
-				// sortie for
-				if (y == 0) {
-					ArrayList<String> textContent = new ArrayList<String>();
-					if (co.getChangement().equals("text-update")) {
-						textContent.add(co.getNodenumA());
-					} else {
-						if (co.hasNodenumberA()) {
-							textContent.add(co.getNodenumA());
-						} else {
-							textContent.add(co.getNodenumB());
-						}
-					}
-					if (co.hasOp()) {
-						textContent.add(co.getOp());
-					} else {
-						if (co.getChangement().contains("delete")) {
-							textContent.add("text-deleted");
-						} else if (co.getChangement().contains("insert")) {
-							textContent.add("text-inserted");
-						}
-					}
-
-					textContent.add(co.getChangement());
-					textContent.add("first");
-					info.add(textContent);
-					listtext.put(listword, info);
-				}
-
 			}
-
 		}
 		// retirer le delete insert inutile
 		// on parcour listtext
@@ -275,5 +277,4 @@ public class TextChange {
 
 		return modif;
 	}
-
 }

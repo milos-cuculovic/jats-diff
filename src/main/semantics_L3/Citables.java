@@ -162,7 +162,7 @@ public class Citables {
 	}
 
 	public NodeChanged replaceCitable(String cgt, String citable, String nnB, String nnA, ChangeObject cObj,
-			NodeChanged nCh, String op, boolean hasAt) {
+									  NodeChanged nCh, String op, boolean hasAt) {
 		ChangeObject cotxt = new ChangeObject();
 		cotxt.setChangement(citable + cgt);
 		cotxt.setXref(true);

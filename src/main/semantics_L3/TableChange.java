@@ -35,7 +35,7 @@ public class TableChange {
 			retour+="\n            * " + jaccard;
 		}
 		if(similartext!=null) {
-		
+
 			retour+="\n            * " + similartext;
 		}
 		if(simitextword!=null) {

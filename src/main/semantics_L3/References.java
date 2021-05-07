@@ -15,7 +15,6 @@ public class References {
 
 	NodeParents np = new NodeParents();
 	Similarity sim = new Similarity();
-
 	public ArrayList<NodeChanged> labelCondi(ArrayList<NodeChanged> modif) {
 		ArrayList<String> labList = new ArrayList<String>();
 		ArrayList<NodeChanged> del = new ArrayList<NodeChanged>();

@@ -9,9 +9,7 @@ import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
 
-public class NodeParents {
-
-	Similarity sim = new Similarity();
+public class NodeParents {	Similarity sim = new Similarity();
 	AtRectif at = new AtRectif();
 
 	public ArrayList<NodeChanged> tabMaker(String specobj, ArrayList<NodeChanged> modif, ArrayList<NodeChanged> delcit,

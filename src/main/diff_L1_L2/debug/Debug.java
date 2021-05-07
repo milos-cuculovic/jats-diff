@@ -22,7 +22,7 @@ public class Debug {
 
 	static public boolean flag = true;
 
-	static String debugPath = "../debug";
+	static String debugPath = "src/main/diff_L1_L2/debug";
 	static private PrintWriter indexDiffing = null; // file dei collegamenti per
 	// diffing
 

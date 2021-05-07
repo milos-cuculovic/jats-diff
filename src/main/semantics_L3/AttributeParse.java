@@ -13,8 +13,7 @@ public class AttributeParse {
 	private Citables ct=new Citables();
 	private References ref=new References();
 	private TextChange tc=new TextChange();
-
-	public ArrayList<NodeChanged> toolChange(BrowseDelta bD,boolean jaccard, boolean simtext,boolean simtextW) throws InputFileException {
+	public ArrayList<NodeChanged> toolChange(BrowseDelta bD,boolean jaccard, boolean simtext,boolean simtextW) throws InputFileException{
 
 		modif = cl.changetoList(bD);
 		modif = ct.setcitable(modif);
@@ -34,7 +33,7 @@ public class AttributeParse {
 		modif = xfa.addChanging(modif, bD, jaccard, simtext, simtextW);
 		modif = xfa.propSimilarity(modif, bD, jaccard, simtext, simtextW);
 		modif = xfa.affichageChanging(modif, bD);
-
 		return modif;
+
 	}
 }

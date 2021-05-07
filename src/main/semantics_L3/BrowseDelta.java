@@ -598,6 +598,7 @@ public class BrowseDelta {
 	public String getOrignal() {
 		return original;
 	}
+
 	public Document getDoc() {
 		return doc;
 	}
@@ -629,5 +630,6 @@ public class BrowseDelta {
 	public void setTreeorig(Dtree treeorig) {
 		this.treeorig = treeorig;
 	}
+
 
 }
