@@ -3,6 +3,7 @@ package main.semantics_L3;
 import java.util.ArrayList;
 
 public class NodeChanged {
+
 	private int nodenumberA;
 	private Integer nodenumberB;
 	private boolean isA=true;

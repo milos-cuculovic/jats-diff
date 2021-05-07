@@ -12,6 +12,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class References {
+
+	NodeParents np = new NodeParents();
+	Similarity sim = new Similarity();
+
 	public ArrayList<NodeChanged> labelCondi(ArrayList<NodeChanged> modif) {
 		ArrayList<String> labList = new ArrayList<String>();
 		ArrayList<NodeChanged> del = new ArrayList<NodeChanged>();
@@ -72,7 +76,7 @@ public class References {
 					}
 				} else if (nCh.getChangelist().size() == 1
 						&& (nCh.getChangelist().get(0).getChangement().contains("delete")
-								|| nCh.getChangelist().get(0).getOp().contains("delete"))) {
+						|| nCh.getChangelist().get(0).getOp().contains("delete"))) {
 					for (String l : labList) {
 						Pattern pattern = Pattern.compile("\\d+");
 						Matcher matcher = pattern.matcher(l);
@@ -181,7 +185,7 @@ public class References {
 
 
 	public ArrayList<NodeChanged> findRef(ArrayList<NodeChanged> modif, BrowseDelta bd, boolean jaccard,
-			boolean simitext, boolean simtextW) throws InputFileException {
+										  boolean simitext, boolean simtextW) throws InputFileException {
 		ArrayList<NodeChanged> tab = new ArrayList<NodeChanged>();
 		Dtree tree = bd.getTreeorig();
 		Dtree treem = bd.getTreemodif();
@@ -244,6 +248,6 @@ public class References {
 		return modif;
 
 	}
-
-
 }
+
+

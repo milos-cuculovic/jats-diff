@@ -15,6 +15,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class BrowseDelta {
+
 	private Document doc;
 	private String original;
 	private String modified;
@@ -30,9 +31,10 @@ public class BrowseDelta {
 		gatherFROMTO();
 	}
 
+
 	private ArrayList<ChangeObject> initializeList(Document doc2, String original, String modified)
 			throws InputFileException {
-		this.treeorig=new Dtree(original, true, true, true, true, true);
+		this.treeorig = new Dtree(original, true, true, true, true, true);
 		this.treemodif = new Dtree(modified, true, true, true, true, true);
 		NodeList nod = this.doc.getElementsByTagName("ndiff");
 		NodeList nList = nod.item(0).getChildNodes();
@@ -62,8 +64,7 @@ public class BrowseDelta {
 				if ((eElement.getNodeName().equals("delete") && eElement.getTextContent().trim().isEmpty())
 						|| (eElement.getNodeName().equals("insert") && eElement.getTextContent().trim().isEmpty())) {
 					continue;
-				}
-				else {
+				} else {
 					change.setTextContent(eElement.getTextContent());
 					if (eElement.hasAttribute("nodenumberA")) {
 						change.setNodenumA(eElement.getAttribute("nodenumberA"));
@@ -90,15 +91,15 @@ public class BrowseDelta {
 							|| node.getNodeName().equals("merge") || node.getNodeName().equals("split")
 							|| node.getNodeName().equals("move")) && eElement.getAttribute("op").contains("From"))
 							|| node.getNodeName().equals("delete")) {
-						
+
 						change.setFrom(true);
-						int nc = nodecounter(Integer.parseInt(change.getNodenumA()), original,treeorig);
+						int nc = nodecounter(Integer.parseInt(change.getNodenumA()), original, treeorig);
 						change.setNodecount(Integer.toString(nc));
 						int nnA = Integer.parseInt(change.getNodenumA());
 						Dnode dnodeorig = treeorig.getNode(nnA);
 						int nodeparnum = dnodeorig.posFather;
-						if(eElement.hasAttribute("nodecount")) {
-							if(eElement.getAttribute("nodecount").equals(0)) {
+						if (eElement.hasAttribute("nodecount")) {
+							if (eElement.getAttribute("nodecount").equals(0)) {
 								change.setNodenumA(Integer.toString(nodeparnum));
 							}
 						}
@@ -118,14 +119,14 @@ public class BrowseDelta {
 							|| node.getNodeName().equals("move")) && eElement.getAttribute("op").contains("To"))
 							|| node.getNodeName().equals("insert")) {
 						change.setTo(true);
-						int nc = nodecounter(Integer.parseInt(change.getNodenumB()), modified,treemodif);
+						int nc = nodecounter(Integer.parseInt(change.getNodenumB()), modified, treemodif);
 						change.setNodecount(Integer.toString(nc));
 						int nnB = Integer.parseInt(change.getNodenumB());
 						Dnode dnodemodif = treemodif.getNode(nnB);
 						int nodeparnum = dnodemodif.posFather;
-						if(eElement.hasAttribute("nodecount")) {
-							String s=eElement.getAttribute("nodecount");
-							if(s.equals("0")) {
+						if (eElement.hasAttribute("nodecount")) {
+							String s = eElement.getAttribute("nodecount");
+							if (s.equals("0")) {
 								change.setNodenumB(Integer.toString(nodeparnum));
 							}
 						}
@@ -186,7 +187,7 @@ public class BrowseDelta {
 
 	}
 
-	public int nodecounter(int nodenum, String path,Dtree tree) throws InputFileException {
+	public int nodecounter(int nodenum, String path, Dtree tree) throws InputFileException {
 		Dnode dnoeud = tree.getNode(nodenum);
 		int n = nodenum;
 		Node noeud = dnoeud.refDomNode;
@@ -213,45 +214,69 @@ public class BrowseDelta {
 		return nodenum;
 
 	}
-	public void gatherFROMTO() throws NumberFormatException, InputFileException {
 
+	public void gatherFROMTO() throws NumberFormatException, InputFileException {
+		ArrayList<String> listdelTo = new ArrayList<String>();
+		ArrayList<String> listdelFrom = new ArrayList<String>();
 		HashMap<String, ArrayList<ChangeObject>> fromMap = new HashMap<String, ArrayList<ChangeObject>>();
 		HashMap<String, ArrayList<ChangeObject>> toMap = new HashMap<String, ArrayList<ChangeObject>>();
-		for (ChangeObject co :changeList) {
-			if (co.isFrom()) {
-				if (!co.hasOp()) {
-					co.setOp("");
-				}
-				String parentA = co.getAtA();
-				if (fromMap.get(parentA) == null) {
-					ArrayList<ChangeObject> lisCo = new ArrayList<ChangeObject>();
-					lisCo.add(co);
-					fromMap.put(parentA, lisCo);
-				} else {
-					ArrayList<ChangeObject> lisCo = fromMap.get(parentA);
-					lisCo.add(co);
-					fromMap.put(parentA, lisCo);
-				}
-			} else if (co.isTo()) {
-				String parentB = co.getAtB();
-				if (toMap.get(parentB) == null) {
-					ArrayList<ChangeObject> lisCo = new ArrayList<ChangeObject>();
-					lisCo.add(co);
-					toMap.put(parentB, lisCo);
-				} else {
-					ArrayList<ChangeObject> lisCo = toMap.get(parentB);
-					lisCo.add(co);
-					toMap.put(parentB, lisCo);
+		int sizeiniti = changeList.size();
+		int size = 0;
+		while (sizeiniti != size) {
+			sizeiniti = changeList.size();
+			size = changeList.size();
+
+			for (ChangeObject co : changeList) {
+				if (co.isFrom()) {
+					if (!co.hasOp()) {
+						co.setOp("");
+					}
+					String parentA = co.getAtA();
+					if (fromMap.get(parentA) == null) {
+						ArrayList<ChangeObject> lisCo = new ArrayList<ChangeObject>();
+						lisCo.add(co);
+						fromMap.put(parentA, lisCo);
+					} else {
+						ArrayList<ChangeObject> lisCo = fromMap.get(parentA);
+						lisCo.add(co);
+						fromMap.put(parentA, lisCo);
+					}
+				} else if (co.isTo()) {
+					String parentB = co.getAtB();
+					if (toMap.get(parentB) == null) {
+						ArrayList<ChangeObject> lisCo = new ArrayList<ChangeObject>();
+						lisCo.add(co);
+						toMap.put(parentB, lisCo);
+					} else {
+						ArrayList<ChangeObject> lisCo = toMap.get(parentB);
+						lisCo.add(co);
+						toMap.put(parentB, lisCo);
+					}
 				}
 			}
-		}
-		for (String key : fromMap.keySet()) {
-			Dnode dn = treeorig.getNode(Integer.parseInt(key));
-			if (fromMap.get(key).size() > 1) {
+			for (String key : fromMap.keySet()) {
+				int continueTst = 0;
+				for (String delt : listdelFrom) {
+					Pattern pattern = Pattern.compile("\\d+");
+					Matcher matcher = pattern.matcher(delt);
+					matcher.find();
+					int keyint = Integer.parseInt(matcher.group());
+					matcher.find();
+					int nnbMax = Integer.parseInt(matcher.group());
+					if (Integer.parseInt(key) > keyint && Integer.parseInt(key) < nnbMax) {
+						continueTst++;
+						break;
+					}
+				}
+				if (continueTst != 0) {
+					continue;
+				}
+				int pos = 0;
+				Dnode dn = treeorig.getNode(Integer.parseInt(key));
 				if (dn.refDomNode.getChildNodes().getLength() == fromMap.get(key).size()) {
 					String cgt1 = "";
 					String cgt2 = "";
-					String move="";
+					String move = "";
 					for (ChangeObject cotemp : fromMap.get(key)) {
 						if (cgt1.equals("") || cgt1.equals(cotemp.getChangement())) {
 							cgt1 = cotemp.getChangement();
@@ -260,51 +285,65 @@ public class BrowseDelta {
 						} else {
 							break;
 						}
-						if(cotemp.getChangement().equals("move")) {
-							move=cotemp.getMove();
+						if (cotemp.getChangement().equals("move")) {
+							move = cotemp.getMove();
 							Pattern pattern = Pattern.compile("\\d+");
 							Matcher matcher = pattern.matcher(move);
 							matcher.find();
-							int from=Integer.parseInt(matcher.group());
+							int from = Integer.parseInt(matcher.group());
 							matcher.find();
-							int to=Integer.parseInt(matcher.group());
-							int diff=Integer.parseInt(key)-from;
-							to=to+diff;
-							move=key+"::"+to;
+							int to = Integer.parseInt(matcher.group());
+							int diff = Integer.parseInt(key) - from;
+							to = to + diff;
+							move = key + "::" + to;
 						}
 						if (fromMap.get(key).indexOf(cotemp) == (fromMap.get(key).size() - 1)) {
 							if (cgt1.equals("delete") || cgt2.equals("delete")) {
-								if (!cgt1.equals("") && !cgt2.equals("")) {
-									ChangeObject copar = new ChangeObject();
-									if(cgt2.equals("delete")) {
-										cgt2=cgt1;
-									}
-									copar.setChangement(cgt2);
-									copar.setNodenumA(key);
-									copar.setNnARef(key);
-									copar.setAtA(Integer.toString(dn.getPosFather()));
-									copar.setAtB(Integer.toString(dn.getPosFather()));
-									copar.setOldatB(Integer.toString(dn.getPosFather()));
-									copar.setFrom(true);
-									int nc = nodecounter(Integer.parseInt(copar.getNodenumA()),original,
-											treeorig);
-									copar.setNodecount(Integer.toString(nc));
-									copar.setOp(cgt2 + "dFrom");
-									if(move!="") {
-										copar.setMove(move);
-									}
-									for (ChangeObject codel : fromMap.get(key)) {
+								ChangeObject copar = new ChangeObject();
+								if (cgt2.equals("delete")) {
+									cgt2 = cgt1;
+								} else if (cgt2.equals("")) {
+									cgt2 = cgt1;
+								}
+								copar.setChangement(cgt2);
+								copar.setNodenumA(key);
+								copar.setNnARef(key);
+								copar.setAtA(Integer.toString(dn.getPosFather()));
+								copar.setAtB(Integer.toString(dn.getPosFather()));
+								copar.setOldatB(Integer.toString(dn.getPosFather()));
+								copar.setFrom(true);
+								int nc = nodecounter(Integer.parseInt(copar.getNodenumA()), original, treeorig);
+								copar.setNodecount(Integer.toString(nc));
+								copar.setEmpty(false);
+								copar.setOp(cgt2 + "dFrom");
+								if (move != "") {
+									copar.setMove(move);
+								}
+								for (ChangeObject codel : fromMap.get(key)) {
+									if (changeList.indexOf(codel) != -1) {
+										pos = changeList.indexOf(codel);
 										getChangeList().remove(codel);
 									}
-									getChangeList().add(copar);
 								}
+								for (ChangeObject co : changeList) {
+									if (co.isFrom()) {
+										if (co.getNodenumA().equals(key)) {
+											pos = changeList.indexOf(co);
+											changeList.remove(co);
+											break;
+
+										}
+									}
+								}
+								getChangeList().add(pos, copar);
 							} else if (!cgt1.equals("") && !cgt2.equals("")) {
 								continue;
 							} else {
 								ChangeObject copar = new ChangeObject();
 								copar.setChangement(cgt1);
+								copar.setEmpty(false);
 								copar.setNodenumA(key);
-								if(move!="") {
+								if (move != "") {
 									copar.setMove(move);
 								}
 								copar.setNnARef(key);
@@ -312,28 +351,96 @@ public class BrowseDelta {
 								copar.setAtB(Integer.toString(dn.getPosFather()));
 								copar.setOldatB(Integer.toString(dn.getPosFather()));
 								copar.setFrom(true);
-								int nc = nodecounter(Integer.parseInt(copar.getNodenumA()), original,
-										treeorig);
+								int nc = nodecounter(Integer.parseInt(copar.getNodenumA()), original, treeorig);
 								copar.setNodecount(Integer.toString(nc));
 								copar.setOp(cgt1 + "dFrom");
 								for (ChangeObject codel : fromMap.get(key)) {
-									changeList.remove(codel);
+									if (changeList.indexOf(codel) != -1) {
+										pos = changeList.indexOf(codel);
+										changeList.remove(codel);
+									}
 								}
-								changeList.add(copar);
-
+								for (ChangeObject co : changeList) {
+									if (co.isFrom()) {
+										if (co.getNodenumA().equals(key)) {
+											pos = changeList.indexOf(co);
+											changeList.remove(co);
+											break;
+										}
+									}
+								}
+								changeList.add(pos, copar);
+							}
+						}
+					}
+				} else {
+					for (ChangeObject co : changeList) {
+						if (co.isFrom()) {
+							if (co.getNodenumA().equals(key)) {
+								pos = changeList.indexOf(co);
+								changeList.remove(co);
+								if (co.isEmpty()) {
+									co.setEmpty(false);
+									for (ChangeObject codel : fromMap.get(key)) {
+										if (changeList.indexOf(codel) != -1) {
+											pos = changeList.indexOf(codel);
+											changeList.remove(codel);
+										}
+									}
+									int sizelist = changeList.size();
+									int del = 0;
+									int nnc = Integer.parseInt(co.getNodecount());
+									int keyint = Integer.parseInt(key);
+									int nnbMax = keyint + nnc;
+									String delete = Integer.toString(keyint) + "::" + Integer.toString(nnbMax);
+									listdelTo.add(delete);
+									for (int i = 0; i < sizelist; i++) {
+										ChangeObject cO = changeList.get(i - del);
+										if (cO.isFrom()) {
+											int nnb = Integer.parseInt(cO.getNodenumA());
+											if (nnb > keyint && nnb < nnbMax) {
+												changeList.remove(cO);
+												del++;
+											}
+										}
+									}
+									co.setNnARef(key);
+									co.setAtA(Integer.toString(dn.getPosFather()));
+									co.setAtB(Integer.toString(dn.getPosFather()));
+									co.setOldatB(Integer.toString(dn.getPosFather()));
+									int nc=nodecounter(keyint, original, treeorig);
+									co.setNodecount(Integer.toString(nc));
+								}
+								changeList.add(co);
+								break;
 							}
 						}
 					}
 				}
 			}
-		}
-		for (String key : toMap.keySet()) {
-			Dnode dnmod = treemodif.getNode(Integer.parseInt(key));
-			if (toMap.get(key).size() > 1) {
+			for (String key : toMap.keySet()) {
+				int continueTst = 0;
+				for (String delt : listdelTo) {
+					Pattern pattern = Pattern.compile("\\d+");
+					Matcher matcher = pattern.matcher(delt);
+					matcher.find();
+					int keyint = Integer.parseInt(matcher.group());
+					matcher.find();
+					int nnbMax = Integer.parseInt(matcher.group());
+					if (Integer.parseInt(key) > keyint && Integer.parseInt(key) < nnbMax) {
+						continueTst++;
+						break;
+					}
+				}
+				if (continueTst != 0) {
+					continue;
+				}
+				int pos = 0;
+				Dnode dnmod = treemodif.getNode(Integer.parseInt(key));
 				if (dnmod.refDomNode.getChildNodes().getLength() == toMap.get(key).size()) {
 					String cgt1 = "";
 					String cgt2 = "";
-					String move="";
+					String move = "";
 					for (ChangeObject cotemp : toMap.get(key)) {
 						if (cgt1.equals("") || cgt1.equals(cotemp.getChangement())) {
 							cgt1 = cotemp.getChangement();
@@ -342,44 +449,57 @@ public class BrowseDelta {
 						} else if (cgt1 != cotemp.getChangement()) {
 							break;
 						}
-						if(cotemp.getChangement().equals("move")) {
-							move=cotemp.getMove();
+						if (cotemp.getChangement().equals("move")) {
+							move = cotemp.getMove();
 							Pattern pattern = Pattern.compile("\\d+");
 							Matcher matcher = pattern.matcher(move);
 							matcher.find();
-							int from=Integer.parseInt(matcher.group());
+							int from = Integer.parseInt(matcher.group());
 							matcher.find();
-							int to=Integer.parseInt(matcher.group());
-							int diff=Integer.parseInt(key)-to;
-							from=from+diff;
-							move=from+"::"+key;
+							int to = Integer.parseInt(matcher.group());
+							int diff = Integer.parseInt(key) - to;
+							from = from + diff;
+							move = from + "::" + key;
 						}
 						if (toMap.get(key).indexOf(cotemp) == (toMap.get(key).size() - 1)) {
 							if (cgt1.equals("insert") || cgt2.equals("insert")) {
-								if (cgt2.equals("insert")) {
+								if (cgt2.equals("delete")) {
 									cgt2 = cgt1;
-									cgt1 = "insert";
+								} else if (cgt2.equals("")) {
+									cgt2 = cgt1;
 								}
-								if (cgt2 != "") {
-									ChangeObject copar = new ChangeObject();
-									copar.setChangement(cgt2);
-									copar.setNodenumB(key);
-									copar.setNnBRef(key);
+								ChangeObject copar = new ChangeObject();
+								copar.setChangement(cgt2);
+								copar.setNodenumB(key);
+								copar.setNnBRef(key);
+								if (move != "") {
 									copar.setMove(move);
-									copar.setAtA(Integer.toString(dnmod.getPosFather()));
-									copar.setOldatA(Integer.toString(dnmod.getPosFather()));
-									copar.setAtB(Integer.toString(dnmod.getPosFather()));
-									copar.setTo(true);
-									int nc = nodecounter(Integer.parseInt(copar.getNodenumB()), modified,
-											treemodif);
-									copar.setNodecount(Integer.toString(nc));
-									copar.setOp(cgt2 + "dTo");
-									for (ChangeObject codel : toMap.get(key)) {
-										changeList.remove(codel);
-
-									}
-									changeList.add(copar);
 								}
+								copar.setAtA(Integer.toString(dnmod.getPosFather()));
+								copar.setOldatA(Integer.toString(dnmod.getPosFather()));
+								copar.setAtB(Integer.toString(dnmod.getPosFather()));
+								copar.setTo(true);
+								int nc = nodecounter(Integer.parseInt(copar.getNodenumB()), modified, treemodif);
+								copar.setNodecount(Integer.toString(nc));
+								copar.setOp(cgt2 + "dTo");
+								for (ChangeObject codel : toMap.get(key)) {
+									if (changeList.indexOf(codel) != -1) {
+										pos = changeList.indexOf(codel);
+										changeList.remove(codel);
+									}
+								}
+								for (ChangeObject co : changeList) {
+									if (co.isTo()) {
+										if (co.getNodenumB().equals(key)) {
+											if (changeList.indexOf(co) != -1) {
+												pos = changeList.indexOf(co);
+												changeList.remove(co);
+											}
+											break;
+										}
+									}
+								}
+								changeList.add(pos, copar);
 							} else if (!cgt1.equals("") && !cgt2.equals("")) {
 								continue;
 							} else {
@@ -387,24 +507,83 @@ public class BrowseDelta {
 								copar.setChangement(cgt1);
 								copar.setNodenumB(key);
 								copar.setNnBRef(key);
-								copar.setMove(move);
+								if (move != "") {
+									copar.setMove(move);
+								}
 								copar.setAtA(Integer.toString(dnmod.getPosFather()));
 								copar.setOldatA(Integer.toString(dnmod.getPosFather()));
 								copar.setAtB(Integer.toString(dnmod.getPosFather()));
 								copar.setTo(true);
-								int nc = nodecounter(Integer.parseInt(copar.getNodenumB()), modified,
-										treemodif);
+								int nc = nodecounter(Integer.parseInt(copar.getNodenumB()), modified, treemodif);
 								copar.setNodecount(Integer.toString(nc));
 								copar.setOp(cgt1 + "dTo");
 								for (ChangeObject codel : toMap.get(key)) {
-									changeList.remove(codel);
+									if (changeList.indexOf(codel) != -1) {
+										pos = changeList.indexOf(codel);
+										changeList.remove(codel);
+									}
 								}
-								getChangeList().add(copar);
+								for (ChangeObject co : changeList) {
+									if (co.isTo()) {
+										if (co.getNodenumB().equals(key)) {
+											pos = changeList.indexOf(co);
+											changeList.remove(co);
+											break;
+
+										}
+									}
+								}
+								getChangeList().add(pos, copar);
+							}
+						}
+					}
+				} else {
+					for (ChangeObject co : changeList) {
+						if (co.isTo()) {
+							if (co.getNodenumB().equals(key)) {
+								pos = changeList.indexOf(co);
+								changeList.remove(co);
+								if (co.isEmpty()) {
+									co.setEmpty(false);
+									int nnc = Integer.parseInt(co.getNodecount());
+									for (ChangeObject codel : toMap.get(key)) {
+										if (changeList.indexOf(codel) != -1) {
+											pos = changeList.indexOf(codel);
+											changeList.remove(codel);
+										}
+									}
+									int sizelist = changeList.size();
+									int del = 0;
+
+									int keyint = Integer.parseInt(key);
+									int nnbMax = keyint + nnc;
+									String delete = Integer.toString(keyint) + "::" + Integer.toString(nnbMax);
+									listdelTo.add(delete);
+									for (int i = 0; i < sizelist; i++) {
+										ChangeObject cO = changeList.get(i - del);
+										if (cO.isTo()) {
+											int nnb = Integer.parseInt(cO.getNodenumB());
+											if (nnb > keyint && nnb < nnbMax) {
+												changeList.remove(cO);
+												del++;
+											}
+										}
+									}
+									co.setNnBRef(key);
+									co.setAtA(Integer.toString(dnmod.getPosFather()));
+									co.setOldatA(Integer.toString(dnmod.getPosFather()));
+									co.setAtB(Integer.toString(dnmod.getPosFather()));
+									int nc=nodecounter(keyint, modified, treemodif);
+									co.setNodecount(Integer.toString(nc));
+								}
+								changeList.add(pos, co);
+								break;
 							}
 						}
 					}
 				}
 			}
+			size = changeList.size();
 		}
 	}
 
@@ -422,6 +601,7 @@ public class BrowseDelta {
 	public Document getDoc() {
 		return doc;
 	}
+
 	public void setOrignal(String orignal) {
 		this.original = orignal;
 	}

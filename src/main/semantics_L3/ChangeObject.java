@@ -3,6 +3,7 @@ package main.semantics_L3;
 import java.util.ArrayList;
 
 public class ChangeObject {
+
 	public String changement;
 	private boolean isFrom=false;
 	private boolean isRef=false;
@@ -12,6 +13,7 @@ public class ChangeObject {
 	private String atA;
 	private boolean xref;
 	private String firstChildid;
+	private boolean isEmpty=false;
 	private String op;
 	private String oldvalue="";
 	private String newvalue="";
@@ -38,6 +40,9 @@ public class ChangeObject {
 
 	public boolean hasNodenumberA() {
 		return !(nodenumA == null);
+	}
+	public boolean hasText() {
+		return !(textContent == null);
 	}
 	public boolean hasMove() {
 		return !(move == null);
@@ -71,7 +76,12 @@ public class ChangeObject {
 	public boolean hasAtA() {
 		return !(atA == null);
 	}
-
+	public boolean hasOldAtA() {
+		return !(oldatA == null);
+	}
+	public boolean hasOldAtB() {
+		return !(oldatB == null);
+	}
 	public boolean hasAtB() {
 		return !(atB == null);
 	}
@@ -307,6 +317,14 @@ public class ChangeObject {
 
 	public void setRef(boolean isRef) {
 		this.isRef = isRef;
+	}
+
+	public boolean isEmpty() {
+		return isEmpty;
+	}
+
+	public void setEmpty(boolean isEmpty) {
+		this.isEmpty = isEmpty;
 	}
 
 }
