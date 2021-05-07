@@ -1,1 +1,1 @@
-java -jar jndiff-ui.jar %*
+java -jar jats-diff-ui.jar %*

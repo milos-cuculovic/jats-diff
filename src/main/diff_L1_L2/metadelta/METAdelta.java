@@ -1,19 +1,19 @@
 /** ***************************************************************************************
  *
- *   This file is part of JNdiff project.
+ *   This file is part of jats-diff project.
  *
- *   JNdiff is free software; you can redistribute it and/or modify
+ *   jats-diff is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU LESSER GENERAL PUBLIC LICENSE as published by
  *   the Free Software Foundation; either version 3 of the License, or
  *   (at your option) any later version.
  *
- *   JNdiff is distributed in the hope that it will be useful,
+ *   jats-diff is distributed in the hope that it will be useful,
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *   GNU LESSER GENERAL PUBLIC LICENSE for more details.
  *
  *   You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
- *   along with JNdiff; if not, write to the Free Software
+ *   along with jats-diff; if not, write to the Free Software
  *   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  **************************************************************************************** */
@@ -34,7 +34,7 @@ import main.diff_L1_L2.vo.TextChangeData;
  */
 public class METAdelta {
 
-	public final static String NAMESPACE = "http://diff.cs.unibo.it/jndiff";
+	public final static String NAMESPACE = "https://github.com/milos-cuculovic/jats-diff";
 
 	// Vettori che rappresentano i tre blocchi di operazioni
 	public Vector<Operation> deleteOps = new Vector<Operation>(); // Operazioni
@@ -690,7 +690,7 @@ public class METAdelta {
 		List<TextChange> textChangeDataAll = textChangeData.getAllTextChanges();
 //        logger.info(textChangeData.getAllTextChanges());
 //        System.exit(0);
-		//remove style changes in jndiff insert/delete
+		//remove style changes in jats-diff insert/delete
 		Vector<Operation> tmpDel = new Vector<Operation>();
 		for (int i = 0; i < insertOps.size(); i++) {
 			Dnode tmpB = insertOps.get(i).nodeB;

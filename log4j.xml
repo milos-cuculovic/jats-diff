@@ -9,7 +9,7 @@
     </appender>
     
     <appender name="rolling" class="org.apache.log4j.RollingFileAppender">
-        <param name="File" value="xml-sdiff.log"/>
+        <param name="File" value="jats-diff.log"/>
         <param name="MaxFileSize" value="100KB"/>
         <param name="MaxBackupIndex" value="1"/>
         <layout class="org.apache.log4j.PatternLayout">
@@ -24,14 +24,14 @@
     </appender>
     
     <appender name="xml" class="org.apache.log4j.FileAppender">
-        <param name="File" value="xml-sdiff_log.xml"/>
+        <param name="File" value="jats-diff_log.xml"/>
         <param name="Append" value="false"/>
         <layout class="org.apache.log4j.xml.XMLLayout">
         </layout>
     </appender>
     
     <appender name="lf5" class="org.apache.log4j.lf5.LF5Appender">
-        <param name="File" value="xml-sdiff_log.xml"/>
+        <param name="File" value="jats-diff_log.xml"/>
         <layout class="org.apache.log4j.lf5.LF5Appender">
         </layout>
     </appender>

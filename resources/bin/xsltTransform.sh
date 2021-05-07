@@ -1,3 +1,3 @@
 #!/bin/sh
 
-java -cp jndiff-testutils-0.2.jar XMLChangeGenerator $@
+java -cp jats-diff-testutils-0.2.jar XMLChangeGenerator $@

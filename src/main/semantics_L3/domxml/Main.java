@@ -63,20 +63,16 @@ public class Main {
 			File f = new File(fileSplit[0]);
 			String path = f.getParent() + "/";
 
-			main.diff_L1_L2.ui.Main jndiff = new main.diff_L1_L2.ui.Main();
+			main.diff_L1_L2.ui.Main jnDiff = new main.diff_L1_L2.ui.Main();
 
 			System.out.println("*********** Start: " + path + " ***********");
 
+			System.out.println("jats-diff START");
+			String[] paramsJnDiff = { "-d", fileSplit[0], fileSplit[1], fileSplit[2] };
+			jnDiff.main(paramsJnDiff);
+			System.out.println("jats-diff DONE");
 
-
-			String[] paramsJNDiff = { "-d", fileSplit[0], fileSplit[1], fileSplit[2] };
-			jndiff.main(paramsJNDiff);
-
-			System.out.println("JNDiff DONE");
-			// if(true) {
-			// continue;
-			// }
-
+			System.out.println("change-semantics START");
 			// Build Document
 			Document document = builder.parse(new File(fileSplit[2]));
 
@@ -107,6 +103,8 @@ public class Main {
 			modif.sort(Comparator.comparing(NodeChanged::getNodenumberA));
 			File semantics = new File(fileSplit[3]);
 			semantics.delete();
+
+			System.out.println("change-semantics DONE");
 
 			for (NodeChanged nc : modif) {
 
@@ -173,23 +171,6 @@ public class Main {
 					}
 				}
 			}
-//			pathCompare = pathParam.substring(0, pathParam.lastIndexOf("/"));
-//			File p = new File(pathCompare + "/compare.txt");
-//			PrintWriter pr = new PrintWriter(p);
-//			File pathFile = new File(pathParam);
-			//TestGeneric tg = new TestGeneric();
-			//tg.generic(path);
-//			Dtree tree = new Dtree(path + "tmp_orig.xml", true, true, true, true, true);
-//			Dnode noeud = tree.getNode(389);
-//			Node n = noeud.refDomNode;
-//			System.out.println(noeud.posFather);
-//			Element e = (Element) n;
-//			System.out.println(e.getNodeName());
-//			System.out.println(e.getAttribute("id"));
-
-////			// Gson gson = new Gson();
-//			String json = gson.toJson(modif);
-
 		}
 	}
 }

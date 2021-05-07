@@ -1,3 +1,3 @@
 #!/bin/sh
 
-java -cp jndiff-ui.jar MainGui
+java -cp jats-diff-ui.jar MainGui

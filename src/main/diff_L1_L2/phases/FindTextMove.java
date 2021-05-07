@@ -1,19 +1,19 @@
 /** ***************************************************************************************
  *
- *   This file is part of JNdiff project.
+ *   This file is part of jats-diff project.
  *
- *   JNdiff is free software; you can redistribute it and/or modify
+ *   jats-diff is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU LESSER GENERAL PUBLIC LICENSE as published by
  *   the Free Software Foundation; either version 3 of the License, or
  *   (at your option) any later version.
  *
- *   JNdiff is distributed in the hope that it will be useful,
+ *   jats-diff is distributed in the hope that it will be useful,
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *   GNU LESSER GENERAL PUBLIC LICENSE for more details.
  *
  *   You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
- *   along with JNdiff; if not, write to the Free Software
+ *   along with jats-diff; if not, write to the Free Software
  *   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  **************************************************************************************** */
@@ -77,7 +77,7 @@ import main.diff_L1_L2.vo.TextChangeData;
  */
 public class FindTextMove extends Phase {
 
-	//found array dat by jndiff
+	//found array dat by jats-diff
 	public List<List<Dnode>> foundNodeUpdate = new ArrayList<>();
 	public List<Dnode> foundNodeInsert = new ArrayList<>();
 	public List<Dnode> foundNodeDelete = new ArrayList<>();

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ndiff xmlns="http://diff.cs.unibo.it/jndiff" collapse="true"
+<ndiff xmlns="https://github.com/milos-cuculovic/jats-diff" collapse="true"
 	commentnode="true" emptynode="true" ltrim="true" rtrim="true">
 	<delete xmlns="" nodename="sec" nodenumberA="431">
 		<sec id="sec1-remotesensing-10-00641" sec-type="intro" />

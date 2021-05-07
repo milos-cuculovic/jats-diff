@@ -1,9 +1,9 @@
-<project basedir="." default="help" name="Jndiff">
+<project basedir="." default="help" name="jats-diff">
 
 	<target description="Init parameters" name="init">
 
-		<property name="component.name" value="jndiff" />
-		<property name="component.title" value="Jndiff" />
+		<property name="component.name" value="jats-diff" />
+		<property name="component.title" value="jats-diff" />
 		<property name="component.version" value="1.4" />
 
 		<property name="build.encoding" value="UTF-8" />
@@ -74,7 +74,7 @@
 
 
 	<target name="generate-man" description="Generate MANpage" depends="init">
-		<xslt style="${docbook.home}/manpages/docbook.xsl" in="docs/jndiff_manpage_it.xml" out="${man.dir}/jndiff.1" classpath="${fop.home}/lib/xalan-2.4.1.jar" />
+		<xslt style="${docbook.home}/manpages/docbook.xsl" in="docs/jats-diff_manpage_it.xml" out="${man.dir}/jats-diff.1" classpath="${fop.home}/lib/xalan-2.4.1.jar" />
 	</target>
 
 
@@ -124,7 +124,7 @@
 	<target depends="clean,compile" description="Delete all generated file and compile source code" name="all" />
 
 	<target depends="compile" description="Generate javadocs (on docs directory)" name="javadoc">
-		<javadoc author="true" bottom="Jndiff - XML DIFFING Algorithm" destdir="${source.javadoc}" source="1.6" Encoding="${build.encoding}" doctitle="${component.title}" packagenames="miloscuculovic.*" access="public" sourcepathref="javadoc.path" version="true" windowtitle="${component.title} (Version ${component.version})" />
+		<javadoc author="true" bottom="jats-diff - XML DIFFING Algorithm" destdir="${source.javadoc}" source="1.6" Encoding="${build.encoding}" doctitle="${component.title}" packagenames="miloscuculovic.*" access="public" sourcepathref="javadoc.path" version="true" windowtitle="${component.title} (Version ${component.version})" />
 	</target>
 
 	<target depends="compile" name="build-test">
@@ -197,8 +197,8 @@
 
 		<tar destfile="${dist.home}/${component.name}-${component.version}.tar.bz2" compression="bzip2">
 			<tarfileset dir="${dist.home}/lib" prefix="lib/" includes="java-getopt-1.0.13.jar,jaxp-api.jar,jaxp-ri.jar,lib${component.name}-${component.version}.jar,log4j-1.2.15.jar" />
-			<tarfileset dir="${dist.home}/" includes="jndiff-gui.bat,jndiff.bat" />
-			<tarfileset dir="${dist.home}/" includes="jndiff.sh,jndiff-gui.sh,jndiff-ui.jar" filemode="755" />
+			<tarfileset dir="${dist.home}/" includes="jats-diff-gui.bat,jats-diff.bat" />
+			<tarfileset dir="${dist.home}/" includes="jats-diff.sh,jats-diff-gui.sh,jats-diff-ui.jar" filemode="755" />
 
 		</tar>
 
@@ -232,7 +232,7 @@
 	</target>
 
 	<target name="help">
-		<echo message="JNDiff build option:" />
+		<echo message="jats-diff build option:" />
 		<echo>
 ant compile (Compile source code)
 ant release (Compile and create a release distribution in dist directory)

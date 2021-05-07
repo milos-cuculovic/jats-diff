@@ -1,6 +1,6 @@
-The JNDiff project is managed by ANT.
+The jats-diff project is managed by ANT.
 
-The ANT buildfile has been provided to reduce the burden of compiling JNdiff files and 
+The ANT buildfile has been provided to reduce the burden of compiling jats-diff files and
 execute other tasks (generate documentation, execute tests, package full releases, etc.)
 
 If you haven't got apache-ant installed on your computer, just follow these simple steps:
@@ -14,7 +14,7 @@ If you haven't got apache-ant installed on your computer, just follow these simp
 
 
 Just open up a terminal and execute the 'ant' command in the root directory 
-of the JNDiff release and you will be shown the list of available tasks.
+of the jats-diff release and you will be shown the list of available tasks.
 
 
 Enjoy!
