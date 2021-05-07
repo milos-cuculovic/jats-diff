@@ -1,4 +1,4 @@
-package main.semantics_L3.domxml;
+package main.semantics_L3;
 
 public class TableChange {
 	private String name;

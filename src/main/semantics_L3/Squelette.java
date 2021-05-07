@@ -1,4 +1,4 @@
-package main.semantics_L3.domxml;
+package main.semantics_L3;
 
 public class Squelette {
 	public void FindEveryNode(){

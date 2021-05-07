@@ -1,4 +1,4 @@
-package main.semantics_L3.domxml;
+package main.semantics_L3;
 
 import java.util.ArrayList;
 

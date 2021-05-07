@@ -1,4 +1,4 @@
-package main.semantics_L3.domxml;
+package main.semantics_L3;
 
 public class Protocol {
 	public static final int CHANGEMNT = 0;

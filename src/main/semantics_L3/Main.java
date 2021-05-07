@@ -1,4 +1,4 @@
-package main.semantics_L3.domxml;
+package main.semantics_L3;
 
 import main.diff_L1_L2.exceptions.InputFileException;
 import org.w3c.dom.Document;
