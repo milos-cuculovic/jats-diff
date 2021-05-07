@@ -36,16 +36,16 @@
             <para>Copy this file and replace its contents with the new module templates and documentation.</para>
           </listitem>
           <listitem>
-            <para>Copy the corresponding test file in the <filename>test</filename> directory.  Replace its contents with tests for the new module.</para>
+            <para>Copy the corresponding main.diff_L1_L2.test file in the <filename>main.diff_L1_L2.test</filename> directory.  Replace its contents with tests for the new module.</para>
           </listitem>
           <listitem>
             <para>Add an include element in the <filename>stdlib.xsl</filename> stylesheet.</para>
           </listitem>
           <listitem>
-            <para>Add an entry in the <filename>test/test.xml</filename> file.</para>
+            <para>Add an entry in the <filename>main.diff_L1_L2.test/main.diff_L1_L2.test.xml</filename> file.</para>
           </listitem>
           <listitem>
-            <para>Add entries in the <filename>test/test.xsl</filename> stylesheet.</para>
+            <para>Add entries in the <filename>main.diff_L1_L2.test/main.diff_L1_L2.test.xsl</filename> stylesheet.</para>
           </listitem>
           <listitem>
             <para>Add an entry in the <filename>doc/build.xml</filename> file.</para>

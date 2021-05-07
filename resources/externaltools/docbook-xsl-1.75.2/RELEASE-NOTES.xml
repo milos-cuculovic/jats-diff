@@ -120,7 +120,7 @@ public APIs (user-configurable parameters).</para>
 <para><literal>Mauritz Jeanson: titlepage.xsl</literal></para><screen><phrase role="commit-message">Output "<tag>Copyright</tag>" heading in XHTML too.</phrase></screen>
 </listitem>
 <listitem>
-<para><literal>Mauritz Jeanson: titlepage.xsl</literal></para><screen><phrase role="commit-message">Added stylesheet.result.type test for <tag>copyright</tag>. Closes bug #2813289.</phrase></screen>
+<para><literal>Mauritz Jeanson: titlepage.xsl</literal></para><screen><phrase role="commit-message">Added stylesheet.result.type main.diff_L1_L2.test for <tag>copyright</tag>. Closes bug #2813289.</phrase></screen>
 </listitem>
 <listitem>
 <para><literal>Norman Walsh: htmltbl.xsl</literal></para><screen><phrase role="commit-message">Remove ambiguity wrt @span, @rowspan, and @colspan</phrase></screen>
@@ -138,7 +138,7 @@ public APIs (user-configurable parameters).</para>
 <para><literal>Mauritz Jeanson: endnotes.xsl</literal></para><screen><phrase role="commit-message">Added normalize-space() for ulink content. Closes bug #2793877.</phrase></screen>
 </listitem>
 <listitem>
-<para><literal>Mauritz Jeanson: docbook.xsl</literal></para><screen><phrase role="commit-message">Added stylesheet.result.type test for <tag>copyright</tag>. Closes bug #2813289.</phrase></screen>
+<para><literal>Mauritz Jeanson: docbook.xsl</literal></para><screen><phrase role="commit-message">Added stylesheet.result.type main.diff_L1_L2.test for <tag>copyright</tag>. Closes bug #2813289.</phrase></screen>
 </listitem>
 </itemizedlist>
 </sect2><!--end of Manpages changes for 1.75.2-->
@@ -485,8 +485,9 @@ extension functions are used.</phrase></screen>
 <para><literal>Robert Stayton: docbook.xsl</literal></para><screen><phrase role="commit-message">Fixed spurious closing <tag>quote</tag> on line 134.</phrase></screen>
 </listitem>
 <listitem>
-<para><literal>Robert Stayton: docbook.xsl; autoidx-kosek.xsl; autoidx.xsl</literal></para><screen><phrase role="commit-message">Convert function-available for node-set() to use
-new $exsl.node.set.available param in test.</phrase></screen>
+<para><literal>Robert Stayton: docbook.xsl; autoidx-kosek.xsl; autoidx.xsl</literal></para><screen><phrase role="commit-message">Convert
+    function-available for node-set() to use
+    new $exsl.node.set.available param in main.diff_L1_L2.test.</phrase></screen>
 </listitem>
 <listitem>
 <para><literal>David Cramer: xref.xsl</literal></para><screen><phrase role="commit-message">Suppress extra space after <tag>xref</tag> when xrefstyle='select: <tag>label</tag> nopage' (#2740472)</phrase></screen>
@@ -554,7 +555,7 @@ other types of linking besides otherterm.</phrase></screen>
 so other element's titles will not be affected.</phrase></screen>
 </listitem>
 <listitem>
-<para><literal>Robert Stayton: xref.xsl; verbatim.xsl</literal></para><screen><phrase role="commit-message">Use param <parameter>exsl.node.set.available</parameter> to test for <tag>function</tag>.</phrase></screen>
+<para><literal>Robert Stayton: xref.xsl; verbatim.xsl</literal></para><screen><phrase role="commit-message">Use param <parameter>exsl.node.set.available</parameter> to main.diff_L1_L2.test for <tag>function</tag>.</phrase></screen>
 </listitem>
 <listitem>
 <para><literal>Robert Stayton: param.xweb; param.ent; footnote.xsl</literal></para><screen><phrase role="commit-message">Start using new param <parameter>exsl.node.set.available</parameter> to work around Xalan bug.</phrase></screen>
@@ -686,8 +687,9 @@ when target html is in a subdirectory and dbhtml <tag>filename</tag> used.</phra
 <para><literal>Jirka Kosek: highlight.xsl</literal></para><screen><phrase role="commit-message">Inclusion of highlighting code was simplified. Only one import is now necessary.</phrase></screen>
 </listitem>
 <listitem>
-<para><literal>Robert Stayton: chunk-common.xsl; chunktoc.xsl; docbook.xsl; chunk-changebars.xsl; autoidx⋯</literal></para><screen><phrase role="commit-message">Convert function-available for node-set() to use
-new $exsl.node.set.available param in test.</phrase></screen>
+<para><literal>Robert Stayton: chunk-common.xsl; chunktoc.xsl; docbook.xsl; chunk-changebars.xsl; autoidx⋯</literal></para><screen><phrase role="commit-message">Convert
+    function-available for node-set() to use
+    new $exsl.node.set.available param in main.diff_L1_L2.test.</phrase></screen>
 </listitem>
 <listitem>
 <para><literal>Mauritz Jeanson: pi.xsl</literal></para><screen><phrase role="commit-message">Fixed doc bug for row-height.</phrase></screen>
@@ -725,7 +727,7 @@ and numbered questions can be distinguished.  Satisfies
 Feature Request #1539045.</phrase></screen>
 </listitem>
 <listitem>
-<para><literal>Robert Stayton: param.xweb; chunk-code.xsl; param.ent; xref.xsl; chunkfast.xsl; verbatim.x⋯</literal></para><screen><phrase role="commit-message">Use new param <parameter>exsl.node.set.available</parameter> to test, handles Xalan bug.</phrase></screen>
+<para><literal>Robert Stayton: param.xweb; chunk-code.xsl; param.ent; xref.xsl; chunkfast.xsl; verbatim.x⋯</literal></para><screen><phrase role="commit-message">Use new param <parameter>exsl.node.set.available</parameter> to main.diff_L1_L2.test, handles Xalan bug.</phrase></screen>
 </listitem>
 <listitem>
 <para><literal>Robert Stayton: autoidx.xsl</literal></para><screen><phrase role="commit-message">Use named anchors for <tag>primary</tag>, <tag>secondary</tag>, and <tag>tertiary</tag> ids so
@@ -842,8 +844,8 @@ instead of <tag>question</tag>, if available. For DocBook 5, use the <tag>info</
             since the 1.74.3 release.</para>
 <itemizedlist>
 <listitem>
-<para><literal>Robert Stayton: table.xsl</literal></para><screen><phrase role="commit-message">Convert function-available test for node-set() <tag>function</tag> to
-test of $exsl.node.set.available param.</phrase></screen>
+<para><literal>Robert Stayton: table.xsl</literal></para><screen><phrase role="commit-message">Convert function-available main.diff_L1_L2.test for node-set() <tag>function</tag> to
+main.diff_L1_L2.test of $exsl.node.set.available param.</phrase></screen>
 </listitem>
 <listitem>
 <para><literal>Mauritz Jeanson: lists.xsl</literal></para><screen><phrase role="commit-message">Added a template for <tag>bibliolist</tag>. Closes bug #1815916.</phrase></screen>
@@ -895,7 +897,7 @@ to dc:creator element.</phrase></screen>
 <para><literal>Keith Fahlgren: bin/spec/epub_regressions_spec.rb; bin/spec/files/refclass.xml</literal></para><screen><phrase role="commit-message">Remove a nesting of &lt;p&gt; inside &lt;p&gt; for <tag>refclass</tag> (made XHTML* invalid, made HTML silly)</phrase></screen>
 </listitem>
 <listitem>
-<para><literal>Keith Fahlgren: bin/spec/epub_regressions_spec.rb; bin/spec/files/blockquotepre.xml</literal></para><screen><phrase role="commit-message">Added regression test and fix for XHTML validation problem with &lt;a&gt;s added inside &lt;<tag>blockquote</tag>&gt;; This potentially causes another problem (where something is referenced by has no <tag>anchor</tag>, but someone reporting that should cause the whole &lt;a id='thing'/&gt; thing to be reconsidered with modern browsers in mind.</phrase></screen>
+<para><literal>Keith Fahlgren: bin/spec/epub_regressions_spec.rb; bin/spec/files/blockquotepre.xml</literal></para><screen><phrase role="commit-message">Added regression main.diff_L1_L2.test and fix for XHTML validation problem with &lt;a&gt;s added inside &lt;<tag>blockquote</tag>&gt;; This potentially causes another problem (where something is referenced by has no <tag>anchor</tag>, but someone reporting that should cause the whole &lt;a id='thing'/&gt; thing to be reconsidered with modern browsers in mind.</phrase></screen>
 </listitem>
 </itemizedlist>
 </sect2><!--end of Epub changes for 1.75.0-->
@@ -1227,7 +1229,7 @@ automatically, but apparently AT&amp;T troff needs to be explicitly told</phrase
 <para><literal>Keith Fahlgren: bin/spec/epub_regressions_spec.rb; bin/spec/files/v5cover.xml; bin/spec/sp⋯</literal></para><screen><phrase role="commit-message">Patch contributed by Liza Daly to make ePub <tag>cover</tag> handling more generic. Additionally
 DocBook 5.0's &lt;<tag>cover</tag>&gt; now has some limited support:
 
-- should <tag>reference</tag> a <tag>cover</tag> in the OPF guide for a DocBook 5.0 test document</phrase></screen>
+- should <tag>reference</tag> a <tag>cover</tag> in the OPF guide for a DocBook 5.0 main.diff_L1_L2.test document</phrase></screen>
 </listitem>
 <listitem>
 <para><literal>Keith Fahlgren: bin/spec/files/isbn.xml; bin/spec/files/issn.xml; bin/spec/files/biblioid.⋯</literal></para><screen><phrase role="commit-message">Liza Daly reported that the dc:identifer-generation code was garbage (she was right).
@@ -1559,7 +1561,7 @@ rendered in the TOC. This could be considered a bug, but on the other hand I can
 see the point in having such an xref in a document.</phrase></screen>
 </listitem>
 <listitem>
-<para><literal>Mauritz Jeanson: titles.xsl</literal></para><screen><phrase role="commit-message">Added a "not(ancestor::title)" test to work around "too many nested 
+<para><literal>Mauritz Jeanson: titles.xsl</literal></para><screen><phrase role="commit-message">Added a "not(ancestor::title)" main.diff_L1_L2.test to work around "too many nested
 apply-templates" problems when processing xrefs or links in no.anchor.mode mode.
 Hopefully, this closes bug #1811721.</phrase></screen>
 </listitem>
@@ -1631,13 +1633,13 @@ and the "hot text" is the biblioid itself enclosed in brackets.</phrase></screen
 <para><literal>Mauritz Jeanson: refentry.xsl</literal></para><screen><phrase role="commit-message">Fixed typo (refsynopsysdiv -&gt; refsynopsisdiv).</phrase></screen>
 </listitem>
 <listitem>
-<para><literal>David Cramer: fop.xsl; fop1.xsl; ptc.xsl; xep.xsl</literal></para><screen><phrase role="commit-message">Added test to check generate.index param when generating pdf bookmarks</phrase></screen>
+<para><literal>David Cramer: fop.xsl; fop1.xsl; ptc.xsl; xep.xsl</literal></para><screen><phrase role="commit-message">Added main.diff_L1_L2.test to check generate.index param when generating pdf bookmarks</phrase></screen>
 </listitem>
 <listitem>
 <para><literal>Mauritz Jeanson: graphics.xsl</literal></para><screen><phrase role="commit-message">Added support for MathML in imagedata.</phrase></screen>
 </listitem>
 <listitem>
-<para><literal>Michael(tm) Smith: math.xsl</literal></para><screen><phrase role="commit-message">Removed unnecessary extra test condition in test express that
+<para><literal>Michael(tm) Smith: math.xsl</literal></para><screen><phrase role="commit-message">Removed unnecessary extra main.diff_L1_L2.test condition in main.diff_L1_L2.test express that
 checks for passivetex.</phrase></screen>
 </listitem>
 <listitem>
@@ -2326,7 +2328,7 @@ ital markup). Closes bug #1858329.  Thanks to Sam Varshavchik.</phrase></screen>
             since the 1.73.2 release.</para>
 <itemizedlist>
 <listitem> <para><literal>Keith Fahlgren: bin/spec/README; bin/spec/epub_realbook_spec.rb</literal></para><screen><phrase role="commit-message">'Realbook' spec now passes</phrase></screen> </listitem>
-<listitem> <para><literal>Keith Fahlgren: bin/dbtoepub; README; bin/spec/README; bin/lib/docbook.rb; bin/spec/epub_r⋯</literal></para><screen><phrase role="commit-message">Very primitive Windows support for dbtoepub <tag>reference</tag> implementation; README for running tests and for the .epub target in general; shorter realbook test document (still fails for now)</phrase></screen> </listitem>
+<listitem> <para><literal>Keith Fahlgren: bin/dbtoepub; README; bin/spec/README; bin/lib/docbook.rb; bin/spec/epub_r⋯</literal></para><screen><phrase role="commit-message">Very primitive Windows support for dbtoepub <tag>reference</tag> implementation; README for running tests and for the .epub target in general; shorter realbook main.diff_L1_L2.test document (still fails for now)</phrase></screen> </listitem>
 <listitem> <para><literal>Keith Fahlgren: bin/dbtoepub; bin/spec/epub_regressions_spec.rb; bin/lib/docbook.rb; bin/s⋯</literal></para><screen><phrase role="commit-message">Changes to OPF spine to not duplicate idrefs for documents with parts not at the root; regression specs for same</phrase></screen> </listitem>
 <listitem> <para><literal>Keith Fahlgren: docbook.xsl</literal></para><screen><phrase role="commit-message">Fixing linking to <tag>cover</tag> @id, distinct from other needs of cover-image-id (again, thanks to Martin Goerner)</phrase></screen> </listitem>
 <listitem> <para><literal>Keith Fahlgren: docbook.xsl</literal></para><screen><phrase role="commit-message">Updating the <tag>title</tag> of the <tag>toc</tag> element in the guide to be more explicit (thanks to Martin Goerner)</phrase></screen> </listitem>
@@ -2335,7 +2337,7 @@ ital markup). Closes bug #1858329.  Thanks to Sam Varshavchik.</phrase></screen>
 and Keith Fahlgren of O'Reilly.</phrase></screen>
 </listitem>
 <listitem>
-<para><literal>Keith Fahlgren: docbook.xsl</literal></para><screen><phrase role="commit-message">== General epub test support
+<para><literal>Keith Fahlgren: docbook.xsl</literal></para><screen><phrase role="commit-message">== General epub main.diff_L1_L2.test support
 
 $ spec -O ~/.spec.opts spec/epub_spec.rb 
 
@@ -2361,12 +2363,12 @@ Finished in 20.608395 seconds
 15 examples, 0 failures
 
 
-== Verbose epub test coverage against _all_ of the testdocs 
+== Verbose epub main.diff_L1_L2.test coverage against _all_ of the testdocs
 
 Fails on only (errors truncated):
 1)
-'DocBook::Epub should be able to render a valid .epub for the test document /Users/keith/work/docbook-dev/trunk/xsl/epub/bin/spec/testdocs/calloutlist.003.xml [30]' FAILED
-'DocBook::Epub should be able to render a valid .epub for the test document /Users/keith/work/docbook-dev/trunk/xsl/epub/bin/spec/testdocs/cmdsynopsis.001.xml [35]' FAILED
+'DocBook::Epub should be able to render a valid .epub for the main.diff_L1_L2.test document /Users/keith/work/docbook-dev/trunk/xsl/epub/bin/spec/testdocs/calloutlist.003.xml [30]' FAILED
+'DocBook::Epub should be able to render a valid .epub for the main.diff_L1_L2.test document /Users/keith/work/docbook-dev/trunk/xsl/epub/bin/spec/testdocs/cmdsynopsis.001.xml [35]' FAILED
 ....
 
 Finished in 629.89194 seconds
@@ -2766,7 +2768,7 @@ references. Closes #1792043. Thanks to Daniel Leidert.</phrase></screen>
 <para><literal>Michael(tm) Smith: VERSION; Makefile</literal></para><screen><phrase role="commit-message">Did post-release wrap-up of xsl-saxon and xsl-xalan dirs</phrase></screen>
 </listitem>
 <listitem>
-<para><literal>Michael(tm) Smith: nbproject/build-impl.xml; VERSION; Makefile; test</literal></para><screen><phrase role="commit-message">More tweaks to get release-ready</phrase></screen>
+<para><literal>Michael(tm) Smith: nbproject/build-impl.xml; VERSION; Makefile; main.diff_L1_L2.test</literal></para><screen><phrase role="commit-message">More tweaks to get release-ready</phrase></screen>
 </listitem>
 </itemizedlist>
 </sect2><!--end of XSL-Saxon changes for 1.74.0-->
@@ -2854,7 +2856,7 @@ Replaced deprecated functions from the string module with string methods.</phras
 <listitem>
 <para><literal>Mauritz Jeanson: table.xsl</literal></para><screen><phrase role="commit-message">Modified the <tag>tgroup</tag> template so that, for tables with multiple tgroups, 
 a width attribute is output on all corresponding fo:tables. Previously, 
-there was a test prohibiting this (and a comment saying that outputting more
+there was a main.diff_L1_L2.test prohibiting this (and a comment saying that outputting more
 than one width attribute will cause an error). But this seems to be no longer 
 relevant; it is not a problem with FOP 0.93 or XEP 4.10. Closes bug #1760559.</phrase></screen>
 </listitem>
@@ -3368,9 +3370,9 @@ you want to suppress display of the auto-generated AUTHORS and
 Leidert.</phrase></screen>
 </listitem>
 <listitem>
-<para><literal>Michael(tm) Smith: docbook.xsl</literal></para><screen><phrase role="commit-message">Took the test that the manpages stylesheet does to see if there
+<para><literal>Michael(tm) Smith: docbook.xsl</literal></para><screen><phrase role="commit-message">Took the main.diff_L1_L2.test that the manpages stylesheet does to see if there
 are any <tag>Refentry</tag> chilren in current doc, and made it
-namespace-agnostic. Reason for that is because the test otherwise
+namespace-agnostic. Reason for that is because the main.diff_L1_L2.test otherwise
 won't work when it is copied over into the generated
 profile-docbook.xsl stylesheet.</phrase></screen>
 </listitem>
@@ -3461,7 +3463,7 @@ processing (for large files, the marker mechanism
 ending up requiring gigabytes of memory).
 
 Closes bug #1661177. Thanks to Scott Smedley for
-providing a test case (the fvwm man page) that exposed
+providing a main.diff_L1_L2.test case (the fvwm man page) that exposed
 the problem with the marker mechanism.
 
 Also moved the mechanism for converting non-breaking
@@ -4072,7 +4074,7 @@ enable local additions and changes to string-substitution mappings
 without the need to change the value of <parameter>man.string.subst.map</parameter>
 parameter (which is for standard system mappings). Closes
 #1456738. Thanks to Sam Steingold for constructing a true
-stylesheet torture test (the clisp docs) that exposed the need for
+stylesheet torture main.diff_L1_L2.test (the clisp docs) that exposed the need for
 these params.<alt>M: /trunk/xsl/manpages/param.xweb; M: /trunk/xsl/manpages/param.ent; M: /trunk/xsl/manpages/other.xsl - Michael(tm) Smith</alt></phrase></literallayout>
 </listitem>
 <listitem>
@@ -4132,7 +4134,7 @@ enable local additions and changes to string-substitution mappings
 without the need to change the value of <parameter>man.string.subst.map</parameter>
 parameter (which is for standard system mappings). Closes
 #1456738. Thanks to Sam Steingold for constructing a true
-stylesheet torture test (the clisp docs) that exposed the need for
+stylesheet torture main.diff_L1_L2.test (the clisp docs) that exposed the need for
 these params.<alt>A: /trunk/xsl/params/man.string.subst.map.local.post.xml; A: /trunk/xsl/params/man.string.subst.map.local.pre.xml; M: /trunk/xsl/params/man.string.subst.map.xml - Michael(tm) Smith</alt></phrase></literallayout>
 </listitem>
 <listitem>
@@ -4465,7 +4467,7 @@ been made since the 1.70.1 release.</para>
             since the 1.70.1 release.</para>
 <itemizedlist>
 <listitem>
-<literallayout><phrase role="commit-message">Completely reworked extensions build system; now uses NetBeans and ant<alt>D: /trunk/xsl/extensions/xalan27/.cvsignore; A: /trunk/xsl/extensions/saxon65/nbproject; A: /trunk/xsl/extensions/saxon65/nbproject/project.properties; D: /trunk/xsl/extensions/prj.el; A: /trunk/xsl/extensions/saxon65/src; A: /trunk/xsl/extensions/xalan2/src/com; M: /trunk/xsl/extensions/xalan2/src/com/nwalsh/xalan/Text.java; A: /trunk/xsl/extensions/saxon65/nbproject/project.xml; D: /trunk/xsl/extensions/build.xml; A: /trunk/xsl/extensions/saxon65/build.xml; A: /trunk/xsl/extensions/xalan2/nbproject/genfiles.properties; A: /trunk/xsl/extensions/saxon65; D: /trunk/xsl/extensions/xalan2/com; M: /trunk/xsl/extensions/xalan2/src/com/nwalsh/xalan/Func.java; A: /trunk/xsl/extensions/xalan2/test; A: /trunk/xsl/extensions/saxon65/src/com; A: /trunk/xsl/extensions/xalan2/nbproject/build-impl.xml; A: /trunk/xsl/extensions/xalan2/nbproject; A: /trunk/xsl/extensions/xalan2/src; A: /trunk/xsl/extensions/xalan2/nbproject/project.properties; D: /trunk/xsl/extensions/.cvsignore; M: /trunk/xsl/extensions/Makefile; D: /trunk/xsl/extensions/saxon8; A: /trunk/xsl/extensions/saxon65/nbproject/genfiles.properties; A: /trunk/xsl/extensions/xalan2/nbproject/project.xml; A: /trunk/xsl/extensions/saxon65/test; M: /trunk/xsl/extensions/xalan2/src/com/nwalsh/xalan/Verbatim.java; A: /trunk/xsl/extensions/xalan2/build.xml; M: /trunk/xsl/extensions/xalan2; D: /trunk/xsl/extensions/saxon643; A: /trunk/xsl/extensions/saxon65/nbproject/build-impl.xml - Norman Walsh</alt></phrase></literallayout>
+<literallayout><phrase role="commit-message">Completely reworked extensions build system; now uses NetBeans and ant<alt>D: /trunk/xsl/extensions/xalan27/.cvsignore; A: /trunk/xsl/extensions/saxon65/nbproject; A: /trunk/xsl/extensions/saxon65/nbproject/project.properties; D: /trunk/xsl/extensions/prj.el; A: /trunk/xsl/extensions/saxon65/src; A: /trunk/xsl/extensions/xalan2/src/com; M: /trunk/xsl/extensions/xalan2/src/com/nwalsh/xalan/Text.java; A: /trunk/xsl/extensions/saxon65/nbproject/project.xml; D: /trunk/xsl/extensions/build.xml; A: /trunk/xsl/extensions/saxon65/build.xml; A: /trunk/xsl/extensions/xalan2/nbproject/genfiles.properties; A: /trunk/xsl/extensions/saxon65; D: /trunk/xsl/extensions/xalan2/com; M: /trunk/xsl/extensions/xalan2/src/com/nwalsh/xalan/Func.java; A: /trunk/xsl/extensions/xalan2/main.diff_L1_L2.test; A: /trunk/xsl/extensions/saxon65/src/com; A: /trunk/xsl/extensions/xalan2/nbproject/build-impl.xml; A: /trunk/xsl/extensions/xalan2/nbproject; A: /trunk/xsl/extensions/xalan2/src; A: /trunk/xsl/extensions/xalan2/nbproject/project.properties; D: /trunk/xsl/extensions/.cvsignore; M: /trunk/xsl/extensions/Makefile; D: /trunk/xsl/extensions/saxon8; A: /trunk/xsl/extensions/saxon65/nbproject/genfiles.properties; A: /trunk/xsl/extensions/xalan2/nbproject/project.xml; A: /trunk/xsl/extensions/saxon65/main.diff_L1_L2.test; M: /trunk/xsl/extensions/xalan2/src/com/nwalsh/xalan/Verbatim.java; A: /trunk/xsl/extensions/xalan2/build.xml; M: /trunk/xsl/extensions/xalan2; D: /trunk/xsl/extensions/saxon643; A: /trunk/xsl/extensions/saxon65/nbproject/build-impl.xml - Norman Walsh</alt></phrase></literallayout>
 </listitem>
 </itemizedlist>
 </sect2><!--end of Extensions changes for 1.71.0-->
@@ -4514,7 +4516,7 @@ does not support it either.<alt>M: /trunk/xsl/fo/pagesetup.xsl - Robert Stayton<
 </listitem>
 
 <listitem>
-<literallayout><phrase role="commit-message">Add Xalan variant to test for exslt:node-set <tag>function</tag>.
+<literallayout><phrase role="commit-message">Add Xalan variant to main.diff_L1_L2.test for exslt:node-set <tag>function</tag>.
 Xalan can use <tag>function</tag> named node-set(), but doesn't
 recognize it using function-available().<alt>M: /trunk/xsl/fo/autoidx.xsl - Robert Stayton</alt></phrase></literallayout>
 </listitem>
@@ -4609,7 +4611,7 @@ content on HTML <tag>title</tag> pages:
 </listitem>
 
 <listitem>
-<literallayout><phrase role="commit-message">Add Xalan variant to test for exslt:node-set <tag>function</tag>.
+<literallayout><phrase role="commit-message">Add Xalan variant to main.diff_L1_L2.test for exslt:node-set <tag>function</tag>.
 Xalan can use <tag>function</tag> named node-set(), but doesn't
 recognize it using function-available().<alt>M: /trunk/xsl/html/autoidx.xsl - Robert Stayton</alt></phrase></literallayout>
 </listitem>
@@ -8717,7 +8719,7 @@ works with Xalan 2.5.</para>
 </para>
 </listitem> 
 <listitem>
-<para>Added level 6 to test for <tag>section</tag> depth in
+<para>Added level 6 to main.diff_L1_L2.test for <tag>section</tag> depth in
 section.level template so that
 section.title.level6.properties will be used for sections
 that are 6 deep or deeper. This should also cause a h6 to be
@@ -8863,7 +8865,7 @@ on <tag>inlinemediaobject</tag>.
 </para>
 </listitem> 
 <listitem>
-<para>Fixed test of $toc PI to turn on qandaset TOC.
+<para>Fixed main.diff_L1_L2.test of $toc PI to turn on qandaset TOC.
 </para>
 </listitem> 
 <listitem>

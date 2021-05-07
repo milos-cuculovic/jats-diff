@@ -26,9 +26,9 @@
     <xsl:call-template name="object.id"/>
   </xsl:variable>
 
- <xsl:if test="$generate.index != 0">
+ <xsl:if main.diff_L1_L2.test="$generate.index != 0">
   <xsl:choose>
-    <xsl:when test="$make.index.markup != 0">
+    <xsl:when main.diff_L1_L2.test="$make.index.markup != 0">
       <fo:block>
         <xsl:call-template name="generate-index-markup">
           <xsl:with-param name="scope" select="(ancestor::book|/)[last()]"/>
@@ -40,7 +40,7 @@
         <xsl:call-template name="index.titlepage"/>
       </fo:block>
       <xsl:apply-templates/>
-      <xsl:if test="count(indexentry) = 0 and count(indexdiv) = 0">
+      <xsl:if main.diff_L1_L2.test="count(indexentry) = 0 and count(indexdiv) = 0">
         <xsl:call-template name="generate-index">
           <xsl:with-param name="scope" select="(ancestor::book|/)[last()]"/>
         </xsl:call-template>
@@ -55,11 +55,11 @@
     <xsl:call-template name="object.id"/>
   </xsl:variable>
 
- <xsl:if test="$generate.index != 0">
+ <xsl:if main.diff_L1_L2.test="$generate.index != 0">
   <xsl:variable name="master-reference">
     <xsl:call-template name="select.pagemaster">
       <xsl:with-param name="pageclass">
-        <xsl:if test="$make.index.markup != 0">body</xsl:if>
+        <xsl:if main.diff_L1_L2.test="$make.index.markup != 0">body</xsl:if>
       </xsl:with-param>
     </xsl:call-template>
   </xsl:variable>
@@ -121,10 +121,10 @@
         <xsl:call-template name="index.titlepage"/>
       </fo:block>
       <xsl:apply-templates/>
-      <xsl:if test="count(indexentry) = 0 and count(indexdiv) = 0">
+      <xsl:if main.diff_L1_L2.test="count(indexentry) = 0 and count(indexdiv) = 0">
 
         <xsl:choose>
-          <xsl:when test="$make.index.markup != 0">
+          <xsl:when main.diff_L1_L2.test="$make.index.markup != 0">
             <fo:block wrap-option='no-wrap'
                       white-space-collapse='false'
                       xsl:use-attribute-sets="monospace.verbatim.properties"
@@ -134,7 +134,7 @@
               </xsl:call-template>
             </fo:block>
           </xsl:when>
-          <xsl:when test="indexentry|indexdiv/indexentry">
+          <xsl:when main.diff_L1_L2.test="indexentry|indexdiv/indexentry">
             <xsl:apply-templates/>
           </xsl:when>
           <xsl:otherwise>
@@ -154,12 +154,12 @@
     <xsl:call-template name="object.id"/>
   </xsl:variable>
 
- <xsl:if test="$generate.index != 0">
+ <xsl:if main.diff_L1_L2.test="$generate.index != 0">
   <xsl:variable name="master-reference">
     <xsl:call-template name="select.pagemaster">
       <xsl:with-param name="pageclass">
         <xsl:choose>
-          <xsl:when test="$make.index.markup != 0">body</xsl:when>
+          <xsl:when main.diff_L1_L2.test="$make.index.markup != 0">body</xsl:when>
           <xsl:otherwise>index</xsl:otherwise>
         </xsl:choose>
       </xsl:with-param>
@@ -222,10 +222,10 @@
         <xsl:call-template name="setindex.titlepage"/>
       </fo:block>
       <xsl:apply-templates/>
-      <xsl:if test="count(indexentry) = 0 and count(indexdiv) = 0">
+      <xsl:if main.diff_L1_L2.test="count(indexentry) = 0 and count(indexdiv) = 0">
 
         <xsl:choose>
-          <xsl:when test="$make.index.markup != 0">
+          <xsl:when main.diff_L1_L2.test="$make.index.markup != 0">
             <fo:block wrap-option='no-wrap'
                       white-space-collapse='false'
                       xsl:use-attribute-sets="monospace.verbatim.properties"
@@ -235,7 +235,7 @@
               </xsl:call-template>
             </fo:block>
           </xsl:when>
-          <xsl:when test="indexentry|indexdiv/indexentry">
+          <xsl:when main.diff_L1_L2.test="indexentry|indexdiv/indexentry">
             <xsl:apply-templates/>
           </xsl:when>
           <xsl:otherwise>
@@ -264,7 +264,7 @@
 
   <fo:block xsl:use-attribute-sets="index.div.title.properties">
     <xsl:choose>
-      <xsl:when test="$title">
+      <xsl:when main.diff_L1_L2.test="$title">
         <xsl:apply-templates select="." mode="object.title.markup">
           <xsl:with-param name="allow-anchors" select="1"/>
         </xsl:apply-templates>
@@ -296,7 +296,7 @@
   <!-- Temporal workaround for bug in AXF -->
   <xsl:variable name="wrapper.name">
     <xsl:choose>
-      <xsl:when test="$axf.extensions != 0 or $fop1.extensions != 0">
+      <xsl:when main.diff_L1_L2.test="$axf.extensions != 0 or $fop1.extensions != 0">
         <xsl:call-template name="inline.or.block"/>
       </xsl:when>
       <xsl:otherwise>fo:wrapper</xsl:otherwise>
@@ -308,15 +308,15 @@
       <xsl:call-template name="object.id"/>
     </xsl:attribute>
     <xsl:choose>
-      <xsl:when test="$xep.extensions != 0">
+      <xsl:when main.diff_L1_L2.test="$xep.extensions != 0">
         <xsl:attribute name="rx:key">
           <xsl:value-of select="&primary;"/>
-          <xsl:if test="@significance='preferred'"><xsl:value-of select="$significant.flag"/></xsl:if>
-          <xsl:if test="secondary">
+          <xsl:if main.diff_L1_L2.test="@significance='preferred'"><xsl:value-of select="$significant.flag"/></xsl:if>
+          <xsl:if main.diff_L1_L2.test="secondary">
             <xsl:text>, </xsl:text>
             <xsl:value-of select="&secondary;"/>
           </xsl:if>
-          <xsl:if test="tertiary">
+          <xsl:if main.diff_L1_L2.test="tertiary">
             <xsl:text>, </xsl:text>
             <xsl:value-of select="&tertiary;"/>
           </xsl:if>
@@ -327,11 +327,11 @@
           <xsl:call-template name="comment-escape-string">
             <xsl:with-param name="string">
               <xsl:value-of select="primary"/>
-              <xsl:if test="secondary">
+              <xsl:if main.diff_L1_L2.test="secondary">
                 <xsl:text>, </xsl:text>
                 <xsl:value-of select="secondary"/>
               </xsl:if>
-              <xsl:if test="tertiary">
+              <xsl:if main.diff_L1_L2.test="tertiary">
                 <xsl:text>, </xsl:text>
                 <xsl:value-of select="tertiary"/>
               </xsl:if>
@@ -345,17 +345,17 @@
 
 <xsl:template match="indexterm[@class='startofrange']">
   <xsl:choose>
-    <xsl:when test="$xep.extensions != 0">
+    <xsl:when main.diff_L1_L2.test="$xep.extensions != 0">
       <rx:begin-index-range>
         <xsl:call-template name="anchor"/>
         <xsl:attribute name="rx:key">
           <xsl:value-of select="&primary;"/>
-          <xsl:if test="@significance='preferred'"><xsl:value-of select="$significant.flag"/></xsl:if>
-          <xsl:if test="secondary">
+          <xsl:if main.diff_L1_L2.test="@significance='preferred'"><xsl:value-of select="$significant.flag"/></xsl:if>
+          <xsl:if main.diff_L1_L2.test="secondary">
             <xsl:text>, </xsl:text>
             <xsl:value-of select="&secondary;"/>
           </xsl:if>
-          <xsl:if test="tertiary">
+          <xsl:if main.diff_L1_L2.test="tertiary">
             <xsl:text>, </xsl:text>
             <xsl:value-of select="&tertiary;"/>
           </xsl:if>
@@ -370,7 +370,7 @@
 
 <xsl:template match="indexterm[@class='endofrange']">
   <xsl:choose>
-    <xsl:when test="$xep.extensions != 0">
+    <xsl:when main.diff_L1_L2.test="$xep.extensions != 0">
       <rx:end-index-range>
         <xsl:attribute name="ref-id">
           <xsl:value-of select="@startref"/>
@@ -395,7 +395,7 @@
 <xsl:template match="primaryie">
   <fo:block>
     <xsl:apply-templates/>
-    <xsl:if test="following-sibling::seeie">
+    <xsl:if main.diff_L1_L2.test="following-sibling::seeie">
       <xsl:text> (</xsl:text>
       <xsl:call-template name="gentext">
         <xsl:with-param name="key" select="'see'"/>
@@ -410,7 +410,7 @@
 <xsl:template match="secondaryie">
   <fo:block start-indent="1pc">
     <xsl:apply-templates/>
-    <xsl:if test="following-sibling::seeie">
+    <xsl:if main.diff_L1_L2.test="following-sibling::seeie">
       <xsl:text> (</xsl:text>
       <xsl:call-template name="gentext">
         <xsl:with-param name="key" select="'see'"/>
@@ -425,7 +425,7 @@
 <xsl:template match="tertiaryie">
   <fo:block start-indent="2pc">
     <xsl:apply-templates/>
-    <xsl:if test="following-sibling::seeie">
+    <xsl:if main.diff_L1_L2.test="following-sibling::seeie">
       <xsl:text> (</xsl:text>
       <xsl:call-template name="gentext">
         <xsl:with-param name="key" select="'see'"/>
@@ -447,10 +447,10 @@
   <fo:block>
     <xsl:attribute name="start-indent">
       <xsl:choose>
-        <xsl:when test="(preceding-sibling::tertiaryie |
+        <xsl:when main.diff_L1_L2.test="(preceding-sibling::tertiaryie |
                          preceding-sibling::secondaryie)[last()]
                          [self::tertiaryie]">3pc</xsl:when>
-        <xsl:when test="(preceding-sibling::tertiaryie |
+        <xsl:when main.diff_L1_L2.test="(preceding-sibling::tertiaryie |
                          preceding-sibling::secondaryie)[last()]
                          [self::secondaryie]">2pc</xsl:when>
         <xsl:otherwise>1pc</xsl:otherwise>
@@ -476,8 +476,8 @@
   <xsl:variable name="block.parents" select="'|answer|appendix|appendixinfo|article|articleinfo|bibliodiv|bibliography|bibliographyinfo|blockinfo|blockquote|bookinfo|callout|caution|chapter|chapterinfo|dedication|example|figure|formalpara|funcsynopsisinfo|glossary|glossaryinfo|glossdef|glossdiv|glossentry|highlights|important|index|indexinfo|info|informalexample|informalfigure|informaltable|itemizedlist|legalnotice|listitem|msgexplan|msgtext|note|objectinfo|orderedlist|partinfo|partintro|preface|prefaceinfo|procedure|qandadiv|qandaset|question|refentry|refentryinfo|referenceinfo|refmeta|refmiscinfo|refsect1|refsect1info|refsect2|refsect2info|refsect3|refsect3info|refsection|refsectioninfo|refsynopsisdiv|refsynopsisdivinfo|revdescription|screeninfo|sect1|sect1info|sect2|sect2info|sect3|sect3info|sect4|sect4info|sect5|sect5info|section|sectioninfo|setindex|setindexinfo|setinfo|sidebar|sidebarinfo|simplesect|step|table|task|taskprerequisites|taskrelated|tasksummary|tip|variablelist|warning|'"/>
 
   <xsl:choose>
-    <xsl:when test="contains($block.parents, $parent)">fo:block</xsl:when>
-    <xsl:when test="$fop1.extensions != 0">fo:wrapper</xsl:when>
+    <xsl:when main.diff_L1_L2.test="contains($block.parents, $parent)">fo:block</xsl:when>
+    <xsl:when main.diff_L1_L2.test="$fop1.extensions != 0">fo:wrapper</xsl:when>
     <xsl:otherwise>fo:inline</xsl:otherwise>
   </xsl:choose>
 </xsl:template>

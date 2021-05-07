@@ -183,19 +183,19 @@
     <xsl:when test="$itemsymbol='emdash'">&#x2014;</xsl:when>
     <!-- Some of these may work in your XSL-FO processor and fonts -->
     <!--
-    <xsl:when test="$itemsymbol='square'">&#x25A0;</xsl:when>
-    <xsl:when test="$itemsymbol='box'">&#x25A0;</xsl:when>
-    <xsl:when test="$itemsymbol='smallblacksquare'">&#x25AA;</xsl:when>
-    <xsl:when test="$itemsymbol='circle'">&#x25CB;</xsl:when>
-    <xsl:when test="$itemsymbol='opencircle'">&#x25CB;</xsl:when>
-    <xsl:when test="$itemsymbol='whitesquare'">&#x25A1;</xsl:when>
-    <xsl:when test="$itemsymbol='smallwhitesquare'">&#x25AB;</xsl:when>
-    <xsl:when test="$itemsymbol='round'">&#x25CF;</xsl:when>
-    <xsl:when test="$itemsymbol='blackcircle'">&#x25CF;</xsl:when>
-    <xsl:when test="$itemsymbol='whitebullet'">&#x25E6;</xsl:when>
-    <xsl:when test="$itemsymbol='triangle'">&#x2023;</xsl:when>
-    <xsl:when test="$itemsymbol='point'">&#x203A;</xsl:when>
-    <xsl:when test="$itemsymbol='hand'"><fo:inline 
+    <xsl:when main.diff_L1_L2.test="$itemsymbol='square'">&#x25A0;</xsl:when>
+    <xsl:when main.diff_L1_L2.test="$itemsymbol='box'">&#x25A0;</xsl:when>
+    <xsl:when main.diff_L1_L2.test="$itemsymbol='smallblacksquare'">&#x25AA;</xsl:when>
+    <xsl:when main.diff_L1_L2.test="$itemsymbol='circle'">&#x25CB;</xsl:when>
+    <xsl:when main.diff_L1_L2.test="$itemsymbol='opencircle'">&#x25CB;</xsl:when>
+    <xsl:when main.diff_L1_L2.test="$itemsymbol='whitesquare'">&#x25A1;</xsl:when>
+    <xsl:when main.diff_L1_L2.test="$itemsymbol='smallwhitesquare'">&#x25AB;</xsl:when>
+    <xsl:when main.diff_L1_L2.test="$itemsymbol='round'">&#x25CF;</xsl:when>
+    <xsl:when main.diff_L1_L2.test="$itemsymbol='blackcircle'">&#x25CF;</xsl:when>
+    <xsl:when main.diff_L1_L2.test="$itemsymbol='whitebullet'">&#x25E6;</xsl:when>
+    <xsl:when main.diff_L1_L2.test="$itemsymbol='triangle'">&#x2023;</xsl:when>
+    <xsl:when main.diff_L1_L2.test="$itemsymbol='point'">&#x203A;</xsl:when>
+    <xsl:when main.diff_L1_L2.test="$itemsymbol='hand'"><fo:inline
                          font-family="Wingdings 2">A</fo:inline></xsl:when>
     -->
     <xsl:otherwise>&#x2022;</xsl:otherwise>

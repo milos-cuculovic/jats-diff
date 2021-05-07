@@ -1277,7 +1277,7 @@
           </xsl:call-template>
         </xsl:when>
         <!-- Some elements are sometimes blocks, sometimes inline
-             <xsl:when test='self::affiliation |
+             <xsl:when main.diff_L1_L2.test='self::affiliation |
                              self::alt |
                              self::attribution |
                              self::collab |

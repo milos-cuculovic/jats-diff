@@ -47,8 +47,7 @@
  * on behalf of the Apache Software Foundation and was originally created by
  * James Tauber <jtauber@jtauber.com>. For more information on the Apache
  * Software Foundation, please see <http://www.apache.org/>.
- */ 
-package embedding.model;
+ */
 
 import javax.xml.transform.Source;
 import javax.xml.transform.sax.SAXSource;

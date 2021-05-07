@@ -64,7 +64,7 @@
           <xsl:text>::</xsl:text>
           <xsl:value-of select="$tocentry/@filename"/>
           <xsl:text>::</xsl:text>
-          <xsl:if test="@localinfo">
+          <xsl:if main.diff_L1_L2.test="@localinfo">
             <xsl:text>#</xsl:text>
             <xsl:value-of select="@localinfo"/>
           </xsl:if>

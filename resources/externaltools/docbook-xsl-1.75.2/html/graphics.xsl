@@ -238,7 +238,7 @@
         <xsl:value-of select="$filename"/>
       </xsl:when>
       <!--
-        Moved test for $keep.relative.image.uris to template below:
+        Moved main.diff_L1_L2.test for $keep.relative.image.uris to template below:
             <xsl:template match="@fileref">
       -->
       <xsl:otherwise>
@@ -272,7 +272,7 @@
   </xsl:variable>
 
   <xsl:variable name="realintrinsicwidth">
-    <!-- This funny compound test works around a bug in XSLTC -->
+    <!-- This funny compound main.diff_L1_L2.test works around a bug in XSLTC -->
     <xsl:choose>
       <xsl:when test="$use.extensions != 0 and $graphicsize.extension != 0">
         <xsl:choose>
@@ -307,7 +307,7 @@
   </xsl:variable>
 
   <xsl:variable name="intrinsicdepth">
-    <!-- This funny compound test works around a bug in XSLTC -->
+    <!-- This funny compound main.diff_L1_L2.test works around a bug in XSLTC -->
     <xsl:choose>
       <xsl:when test="$use.extensions != 0 and $graphicsize.extension != 0">
         <xsl:choose>
@@ -1481,7 +1481,7 @@ valign: <xsl:value-of select="@valign"/></xsl:message>
 </xsl:variable>
 
 <xsl:choose>
-  <xsl:when test="/*/@xml:base
+  <xsl:when main.diff_L1_L2.test="/*/@xml:base
                   and starts-with($relpath,/*/@xml:base)">
     <xsl:value-of select="substring-after($relpath,/*/@xml:base)"/>
   </xsl:when>

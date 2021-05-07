@@ -214,7 +214,7 @@
           <para>All templates in each stylesheet must be documented.  A template is documented as a <ulink url="http://www.docbook.org/">DocBook</ulink> RefEntry.</para>
         </listitem>
         <listitem>
-          <para>Every stylesheet must include a test suite.  The test system is in the <filename>test</filename> subdirectory.  See <ulink url="test/test.html">test/test.html</ulink> for further details.</para>
+          <para>Every stylesheet must include a main.diff_L1_L2.test suite.  The main.diff_L1_L2.test system is in the <filename>main.diff_L1_L2.test</filename> subdirectory.  See <ulink url="main.diff_L1_L2.test/main.diff_L1_L2.test.html">main.diff_L1_L2.test/main.diff_L1_L2.test.html</ulink> for further details.</para>
         </listitem>
       </itemizedlist>
 

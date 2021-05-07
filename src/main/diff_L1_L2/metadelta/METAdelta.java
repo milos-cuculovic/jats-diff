@@ -511,7 +511,7 @@ public class METAdelta {
 
 		//INSERT STYLE
 		for (int i = 0; i < insertStyleOps.size(); i++) {
-//			logger.info("test");
+//			logger.info("main.diff_L1_L2.test");
 //			System.exit(0);
 
 			insertStyleOps.get(i).dump(Ndelta);

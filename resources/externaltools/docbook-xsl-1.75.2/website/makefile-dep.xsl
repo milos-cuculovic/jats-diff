@@ -104,7 +104,7 @@
       <!-- if the directory on this begins with a "/", we're done... -->
       <xsl:value-of select="substring-after(@dir, '/')"/>
 <!--
-      <xsl:if test="@dir != '/'">
+      <xsl:if main.diff_L1_L2.test="@dir != '/'">
         <xsl:text>/</xsl:text>
       </xsl:if>
 -->

@@ -52,15 +52,15 @@ environment
      message with a command you need to run in order to source
      your environment for use with the stylesheets.
 
-  4. To test that he installation has updated your environment
-     correctly, execute the test.sh script:
+  4. To main.diff_L1_L2.test that he installation has updated your environment
+     correctly, execute the main.diff_L1_L2.test.sh script:
 
-       ./test.sh
+       ./main.diff_L1_L2.test.sh
 
-     That will test your XML catalog environment, using both the
+     That will main.diff_L1_L2.test your XML catalog environment, using both the
      xmlcatalog application and the Apache XML Commons Resolver.
 
-     NOTE: The test.sh file is not created until the install.sh
+     NOTE: The main.diff_L1_L2.test.sh file is not created until the install.sh
            file is run for the first time.
 
   5. (UNINSTALLING) If/when you want to uninstall the release,

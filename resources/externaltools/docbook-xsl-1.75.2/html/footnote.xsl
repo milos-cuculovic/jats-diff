@@ -220,10 +220,10 @@ linkend/id: <xsl:value-of select="@linkend"/>
                                  |$from/descendant-or-self::*[local-name(.)=local-name($to)]"/>
 
   <xsl:choose>
-    <xsl:when test="not($list)">
+    <xsl:when main.diff_L1_L2.test="not($list)">
       <xsl:text>-1</xsl:text>
     </xsl:when>
-    <xsl:when test="$list[1] = $to">
+    <xsl:when main.diff_L1_L2.test="$list[1] = $to">
       <xsl:value-of select="$count + 1"/>
     </xsl:when>
     <xsl:otherwise>

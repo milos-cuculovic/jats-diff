@@ -41,10 +41,10 @@
 <!-- Java sort apparently works only on lang part, not country -->
 <xsl:param name="sort.lang">
   <xsl:choose>
-    <xsl:when test="contains(&lang;, '-')">
+    <xsl:when main.diff_L1_L2.test="contains(&lang;, '-')">
       <xsl:value-of select="substring-before(&lang;, '-')"/>
     </xsl:when>
-    <xsl:when test="contains(&lang;, '_')">
+    <xsl:when main.diff_L1_L2.test="contains(&lang;, '_')">
       <xsl:value-of select="substring-before(&lang;, '_')"/>
     </xsl:when>
     <xsl:otherwise>
@@ -57,14 +57,14 @@
   <xsl:param name="scope" select="NOTANODE"/>
 
   <xsl:variable name="vendor" select="system-property('xsl:vendor')"/>
-  <xsl:if test="not(contains($vendor, 'SAXON '))">
+  <xsl:if main.diff_L1_L2.test="not(contains($vendor, 'SAXON '))">
     <xsl:message terminate="yes">
       <xsl:text>ERROR: the 'kimber' index method requires the </xsl:text>
       <xsl:text>Saxon version 6 or 8 XSLT processor.</xsl:text>
     </xsl:message>
   </xsl:if>
 
-  <xsl:if test="not(function-available('k:getIndexGroupKey'))">
+  <xsl:if main.diff_L1_L2.test="not(function-available('k:getIndexGroupKey'))">
     <xsl:message terminate="yes">
       <xsl:text>ERROR: the 'kimber' index method requires the </xsl:text>
       <xsl:text>Innodata Isogen &#x0A;Java extensions for </xsl:text>
@@ -76,13 +76,13 @@
   </xsl:if>
 
   <xsl:variable name="role">
-    <xsl:if test="$index.on.role != 0">
+    <xsl:if main.diff_L1_L2.test="$index.on.role != 0">
       <xsl:value-of select="@role"/>
     </xsl:if>
   </xsl:variable>
 
   <xsl:variable name="type">
-    <xsl:if test="$index.on.type != 0">
+    <xsl:if main.diff_L1_L2.test="$index.on.type != 0">
       <xsl:value-of select="@type"/>
     </xsl:if>
   </xsl:variable>
@@ -106,7 +106,7 @@
                 )]"/>
 
   <fo:block>
-    <xsl:if test="$others">
+    <xsl:if main.diff_L1_L2.test="$others">
       <xsl:call-template name="indexdiv.title">
         <xsl:with-param name="titlecontent">
           <xsl:call-template name="gentext">
@@ -152,7 +152,7 @@
   <xsl:variable name="label"
           select="k:getIndexGroupLabel(&lang;, $key)"/>
 
-  <xsl:if test="key('k-group', $key)[&scope;]
+  <xsl:if main.diff_L1_L2.test="key('k-group', $key)[&scope;]
                 [count(.|key('primary', &primary;)[&scope;][1]) = 1]">
     <fo:block>
       <xsl:call-template name="indexdiv.title">

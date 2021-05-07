@@ -5710,7 +5710,7 @@ entry has an ID.</para>
 &lt;glossaryinfo&gt;
 &lt;editor&gt;&lt;firstname&gt;Eric&lt;/firstname&gt;&lt;surname&gt;Raymond&lt;/surname&gt;&lt;/editor&gt;
 &lt;title&gt;Jargon File 4.2.3 (abridged)&lt;/title&gt;
-&lt;releaseinfo&gt;Just some test data&lt;/releaseinfo&gt;
+&lt;releaseinfo&gt;Just some main.diff_L1_L2.test data&lt;/releaseinfo&gt;
 &lt;/glossaryinfo&gt;
 
 &lt;glossdiv&gt;&lt;title&gt;0&lt;/title&gt;
@@ -6144,7 +6144,7 @@ value of the revisionflag attribute). In some contexts, for example
 tables, where extra markup would be structurally illegal, the class
 attribute will be added to the appropriate container element.</para>
 
-<para>In general, the stylesheets only test for revisionflag in contexts
+<para>In general, the stylesheets only main.diff_L1_L2.test for revisionflag in contexts
 where an importing stylesheet would have to redefine whole templates.
 Most of the revisionflag processing is expected to be done by another
 stylesheet, for example <filename>changebars.xsl</filename>.</para>
@@ -6540,7 +6540,7 @@ spaces to break.
 <programlisting id="default.float.class.frag">
 &lt;xsl:param name="default.float.class"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="contains($stylesheet.result.type,'html')"&gt;left&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="contains($stylesheet.result.type,'html')"&gt;left&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;before&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;
@@ -6756,7 +6756,7 @@ an XSLT 2.0 processor it is not guaranteed to work with DocBook XSL in all circu
 <informalexample>
 <para><command>java -cp c:/Java/saxon.jar;c:/Java/xslthl-2.0.1.jar 
 -Dxslthl.config=file:///c:/docbook-xsl/highlighting/xslthl-config.xml com.icl.saxon.StyleSheet 
--o test.html test.xml myhtml.xsl</command></para>
+-o main.diff_L1_L2.test.html main.diff_L1_L2.test.xml myhtml.xsl</command></para>
 </informalexample>
 
 </refsection>
@@ -6845,13 +6845,13 @@ are generated around e-mail addresses
 </refmeta>
 <refnamediv>
 <refname>exsl.node.set.available</refname>
-<refpurpose>Is the test function-available('exsl:node-set') true?</refpurpose>
+<refpurpose>Is the main.diff_L1_L2.test function-available('exsl:node-set') true?</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
 <programlisting id="exsl.node.set.available.frag">&lt;xsl:param name="exsl.node.set.available"&gt; 
   &lt;xsl:choose&gt;
-    &lt;xsl:when exsl:foo="" test="function-available('exsl:node-set') or                        contains(system-property('xsl:vendor'),                          'Apache Software Foundation')"&gt;1&lt;/xsl:when&gt;
+    &lt;xsl:when exsl:foo="" main.diff_L1_L2.test="function-available('exsl:node-set') or                        contains(system-property('xsl:vendor'),                          'Apache Software Foundation')"&gt;1&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;0&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;
@@ -11750,7 +11750,7 @@ following in your customization layer.</para>
 
 <programlisting>&lt;xsl:attribute-set name="toc.line.properties"&gt;
   &lt;xsl:attribute name="font-weight"&gt;
-    &lt;xsl:when test="self::chapter | self::preface | self::appendix"&gt;bold&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="self::chapter | self::preface | self::appendix"&gt;bold&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;normal&lt;/xsl:otherwise&gt;
   &lt;/xsl:attribute&gt;
 &lt;/xsl:attribute-set&gt;</programlisting>
@@ -15400,7 +15400,7 @@ entry has an ID.</para>
 &lt;glossaryinfo&gt;
 &lt;editor&gt;&lt;firstname&gt;Eric&lt;/firstname&gt;&lt;surname&gt;Raymond&lt;/surname&gt;&lt;/editor&gt;
 &lt;title&gt;Jargon File 4.2.3 (abridged)&lt;/title&gt;
-&lt;releaseinfo&gt;Just some test data&lt;/releaseinfo&gt;
+&lt;releaseinfo&gt;Just some main.diff_L1_L2.test data&lt;/releaseinfo&gt;
 &lt;/glossaryinfo&gt;
 
 &lt;glossdiv&gt;&lt;title&gt;0&lt;/title&gt;
@@ -16631,7 +16631,7 @@ spaces to break.
 <programlisting id="default.float.class.frag">
 &lt;xsl:param name="default.float.class"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="contains($stylesheet.result.type,'html')"&gt;left&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="contains($stylesheet.result.type,'html')"&gt;left&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;before&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;
@@ -17117,7 +17117,7 @@ an XSLT 2.0 processor it is not guaranteed to work with DocBook XSL in all circu
 <informalexample>
 <para><command>java -cp c:/Java/saxon.jar;c:/Java/xslthl-2.0.1.jar 
 -Dxslthl.config=file:///c:/docbook-xsl/highlighting/xslthl-config.xml com.icl.saxon.StyleSheet 
--o test.html test.xml myhtml.xsl</command></para>
+-o main.diff_L1_L2.test.html main.diff_L1_L2.test.xml myhtml.xsl</command></para>
 </informalexample>
 
 </refsection>
@@ -17325,13 +17325,13 @@ monospace font being used.
 </refmeta>
 <refnamediv>
 <refname>exsl.node.set.available</refname>
-<refpurpose>Is the test function-available('exsl:node-set') true?</refpurpose>
+<refpurpose>Is the main.diff_L1_L2.test function-available('exsl:node-set') true?</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
 <programlisting id="exsl.node.set.available.frag">&lt;xsl:param name="exsl.node.set.available"&gt; 
   &lt;xsl:choose&gt;
-    &lt;xsl:when exsl:foo="" test="function-available('exsl:node-set') or                        contains(system-property('xsl:vendor'),                          'Apache Software Foundation')"&gt;1&lt;/xsl:when&gt;
+    &lt;xsl:when exsl:foo="" main.diff_L1_L2.test="function-available('exsl:node-set') or                        contains(system-property('xsl:vendor'),                          'Apache Software Foundation')"&gt;1&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;0&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;
@@ -17699,7 +17699,7 @@ zero by default, so this is simply the page-master margin-right.
 <refsynopsisdiv>
 <programlisting id="page.height.frag">&lt;xsl:param name="page.height"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$page.orientation = 'portrait'"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$page.orientation = 'portrait'"&gt;
       &lt;xsl:value-of select="$page.height.portrait"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;
@@ -17732,44 +17732,44 @@ zero by default, so this is simply the page-master margin-right.
 <refsynopsisdiv>
 <programlisting id="page.height.portrait.frag">&lt;xsl:param name="page.height.portrait"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$paper.type = 'A4landscape'"&gt;210mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'USletter'"&gt;11in&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'USlandscape'"&gt;8.5in&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = '4A0'"&gt;2378mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = '2A0'"&gt;1682mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A0'"&gt;1189mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A1'"&gt;841mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A2'"&gt;594mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A3'"&gt;420mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A4'"&gt;297mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A5'"&gt;210mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A6'"&gt;148mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A7'"&gt;105mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A8'"&gt;74mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A9'"&gt;52mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A10'"&gt;37mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B0'"&gt;1414mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B1'"&gt;1000mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B2'"&gt;707mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B3'"&gt;500mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B4'"&gt;353mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B5'"&gt;250mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B6'"&gt;176mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B7'"&gt;125mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B8'"&gt;88mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B9'"&gt;62mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B10'"&gt;44mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C0'"&gt;1297mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C1'"&gt;917mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C2'"&gt;648mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C3'"&gt;458mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C4'"&gt;324mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C5'"&gt;229mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C6'"&gt;162mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C7'"&gt;114mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C8'"&gt;81mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C9'"&gt;57mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C10'"&gt;40mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A4landscape'"&gt;210mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'USletter'"&gt;11in&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'USlandscape'"&gt;8.5in&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = '4A0'"&gt;2378mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = '2A0'"&gt;1682mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A0'"&gt;1189mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A1'"&gt;841mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A2'"&gt;594mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A3'"&gt;420mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A4'"&gt;297mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A5'"&gt;210mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A6'"&gt;148mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A7'"&gt;105mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A8'"&gt;74mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A9'"&gt;52mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A10'"&gt;37mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B0'"&gt;1414mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B1'"&gt;1000mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B2'"&gt;707mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B3'"&gt;500mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B4'"&gt;353mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B5'"&gt;250mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B6'"&gt;176mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B7'"&gt;125mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B8'"&gt;88mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B9'"&gt;62mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B10'"&gt;44mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C0'"&gt;1297mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C1'"&gt;917mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C2'"&gt;648mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C3'"&gt;458mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C4'"&gt;324mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C5'"&gt;229mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C6'"&gt;162mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C7'"&gt;114mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C8'"&gt;81mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C9'"&gt;57mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C10'"&gt;40mm&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;11in&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;</programlisting>
@@ -17822,7 +17822,7 @@ to the physical bottom of the page.
 <refsynopsisdiv>
 <programlisting id="page.margin.inner.frag">&lt;xsl:param name="page.margin.inner"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$double.sided != 0"&gt;1.25in&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$double.sided != 0"&gt;1.25in&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;1in&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;</programlisting>
@@ -17874,7 +17874,7 @@ with left-to-right text direction.</para>
 <refsynopsisdiv>
 <programlisting id="page.margin.outer.frag">&lt;xsl:param name="page.margin.outer"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$double.sided != 0"&gt;0.75in&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$double.sided != 0"&gt;0.75in&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;1in&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;</programlisting>
@@ -17975,7 +17975,7 @@ landscape orientation, it is vertical.
 <refsynopsisdiv>
 <programlisting id="page.width.frag">&lt;xsl:param name="page.width"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$page.orientation = 'portrait'"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$page.orientation = 'portrait'"&gt;
       &lt;xsl:value-of select="$page.width.portrait"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;
@@ -18007,42 +18007,42 @@ landscape orientation, it is vertical.
 <refsynopsisdiv>
 <programlisting id="page.width.portrait.frag">&lt;xsl:param name="page.width.portrait"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$paper.type = 'USletter'"&gt;8.5in&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = '4A0'"&gt;1682mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = '2A0'"&gt;1189mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A0'"&gt;841mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A1'"&gt;594mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A2'"&gt;420mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A3'"&gt;297mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A4'"&gt;210mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A5'"&gt;148mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A6'"&gt;105mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A7'"&gt;74mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A8'"&gt;52mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A9'"&gt;37mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A10'"&gt;26mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B0'"&gt;1000mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B1'"&gt;707mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B2'"&gt;500mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B3'"&gt;353mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B4'"&gt;250mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B5'"&gt;176mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B6'"&gt;125mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B7'"&gt;88mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B8'"&gt;62mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B9'"&gt;44mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B10'"&gt;31mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C0'"&gt;917mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C1'"&gt;648mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C2'"&gt;458mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C3'"&gt;324mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C4'"&gt;229mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C5'"&gt;162mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C6'"&gt;114mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C7'"&gt;81mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C8'"&gt;57mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C9'"&gt;40mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C10'"&gt;28mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'USletter'"&gt;8.5in&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = '4A0'"&gt;1682mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = '2A0'"&gt;1189mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A0'"&gt;841mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A1'"&gt;594mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A2'"&gt;420mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A3'"&gt;297mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A4'"&gt;210mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A5'"&gt;148mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A6'"&gt;105mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A7'"&gt;74mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A8'"&gt;52mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A9'"&gt;37mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A10'"&gt;26mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B0'"&gt;1000mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B1'"&gt;707mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B2'"&gt;500mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B3'"&gt;353mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B4'"&gt;250mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B5'"&gt;176mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B6'"&gt;125mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B7'"&gt;88mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B8'"&gt;62mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B9'"&gt;44mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B10'"&gt;31mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C0'"&gt;917mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C1'"&gt;648mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C2'"&gt;458mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C3'"&gt;324mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C4'"&gt;229mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C5'"&gt;162mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C6'"&gt;114mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C7'"&gt;81mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C8'"&gt;57mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C9'"&gt;40mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C10'"&gt;28mm&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;8.5in&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;</programlisting>
@@ -18214,8 +18214,8 @@ region-before to the first line of text in the page body.</para>
 <programlisting id="body.start.indent.frag">
 &lt;xsl:param name="body.start.indent"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$fop.extensions != 0"&gt;0pt&lt;/xsl:when&gt;
-    &lt;xsl:when test="$passivetex.extensions != 0"&gt;0pt&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$fop.extensions != 0"&gt;0pt&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$passivetex.extensions != 0"&gt;0pt&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;4pc&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;
@@ -18858,8 +18858,8 @@ so that math can be performed on the font size by XSLT.
 <programlisting id="title.margin.left.frag">
 &lt;xsl:param name="title.margin.left"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$fop.extensions != 0"&gt;-4pc&lt;/xsl:when&gt;
-    &lt;xsl:when test="$passivetex.extensions != 0"&gt;0pt&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$fop.extensions != 0"&gt;-4pc&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$passivetex.extensions != 0"&gt;0pt&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;0pt&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;
@@ -20160,7 +20160,7 @@ this parameter is ignored.
   &lt;xsl:attribute name="hyphenate"&gt;false&lt;/xsl:attribute&gt;
   &lt;xsl:attribute name="text-align"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="((parent::article | parent::articleinfo | parent::info/parent::article) and not(ancestor::book) and not(self::bibliography))         or (parent::slides | parent::slidesinfo)"&gt;center&lt;/xsl:when&gt;
+      &lt;xsl:when main.diff_L1_L2.test="((parent::article | parent::articleinfo | parent::info/parent::article) and not(ancestor::book) and not(self::bibliography))         or (parent::slides | parent::slidesinfo)"&gt;center&lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;start&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:attribute&gt;
@@ -30203,7 +30203,7 @@ will be used to indent the TOC.</para>
   &lt;xsl:param name="string"&gt;&lt;/xsl:param&gt;
   &lt;xsl:param name="count" select="0"&gt;&lt;/xsl:param&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="contains($string, '.')"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="contains($string, '.')"&gt;
       &lt;xsl:call-template name="dot.count"&gt;
         &lt;xsl:with-param name="string" select="substring-after($string, '.')"&gt;&lt;/xsl:with-param&gt;
         &lt;xsl:with-param name="count" select="$count+1"&gt;&lt;/xsl:with-param&gt;
@@ -30242,7 +30242,7 @@ will be used to indent the TOC.</para>
   &lt;xsl:param name="result"&gt;&lt;/xsl:param&gt;
 
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$count&gt;0"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$count&gt;0"&gt;
       &lt;xsl:call-template name="copy-string"&gt;
         &lt;xsl:with-param name="string" select="$string"&gt;&lt;/xsl:with-param&gt;
         &lt;xsl:with-param name="count" select="$count - 1"&gt;&lt;/xsl:with-param&gt;
@@ -30284,7 +30284,7 @@ with <parameter>replacement</parameter> and returns the result.
   &lt;xsl:param name="replacement"&gt;&lt;/xsl:param&gt;
 
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="contains($string, $target)"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="contains($string, $target)"&gt;
       &lt;xsl:variable name="rest"&gt;
         &lt;xsl:call-template name="string.subst"&gt;
           &lt;xsl:with-param name="string" select="substring-after($string, $target)"&gt;&lt;/xsl:with-param&gt;
@@ -30326,12 +30326,12 @@ the empty string.</para>
 &lt;xsl:template name="xpointer.idref"&gt;
   &lt;xsl:param name="xpointer"&gt;http://...&lt;/xsl:param&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="starts-with($xpointer, '#xpointer(id(')"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="starts-with($xpointer, '#xpointer(id(')"&gt;
       &lt;xsl:variable name="rest" select="substring-after($xpointer, '#xpointer(id(')"&gt;&lt;/xsl:variable&gt;
       &lt;xsl:variable name="quote" select="substring($rest, 1, 1)"&gt;&lt;/xsl:variable&gt;
       &lt;xsl:value-of select="substring-before(substring-after($xpointer, $quote), $quote)"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
-    &lt;xsl:when test="starts-with($xpointer, '#')"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="starts-with($xpointer, '#')"&gt;
       &lt;xsl:value-of select="substring-after($xpointer, '#')"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
     &lt;!-- otherwise it's a pointer to some other document --&gt;
@@ -30362,8 +30362,8 @@ unqualified length ("20" for "20pt") from a dimension.
   &lt;xsl:param name="length" select="'0pt'"&gt;&lt;/xsl:param&gt;
 
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="string-length($length) = 0"&gt;&lt;/xsl:when&gt;
-    &lt;xsl:when test="substring($length,1,1) = '0'                     or substring($length,1,1) = '1'                     or substring($length,1,1) = '2'                     or substring($length,1,1) = '3'                     or substring($length,1,1) = '4'                     or substring($length,1,1) = '5'                     or substring($length,1,1) = '6'                     or substring($length,1,1) = '7'                     or substring($length,1,1) = '8'                     or substring($length,1,1) = '9'                     or substring($length,1,1) = '.'"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="string-length($length) = 0"&gt;&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="substring($length,1,1) = '0'                     or substring($length,1,1) = '1'                     or substring($length,1,1) = '2'                     or substring($length,1,1) = '3'                     or substring($length,1,1) = '4'                     or substring($length,1,1) = '5'                     or substring($length,1,1) = '6'                     or substring($length,1,1) = '7'                     or substring($length,1,1) = '8'                     or substring($length,1,1) = '9'                     or substring($length,1,1) = '.'"&gt;
       &lt;xsl:value-of select="substring($length,1,1)"&gt;&lt;/xsl:value-of&gt;
       &lt;xsl:call-template name="length-magnitude"&gt;
         &lt;xsl:with-param name="length" select="substring($length,2)"&gt;&lt;/xsl:with-param&gt;
@@ -30405,7 +30405,7 @@ length, the <parameter>defauilt.units</parameter> are returned.</para>
   &lt;/xsl:variable&gt;
 
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$units = ''"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$units = ''"&gt;
       &lt;xsl:value-of select="$default.units"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;
@@ -30450,10 +30450,10 @@ the <parameter>default.units</parameter> will be added to it.
 
   &lt;xsl:value-of select="$magnitude"&gt;&lt;/xsl:value-of&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$units='cm'                     or $units='mm'                     or $units='in'                     or $units='pt'                     or $units='pc'                     or $units='px'                     or $units='em'"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$units='cm'                     or $units='mm'                     or $units='in'                     or $units='pt'                     or $units='pc'                     or $units='px'                     or $units='em'"&gt;
       &lt;xsl:value-of select="$units"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
-    &lt;xsl:when test="$units = ''"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$units = ''"&gt;
       &lt;xsl:value-of select="$default.units"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;
@@ -30513,25 +30513,25 @@ which is initially <literal>10</literal> (for 10pt).</para>
   &lt;/xsl:variable&gt;
 
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$units = 'pt'"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$units = 'pt'"&gt;
       &lt;xsl:value-of select="$magnitude"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
-    &lt;xsl:when test="$units = 'cm'"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$units = 'cm'"&gt;
       &lt;xsl:value-of select="$magnitude div 2.54 * 72.0"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
-    &lt;xsl:when test="$units = 'mm'"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$units = 'mm'"&gt;
       &lt;xsl:value-of select="$magnitude div 25.4 * 72.0"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
-    &lt;xsl:when test="$units = 'in'"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$units = 'in'"&gt;
       &lt;xsl:value-of select="$magnitude * 72.0"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
-    &lt;xsl:when test="$units = 'pc'"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$units = 'pc'"&gt;
       &lt;xsl:value-of select="$magnitude * 12.0"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
-    &lt;xsl:when test="$units = 'px'"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$units = 'px'"&gt;
       &lt;xsl:value-of select="$magnitude div $pixels.per.inch * 72.0"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
-    &lt;xsl:when test="$units = 'em'"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$units = 'em'"&gt;
       &lt;xsl:value-of select="$magnitude * $em.size"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;
@@ -30577,7 +30577,7 @@ for example), the template may silently return erroneous results.</para>
   &lt;xsl:param name="count"&gt;1&lt;/xsl:param&gt;
 
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$count&gt;count($pis)"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$count&gt;count($pis)"&gt;
       &lt;!-- not found --&gt;
     &lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;
@@ -30588,7 +30588,7 @@ for example), the template may silently return erroneous results.</para>
         &lt;xsl:value-of select="concat(' ', normalize-space($pi))"&gt;&lt;/xsl:value-of&gt;
       &lt;/xsl:variable&gt;
       &lt;xsl:choose&gt;
-        &lt;xsl:when test="contains($pivalue,concat(' ', $attribute, '='))"&gt;
+        &lt;xsl:when main.diff_L1_L2.test="contains($pivalue,concat(' ', $attribute, '='))"&gt;
           &lt;xsl:variable name="rest" select="substring-after($pivalue,concat(' ', $attribute,'='))"&gt;&lt;/xsl:variable&gt;
           &lt;xsl:variable name="quote" select="substring($rest,1,1)"&gt;&lt;/xsl:variable&gt;
           &lt;xsl:value-of select="substring-before(substring($rest,2),$quote)"&gt;&lt;/xsl:value-of&gt;
@@ -30628,12 +30628,12 @@ with a particular key.</para>
   &lt;xsl:param name="key" select="''"&gt;&lt;/xsl:param&gt;
   &lt;xsl:param name="table" select="''"&gt;&lt;/xsl:param&gt;
 
-  &lt;xsl:if test="contains($table, ' ')"&gt;
+  &lt;xsl:if main.diff_L1_L2.test="contains($table, ' ')"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="substring-before($table, ' ') = $key"&gt;
+      &lt;xsl:when main.diff_L1_L2.test="substring-before($table, ' ') = $key"&gt;
         &lt;xsl:variable name="rest" select="substring-after($table, ' ')"&gt;&lt;/xsl:variable&gt;
         &lt;xsl:choose&gt;
-          &lt;xsl:when test="contains($rest, ' ')"&gt;
+          &lt;xsl:when main.diff_L1_L2.test="contains($rest, ' ')"&gt;
             &lt;xsl:value-of select="substring-before($rest, ' ')"&gt;&lt;/xsl:value-of&gt;
           &lt;/xsl:when&gt;
           &lt;xsl:otherwise&gt;
@@ -30676,12 +30676,12 @@ absolute path from the root of the tree to the current element node.
 
   &lt;xsl:variable name="next.path"&gt;
     &lt;xsl:value-of select="local-name($node)"&gt;&lt;/xsl:value-of&gt;
-    &lt;xsl:if test="$path != ''"&gt;/&lt;/xsl:if&gt;
+    &lt;xsl:if main.diff_L1_L2.test="$path != ''"&gt;/&lt;/xsl:if&gt;
     &lt;xsl:value-of select="$path"&gt;&lt;/xsl:value-of&gt;
   &lt;/xsl:variable&gt;
 
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$node/parent::*"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$node/parent::*"&gt;
       &lt;xsl:call-template name="xpath.location"&gt;
         &lt;xsl:with-param name="node" select="$node/parent::*"&gt;&lt;/xsl:with-param&gt;
         &lt;xsl:with-param name="path" select="$next.path"&gt;&lt;/xsl:with-param&gt;
@@ -30717,7 +30717,7 @@ trailing space will be added to the string, if necessary.</para>
 &lt;xsl:template name="comment-escape-string"&gt;
   &lt;xsl:param name="string" select="''"&gt;&lt;/xsl:param&gt;
 
-  &lt;xsl:if test="starts-with($string, '-')"&gt;
+  &lt;xsl:if main.diff_L1_L2.test="starts-with($string, '-')"&gt;
     &lt;xsl:text&gt; &lt;/xsl:text&gt;
   &lt;/xsl:if&gt;
 
@@ -30725,7 +30725,7 @@ trailing space will be added to the string, if necessary.</para>
     &lt;xsl:with-param name="string" select="$string"&gt;&lt;/xsl:with-param&gt;
   &lt;/xsl:call-template&gt;
 
-  &lt;xsl:if test="substring($string, string-length($string), 1) = '-'"&gt;
+  &lt;xsl:if main.diff_L1_L2.test="substring($string, string-length($string), 1) = '-'"&gt;
     &lt;xsl:text&gt; &lt;/xsl:text&gt;
   &lt;/xsl:if&gt;
 &lt;/xsl:template&gt;
@@ -30751,7 +30751,7 @@ by <function>comment-escape-string</function>.</para>
 &lt;xsl:template name="comment-escape-string.recursive"&gt;
   &lt;xsl:param name="string" select="''"&gt;&lt;/xsl:param&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="contains($string, '--')"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="contains($string, '--')"&gt;
       &lt;xsl:value-of select="substring-before($string, '--')"&gt;&lt;/xsl:value-of&gt;
       &lt;xsl:value-of select="'- -'"&gt;&lt;/xsl:value-of&gt;
       &lt;xsl:call-template name="comment-escape-string.recursive"&gt;
@@ -30800,7 +30800,7 @@ whitespace from it and returns the trimmed contents.</para>
   &lt;xsl:template name="trim-left"&gt;
     &lt;xsl:param name="contents"&gt;&lt;/xsl:param&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($contents,'
+      &lt;xsl:when main.diff_L1_L2.test="starts-with($contents,'
 ') or                       starts-with($contents,'&#xD;') or                       starts-with($contents,' ') or                       starts-with($contents,'	')"&gt;
         &lt;xsl:call-template name="trim-left"&gt;
           &lt;xsl:with-param name="contents" select="substring($contents, 2)"&gt;&lt;/xsl:with-param&gt;
@@ -30818,7 +30818,7 @@ whitespace from it and returns the trimmed contents.</para>
       &lt;xsl:value-of select="substring($contents, string-length($contents), 1)"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:variable&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="($last-char = '
+      &lt;xsl:when main.diff_L1_L2.test="($last-char = '
 ') or                       ($last-char = '&#xD;') or                       ($last-char = ' ') or                       ($last-char = '	')"&gt;
         &lt;xsl:call-template name="trim-right"&gt;
           &lt;xsl:with-param name="contents" select="substring($contents, 1, string-length($contents) - 1)"&gt;&lt;/xsl:with-param&gt;
@@ -30862,8 +30862,8 @@ and preserving the delimiters as text nodes between the tokens.</para>
     &lt;xsl:param name="string" select="''"&gt;&lt;/xsl:param&gt;
     &lt;xsl:param name="delimiters" select="' '"&gt;&lt;/xsl:param&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="not($string)"&gt;&lt;/xsl:when&gt;
-      &lt;xsl:when test="not($delimiters)"&gt;
+      &lt;xsl:when main.diff_L1_L2.test="not($string)"&gt;&lt;/xsl:when&gt;
+      &lt;xsl:when main.diff_L1_L2.test="not($delimiters)"&gt;
         &lt;xsl:call-template name="str.tokenize.keep.delimiters-characters"&gt;
           &lt;xsl:with-param name="string" select="$string"&gt;&lt;/xsl:with-param&gt;
         &lt;/xsl:call-template&gt;
@@ -30878,7 +30878,7 @@ and preserving the delimiters as text nodes between the tokens.</para>
   &lt;/xsl:template&gt;
   &lt;xsl:template name="str.tokenize.keep.delimiters-characters"&gt;
     &lt;xsl:param name="string"&gt;&lt;/xsl:param&gt;
-    &lt;xsl:if test="$string"&gt;
+    &lt;xsl:if main.diff_L1_L2.test="$string"&gt;
       &lt;ssb:token&gt;&lt;xsl:value-of select="substring($string, 1, 1)"&gt;&lt;/xsl:value-of&gt;&lt;/ssb:token&gt;
       &lt;xsl:call-template name="str.tokenize.keep.delimiters-characters"&gt;
         &lt;xsl:with-param name="string" select="substring($string, 2)"&gt;&lt;/xsl:with-param&gt;
@@ -30890,11 +30890,11 @@ and preserving the delimiters as text nodes between the tokens.</para>
     &lt;xsl:param name="delimiters"&gt;&lt;/xsl:param&gt;
     &lt;xsl:variable name="delimiter" select="substring($delimiters, 1, 1)"&gt;&lt;/xsl:variable&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="not($delimiter)"&gt;
+      &lt;xsl:when main.diff_L1_L2.test="not($delimiter)"&gt;
         &lt;ssb:token&gt;&lt;xsl:value-of select="$string"&gt;&lt;/xsl:value-of&gt;&lt;/ssb:token&gt;
       &lt;/xsl:when&gt;
-      &lt;xsl:when test="contains($string, $delimiter)"&gt;
-        &lt;xsl:if test="not(starts-with($string, $delimiter))"&gt;
+      &lt;xsl:when main.diff_L1_L2.test="contains($string, $delimiter)"&gt;
+        &lt;xsl:if main.diff_L1_L2.test="not(starts-with($string, $delimiter))"&gt;
           &lt;xsl:call-template name="str.tokenize.keep.delimiters-delimiters"&gt;
             &lt;xsl:with-param name="string" select="substring-before($string, $delimiter)"&gt;&lt;/xsl:with-param&gt;
             &lt;xsl:with-param name="delimiters" select="substring($delimiters, 2)"&gt;&lt;/xsl:with-param&gt;
@@ -30972,7 +30972,7 @@ and preserving the delimiters as text nodes between the tokens.</para>
         &lt;/xsl:call-template&gt;
       &lt;/xsl:variable&gt;
       &lt;xsl:choose&gt;
-        &lt;xsl:when test="$map.contents[2]"&gt;
+        &lt;xsl:when main.diff_L1_L2.test="$map.contents[2]"&gt;
           &lt;xsl:call-template name="apply-string-subst-map"&gt;
             &lt;xsl:with-param name="content" select="$replaced_text"&gt;&lt;/xsl:with-param&gt;
             &lt;xsl:with-param name="map.contents" select="$map.contents[position() &gt; 1]"&gt;&lt;/xsl:with-param&gt;
@@ -31027,7 +31027,7 @@ which would effectively move <quote>up</quote> the hierarchy.</para>
   &lt;xsl:param name="count" select="0"&gt;&lt;/xsl:param&gt;
 
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="contains($filename, '/')"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="contains($filename, '/')"&gt;
       &lt;xsl:call-template name="count.uri.path.depth"&gt;
         &lt;xsl:with-param name="filename" select="substring-after($filename, '/')"&gt;&lt;/xsl:with-param&gt;
         &lt;xsl:with-param name="count" select="$count + 1"&gt;&lt;/xsl:with-param&gt;
@@ -31062,7 +31062,7 @@ which would effectively move <quote>up</quote> the hierarchy.</para>
   &lt;xsl:param name="return" select="'A'"&gt;&lt;/xsl:param&gt;
 
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="contains($uriA, '/') and contains($uriB, '/')                     and substring-before($uriA, '/') = substring-before($uriB, '/')"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="contains($uriA, '/') and contains($uriB, '/')                     and substring-before($uriA, '/') = substring-before($uriB, '/')"&gt;
       &lt;xsl:call-template name="trim.common.uri.paths"&gt;
         &lt;xsl:with-param name="uriA" select="substring-after($uriA, '/')"&gt;&lt;/xsl:with-param&gt;
         &lt;xsl:with-param name="uriB" select="substring-after($uriB, '/')"&gt;&lt;/xsl:with-param&gt;
@@ -31071,7 +31071,7 @@ which would effectively move <quote>up</quote> the hierarchy.</para>
     &lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;
       &lt;xsl:choose&gt;
-        &lt;xsl:when test="$return = 'A'"&gt;
+        &lt;xsl:when main.diff_L1_L2.test="$return = 'A'"&gt;
           &lt;xsl:value-of select="$uriA"&gt;&lt;/xsl:value-of&gt;
         &lt;/xsl:when&gt;
         &lt;xsl:otherwise&gt;
@@ -32549,7 +32549,7 @@ unchanged.</para>
 &lt;xsl:param name="context-desc"/&gt;
 &lt;xsl:param name="context-desc-field-length"&gt;12&lt;/xsl:param&gt;
 &lt;xsl:param name="context-desc-padded"&gt;
-    &lt;xsl:if test="not($context-desc = '')"&gt;
+    &lt;xsl:if main.diff_L1_L2.test="not($context-desc = '')"&gt;
       &lt;xsl:call-template name="pad-string"&gt;
         &lt;xsl:with-param name="leftRight"&gt;right&lt;/xsl:with-param&gt;
         &lt;xsl:with-param name="padVar" select="substring($context-desc, 1, $context-desc-field-length)"/&gt;
@@ -32564,7 +32564,7 @@ unchanged.</para>
       &lt;!-- * if the level field is blank, we'll need to pad out --&gt;
       &lt;!-- * the message field with spaces to compensate --&gt;
       &lt;xsl:choose&gt;
-        &lt;xsl:when test="$level = ''"&gt;
+        &lt;xsl:when main.diff_L1_L2.test="$level = ''"&gt;
           &lt;xsl:value-of select="4 + 2"/&gt;
           &lt;!-- * 4 = hard-coded length of comment text ("Note" or "Warn") --&gt;
           &lt;!-- * + 2 = length of colon-plus-space separator ": " --&gt;
@@ -32578,7 +32578,7 @@ unchanged.</para>
       &lt;!-- * if the context-description field is blank, we'll need --&gt;
       &lt;!-- * to pad out the message field with spaces to compensate --&gt;
       &lt;xsl:choose&gt;
-        &lt;xsl:when test="$context-desc = ''"&gt;
+        &lt;xsl:when main.diff_L1_L2.test="$context-desc = ''"&gt;
           &lt;xsl:value-of select="$context-desc-field-length + 2"/&gt;
           &lt;!-- * + 2 = length of colon-plus-space separator ": " --&gt;
         &lt;/xsl:when&gt;

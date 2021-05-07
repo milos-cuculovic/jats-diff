@@ -390,7 +390,7 @@
           </xsl:for-each>
         </xsl:variable>
 
-        <xsl:if test="$exist.test != ''">
+        <xsl:if test="$exist.main.diff_L1_L2.test != ''">
           <xsl:choose>
             <xsl:when test="$presentation = 'list'">
               <xsl:apply-templates select="." mode="auto-glossary-as-list">

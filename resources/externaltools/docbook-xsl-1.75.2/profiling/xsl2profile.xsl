@@ -139,7 +139,7 @@
 </xsl:template>
 
 <!-- DB5 namespace stripping is already done  -->
-<xsl:template match="xsl:when[contains(@test, 'self::db')]" mode="correct">
+<xsl:template match="xsl:when[contains(@main.diff_L1_L2.test, 'self::db')]" mode="correct">
   <xsl:copy>
     <xsl:attribute name="test">false()</xsl:attribute>
   </xsl:copy>

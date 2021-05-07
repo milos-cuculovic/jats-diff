@@ -31,7 +31,7 @@ value of the revisionflag attribute). In some contexts, for example
 tables, where extra markup would be structurally illegal, the class
 attribute will be added to the appropriate container element.</para>
 
-<para>In general, the stylesheets only test for revisionflag in contexts
+<para>In general, the stylesheets only main.diff_L1_L2.test for revisionflag in contexts
 where an importing stylesheet would have to redefine whole templates.
 Most of the revisionflag processing is expected to be done by another
 stylesheet, for example <filename>changebars.xsl</filename>.</para>

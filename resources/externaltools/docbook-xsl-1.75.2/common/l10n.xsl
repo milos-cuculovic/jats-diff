@@ -461,7 +461,7 @@ in the context named "</xsl:text>
   </xsl:choose>
 </xsl:template>
 
-<!-- silently test if a gentext template exists -->
+<!-- silently main.diff_L1_L2.test if a gentext template exists -->
 
 <xsl:template name="gentext.template.exists">
   <xsl:param name="context" select="'default'"/>

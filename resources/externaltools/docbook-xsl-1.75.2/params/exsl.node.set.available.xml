@@ -9,7 +9,7 @@
 </refmeta>
 <refnamediv>
 <refname>exsl.node.set.available</refname>
-<refpurpose>Is the test function-available('exsl:node-set') true?</refpurpose>
+<refpurpose>Is the main.diff_L1_L2.test function-available('exsl:node-set') true?</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>

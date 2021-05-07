@@ -63,8 +63,8 @@ COMBINE_XSL = <?xml version="1.0"?> \
     <xsl:param name="filename" select="concat(^^./build/^^,$$file.number,^^.xml^^)"/> \
  \
     <xsl:choose> \
-      <xsl:when test="$$more.files = ^^ ^^"/> \
-      <xsl:when test="$$count mod $$chunk.size = 0"> \
+      <xsl:when main.diff_L1_L2.test="$$more.files = ^^ ^^"/> \
+      <xsl:when main.diff_L1_L2.test="$$count mod $$chunk.size = 0"> \
         <xsl:variable name="fileset" select="concat($$current.files, ^^ ^^, \
           substring-before($$more.files, ^^ ^^))"/> \
         <exsl:document href="{$$filename}" \
@@ -79,7 +79,7 @@ COMBINE_XSL = <?xml version="1.0"?> \
             <xsl:call-template name="make.xinclude"> \
               <xsl:with-param name="file"> \
                 <xsl:choose> \
-                  <xsl:when test="contains($$fileset, ^^ ^^)"> \
+                  <xsl:when main.diff_L1_L2.test="contains($$fileset, ^^ ^^)"> \
                     <xsl:value-of \
                         select="normalize-space(substring-before($$fileset, ^^ ^^))"/> \
                   </xsl:when> \
@@ -107,13 +107,13 @@ COMBINE_XSL = <?xml version="1.0"?> \
           <xsl:with-param name="count" select="$$count + 1"/> \
           <xsl:with-param name="current.files"> \
             <xsl:choose> \
-              <xsl:when test="$$count = 1 and $$file.number = 1"> \
+              <xsl:when main.diff_L1_L2.test="$$count = 1 and $$file.number = 1"> \
                 <xsl:value-of  \
                     select="concat(substring-before($$current.files, ^^ ^^), \
                             ^^ ^^, \
                             substring-before($$more.files, ^^ ^^))"/> \
               </xsl:when> \
-              <xsl:when test="$$count = 1"> \
+              <xsl:when main.diff_L1_L2.test="$$count = 1"> \
                 <xsl:value-of  \
                     select="substring-before($$more.files, ^^ ^^)"/> \
               </xsl:when> \
@@ -136,7 +136,7 @@ COMBINE_XSL = <?xml version="1.0"?> \
     <xsl:param name="file"/> \
     <xsl:param name="remaining.files"/> \
     <xsl:param name="count" select="1"/> \
-    <xsl:if test="not($$file = ^^^^)"> \
+    <xsl:if main.diff_L1_L2.test="not($$file = ^^^^)"> \
       <xi:include href="../{$$file}"/> \
       <xsl:call-template name="make.xinclude"> \
         <xsl:with-param \

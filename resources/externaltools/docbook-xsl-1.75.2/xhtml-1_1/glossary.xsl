@@ -467,7 +467,7 @@ GlossEntry ::=
             </xsl:for-each>
           </xsl:variable>
 
-          <xsl:if test="$exist.test != ''">
+          <xsl:if test="$exist.main.diff_L1_L2.test != ''">
             <xsl:apply-templates select="." mode="auto-glossary">
               <xsl:with-param name="terms" select="$terms"/>
             </xsl:apply-templates>

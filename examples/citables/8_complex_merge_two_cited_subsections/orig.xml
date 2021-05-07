@@ -214,7 +214,7 @@
       </sec>
       <sec id="sec4dot8-ijms-21-09561">
         <title>4.8. Statistical Analysis</title>
-        <p>Statistical analysis was performed using Student&#x2019;s <italic>t</italic>-test as indicated in the figure legends. All experiments were performed on at least three independently grown biological replicates. All values represent the mean &#xB1; SD.</p>
+        <p>Statistical analysis was performed using Student&#x2019;s <italic>t</italic>-main.diff_L1_L2.test as indicated in the figure legends. All experiments were performed on at least three independently grown biological replicates. All values represent the mean &#xB1; SD.</p>
       </sec>
     </sec>
     <sec id="sec5-ijms-21-09561" sec-type="conclusions">
@@ -1345,14 +1345,14 @@
       <fig id="ijms-21-09561-f005" position="float">
         <label>Figure 5</label>
         <caption>
-          <p>Effect of exogenous ABA on asymbiotic germination of immature seeds of <italic>P. armeniacum</italic>. The seeds harvested at 94 DAP were used to represent immature seeds&#x2019; germination performance. Light microscope images of (<bold>A</bold>) the germinated immature seeds without any treatment and the immature seeds treated with 5 &#x3BC;g/mL ABA (<bold>B</bold>) in the culture medium. The immature seeds with exogenous ABA treatment demonstrated a reduced ability on both embryo swollen and seed coat rupture, as compared to the one without ABA treatment. Red arrow: Embryo that have breakthrough seed coat; Yellow arrow: Embryo that have not broken through the seed coat. Scale bar = 1 mm. (<bold>C</bold>) Asymbiotic germination rate of the CK (control) and ABA-treated immature seeds. <italic>n</italic> = 3; &#xB1;SD; Asterisks indicate significant difference from the WT (Student&#x2019;s <italic>t</italic> test, <italic>p</italic> &lt; 0.01).</p>
+          <p>Effect of exogenous ABA on asymbiotic germination of immature seeds of <italic>P. armeniacum</italic>. The seeds harvested at 94 DAP were used to represent immature seeds&#x2019; germination performance. Light microscope images of (<bold>A</bold>) the germinated immature seeds without any treatment and the immature seeds treated with 5 &#x3BC;g/mL ABA (<bold>B</bold>) in the culture medium. The immature seeds with exogenous ABA treatment demonstrated a reduced ability on both embryo swollen and seed coat rupture, as compared to the one without ABA treatment. Red arrow: Embryo that have breakthrough seed coat; Yellow arrow: Embryo that have not broken through the seed coat. Scale bar = 1 mm. (<bold>C</bold>) Asymbiotic germination rate of the CK (control) and ABA-treated immature seeds. <italic>n</italic> = 3; &#xB1;SD; Asterisks indicate significant difference from the WT (Student&#x2019;s <italic>t</italic> main.diff_L1_L2.test, <italic>p</italic> &lt; 0.01).</p>
         </caption>
         <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ijms-21-09561-g005.tif"/>
       </fig>
       <fig id="ijms-21-09561-f006" position="float">
         <label>Figure 6</label>
         <caption>
-          <p>Effect of fluridone (Flu) on ABA content and asymbiotic germination of mature seed in <italic>P. armeniacum</italic>. The seeds were harvested at 124 DAP and used to represent the germination performance of mature seeds under reduced endogenous ABA level. <italic>n</italic> = 3; &#xB1;SD; an asterisk indicates a significant difference from the WT (Student&#x2019;s <italic>t</italic> test, <italic>p</italic> &lt; 0.05).</p>
+          <p>Effect of fluridone (Flu) on ABA content and asymbiotic germination of mature seed in <italic>P. armeniacum</italic>. The seeds were harvested at 124 DAP and used to represent the germination performance of mature seeds under reduced endogenous ABA level. <italic>n</italic> = 3; &#xB1;SD; an asterisk indicates a significant difference from the WT (Student&#x2019;s <italic>t</italic> main.diff_L1_L2.test, <italic>p</italic> &lt; 0.05).</p>
         </caption>
         <graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ijms-21-09561-g006.tif"/>
       </fig>

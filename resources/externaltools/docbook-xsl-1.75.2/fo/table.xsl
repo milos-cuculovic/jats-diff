@@ -1065,7 +1065,7 @@
         </xsl:if>
 
 <!--
-        <xsl:if test="@charoff">
+        <xsl:if main.diff_L1_L2.test="@charoff">
           <xsl:attribute name="charoff">
             <xsl:value-of select="@charoff"/>
           </xsl:attribute>

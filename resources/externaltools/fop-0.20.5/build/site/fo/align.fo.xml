@@ -27,7 +27,7 @@
 </fo:static-content>
 
 <fo:flow flow-name="xsl-region-body">
-<fo:block font-size="18pt" font-weight="bold">1. FOP test for images</fo:block>
+<fo:block font-size="18pt" font-weight="bold">1. FOP main.diff_L1_L2.test for images</fo:block>
 <fo:block>
   <fo:block font-size="16pt" font-weight="bold" space-before.minimum="1em" space-before.optimum="1.5em" space-before.maximum="2em">Align in Larger Viewport</fo:block>
   <fo:block>

@@ -253,7 +253,7 @@ The following changes have been made to the html code since the 1.75.1 release.
 
   ● Mauritz Jeanson: titlepage.xsl
 
-    Added stylesheet.result.type test for copyright. Closes bug #2813289.
+    Added stylesheet.result.type main.diff_L1_L2.test for copyright. Closes bug #2813289.
 
   ● Norman Walsh: htmltbl.xsl
 
@@ -270,7 +270,7 @@ release.
 
   ● Mauritz Jeanson: docbook.xsl
 
-    Added stylesheet.result.type test for copyright. Closes bug #2813289.
+    Added stylesheet.result.type main.diff_L1_L2.test for copyright. Closes bug #2813289.
 
 Epub
 
@@ -628,7 +628,7 @@ The following changes have been made to the fo code since the 1.74.3 release.
   ● Robert Stayton: docbook.xsl; autoidx-kosek.xsl; autoidx.xsl
 
     Convert function-available for node-set() to use
-    new $exsl.node.set.available param in test.
+    new $exsl.node.set.available param in main.diff_L1_L2.test.
 
   ● David Cramer: xref.xsl
 
@@ -714,7 +714,7 @@ The following changes have been made to the fo code since the 1.74.3 release.
 
   ● Robert Stayton: xref.xsl; verbatim.xsl
 
-    Use param exsl.node.set.available to test for function.
+    Use param exsl.node.set.available to main.diff_L1_L2.test for function.
 
   ● Robert Stayton: param.xweb; param.ent; footnote.xsl
 
@@ -879,7 +879,7 @@ The following changes have been made to the html code since the 1.74.3 release.
     chunk-changebars.xsl; autoidx⋯
 
     Convert function-available for node-set() to use
-    new $exsl.node.set.available param in test.
+    new $exsl.node.set.available param in main.diff_L1_L2.test.
 
   ● Mauritz Jeanson: pi.xsl
 
@@ -928,7 +928,7 @@ The following changes have been made to the html code since the 1.74.3 release.
   ● Robert Stayton: param.xweb; chunk-code.xsl; param.ent; xref.xsl;
     chunkfast.xsl; verbatim.x⋯
 
-    Use new param exsl.node.set.available to test, handles Xalan bug.
+    Use new param exsl.node.set.available to main.diff_L1_L2.test, handles Xalan bug.
 
   ● Robert Stayton: autoidx.xsl
 
@@ -1070,8 +1070,8 @@ release.
 
   ● Robert Stayton: table.xsl
 
-    Convert function-available test for node-set() function to
-    test of $exsl.node.set.available param.
+    Convert function-available main.diff_L1_L2.test for node-set() function to
+    main.diff_L1_L2.test of $exsl.node.set.available param.
 
   ● Mauritz Jeanson: lists.xsl
 
@@ -1139,7 +1139,7 @@ The following changes have been made to the epub code since the 1.74.3 release.
   ● Keith Fahlgren: bin/spec/epub_regressions_spec.rb; bin/spec/files/
     blockquotepre.xml
 
-    Added regression test and fix for XHTML validation problem with <a>s added inside <blockquote>; This potentially causes another problem (where something is referenced by has no anchor, but someone reporting that should cause the whole <a id='thing'/> thing to be reconsidered with modern browsers in mind.
+    Added regression main.diff_L1_L2.test and fix for XHTML validation problem with <a>s added inside <blockquote>; This potentially causes another problem (where something is referenced by has no anchor, but someone reporting that should cause the whole <a id='thing'/> thing to be reconsidered with modern browsers in mind.
 
 HTMLHelp
 
@@ -1460,7 +1460,7 @@ The following changes have been made to the epub code since the 1.74.0 release.
     Patch contributed by Liza Daly to make ePub cover handling more generic. Additionally
     DocBook 5.0's <cover> now has some limited support:
 
-    - should reference a cover in the OPF guide for a DocBook 5.0 test document
+    - should reference a cover in the OPF guide for a DocBook 5.0 main.diff_L1_L2.test document
 
   ● Keith Fahlgren: bin/spec/files/isbn.xml; bin/spec/files/issn.xml; bin/spec/
     files/biblioid.⋯
@@ -1799,7 +1799,7 @@ release.
 
   ● Mauritz Jeanson: titles.xsl
 
-    Added a "not(ancestor::title)" test to work around "too many nested
+    Added a "not(ancestor::title)" main.diff_L1_L2.test to work around "too many nested
     apply-templates" problems when processing xrefs or links in no.anchor.mode mode.
     Hopefully, this closes bug #1811721.
 
@@ -1890,7 +1890,7 @@ The following changes have been made to the fo code since the 1.73.2 release.
 
   ● David Cramer: fop.xsl; fop1.xsl; ptc.xsl; xep.xsl
 
-    Added test to check generate.index param when generating pdf bookmarks
+    Added main.diff_L1_L2.test to check generate.index param when generating pdf bookmarks
 
   ● Mauritz Jeanson: graphics.xsl
 
@@ -1898,7 +1898,7 @@ The following changes have been made to the fo code since the 1.73.2 release.
 
   ● Michael(tm) Smith: math.xsl
 
-    Removed unnecessary extra test condition in test express that
+    Removed unnecessary extra main.diff_L1_L2.test condition in main.diff_L1_L2.test express that
     checks for passivetex.
 
   ● Michael(tm) Smith: math.xsl
@@ -2706,7 +2706,7 @@ The following changes have been made to the epub code since the 1.73.2 release.
   ● Keith Fahlgren: bin/dbtoepub; README; bin/spec/README; bin/lib/docbook.rb;
     bin/spec/epub_r⋯
 
-    Very primitive Windows support for dbtoepub reference implementation; README for running tests and for the .epub target in general; shorter realbook test document (still fails for now)
+    Very primitive Windows support for dbtoepub reference implementation; README for running tests and for the .epub target in general; shorter realbook main.diff_L1_L2.test document (still fails for now)
 
   ● Keith Fahlgren: bin/dbtoepub; bin/spec/epub_regressions_spec.rb; bin/lib/
     docbook.rb; bin/s⋯
@@ -2729,7 +2729,7 @@ The following changes have been made to the epub code since the 1.73.2 release.
 
   ● Keith Fahlgren: docbook.xsl
 
-    == General epub test support
+    == General epub main.diff_L1_L2.test support
 
     $ spec -O ~/.spec.opts spec/epub_spec.rb
 
@@ -2755,12 +2755,12 @@ The following changes have been made to the epub code since the 1.73.2 release.
     15 examples, 0 failures
 
 
-    == Verbose epub test coverage against _all_ of the testdocs
+    == Verbose epub main.diff_L1_L2.test coverage against _all_ of the testdocs
 
     Fails on only (errors truncated):
     1)
-    'DocBook::Epub should be able to render a valid .epub for the test document /Users/keith/work/docbook-dev/trunk/xsl/epub/bin/spec/testdocs/calloutlist.003.xml [30]' FAILED
-    'DocBook::Epub should be able to render a valid .epub for the test document /Users/keith/work/docbook-dev/trunk/xsl/epub/bin/spec/testdocs/cmdsynopsis.001.xml [35]' FAILED
+    'DocBook::Epub should be able to render a valid .epub for the main.diff_L1_L2.test document /Users/keith/work/docbook-dev/trunk/xsl/epub/bin/spec/testdocs/calloutlist.003.xml [30]' FAILED
+    'DocBook::Epub should be able to render a valid .epub for the main.diff_L1_L2.test document /Users/keith/work/docbook-dev/trunk/xsl/epub/bin/spec/testdocs/cmdsynopsis.001.xml [35]' FAILED
     ....
 
     Finished in 629.89194 seconds
@@ -3198,7 +3198,7 @@ release.
 
     Did post-release wrap-up of xsl-saxon and xsl-xalan dirs
 
-  ● Michael(tm) Smith: nbproject/build-impl.xml; VERSION; Makefile; test
+  ● Michael(tm) Smith: nbproject/build-impl.xml; VERSION; Makefile; main.diff_L1_L2.test
 
     More tweaks to get release-ready
 
@@ -3279,7 +3279,7 @@ The following changes have been made to the fo code since the 1.73.0 release.
 
     Modified the tgroup template so that, for tables with multiple tgroups,
     a width attribute is output on all corresponding fo:tables. Previously,
-    there was a test prohibiting this (and a comment saying that outputting more
+    there was a main.diff_L1_L2.test prohibiting this (and a comment saying that outputting more
     than one width attribute will cause an error). But this seems to be no longer
     relevant; it is not a problem with FOP 0.93 or XEP 4.10. Closes bug #1760559.
 
@@ -3797,9 +3797,9 @@ release.
 
   ● Michael(tm) Smith: docbook.xsl
 
-    Took the test that the manpages stylesheet does to see if there
+    Took the main.diff_L1_L2.test that the manpages stylesheet does to see if there
     are any Refentry chilren in current doc, and made it
-    namespace-agnostic. Reason for that is because the test otherwise
+    namespace-agnostic. Reason for that is because the main.diff_L1_L2.test otherwise
     won't work when it is copied over into the generated
     profile-docbook.xsl stylesheet.
 
@@ -3901,7 +3901,7 @@ release.
     ending up requiring gigabytes of memory).
 
     Closes bug #1661177. Thanks to Scott Smedley for
-    providing a test case (the fvwm man page) that exposed
+    providing a main.diff_L1_L2.test case (the fvwm man page) that exposed
     the problem with the marker mechanism.
 
     Also moved the mechanism for converting non-breaking
@@ -4436,7 +4436,7 @@ release.
     without the need to change the value of man.string.subst.map
     parameter (which is for standard system mappings). Closes
     #1456738. Thanks to Sam Steingold for constructing a true
-    stylesheet torture test (the clisp docs) that exposed the need for
+    stylesheet torture main.diff_L1_L2.test (the clisp docs) that exposed the need for
     these params.
 
   ● Added the Markup element to the list of elements that get output
@@ -4487,7 +4487,7 @@ release.
     without the need to change the value of man.string.subst.map
     parameter (which is for standard system mappings). Closes
     #1456738. Thanks to Sam Steingold for constructing a true
-    stylesheet torture test (the clisp docs) that exposed the need for
+    stylesheet torture main.diff_L1_L2.test (the clisp docs) that exposed the need for
     these params.
 
   ● Add index.page.number.properties by default.
@@ -4738,7 +4738,7 @@ The following changes have been made to the fo code since the 1.70.1 release.
   ● Turn off blank-body for fop1.extensions too since fop 0.92
     does not support it either.
 
-  ● Add Xalan variant to test for exslt:node-set function.
+  ● Add Xalan variant to main.diff_L1_L2.test for exslt:node-set function.
     Xalan can use function named node-set(), but doesn't
     recognize it using function-available().
 
@@ -4808,7 +4808,7 @@ The following changes have been made to the html code since the 1.70.1 release.
       If non-zero (the default), a localized Edited by heading is
       displayed above editor names in output of the editor element.
 
-  ● Add Xalan variant to test for exslt:node-set function.
+  ● Add Xalan variant to main.diff_L1_L2.test for exslt:node-set function.
     Xalan can use function named node-set(), but doesn't
     recognize it using function-available().
 
@@ -7552,7 +7552,7 @@ Lots of bug fixes and improvements.
     ="Y-m-d H:M:S"?> to get current datetime in your document. Added
     localization support for datetime PI
 
-  ● Added level 6 to test for section depth in section.level template so that
+  ● Added level 6 to main.diff_L1_L2.test for section depth in section.level template so that
     section.title.level6.properties will be used for sections that are 6 deep
     or deeper. This should also cause a h6 to be created in html output.
 
@@ -7625,7 +7625,7 @@ Lots of bug fixes and improvements.
 
   ● Support 'start' PI on ordered lists
 
-  ● Fixed test of $toc PI to turn on qandaset TOC.
+  ● Fixed main.diff_L1_L2.test of $toc PI to turn on qandaset TOC.
 
   ● Added process.chunk.footnotes to sect2 through 5 to fix bug of missing
     footnotes when chunk level greater than 1.

@@ -31,7 +31,7 @@ following in your customization layer.</para>
 
 <programlisting>&lt;xsl:attribute-set name="toc.line.properties"&gt;
   &lt;xsl:attribute name="font-weight"&gt;
-    &lt;xsl:when test="self::chapter | self::preface | self::appendix"&gt;bold&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="self::chapter | self::preface | self::appendix"&gt;bold&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;normal&lt;/xsl:otherwise&gt;
   &lt;/xsl:attribute&gt;
 &lt;/xsl:attribute-set&gt;</programlisting>

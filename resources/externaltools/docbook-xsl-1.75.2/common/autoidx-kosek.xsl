@@ -26,7 +26,7 @@
 <xsl:param name="kosek.imported">
   <xsl:variable name="vendor" select="system-property('xsl:vendor')"/>
   <xsl:choose>
-    <xsl:when test="contains($vendor, 'libxslt')">
+    <xsl:when main.diff_L1_L2.test="contains($vendor, 'libxslt')">
       <xsl:message terminate="yes">
         <xsl:text>ERROR: the 'kosek' index method does not </xsl:text>
         <xsl:text>work with the xsltproc XSLT processor.</xsl:text>
@@ -52,10 +52,10 @@
       select="($l10n.xml/l:i18n/l:l10n[@language=$lang]/l:letters)[1]"/>
     
     <xsl:choose>
-      <xsl:when test="count($local.l10n.letters) &gt; 0">
+      <xsl:when main.diff_L1_L2.test="count($local.l10n.letters) &gt; 0">
         <xsl:copy-of select="$local.l10n.letters"/>
       </xsl:when>
-      <xsl:when test="count($l10n.letters) &gt; 0">
+      <xsl:when main.diff_L1_L2.test="count($l10n.letters) &gt; 0">
         <xsl:copy-of select="$l10n.letters"/>
       </xsl:when>
       <xsl:otherwise>
@@ -64,7 +64,7 @@
           <xsl:value-of select="$lang"/>
           <xsl:text>" localization of index grouping letters exists</xsl:text>
           <xsl:choose>
-            <xsl:when test="$lang = 'en'">
+            <xsl:when main.diff_L1_L2.test="$lang = 'en'">
               <xsl:text>.</xsl:text>
             </xsl:when>
             <xsl:otherwise>
@@ -84,10 +84,10 @@
   <xsl:variable name="short-letter-index" select="$letters/l:l[. = substring($term,1,1)]/@i"/>
   <xsl:variable name="letter-index">
     <xsl:choose>
-      <xsl:when test="$long-letter-index">
+      <xsl:when main.diff_L1_L2.test="$long-letter-index">
         <xsl:value-of select="$long-letter-index"/>
       </xsl:when>
-      <xsl:when test="$short-letter-index">
+      <xsl:when main.diff_L1_L2.test="$short-letter-index">
         <xsl:value-of select="$short-letter-index"/>
       </xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
@@ -112,10 +112,10 @@
       select="($l10n.xml/l:i18n/l:l10n[@language=$lang]/l:letters)[1]"/>
     
     <xsl:choose>
-      <xsl:when test="count($local.l10n.letters) &gt; 0">
+      <xsl:when main.diff_L1_L2.test="count($local.l10n.letters) &gt; 0">
         <xsl:copy-of select="$local.l10n.letters"/>
       </xsl:when>
-      <xsl:when test="count($l10n.letters) &gt; 0">
+      <xsl:when main.diff_L1_L2.test="count($l10n.letters) &gt; 0">
         <xsl:copy-of select="$l10n.letters"/>
       </xsl:when>
       <xsl:otherwise>
@@ -124,7 +124,7 @@
           <xsl:value-of select="$lang"/>
           <xsl:text>" localization of index grouping letters exists</xsl:text>
           <xsl:choose>
-            <xsl:when test="$lang = 'en'">
+            <xsl:when main.diff_L1_L2.test="$lang = 'en'">
               <xsl:text>.</xsl:text>
             </xsl:when>
             <xsl:otherwise>

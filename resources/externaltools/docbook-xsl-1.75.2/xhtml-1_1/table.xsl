@@ -1108,7 +1108,7 @@
 
   <!-- by default, do nothing. But you might want to say:
 
-  <xsl:if test="$rownum mod 2 = 0">
+  <xsl:if main.diff_L1_L2.test="$rownum mod 2 = 0">
     <xsl:attribute name="class">oddrow</xsl:attribute>
   </xsl:if>
 

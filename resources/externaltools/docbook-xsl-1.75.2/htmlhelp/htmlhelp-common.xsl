@@ -448,7 +448,7 @@ Enhanced decompilation=</xsl:text>
         <!-- Otherwise, see if this one is a useable graphic -->
         <xsl:otherwise>
           <xsl:choose>
-            <!-- peek inside imageobjectco to simplify the test -->
+            <!-- peek inside imageobjectco to simplify the main.diff_L1_L2.test -->
             <xsl:when test="local-name($object) = 'imageobjectco'">
               <xsl:call-template name="is.acceptable.mediaobject">
                 <xsl:with-param name="object" select="$object/imageobject"/>

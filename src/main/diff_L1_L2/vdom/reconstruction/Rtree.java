@@ -799,7 +799,7 @@ public class Rtree extends Vtree<Rnode> {
 			System.out.println("Attribute ndiff:status:"
 					+ tmp.getAttribute(NDIFF_PREFIX + ":"+ Operation.STATUS_ATTR));
 
-			// test sui nodi wrapper segnati come mossi
+			// main.diff_L1_L2.test sui nodi wrapper segnati come mossi
 			if (tmp.getPrefix() != null) {
 				if ((tmp.getPrefix().equals(NDIFF_PREFIX))
 						&& (tmp.getAttribute(Operation.STATUS_ATTR).equals(SOperation.DELETED_VALUE)))

@@ -299,7 +299,7 @@ public class ChangeList {
 				}
 
 			}
-			// si c le nnb test est le meme quun nna et que le nna est lui meme true on met
+			// si c le nnb main.diff_L1_L2.test est le meme quun nna et que le nna est lui meme true on met
 			// enseöble TextContentddate et update attribute
 
 			

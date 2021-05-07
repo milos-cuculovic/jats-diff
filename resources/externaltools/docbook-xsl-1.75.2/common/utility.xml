@@ -48,7 +48,7 @@
 &lt;xsl:param name="context-desc"/&gt;
 &lt;xsl:param name="context-desc-field-length"&gt;12&lt;/xsl:param&gt;
 &lt;xsl:param name="context-desc-padded"&gt;
-    &lt;xsl:if test="not($context-desc = '')"&gt;
+    &lt;xsl:if main.diff_L1_L2.test="not($context-desc = '')"&gt;
       &lt;xsl:call-template name="pad-string"&gt;
         &lt;xsl:with-param name="leftRight"&gt;right&lt;/xsl:with-param&gt;
         &lt;xsl:with-param name="padVar" select="substring($context-desc, 1, $context-desc-field-length)"/&gt;
@@ -63,7 +63,7 @@
       &lt;!-- * if the level field is blank, we'll need to pad out --&gt;
       &lt;!-- * the message field with spaces to compensate --&gt;
       &lt;xsl:choose&gt;
-        &lt;xsl:when test="$level = ''"&gt;
+        &lt;xsl:when main.diff_L1_L2.test="$level = ''"&gt;
           &lt;xsl:value-of select="4 + 2"/&gt;
           &lt;!-- * 4 = hard-coded length of comment text ("Note" or "Warn") --&gt;
           &lt;!-- * + 2 = length of colon-plus-space separator ": " --&gt;
@@ -77,7 +77,7 @@
       &lt;!-- * if the context-description field is blank, we'll need --&gt;
       &lt;!-- * to pad out the message field with spaces to compensate --&gt;
       &lt;xsl:choose&gt;
-        &lt;xsl:when test="$context-desc = ''"&gt;
+        &lt;xsl:when main.diff_L1_L2.test="$context-desc = ''"&gt;
           &lt;xsl:value-of select="$context-desc-field-length + 2"/&gt;
           &lt;!-- * + 2 = length of colon-plus-space separator ": " --&gt;
         &lt;/xsl:when&gt;

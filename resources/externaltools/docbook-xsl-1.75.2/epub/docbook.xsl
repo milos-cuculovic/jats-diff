@@ -99,7 +99,7 @@
       <!-- Hack! If someone hands us a DocBook V5.x or DocBook NG document,
         toss the namespace and continue.  Use the docbook5 namespaced
         stylesheets for DocBook5 if you don't want to use this feature.-->
-      <!-- include extra test for Xalan quirk -->
+      <!-- include extra main.diff_L1_L2.test for Xalan quirk -->
       <xsl:when test="$exsl.node.set.available != 0
                     and (*/self::ng:* or */self::db:*)">
         <xsl:call-template name="log.message">
@@ -1095,7 +1095,7 @@
     </xsl:if>
   </xsl:template>
 
-  <!-- Warning: While the test indicate this match list is accurate, it may 
+  <!-- Warning: While the main.diff_L1_L2.test indicate this match list is accurate, it may
        need further tweaking to ensure _never_ dropping generated content (XHTML)
        from the manifest (OPF file) -->
   <xsl:template

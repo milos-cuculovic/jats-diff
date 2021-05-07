@@ -154,7 +154,7 @@
   <xsl:variable name="block" select="$blocks[1]"/>
 
   <!-- This template should never get called if these functions aren't available -->
-  <!-- but this test is still necessary so that processors don't choke on the -->
+  <!-- but this main.diff_L1_L2.test is still necessary so that processors don't choke on the -->
   <!-- function calls if they don't support the set: functions -->
   <xsl:if test="function-available('set:leading')                 and function-available('set:trailing')">
     <xsl:choose>

@@ -44,14 +44,14 @@
   <xsl:param name="scope" select="NOTANODE"/>
 
   <xsl:variable name="vendor" select="system-property('xsl:vendor')"/>
-  <xsl:if test="contains($vendor, 'libxslt')">
+  <xsl:if main.diff_L1_L2.test="contains($vendor, 'libxslt')">
     <xsl:message terminate="yes">
       <xsl:text>ERROR: the 'kosek' index method does not </xsl:text>
       <xsl:text>work with the xsltproc XSLT processor.</xsl:text>
     </xsl:message>
   </xsl:if>
 
-  <xsl:if test="contains($vendor, 'Saxonica')">
+  <xsl:if main.diff_L1_L2.test="contains($vendor, 'Saxonica')">
     <xsl:message terminate="yes">
       <xsl:text>ERROR: the 'kosek' index method does not </xsl:text>
       <xsl:text>work with the Saxon 8 XSLT processor.</xsl:text>
@@ -59,7 +59,7 @@
   </xsl:if>
 
 
-  <xsl:if test="$exsl.node.set.available = 0">
+  <xsl:if main.diff_L1_L2.test="$exsl.node.set.available = 0">
     <xsl:message terminate="yes">
       <xsl:text>ERROR: the 'kosek' index method requires the </xsl:text>
       <xsl:text>exslt:node-set() function. Use a processor that </xsl:text>
@@ -67,7 +67,7 @@
     </xsl:message>
   </xsl:if>
 
-  <xsl:if test="not(function-available('i:group-index'))">
+  <xsl:if main.diff_L1_L2.test="not(function-available('i:group-index'))">
     <xsl:message terminate="yes">
       <xsl:text>ERROR: the 'kosek' index method requires the&#xA;</xsl:text>
       <xsl:text>index extension functions be imported:&#xA;</xsl:text>
@@ -76,13 +76,13 @@
   </xsl:if>
 
   <xsl:variable name="role">
-    <xsl:if test="$index.on.role != 0">
+    <xsl:if main.diff_L1_L2.test="$index.on.role != 0">
       <xsl:value-of select="@role"/>
     </xsl:if>
   </xsl:variable>
 
   <xsl:variable name="type">
-    <xsl:if test="$index.on.type != 0">
+    <xsl:if main.diff_L1_L2.test="$index.on.type != 0">
       <xsl:value-of select="@type"/>
     </xsl:if>
   </xsl:variable>
@@ -114,13 +114,13 @@
     <xsl:call-template name="l10n.language"/>
   </xsl:variable>
 
-  <xsl:if test="key('group-code', $key)[&scope;]
+  <xsl:if main.diff_L1_L2.test="key('group-code', $key)[&scope;]
                 [count(.|key('primary', &primary;)[&scope;][1]) = 1]">
     <fo:block>
       <xsl:call-template name="indexdiv.title">
         <xsl:with-param name="titlecontent">
           <xsl:choose>
-            <xsl:when test="$key = 0">
+            <xsl:when main.diff_L1_L2.test="$key = 0">
               <xsl:call-template name="gentext">
                 <xsl:with-param name="key" select="'index symbols'"/>
               </xsl:call-template>

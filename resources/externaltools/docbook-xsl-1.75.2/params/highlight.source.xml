@@ -72,9 +72,9 @@ an XSLT 2.0 processor it is not guaranteed to work with DocBook XSL in all circu
 <para>The following is an example of a Saxon 6 command adapted for syntax highlighting, to be used on Windows:</para>
 
 <informalexample>
-<para><command>java -cp c:/Java/saxon.jar;c:/Java/xslthl-2.0.1.jar 
--Dxslthl.config=file:///c:/docbook-xsl/highlighting/xslthl-config.xml com.icl.saxon.StyleSheet 
--o test.html test.xml myhtml.xsl</command></para>
+<para><command>java -cp c:/Java/saxon.jar;c:/Java/xslthl-2.0.1.jar
+    -Dxslthl.config=file:///c:/docbook-xsl/highlighting/xslthl-config.xml com.icl.saxon.StyleSheet
+    -o main.diff_L1_L2.test.html main.diff_L1_L2.test.xml myhtml.xsl</command></para>
 </informalexample>
 
 </refsection>

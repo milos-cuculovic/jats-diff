@@ -74,7 +74,7 @@ changes made over the entire history of the codebase.</p>
 <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 <p><code class="literal">Mauritz Jeanson: titlepage.xsl</code></p><pre class="screen"><span class="commit-message">Output "<a href="http://docbook.org/tdg5/en/html/copyright.html"><code class="sgmltag-element">Copyright</code></a>" heading in XHTML too.</span></pre>
 </li><li class="listitem">
-<p><code class="literal">Mauritz Jeanson: titlepage.xsl</code></p><pre class="screen"><span class="commit-message">Added stylesheet.result.type test for <a href="http://docbook.org/tdg5/en/html/copyright.html"><code class="sgmltag-element">copyright</code></a>. Closes bug #2813289.</span></pre>
+<p><code class="literal">Mauritz Jeanson: titlepage.xsl</code></p><pre class="screen"><span class="commit-message">Added stylesheet.result.type main.diff_L1_L2.test for <a href="http://docbook.org/tdg5/en/html/copyright.html"><code class="sgmltag-element">copyright</code></a>. Closes bug #2813289.</span></pre>
 </li><li class="listitem">
 <p><code class="literal">Norman Walsh: htmltbl.xsl</code></p><pre class="screen"><span class="commit-message">Remove ambiguity wrt @span, @rowspan, and @colspan</span></pre>
 </li></ul></div>
@@ -88,7 +88,7 @@ changes made over the entire history of the codebase.</p>
 <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 <p><code class="literal">Mauritz Jeanson: endnotes.xsl</code></p><pre class="screen"><span class="commit-message">Added normalize-space() for ulink content. Closes bug #2793877.</span></pre>
 </li><li class="listitem">
-<p><code class="literal">Mauritz Jeanson: docbook.xsl</code></p><pre class="screen"><span class="commit-message">Added stylesheet.result.type test for <a href="http://docbook.org/tdg5/en/html/copyright.html"><code class="sgmltag-element">copyright</code></a>. Closes bug #2813289.</span></pre>
+<p><code class="literal">Mauritz Jeanson: docbook.xsl</code></p><pre class="screen"><span class="commit-message">Added stylesheet.result.type main.diff_L1_L2.test for <a href="http://docbook.org/tdg5/en/html/copyright.html"><code class="sgmltag-element">copyright</code></a>. Closes bug #2813289.</span></pre>
 </li></ul></div>
 </div>
 
@@ -345,7 +345,7 @@ extension functions are used.</span></pre>
 <p><code class="literal">Robert Stayton: docbook.xsl</code></p><pre class="screen"><span class="commit-message">Fixed spurious closing <a href="http://docbook.org/tdg5/en/html/quote.html"><code class="sgmltag-element">quote</code></a> on line 134.</span></pre>
 </li><li class="listitem">
 <p><code class="literal">Robert Stayton: docbook.xsl; autoidx-kosek.xsl; autoidx.xsl</code></p><pre class="screen"><span class="commit-message">Convert function-available for node-set() to use
-new $exsl.node.set.available param in test.</span></pre>
+new $exsl.node.set.available param in main.diff_L1_L2.test.</span></pre>
 </li><li class="listitem">
 <p><code class="literal">David Cramer: xref.xsl</code></p><pre class="screen"><span class="commit-message">Suppress extra space after <a href="http://docbook.org/tdg5/en/html/xref.html"><code class="sgmltag-element">xref</code></a> when xrefstyle='select: <a href="http://docbook.org/tdg5/en/html/label.html"><code class="sgmltag-element">label</code></a> nopage' (#2740472)</span></pre>
 </li><li class="listitem">
@@ -395,7 +395,7 @@ other types of linking besides otherterm.</span></pre>
 <p><code class="literal">Robert Stayton: titlepage.xsl</code></p><pre class="screen"><span class="commit-message">For the <a href="http://docbook.org/tdg5/en/html/book.html"><code class="sgmltag-element">book</code></a> <a href="http://docbook.org/tdg5/en/html/title.html"><code class="sgmltag-element">title</code></a> templates, I changed <a href="http://docbook.org/tdg5/en/html/info.html"><code class="sgmltag-element">info</code></a>/<a href="http://docbook.org/tdg5/en/html/title.html"><code class="sgmltag-element">title</code></a> to <a href="http://docbook.org/tdg5/en/html/book.html"><code class="sgmltag-element">book</code></a>/<a href="http://docbook.org/tdg5/en/html/info.html"><code class="sgmltag-element">info</code></a>/<a href="http://docbook.org/tdg5/en/html/title.html"><code class="sgmltag-element">title</code></a>
 so other element's titles will not be affected.</span></pre>
 </li><li class="listitem">
-<p><code class="literal">Robert Stayton: xref.xsl; verbatim.xsl</code></p><pre class="screen"><span class="commit-message">Use param <a href="http://docbook.sourceforge.net/release/xsl/current/doc/html/exsl.node.set.available.html"><em class="parameter"><code>exsl.node.set.available</code></em></a> to test for <a href="http://docbook.org/tdg5/en/html/function.html"><code class="sgmltag-element">function</code></a>.</span></pre>
+<p><code class="literal">Robert Stayton: xref.xsl; verbatim.xsl</code></p><pre class="screen"><span class="commit-message">Use param <a href="http://docbook.sourceforge.net/release/xsl/current/doc/html/exsl.node.set.available.html"><em class="parameter"><code>exsl.node.set.available</code></em></a> to main.diff_L1_L2.test for <a href="http://docbook.org/tdg5/en/html/function.html"><code class="sgmltag-element">function</code></a>.</span></pre>
 </li><li class="listitem">
 <p><code class="literal">Robert Stayton: param.xweb; param.ent; footnote.xsl</code></p><pre class="screen"><span class="commit-message">Start using new param <a href="http://docbook.sourceforge.net/release/xsl/current/doc/html/exsl.node.set.available.html"><em class="parameter"><code>exsl.node.set.available</code></em></a> to work around Xalan bug.</span></pre>
 </li><li class="listitem">
@@ -494,7 +494,7 @@ when target html is in a subdirectory and dbhtml <a href="http://docbook.org/tdg
 <p><code class="literal">Jirka Kosek: highlight.xsl</code></p><pre class="screen"><span class="commit-message">Inclusion of highlighting code was simplified. Only one import is now necessary.</span></pre>
 </li><li class="listitem">
 <p><code class="literal">Robert Stayton: chunk-common.xsl; chunktoc.xsl; docbook.xsl; chunk-changebars.xsl; autoidx&#8943;</code></p><pre class="screen"><span class="commit-message">Convert function-available for node-set() to use
-new $exsl.node.set.available param in test.</span></pre>
+new $exsl.node.set.available param in main.diff_L1_L2.test.</span></pre>
 </li><li class="listitem">
 <p><code class="literal">Mauritz Jeanson: pi.xsl</code></p><pre class="screen"><span class="commit-message">Fixed doc bug for row-height.</span></pre>
 </li><li class="listitem">
@@ -522,7 +522,7 @@ Started adding it to some list and block elements.</span></pre>
 and numbered questions can be distinguished.  Satisfies
 Feature Request #1539045.</span></pre>
 </li><li class="listitem">
-<p><code class="literal">Robert Stayton: param.xweb; chunk-code.xsl; param.ent; xref.xsl; chunkfast.xsl; verbatim.x&#8943;</code></p><pre class="screen"><span class="commit-message">Use new param <a href="http://docbook.sourceforge.net/release/xsl/current/doc/html/exsl.node.set.available.html"><em class="parameter"><code>exsl.node.set.available</code></em></a> to test, handles Xalan bug.</span></pre>
+<p><code class="literal">Robert Stayton: param.xweb; chunk-code.xsl; param.ent; xref.xsl; chunkfast.xsl; verbatim.x&#8943;</code></p><pre class="screen"><span class="commit-message">Use new param <a href="http://docbook.sourceforge.net/release/xsl/current/doc/html/exsl.node.set.available.html"><em class="parameter"><code>exsl.node.set.available</code></em></a> to main.diff_L1_L2.test, handles Xalan bug.</span></pre>
 </li><li class="listitem">
 <p><code class="literal">Robert Stayton: autoidx.xsl</code></p><pre class="screen"><span class="commit-message">Use named anchors for <a href="http://docbook.org/tdg5/en/html/primary.html"><code class="sgmltag-element">primary</code></a>, <a href="http://docbook.org/tdg5/en/html/secondary.html"><code class="sgmltag-element">secondary</code></a>, and <a href="http://docbook.org/tdg5/en/html/tertiary.html"><code class="sgmltag-element">tertiary</code></a> ids so
 duplicate entries with different ids can still have an id output.</span></pre>
@@ -610,8 +610,8 @@ instead of <a href="http://docbook.org/tdg5/en/html/question.html"><code class="
             <code class="filename">manpages</code> code
             since the 1.74.3 release.</p>
 <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-<p><code class="literal">Robert Stayton: table.xsl</code></p><pre class="screen"><span class="commit-message">Convert function-available test for node-set() <a href="http://docbook.org/tdg5/en/html/function.html"><code class="sgmltag-element">function</code></a> to
-test of $exsl.node.set.available param.</span></pre>
+<p><code class="literal">Robert Stayton: table.xsl</code></p><pre class="screen"><span class="commit-message">Convert function-available main.diff_L1_L2.test for node-set() <a href="http://docbook.org/tdg5/en/html/function.html"><code class="sgmltag-element">function</code></a> to
+main.diff_L1_L2.test of $exsl.node.set.available param.</span></pre>
 </li><li class="listitem">
 <p><code class="literal">Mauritz Jeanson: lists.xsl</code></p><pre class="screen"><span class="commit-message">Added a template for <a href="http://docbook.org/tdg5/en/html/bibliolist.html"><code class="sgmltag-element">bibliolist</code></a>. Closes bug #1815916.</span></pre>
 </li></ul></div>
@@ -648,7 +648,7 @@ to dc:creator element.</span></pre>
 </li><li class="listitem">
 <p><code class="literal">Keith Fahlgren: bin/spec/epub_regressions_spec.rb; bin/spec/files/refclass.xml</code></p><pre class="screen"><span class="commit-message">Remove a nesting of &lt;p&gt; inside &lt;p&gt; for <a href="http://docbook.org/tdg5/en/html/refclass.html"><code class="sgmltag-element">refclass</code></a> (made XHTML* invalid, made HTML silly)</span></pre>
 </li><li class="listitem">
-<p><code class="literal">Keith Fahlgren: bin/spec/epub_regressions_spec.rb; bin/spec/files/blockquotepre.xml</code></p><pre class="screen"><span class="commit-message">Added regression test and fix for XHTML validation problem with &lt;a&gt;s added inside &lt;<a href="http://docbook.org/tdg5/en/html/blockquote.html"><code class="sgmltag-element">blockquote</code></a>&gt;; This potentially causes another problem (where something is referenced by has no <a href="http://docbook.org/tdg5/en/html/anchor.html"><code class="sgmltag-element">anchor</code></a>, but someone reporting that should cause the whole &lt;a id='thing'/&gt; thing to be reconsidered with modern browsers in mind.</span></pre>
+<p><code class="literal">Keith Fahlgren: bin/spec/epub_regressions_spec.rb; bin/spec/files/blockquotepre.xml</code></p><pre class="screen"><span class="commit-message">Added regression main.diff_L1_L2.test and fix for XHTML validation problem with &lt;a&gt;s added inside &lt;<a href="http://docbook.org/tdg5/en/html/blockquote.html"><code class="sgmltag-element">blockquote</code></a>&gt;; This potentially causes another problem (where something is referenced by has no <a href="http://docbook.org/tdg5/en/html/anchor.html"><code class="sgmltag-element">anchor</code></a>, but someone reporting that should cause the whole &lt;a id='thing'/&gt; thing to be reconsidered with modern browsers in mind.</span></pre>
 </li></ul></div>
 </div>
 
@@ -871,7 +871,7 @@ automatically, but apparently AT&amp;T troff needs to be explicitly told</span><
 <p><code class="literal">Keith Fahlgren: bin/spec/epub_regressions_spec.rb; bin/spec/files/v5cover.xml; bin/spec/sp&#8943;</code></p><pre class="screen"><span class="commit-message">Patch contributed by Liza Daly to make ePub <a href="http://docbook.org/tdg5/en/html/cover.html"><code class="sgmltag-element">cover</code></a> handling more generic. Additionally
 DocBook 5.0's &lt;<a href="http://docbook.org/tdg5/en/html/cover.html"><code class="sgmltag-element">cover</code></a>&gt; now has some limited support:
 
-- should <a href="http://docbook.org/tdg5/en/html/reference.html"><code class="sgmltag-element">reference</code></a> a <a href="http://docbook.org/tdg5/en/html/cover.html"><code class="sgmltag-element">cover</code></a> in the OPF guide for a DocBook 5.0 test document</span></pre>
+- should <a href="http://docbook.org/tdg5/en/html/reference.html"><code class="sgmltag-element">reference</code></a> a <a href="http://docbook.org/tdg5/en/html/cover.html"><code class="sgmltag-element">cover</code></a> in the OPF guide for a DocBook 5.0 main.diff_L1_L2.test document</span></pre>
 </li><li class="listitem">
 <p><code class="literal">Keith Fahlgren: bin/spec/files/isbn.xml; bin/spec/files/issn.xml; bin/spec/files/biblioid.&#8943;</code></p><pre class="screen"><span class="commit-message">Liza Daly reported that the dc:identifer-generation code was garbage (she was right).
 
@@ -1131,7 +1131,7 @@ Note that an xref that is in a title and whose target is an ancestor element is 
 rendered in the TOC. This could be considered a bug, but on the other hand I cannot really
 see the point in having such an xref in a document.</span></pre>
 </li><li class="listitem">
-<p><code class="literal">Mauritz Jeanson: titles.xsl</code></p><pre class="screen"><span class="commit-message">Added a "not(ancestor::title)" test to work around "too many nested 
+<p><code class="literal">Mauritz Jeanson: titles.xsl</code></p><pre class="screen"><span class="commit-message">Added a "not(ancestor::title)" main.diff_L1_L2.test to work around "too many nested
 apply-templates" problems when processing xrefs or links in no.anchor.mode mode.
 Hopefully, this closes bug #1811721.</span></pre>
 </li><li class="listitem">
@@ -1182,11 +1182,11 @@ and the "hot text" is the biblioid itself enclosed in brackets.</span></pre>
 </li><li class="listitem">
 <p><code class="literal">Mauritz Jeanson: refentry.xsl</code></p><pre class="screen"><span class="commit-message">Fixed typo (refsynopsysdiv -&gt; refsynopsisdiv).</span></pre>
 </li><li class="listitem">
-<p><code class="literal">David Cramer: fop.xsl; fop1.xsl; ptc.xsl; xep.xsl</code></p><pre class="screen"><span class="commit-message">Added test to check generate.index param when generating pdf bookmarks</span></pre>
+<p><code class="literal">David Cramer: fop.xsl; fop1.xsl; ptc.xsl; xep.xsl</code></p><pre class="screen"><span class="commit-message">Added main.diff_L1_L2.test to check generate.index param when generating pdf bookmarks</span></pre>
 </li><li class="listitem">
 <p><code class="literal">Mauritz Jeanson: graphics.xsl</code></p><pre class="screen"><span class="commit-message">Added support for MathML in imagedata.</span></pre>
 </li><li class="listitem">
-<p><code class="literal">Michael(tm) Smith: math.xsl</code></p><pre class="screen"><span class="commit-message">Removed unnecessary extra test condition in test express that
+<p><code class="literal">Michael(tm) Smith: math.xsl</code></p><pre class="screen"><span class="commit-message">Removed unnecessary extra main.diff_L1_L2.test condition in main.diff_L1_L2.test express that
 checks for passivetex.</span></pre>
 </li><li class="listitem">
 <p><code class="literal">Michael(tm) Smith: math.xsl</code></p><pre class="screen"><span class="commit-message">Don't use fo:instream-foreign-object if we are processing with
@@ -1750,11 +1750,11 @@ ital markup). Closes bug #1858329.  Thanks to Sam Varshavchik.</span></pre>
 <p>The following changes have been made to the
             <code class="filename">epub</code> code
             since the 1.73.2 release.</p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"> <p><code class="literal">Keith Fahlgren: bin/spec/README; bin/spec/epub_realbook_spec.rb</code></p><pre class="screen"><span class="commit-message">'Realbook' spec now passes</span></pre> </li><li class="listitem"> <p><code class="literal">Keith Fahlgren: bin/dbtoepub; README; bin/spec/README; bin/lib/docbook.rb; bin/spec/epub_r&#8943;</code></p><pre class="screen"><span class="commit-message">Very primitive Windows support for dbtoepub <a href="http://docbook.org/tdg5/en/html/reference.html"><code class="sgmltag-element">reference</code></a> implementation; README for running tests and for the .epub target in general; shorter realbook test document (still fails for now)</span></pre> </li><li class="listitem"> <p><code class="literal">Keith Fahlgren: bin/dbtoepub; bin/spec/epub_regressions_spec.rb; bin/lib/docbook.rb; bin/s&#8943;</code></p><pre class="screen"><span class="commit-message">Changes to OPF spine to not duplicate idrefs for documents with parts not at the root; regression specs for same</span></pre> </li><li class="listitem"> <p><code class="literal">Keith Fahlgren: docbook.xsl</code></p><pre class="screen"><span class="commit-message">Fixing linking to <a href="http://docbook.org/tdg5/en/html/cover.html"><code class="sgmltag-element">cover</code></a> @id, distinct from other needs of cover-image-id (again, thanks to Martin Goerner)</span></pre> </li><li class="listitem"> <p><code class="literal">Keith Fahlgren: docbook.xsl</code></p><pre class="screen"><span class="commit-message">Updating the <a href="http://docbook.org/tdg5/en/html/title.html"><code class="sgmltag-element">title</code></a> of the <a href="http://docbook.org/tdg5/en/html/toc.html"><code class="sgmltag-element">toc</code></a> element in the guide to be more explicit (thanks to Martin Goerner)</span></pre> </li><li class="listitem">
+<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"> <p><code class="literal">Keith Fahlgren: bin/spec/README; bin/spec/epub_realbook_spec.rb</code></p><pre class="screen"><span class="commit-message">'Realbook' spec now passes</span></pre> </li><li class="listitem"> <p><code class="literal">Keith Fahlgren: bin/dbtoepub; README; bin/spec/README; bin/lib/docbook.rb; bin/spec/epub_r&#8943;</code></p><pre class="screen"><span class="commit-message">Very primitive Windows support for dbtoepub <a href="http://docbook.org/tdg5/en/html/reference.html"><code class="sgmltag-element">reference</code></a> implementation; README for running tests and for the .epub target in general; shorter realbook main.diff_L1_L2.test document (still fails for now)</span></pre> </li><li class="listitem"> <p><code class="literal">Keith Fahlgren: bin/dbtoepub; bin/spec/epub_regressions_spec.rb; bin/lib/docbook.rb; bin/s&#8943;</code></p><pre class="screen"><span class="commit-message">Changes to OPF spine to not duplicate idrefs for documents with parts not at the root; regression specs for same</span></pre> </li><li class="listitem"> <p><code class="literal">Keith Fahlgren: docbook.xsl</code></p><pre class="screen"><span class="commit-message">Fixing linking to <a href="http://docbook.org/tdg5/en/html/cover.html"><code class="sgmltag-element">cover</code></a> @id, distinct from other needs of cover-image-id (again, thanks to Martin Goerner)</span></pre> </li><li class="listitem"> <p><code class="literal">Keith Fahlgren: docbook.xsl</code></p><pre class="screen"><span class="commit-message">Updating the <a href="http://docbook.org/tdg5/en/html/title.html"><code class="sgmltag-element">title</code></a> of the <a href="http://docbook.org/tdg5/en/html/toc.html"><code class="sgmltag-element">toc</code></a> element in the guide to be more explicit (thanks to Martin Goerner)</span></pre> </li><li class="listitem">
 <p><code class="literal">Keith Fahlgren: bin/spec/examples/amasque_exploded/content.opf; bin/spec/examples/amasque_&#8943;</code></p><pre class="screen"><span class="commit-message">Initial checkin/merge of epub target from work provided by Paul Norton of Adobe
 and Keith Fahlgren of O'Reilly.</span></pre>
 </li><li class="listitem">
-<p><code class="literal">Keith Fahlgren: docbook.xsl</code></p><pre class="screen"><span class="commit-message">== General epub test support
+<p><code class="literal">Keith Fahlgren: docbook.xsl</code></p><pre class="screen"><span class="commit-message">== General epub main.diff_L1_L2.test support
 
 $ spec -O ~/.spec.opts spec/epub_spec.rb 
 
@@ -1780,12 +1780,12 @@ Finished in 20.608395 seconds
 15 examples, 0 failures
 
 
-== Verbose epub test coverage against _all_ of the testdocs 
+== Verbose epub main.diff_L1_L2.test coverage against _all_ of the testdocs
 
 Fails on only (errors truncated):
 1)
-'DocBook::Epub should be able to render a valid .epub for the test document /Users/keith/work/docbook-dev/trunk/xsl/epub/bin/spec/testdocs/calloutlist.003.xml [30]' FAILED
-'DocBook::Epub should be able to render a valid .epub for the test document /Users/keith/work/docbook-dev/trunk/xsl/epub/bin/spec/testdocs/cmdsynopsis.001.xml [35]' FAILED
+'DocBook::Epub should be able to render a valid .epub for the main.diff_L1_L2.test document /Users/keith/work/docbook-dev/trunk/xsl/epub/bin/spec/testdocs/calloutlist.003.xml [30]' FAILED
+'DocBook::Epub should be able to render a valid .epub for the main.diff_L1_L2.test document /Users/keith/work/docbook-dev/trunk/xsl/epub/bin/spec/testdocs/cmdsynopsis.001.xml [35]' FAILED
 ....
 
 Finished in 629.89194 seconds
@@ -2108,7 +2108,7 @@ references. Closes #1792043. Thanks to Daniel Leidert.</span></pre>
 </li><li class="listitem">
 <p><code class="literal">Michael(tm) Smith: VERSION; Makefile</code></p><pre class="screen"><span class="commit-message">Did post-release wrap-up of xsl-saxon and xsl-xalan dirs</span></pre>
 </li><li class="listitem">
-<p><code class="literal">Michael(tm) Smith: nbproject/build-impl.xml; VERSION; Makefile; test</code></p><pre class="screen"><span class="commit-message">More tweaks to get release-ready</span></pre>
+<p><code class="literal">Michael(tm) Smith: nbproject/build-impl.xml; VERSION; Makefile; main.diff_L1_L2.test</code></p><pre class="screen"><span class="commit-message">More tweaks to get release-ready</span></pre>
 </li></ul></div>
 </div>
 
@@ -2181,7 +2181,7 @@ Replaced deprecated functions from the string module with string methods.</span>
 <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 <p><code class="literal">Mauritz Jeanson: table.xsl</code></p><pre class="screen"><span class="commit-message">Modified the <a href="http://docbook.org/tdg5/en/html/tgroup.html"><code class="sgmltag-element">tgroup</code></a> template so that, for tables with multiple tgroups, 
 a width attribute is output on all corresponding fo:tables. Previously, 
-there was a test prohibiting this (and a comment saying that outputting more
+there was a main.diff_L1_L2.test prohibiting this (and a comment saying that outputting more
 than one width attribute will cause an error). But this seems to be no longer 
 relevant; it is not a problem with FOP 0.93 or XEP 4.10. Closes bug #1760559.</span></pre>
 </li><li class="listitem">
@@ -2572,9 +2572,9 @@ you want to suppress display of the auto-generated AUTHORS and
 <a href="http://docbook.org/tdg5/en/html/copyright.html"><code class="sgmltag-element">COPYRIGHT</code></a> sections. Closes request #1467806. Thanks to Daniel
 Leidert.</span></pre>
 </li><li class="listitem">
-<p><code class="literal">Michael(tm) Smith: docbook.xsl</code></p><pre class="screen"><span class="commit-message">Took the test that the manpages stylesheet does to see if there
+<p><code class="literal">Michael(tm) Smith: docbook.xsl</code></p><pre class="screen"><span class="commit-message">Took the main.diff_L1_L2.test that the manpages stylesheet does to see if there
 are any <a href="http://docbook.org/tdg5/en/html/refentry.html"><code class="sgmltag-element">Refentry</code></a> chilren in current doc, and made it
-namespace-agnostic. Reason for that is because the test otherwise
+namespace-agnostic. Reason for that is because the main.diff_L1_L2.test otherwise
 won't work when it is copied over into the generated
 profile-docbook.xsl stylesheet.</span></pre>
 </li><li class="listitem">
@@ -2656,7 +2656,7 @@ processing (for large files, the marker mechanism
 ending up requiring gigabytes of memory).
 
 Closes bug #1661177. Thanks to Scott Smedley for
-providing a test case (the fvwm man page) that exposed
+providing a main.diff_L1_L2.test case (the fvwm man page) that exposed
 the problem with the marker mechanism.
 
 Also moved the mechanism for converting non-breaking
@@ -3122,7 +3122,7 @@ enable local additions and changes to string-substitution mappings<br>
 without the need to change the value of <a href="http://docbook.sourceforge.net/release/xsl/current/doc/manpages/man.string.subst.map.html"><em class="parameter"><code>man.string.subst.map</code></em></a><br>
 parameter (which is for standard system mappings). Closes<br>
 #1456738. Thanks to Sam Steingold for constructing a true<br>
-stylesheet torture test (the clisp docs) that exposed the need for<br>
+stylesheet torture main.diff_L1_L2.test (the clisp docs) that exposed the need for<br>
 these params.</span></p></div>
 </li><li class="listitem">
 <div class="literallayout"><p><span class="commit-message">Added the Markup element to the list of elements that get output<br>
@@ -3175,7 +3175,7 @@ enable local additions and changes to string-substitution mappings<br>
 without the need to change the value of <a href="http://docbook.sourceforge.net/release/xsl/current/doc/manpages/man.string.subst.map.html"><em class="parameter"><code>man.string.subst.map</code></em></a><br>
 parameter (which is for standard system mappings). Closes<br>
 #1456738. Thanks to Sam Steingold for constructing a true<br>
-stylesheet torture test (the clisp docs) that exposed the need for<br>
+stylesheet torture main.diff_L1_L2.test (the clisp docs) that exposed the need for<br>
 these params.</span></p></div>
 </li><li class="listitem">
 <div class="literallayout"><p><span class="commit-message">Add index.page.number.properties by default.</span></p></div>
@@ -3472,7 +3472,7 @@ and changed method named 'english' to 'basic'.</span></p></div>
 <div class="literallayout"><p><span class="commit-message">Turn off blank-body for <a href="http://docbook.sourceforge.net/release/xsl/current/doc/fo/fop1.extensions.html"><em class="parameter"><code>fop1.extensions</code></em></a> too since fop 0.92<br>
 does not support it either.</span></p></div>
 </li><li class="listitem">
-<div class="literallayout"><p><span class="commit-message">Add Xalan variant to test for exslt:node-set <a href="http://docbook.org/tdg5/en/html/function.html"><code class="sgmltag-element">function</code></a>.<br>
+<div class="literallayout"><p><span class="commit-message">Add Xalan variant to main.diff_L1_L2.test for exslt:node-set <a href="http://docbook.org/tdg5/en/html/function.html"><code class="sgmltag-element">function</code></a>.<br>
 Xalan can use <a href="http://docbook.org/tdg5/en/html/function.html"><code class="sgmltag-element">function</code></a> named node-set(), but doesn't<br>
 recognize it using function-available().</span></p></div>
 </li><li class="listitem">
@@ -3546,7 +3546,7 @@ content on HTML <a href="http://docbook.org/tdg5/en/html/title.html"><code class
   If non-zero (the default), a localized Edited by heading is<br>
   displayed above <a href="http://docbook.org/tdg5/en/html/editor.html"><code class="sgmltag-element">editor</code></a> names in output of the <a href="http://docbook.org/tdg5/en/html/editor.html"><code class="sgmltag-element">editor</code></a> element.</span></p></div>
 </li><li class="listitem">
-<div class="literallayout"><p><span class="commit-message">Add Xalan variant to test for exslt:node-set <a href="http://docbook.org/tdg5/en/html/function.html"><code class="sgmltag-element">function</code></a>.<br>
+<div class="literallayout"><p><span class="commit-message">Add Xalan variant to main.diff_L1_L2.test for exslt:node-set <a href="http://docbook.org/tdg5/en/html/function.html"><code class="sgmltag-element">function</code></a>.<br>
 Xalan can use <a href="http://docbook.org/tdg5/en/html/function.html"><code class="sgmltag-element">function</code></a> named node-set(), but doesn't<br>
 recognize it using function-available().</span></p></div>
 </li><li class="listitem">
@@ -6999,7 +6999,7 @@ works with Xalan 2.5.</p>
   datetime in your document. Added localization support for datetime PI
 </p>
 </li><li class="listitem">
-<p>Added level 6 to test for <a href="http://docbook.org/tdg5/en/html/section.html"><code class="sgmltag-element">section</code></a> depth in
+<p>Added level 6 to main.diff_L1_L2.test for <a href="http://docbook.org/tdg5/en/html/section.html"><code class="sgmltag-element">section</code></a> depth in
 section.level template so that
 section.title.level6.properties will be used for sections
 that are 6 deep or deeper. This should also cause a h6 to be
@@ -7118,7 +7118,7 @@ on <a href="http://docbook.org/tdg5/en/html/inlinemediaobject.html"><code class=
 <p>Support 'start' PI on ordered lists
 </p>
 </li><li class="listitem">
-<p>Fixed test of $toc PI to turn on qandaset TOC.
+<p>Fixed main.diff_L1_L2.test of $toc PI to turn on qandaset TOC.
 </p>
 </li><li class="listitem">
 <p>Added process.chunk.footnotes to sect2 through

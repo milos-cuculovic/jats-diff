@@ -77,21 +77,21 @@
                 line-height="15pt"
                 space-after.optimum="10pt"
                 text-align="start">
-        This is simple test of the text-decoration <fo:inline text-decoration="underline">'underline'</fo:inline>.
+        This is simple main.diff_L1_L2.test of the text-decoration <fo:inline text-decoration="underline">'underline'</fo:inline>.
       </fo:block>
       <fo:block font-size="22pt" 
                 font-family="sans-serif" 
                 line-height="15pt"
                 space-after.optimum="10pt"
                 text-align="start">
-        This is simple test with a <fo:inline text-decoration="underline">bigger</fo:inline> font-size.
+        This is simple main.diff_L1_L2.test with a <fo:inline text-decoration="underline">bigger</fo:inline> font-size.
       </fo:block>
       <fo:block font-size="12pt" 
                 font-family="monospace" 
                 line-height="15pt"
                 space-after.optimum="20pt"
                 text-align="start">
-        This is simple test with a <fo:inline text-decoration="underline">monospaced</fo:inline> font.
+        This is simple main.diff_L1_L2.test with a <fo:inline text-decoration="underline">monospaced</fo:inline> font.
 
       </fo:block>
 
@@ -230,14 +230,14 @@
                 line-height="22pt"
                 space-after.optimum="10pt"
                 text-align="start">
-        This is simple test with a <fo:inline text-decoration="overline">bigger font-size</fo:inline>.
+        This is simple main.diff_L1_L2.test with a <fo:inline text-decoration="overline">bigger font-size</fo:inline>.
       </fo:block>
       <fo:block font-size="15pt" 
                 font-family="monospace" 
                 line-height="15pt"
                 space-after.optimum="10pt"
                 text-align="start">
-        This is simple test with a <fo:inline text-decoration="line-through">monospaced font</fo:inline>.
+        This is simple main.diff_L1_L2.test with a <fo:inline text-decoration="line-through">monospaced font</fo:inline>.
       </fo:block>
 
       <fo:block font-size="15pt" 

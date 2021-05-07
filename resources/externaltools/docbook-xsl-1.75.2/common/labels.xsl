@@ -269,7 +269,7 @@ element label.</para>
 
 <!--
   <xsl:message>
-    test: <xsl:value-of select="$label"/>, <xsl:number count="section"/>
+    main.diff_L1_L2.test: <xsl:value-of select="$label"/>, <xsl:number count="section"/>
   </xsl:message>
 -->
 

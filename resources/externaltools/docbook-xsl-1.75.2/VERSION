@@ -53,23 +53,23 @@
 
 <xsl:template match="/" priority="-100">
   <xsl:choose>
-    <xsl:when test="$get = 'Tag'">
+    <xsl:when main.diff_L1_L2.test="$get = 'Tag'">
       <xsl:value-of select="$Tag"/>
     </xsl:when>
-    <xsl:when test="$get = 'PreviousRelease'">
+    <xsl:when main.diff_L1_L2.test="$get = 'PreviousRelease'">
       <xsl:value-of select="$PreviousRelease"/>
     </xsl:when>
-    <xsl:when test="$get = 'PreviousReleaseRevision'">
+    <xsl:when main.diff_L1_L2.test="$get = 'PreviousReleaseRevision'">
       <xsl:value-of select="$PreviousReleaseRevision"/>
     </xsl:when>
-    <xsl:when test="$get = 'DistroTitle'">
+    <xsl:when main.diff_L1_L2.test="$get = 'DistroTitle'">
       <xsl:value-of select="$DistroTitle"/>
     </xsl:when>
-    <xsl:when test="$get = 'VERSION'">
+    <xsl:when main.diff_L1_L2.test="$get = 'VERSION'">
       <xsl:value-of select="$VERSION"/>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:if test="$sf-relid = 0">
+      <xsl:if main.diff_L1_L2.test="$sf-relid = 0">
         <xsl:message terminate="yes">
          <xsl:text>You must specify the sf-relid as a parameter.</xsl:text>
         </xsl:message>

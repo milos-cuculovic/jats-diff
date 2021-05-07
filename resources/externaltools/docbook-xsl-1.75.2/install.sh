@@ -49,7 +49,7 @@ thisXmlCatalog=$mydir/catalog.xml
 thisSgmlCatalog=$mydir/catalog
 
 # .urilist file contains a list of pairs of local pathnames and
-# URIs to test for catalog resolution
+# URIs to main.diff_L1_L2.test for catalog resolution
 thisUriList=$mydir/.urilist
 exampleCatalogManager=$mydir/.CatalogManager.properties.example
 thisCatalogManager=$HOME/.resolver/CatalogManager.properties
@@ -788,7 +788,7 @@ EOF
   done
   removeOldFiles
   emit_message "Done. Deleted uninstall.sh file."
-  rm -f $mydir/test.sh      || exit 1
+  rm -f $mydir/main.diff_L1_L2.test.sh      || exit 1
   rm -f $mydir/uninstall.sh || exit 1
 }
 
@@ -805,10 +805,10 @@ writeUninstallFile() {
 }
 
 writeTestFile() {
-  testFile=$mydir/test.sh
+  testFile=$mydir/main.diff_L1_L2.test.sh
   echo "#!/bin/bash"                                > $testFile || exit 1
   echo 'mydir=$(cd -P $(dirname $0) && pwd -P)'    >> $testFile || exit 1
-  echo '$mydir/install.sh --test'                  >> $testFile || exit 1
+  echo '$mydir/install.sh --main.diff_L1_L2.test'                  >> $testFile || exit 1
   chmod 755 $testFile || exit 1
 }
 
@@ -942,7 +942,7 @@ case $1 in
   *-uninstall)
   uninstall $2 $3 $4
   ;;
-  *-test)
+  *-main.diff_L1_L2.test)
   testCatalogs
   ;;
   *)

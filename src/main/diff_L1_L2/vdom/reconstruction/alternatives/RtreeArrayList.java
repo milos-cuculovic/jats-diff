@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * 
  * Alternativa alla classe Rtree, usa degli ArrayList al posto dei Vector Per
- * ora è utilizzata solo nei test delle performance
+ * ora è utilizzata solo nei main.diff_L1_L2.test delle performance
  * 
  */
 public class RtreeArrayList extends

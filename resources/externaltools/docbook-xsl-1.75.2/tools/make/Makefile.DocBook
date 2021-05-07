@@ -220,7 +220,7 @@ REFENTRY_CHECK := <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transfor
                 > \
   <xsl:output method="text"/> \
   <xsl:template match="/"> \
-    <xsl:if test="//refentry|//db:refentry"> \
+    <xsl:if main.diff_L1_L2.test="//refentry|//db:refentry"> \
       <xsl:text>true</xsl:text> \
     </xsl:if> \
   </xsl:template> \
@@ -406,7 +406,7 @@ pdf: $(FILES_PDF)
 info: $(FILES_INFO)
 
 # use the "debug" target to echo variables, etc., to
-# test/troubleshoot changes you make to this makefile
+# main.diff_L1_L2.test/troubleshoot changes you make to this makefile
 debug:
 	echo $(wildcard *$(DOCBOOK_FILE_EXTENSION))
 	echo $(ASCII_OR_DOCBOOK)

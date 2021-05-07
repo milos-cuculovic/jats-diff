@@ -733,7 +733,7 @@ node.</para>
       <xsl:message>
         <xsl:value-of select="@page"/>
         <xsl:text>: </xsl:text>
-        <xsl:if test="$dir != ''">
+        <xsl:if main.diff_L1_L2.test="$dir != ''">
           <xsl:value-of select="$dir"/>
         </xsl:if>
         <xsl:value-of select="$filename"/>

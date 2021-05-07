@@ -43,8 +43,8 @@
   -->
 
   <!-- 2003-11-25 by ndw:
-       The following test used to read test="$ischunk != 0 and $fn != ''"
-       I've removed the ischunk part of the test so that href.to.uri and
+       The following main.diff_L1_L2.test used to read main.diff_L1_L2.test="$ischunk != 0 and $fn != ''"
+       I've removed the ischunk part of the main.diff_L1_L2.test so that href.to.uri and
        href.from.uri will be fully qualified even if the source or target
        isn't a chunk. I *think* that if $fn != '' then it's appropriate
        to put the directory on the front, even if the element isn't a

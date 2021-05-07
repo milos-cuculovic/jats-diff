@@ -89,7 +89,7 @@ The following changes have been made to the html code since the 1.75.1 release.
 
   ● Mauritz Jeanson: titlepage.xsl
 
-    Added stylesheet.result.type test for copyright. Closes bug #2813289.
+    Added stylesheet.result.type main.diff_L1_L2.test for copyright. Closes bug #2813289.
 
   ● Norman Walsh: htmltbl.xsl
 
@@ -106,7 +106,7 @@ release.
 
   ● Mauritz Jeanson: docbook.xsl
 
-    Added stylesheet.result.type test for copyright. Closes bug #2813289.
+    Added stylesheet.result.type main.diff_L1_L2.test for copyright. Closes bug #2813289.
 
 Epub
 

@@ -1453,7 +1453,7 @@ following in your customization layer.</para>
 
 <programlisting>&lt;xsl:attribute-set name="toc.line.properties"&gt;
   &lt;xsl:attribute name="font-weight"&gt;
-    &lt;xsl:when test="self::chapter | self::preface | self::appendix"&gt;bold&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="self::chapter | self::preface | self::appendix"&gt;bold&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;normal&lt;/xsl:otherwise&gt;
   &lt;/xsl:attribute&gt;
 &lt;/xsl:attribute-set&gt;</programlisting>
@@ -5116,7 +5116,7 @@ entry has an ID.</para>
 &lt;glossaryinfo&gt;
 &lt;editor&gt;&lt;firstname&gt;Eric&lt;/firstname&gt;&lt;surname&gt;Raymond&lt;/surname&gt;&lt;/editor&gt;
 &lt;title&gt;Jargon File 4.2.3 (abridged)&lt;/title&gt;
-&lt;releaseinfo&gt;Just some test data&lt;/releaseinfo&gt;
+&lt;releaseinfo&gt;Just some main.diff_L1_L2.test data&lt;/releaseinfo&gt;
 &lt;/glossaryinfo&gt;
 
 &lt;glossdiv&gt;&lt;title&gt;0&lt;/title&gt;
@@ -6348,7 +6348,7 @@ spaces to break.
 <programlisting xml:id="default.float.class.frag">
 &lt;xsl:param name="default.float.class"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="contains($stylesheet.result.type,'html')"&gt;left&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="contains($stylesheet.result.type,'html')"&gt;left&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;before&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;
@@ -6832,9 +6832,9 @@ an XSLT 2.0 processor it is not guaranteed to work with DocBook XSL in all circu
 <para>The following is an example of a Saxon 6 command adapted for syntax highlighting, to be used on Windows:</para>
 
 <informalexample>
-<para><command>java -cp c:/Java/saxon.jar;c:/Java/xslthl-2.0.1.jar 
--Dxslthl.config=file:///c:/docbook-xsl/highlighting/xslthl-config.xml com.icl.saxon.StyleSheet 
--o test.html test.xml myhtml.xsl</command></para>
+<para><command>java -cp c:/Java/saxon.jar;c:/Java/xslthl-2.0.1.jar
+    -Dxslthl.config=file:///c:/docbook-xsl/highlighting/xslthl-config.xml com.icl.saxon.StyleSheet
+    -o main.diff_L1_L2.test.html main.diff_L1_L2.test.xml myhtml.xsl</command></para>
 </informalexample>
 
 </refsection>
@@ -7042,13 +7042,13 @@ monospace font being used.
 </refmeta>
 <refnamediv>
 <refname>exsl.node.set.available</refname>
-<refpurpose>Is the test function-available('exsl:node-set') true?</refpurpose>
+<refpurpose>Is the main.diff_L1_L2.test function-available('exsl:node-set') true?</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
 <programlisting xml:id="exsl.node.set.available.frag">&lt;xsl:param name="exsl.node.set.available"&gt; 
   &lt;xsl:choose&gt;
-    &lt;xsl:when exsl:foo="" test="function-available('exsl:node-set') or                        contains(system-property('xsl:vendor'),                          'Apache Software Foundation')"&gt;1&lt;/xsl:when&gt;
+    &lt;xsl:when exsl:foo="" main.diff_L1_L2.test="function-available('exsl:node-set') or                        contains(system-property('xsl:vendor'),                          'Apache Software Foundation')"&gt;1&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;0&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;
@@ -7418,7 +7418,7 @@ zero by default, so this is simply the page-master margin-right.
 <refsynopsisdiv>
 <programlisting xml:id="page.height.frag">&lt;xsl:param name="page.height"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$page.orientation = 'portrait'"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$page.orientation = 'portrait'"&gt;
       &lt;xsl:value-of select="$page.height.portrait"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;
@@ -7451,44 +7451,44 @@ zero by default, so this is simply the page-master margin-right.
 <refsynopsisdiv>
 <programlisting xml:id="page.height.portrait.frag">&lt;xsl:param name="page.height.portrait"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$paper.type = 'A4landscape'"&gt;210mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'USletter'"&gt;11in&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'USlandscape'"&gt;8.5in&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = '4A0'"&gt;2378mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = '2A0'"&gt;1682mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A0'"&gt;1189mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A1'"&gt;841mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A2'"&gt;594mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A3'"&gt;420mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A4'"&gt;297mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A5'"&gt;210mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A6'"&gt;148mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A7'"&gt;105mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A8'"&gt;74mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A9'"&gt;52mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A10'"&gt;37mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B0'"&gt;1414mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B1'"&gt;1000mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B2'"&gt;707mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B3'"&gt;500mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B4'"&gt;353mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B5'"&gt;250mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B6'"&gt;176mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B7'"&gt;125mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B8'"&gt;88mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B9'"&gt;62mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B10'"&gt;44mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C0'"&gt;1297mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C1'"&gt;917mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C2'"&gt;648mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C3'"&gt;458mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C4'"&gt;324mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C5'"&gt;229mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C6'"&gt;162mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C7'"&gt;114mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C8'"&gt;81mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C9'"&gt;57mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C10'"&gt;40mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A4landscape'"&gt;210mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'USletter'"&gt;11in&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'USlandscape'"&gt;8.5in&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = '4A0'"&gt;2378mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = '2A0'"&gt;1682mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A0'"&gt;1189mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A1'"&gt;841mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A2'"&gt;594mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A3'"&gt;420mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A4'"&gt;297mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A5'"&gt;210mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A6'"&gt;148mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A7'"&gt;105mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A8'"&gt;74mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A9'"&gt;52mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A10'"&gt;37mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B0'"&gt;1414mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B1'"&gt;1000mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B2'"&gt;707mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B3'"&gt;500mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B4'"&gt;353mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B5'"&gt;250mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B6'"&gt;176mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B7'"&gt;125mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B8'"&gt;88mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B9'"&gt;62mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B10'"&gt;44mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C0'"&gt;1297mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C1'"&gt;917mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C2'"&gt;648mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C3'"&gt;458mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C4'"&gt;324mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C5'"&gt;229mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C6'"&gt;162mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C7'"&gt;114mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C8'"&gt;81mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C9'"&gt;57mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C10'"&gt;40mm&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;11in&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;</programlisting>
@@ -7541,7 +7541,7 @@ to the physical bottom of the page.
 <refsynopsisdiv>
 <programlisting xml:id="page.margin.inner.frag">&lt;xsl:param name="page.margin.inner"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$double.sided != 0"&gt;1.25in&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$double.sided != 0"&gt;1.25in&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;1in&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;</programlisting>
@@ -7593,7 +7593,7 @@ with left-to-right text direction.</para>
 <refsynopsisdiv>
 <programlisting xml:id="page.margin.outer.frag">&lt;xsl:param name="page.margin.outer"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$double.sided != 0"&gt;0.75in&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$double.sided != 0"&gt;0.75in&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;1in&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;</programlisting>
@@ -7694,7 +7694,7 @@ landscape orientation, it is vertical.
 <refsynopsisdiv>
 <programlisting xml:id="page.width.frag">&lt;xsl:param name="page.width"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$page.orientation = 'portrait'"&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$page.orientation = 'portrait'"&gt;
       &lt;xsl:value-of select="$page.width.portrait"&gt;&lt;/xsl:value-of&gt;
     &lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;
@@ -7726,42 +7726,42 @@ landscape orientation, it is vertical.
 <refsynopsisdiv>
 <programlisting xml:id="page.width.portrait.frag">&lt;xsl:param name="page.width.portrait"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$paper.type = 'USletter'"&gt;8.5in&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = '4A0'"&gt;1682mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = '2A0'"&gt;1189mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A0'"&gt;841mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A1'"&gt;594mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A2'"&gt;420mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A3'"&gt;297mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A4'"&gt;210mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A5'"&gt;148mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A6'"&gt;105mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A7'"&gt;74mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A8'"&gt;52mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A9'"&gt;37mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'A10'"&gt;26mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B0'"&gt;1000mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B1'"&gt;707mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B2'"&gt;500mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B3'"&gt;353mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B4'"&gt;250mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B5'"&gt;176mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B6'"&gt;125mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B7'"&gt;88mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B8'"&gt;62mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B9'"&gt;44mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'B10'"&gt;31mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C0'"&gt;917mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C1'"&gt;648mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C2'"&gt;458mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C3'"&gt;324mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C4'"&gt;229mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C5'"&gt;162mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C6'"&gt;114mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C7'"&gt;81mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C8'"&gt;57mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C9'"&gt;40mm&lt;/xsl:when&gt;
-    &lt;xsl:when test="$paper.type = 'C10'"&gt;28mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'USletter'"&gt;8.5in&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = '4A0'"&gt;1682mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = '2A0'"&gt;1189mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A0'"&gt;841mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A1'"&gt;594mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A2'"&gt;420mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A3'"&gt;297mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A4'"&gt;210mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A5'"&gt;148mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A6'"&gt;105mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A7'"&gt;74mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A8'"&gt;52mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A9'"&gt;37mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'A10'"&gt;26mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B0'"&gt;1000mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B1'"&gt;707mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B2'"&gt;500mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B3'"&gt;353mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B4'"&gt;250mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B5'"&gt;176mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B6'"&gt;125mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B7'"&gt;88mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B8'"&gt;62mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B9'"&gt;44mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'B10'"&gt;31mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C0'"&gt;917mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C1'"&gt;648mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C2'"&gt;458mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C3'"&gt;324mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C4'"&gt;229mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C5'"&gt;162mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C6'"&gt;114mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C7'"&gt;81mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C8'"&gt;57mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C9'"&gt;40mm&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$paper.type = 'C10'"&gt;28mm&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;8.5in&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;</programlisting>
@@ -7933,8 +7933,8 @@ region-before to the first line of text in the page body.</para>
 <programlisting xml:id="body.start.indent.frag">
 &lt;xsl:param name="body.start.indent"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$fop.extensions != 0"&gt;0pt&lt;/xsl:when&gt;
-    &lt;xsl:when test="$passivetex.extensions != 0"&gt;0pt&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$fop.extensions != 0"&gt;0pt&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$passivetex.extensions != 0"&gt;0pt&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;4pc&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;
@@ -8577,8 +8577,8 @@ so that math can be performed on the font size by XSLT.
 <programlisting xml:id="title.margin.left.frag">
 &lt;xsl:param name="title.margin.left"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="$fop.extensions != 0"&gt;-4pc&lt;/xsl:when&gt;
-    &lt;xsl:when test="$passivetex.extensions != 0"&gt;0pt&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$fop.extensions != 0"&gt;-4pc&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="$passivetex.extensions != 0"&gt;0pt&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;0pt&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;
@@ -9881,7 +9881,7 @@ this parameter is ignored.
   &lt;xsl:attribute name="hyphenate"&gt;false&lt;/xsl:attribute&gt;
   &lt;xsl:attribute name="text-align"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="((parent::article | parent::articleinfo | parent::info/parent::article) and not(ancestor::book) and not(self::bibliography))         or (parent::slides | parent::slidesinfo)"&gt;center&lt;/xsl:when&gt;
+      &lt;xsl:when main.diff_L1_L2.test="((parent::article | parent::articleinfo | parent::info/parent::article) and not(ancestor::book) and not(self::bibliography))         or (parent::slides | parent::slidesinfo)"&gt;center&lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;start&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:attribute&gt;

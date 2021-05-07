@@ -42,7 +42,7 @@ public class HtmlPrintRtree {
 		if (node.getNodeType() == Node.ELEMENT_NODE) {
 			Element tmp = (Element) node;
 
-			// test sui nodi wrapper segnati come mossi
+			// main.diff_L1_L2.test sui nodi wrapper segnati come mossi
 			if (tmp.getPrefix() != null) {
 				if ((tmp.getPrefix().equals(Rtree.NDIFF_PREFIX))
 						&& (tmp.getAttribute("status").equals("inserted")))

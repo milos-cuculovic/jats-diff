@@ -24,7 +24,7 @@
 <xsl:param name="kimber.imported">
   <xsl:variable name="vendor" select="system-property('xsl:vendor')"/>
   <xsl:choose>
-    <xsl:when test="not(contains($vendor, 'SAXON '))">
+    <xsl:when main.diff_L1_L2.test="not(contains($vendor, 'SAXON '))">
       <xsl:message terminate="yes">
         <xsl:text>ERROR: the 'kimber' index method requires the </xsl:text>
         <xsl:text>Saxon version 6 or 8 XSLT processor.</xsl:text>

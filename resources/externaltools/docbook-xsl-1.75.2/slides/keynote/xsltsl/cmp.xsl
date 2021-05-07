@@ -138,7 +138,7 @@
 
     <xsl:choose>
       <!-- Define loop direction based on which tree has more nodes
-	   FIXME: Replacing this with one for-each and a test for the case 
+	   FIXME: Replacing this with one for-each and a main.diff_L1_L2.test for the case
 	          of the second tree having more nodes would be more elegant 
 
 	   Solution: Add variable for direction and assign the 'larger' nodeset to that
@@ -320,7 +320,7 @@
 		  </xsl:call-template>
 		</xsl:variable>
 		
-		<xsl:if test='not($diffResult = "")'>
+		<xsl:if main.diff_L1_L2.test='not($diffResult = "")'>
 		  <xsl:value-of select='"textDiff"'/>
 		</xsl:if>
 		-->

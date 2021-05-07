@@ -388,7 +388,7 @@
       <!-- *   want reported to them -->
       <!-- *  -->
       <!-- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-      <!-- * <xsl:if test="$refentry.meta.get.quietly = 0"> -->
+      <!-- * <xsl:if main.diff_L1_L2.test="$refentry.meta.get.quietly = 0"> -->
         <!-- * <xsl:call-template name="log.message"> -->
           <!-- * <xsl:with-param name="level">Note</xsl:with-param> -->
           <!-- * <xsl:with-param name="source" select="$refname"/> -->
@@ -1321,8 +1321,8 @@
   <xsl:param name="contents"/>
   <xsl:param name="context"/>
   <xsl:param name="preferred"/>
-  <!-- * <xsl:if test="not($preferred = '')"> -->
-    <!-- * <xsl:if test="$refentry.meta.get.quietly = 0"> -->
+  <!-- * <xsl:if main.diff_L1_L2.test="not($preferred = '')"> -->
+    <!-- * <xsl:if main.diff_L1_L2.test="$refentry.meta.get.quietly = 0"> -->
       <!-- * <xsl:call-template name="log.message"> -->
         <!-- * <xsl:with-param name="level">Note</xsl:with-param> -->
         <!-- * <xsl:with-param name="source" select="$refname"/> -->

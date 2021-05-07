@@ -5637,7 +5637,7 @@ entry has an ID.</para>
 &lt;glossaryinfo&gt;
 &lt;editor&gt;&lt;firstname&gt;Eric&lt;/firstname&gt;&lt;surname&gt;Raymond&lt;/surname&gt;&lt;/editor&gt;
 &lt;title&gt;Jargon File 4.2.3 (abridged)&lt;/title&gt;
-&lt;releaseinfo&gt;Just some test data&lt;/releaseinfo&gt;
+&lt;releaseinfo&gt;Just some main.diff_L1_L2.test data&lt;/releaseinfo&gt;
 &lt;/glossaryinfo&gt;
 
 &lt;glossdiv&gt;&lt;title&gt;0&lt;/title&gt;
@@ -6072,7 +6072,7 @@ value of the revisionflag attribute). In some contexts, for example
 tables, where extra markup would be structurally illegal, the class
 attribute will be added to the appropriate container element.</para>
 
-<para>In general, the stylesheets only test for revisionflag in contexts
+<para>In general, the stylesheets only main.diff_L1_L2.test for revisionflag in contexts
 where an importing stylesheet would have to redefine whole templates.
 Most of the revisionflag processing is expected to be done by another
 stylesheet, for example <filename>changebars.xsl</filename>.</para>
@@ -6468,7 +6468,7 @@ spaces to break.
 <programlisting xml:id="default.float.class.frag">
 &lt;xsl:param name="default.float.class"&gt;
   &lt;xsl:choose&gt;
-    &lt;xsl:when test="contains($stylesheet.result.type,'html')"&gt;left&lt;/xsl:when&gt;
+    &lt;xsl:when main.diff_L1_L2.test="contains($stylesheet.result.type,'html')"&gt;left&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;before&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;
@@ -6682,9 +6682,9 @@ an XSLT 2.0 processor it is not guaranteed to work with DocBook XSL in all circu
 <para>The following is an example of a Saxon 6 command adapted for syntax highlighting, to be used on Windows:</para>
 
 <informalexample>
-<para><command>java -cp c:/Java/saxon.jar;c:/Java/xslthl-2.0.1.jar 
--Dxslthl.config=file:///c:/docbook-xsl/highlighting/xslthl-config.xml com.icl.saxon.StyleSheet 
--o test.html test.xml myhtml.xsl</command></para>
+<para><command>java -cp c:/Java/saxon.jar;c:/Java/xslthl-2.0.1.jar
+    -Dxslthl.config=file:///c:/docbook-xsl/highlighting/xslthl-config.xml com.icl.saxon.StyleSheet
+    -o main.diff_L1_L2.test.html main.diff_L1_L2.test.xml myhtml.xsl</command></para>
 </informalexample>
 
 </refsection>
@@ -6773,13 +6773,13 @@ are generated around e-mail addresses
 </refmeta>
 <refnamediv>
 <refname>exsl.node.set.available</refname>
-<refpurpose>Is the test function-available('exsl:node-set') true?</refpurpose>
+<refpurpose>Is the main.diff_L1_L2.test function-available('exsl:node-set') true?</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
 <programlisting xml:id="exsl.node.set.available.frag">&lt;xsl:param name="exsl.node.set.available"&gt; 
   &lt;xsl:choose&gt;
-    &lt;xsl:when exsl:foo="" test="function-available('exsl:node-set') or                        contains(system-property('xsl:vendor'),                          'Apache Software Foundation')"&gt;1&lt;/xsl:when&gt;
+    &lt;xsl:when exsl:foo="" main.diff_L1_L2.test="function-available('exsl:node-set') or                        contains(system-property('xsl:vendor'),                          'Apache Software Foundation')"&gt;1&lt;/xsl:when&gt;
     &lt;xsl:otherwise&gt;0&lt;/xsl:otherwise&gt;
   &lt;/xsl:choose&gt;
 &lt;/xsl:param&gt;

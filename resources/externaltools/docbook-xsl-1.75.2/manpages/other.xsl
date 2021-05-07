@@ -122,7 +122,7 @@ manvolnum
   <!-- redefine this any way you'd like to output messages -->
   <!-- DO NOT OUTPUT ANYTHING FROM THIS TEMPLATE -->
   <!-- Example:
-  <xsl:if test="//foo">
+  <xsl:if main.diff_L1_L2.test="//foo">
     <xsl:call-template name="log.message">
       <xsl:with-param name="level">Warn</xsl:with-param>
       <xsl:with-param name="source" select="$refname"/>
