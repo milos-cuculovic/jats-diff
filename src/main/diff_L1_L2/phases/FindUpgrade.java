@@ -75,14 +75,14 @@ public class FindUpgrade extends Phase {
      * @param cfg Nconfig relativo alla configurazione del Diff
      */
     public FindUpgrade(NxN SearchField, Relation Rel, Dtree Ta, Dtree Tb,
-            Nconfig cfg) {
+                       Nconfig cfg) {
         super(SearchField, Rel, Ta, Tb, cfg);
     }
 
     /*
-	 * (non-Javadoc)
-	 *
-	 * @see ndiff.phases.Phase#compute()
+     * (non-Javadoc)
+     *
+     * @see ndiff.phases.Phase#compute()
      */
     @Override
     public void compute() throws ComputePhaseException {
@@ -112,12 +112,19 @@ public class FindUpgrade extends Phase {
             for (int i = processField.yRef.inf; i <= processField.yRef.sup; i++) {
 
                 Dnode toNode = B.getNode(i);
+
                 // Only for sec tag
-                if (ArrayUtils.indexOf(TAGS, toNode.getRefDomNode().getNodeName()) > -1) {
+                if (ArrayUtils.indexOf(TAGS, toNode.getRefDomNode().getNodeName()) > -1
+                        && ArrayUtils.indexOf(TAGS, B.getNode(toNode.getPosFather()).getRefDomNode().getNodeName()) == -1) {
+
                     for (int j = processField.xRef.inf; j <= processField.xRef.sup; j++) {
                         Dnode fromNode = A.getNode(j);
-//                    for (Dnode fromNode : A.nodeList) { //remove this line that check all nodes, use just diff nodes from jats-diff in line before
-                        if (ArrayUtils.indexOf(TAGS, fromNode.getRefDomNode().getNodeName()) > -1) {
+
+//                    for (Dnode fromNode : A.nodeList) { //remove this line that check all nodes, use just diff nodes from jndiff in line before
+                        if (ArrayUtils.indexOf(TAGS, fromNode.getRefDomNode().getNodeName()) > -1
+                                && ArrayUtils.indexOf(TAGS, A.getNode(fromNode.getPosFather()).getRefDomNode().getNodeName()) > -1
+                                && toNode.getNumChildSubtree() != A.getNode(fromNode.getPosFather()).getNumChildSubtree()) {
+
                             String content = toNode.getRefDomNode().getTextContent();
                             String regExp = "^(\\d+\\.\\s)(.*)";
                             Pattern p = Pattern.compile(regExp);
@@ -148,6 +155,7 @@ public class FindUpgrade extends Phase {
                                     for (int l = toNodeInterval.inf; l <= toNodeInterval.sup; l++) {
                                         B.getNode(l).inRel = Relation.UPGRADE;
                                     }
+                                    break;
 
                                 }
 

@@ -76,14 +76,14 @@ public class FindDowngrade extends Phase {
      * @param cfg Nconfig relativo alla configurazione del Diff
      */
     public FindDowngrade(NxN SearchField, Relation Rel, Dtree Ta, Dtree Tb,
-            Nconfig cfg) {
+                         Nconfig cfg) {
         super(SearchField, Rel, Ta, Tb, cfg);
     }
 
     /*
-	 * (non-Javadoc)
-	 *
-	 * @see ndiff.phases.Phase#compute()
+     * (non-Javadoc)
+     *
+     * @see ndiff.phases.Phase#compute()
      */
     @Override
     public void compute() throws ComputePhaseException {
@@ -113,44 +113,50 @@ public class FindDowngrade extends Phase {
             for (int i = processField.yRef.inf; i <= processField.yRef.sup; i++) {
 
                 Dnode toNode = B.getNode(i);
-                if (ArrayUtils.indexOf(TAGS, toNode.getRefDomNode().getNodeName()) > -1) {
+                if (ArrayUtils.indexOf(TAGS, toNode.getRefDomNode().getNodeName()) > -1
+                        && ArrayUtils.indexOf(TAGS, B.getNode(B.getNode(i).getPosFather()).getRefDomNode().getNodeName()) > -1) {
 
 //                    for (Dnode fromNode : A.nodeList) {
                     for (int j = processField.xRef.inf; j <= processField.xRef.sup; j++) {
                         Dnode fromNode = A.getNode(j);
-                        String content = toNode.getRefDomNode().getTextContent();
-                        String regExp = "^(\\d+\\.\\d+\\.\\s)(.*)";
-                        Pattern p = Pattern.compile(regExp);
-                        Matcher m = p.matcher(content);
-                        boolean titleSub = m.find();
-                        content = m.replaceAll("$2");
+                        if (ArrayUtils.indexOf(TAGS, toNode.getRefDomNode().getNodeName()) > -1
+                                && ArrayUtils.indexOf(TAGS, A.getNode(A.getNode(j).getPosFather()).getRefDomNode().getNodeName()) == -1
+                                && fromNode.getNumChildSubtree() != A.getNode(toNode.getPosFather()).getNumChildSubtree()) {
 
-                        if (titleSub && toNode.getRefDomNode().getNodeName().equals(fromNode.getRefDomNode().getNodeName())
-                                && toNode.posFather.intValue() > fromNode.posFather.intValue()) {
-                            String subSectionAContent = fromNode.refDomNode.getTextContent();
-                            String regExpA = "^(\\d+\\.\\s)(.*)";
-                            Pattern pA = Pattern.compile(regExpA);
-                            Matcher mA = pA.matcher(subSectionAContent);
-                            boolean titleBeginWith = mA.find();
-                            subSectionAContent = mA.replaceAll("$2");
-                            Jaccard jc = new Jaccard();
-                            if (titleBeginWith && (content.equalsIgnoreCase(subSectionAContent) || jc.similarity(content, subSectionAContent) > 0.99)) {
-                                Interval fromNodeInterval = new Interval(fromNode.getIndexKey(), fromNode.getIndexKey());
-                                Interval toNodeInterval = new Interval(toNode.getIndexKey(), toNode.getIndexKey());
-                                R.addFragment(fromNodeInterval, toNodeInterval, toNode.weight, Relation.DOWNGRADE);
-                                listIntervalA.add(fromNodeInterval);
-                                listIntervalB.add(toNodeInterval);
-                                for (int l = fromNodeInterval.inf; l <= fromNodeInterval.inf + fromNode.numChildSubtree; l++) {
-                                    A.getNode(l).inRel = Relation.DOWNGRADE;
+                            String content = toNode.getRefDomNode().getTextContent();
+                            String regExp = "^(\\d+\\.\\d+\\.\\s)(.*)";
+                            Pattern p = Pattern.compile(regExp);
+                            Matcher m = p.matcher(content);
+                            boolean titleSub = m.find();
+                            content = m.replaceAll("$2");
 
-                                }
-                                for (int l = toNodeInterval.inf; l <= toNodeInterval.inf + toNode.numChildSubtree; l++) {
-                                    B.getNode(l).inRel = Relation.DOWNGRADE;
-                                }
+                            if (titleSub && toNode.getRefDomNode().getNodeName().equals(fromNode.getRefDomNode().getNodeName())
+                                    && toNode.posFather.intValue() > fromNode.posFather.intValue()) {
+                                String subSectionAContent = fromNode.refDomNode.getTextContent();
+                                String regExpA = "^(\\d+\\.\\s)(.*)";
+                                Pattern pA = Pattern.compile(regExpA);
+                                Matcher mA = pA.matcher(subSectionAContent);
+                                boolean titleBeginWith = mA.find();
+                                subSectionAContent = mA.replaceAll("$2");
+                                Jaccard jc = new Jaccard();
+                                if (titleBeginWith && (content.equalsIgnoreCase(subSectionAContent) || jc.similarity(content, subSectionAContent) > 0.95)) {
+                                    Interval fromNodeInterval = new Interval(fromNode.getIndexKey(), fromNode.getIndexKey());
+                                    Interval toNodeInterval = new Interval(toNode.getIndexKey(), toNode.getIndexKey());
+                                    R.addFragment(fromNodeInterval, toNodeInterval, toNode.weight, Relation.DOWNGRADE);
+                                    listIntervalA.add(fromNodeInterval);
+                                    listIntervalB.add(toNodeInterval);
+                                    for (int l = fromNodeInterval.inf; l <= fromNodeInterval.inf + fromNode.numChildSubtree; l++) {
+                                        A.getNode(l).inRel = Relation.DOWNGRADE;
+
+                                    }
+                                    for (int l = toNodeInterval.inf; l <= toNodeInterval.inf + toNode.numChildSubtree; l++) {
+                                        B.getNode(l).inRel = Relation.DOWNGRADE;
+                                    }
 //                                SF.subField(fromNodeInterval, toNodeInterval, Field.NO, Field.NO, Field.NO, Field.NO);
+                                    break;
+                                }
 
                             }
-
                         }
                     }
                 }

@@ -106,7 +106,7 @@ public class Main {
 			}
 			else {
 				System.err.println("Not enough arguments, taking the default values");
-				filesParam = "examples/citables/7_complex_move_one_cited_section/orig.xml examples/citables/7_complex_move_one_cited_section/new.xml examples/citables/7_complex_move_one_cited_section/delta.xml examples/citables/7_complex_move_one_cited_section/semantics.xml";
+				filesParam = System.getProperty("user.dir") + "examples/citables/7_complex_move_one_cited_section/orig.xml examples/citables/7_complex_move_one_cited_section/new.xml examples/citables/7_complex_move_one_cited_section/delta.xml examples/citables/7_complex_move_one_cited_section/semantics.xml";
 				filesList = new String[1];
 				filesList[0] = filesParam;
 			}
@@ -115,7 +115,7 @@ public class Main {
 			System.err.println("Not enough arguments, taking the default values");
 			doDiff = true;
 			doSemantics = true;
-			filesParam = "examples/citables/7_complex_move_one_cited_section/orig.xml examples/citables/7_complex_move_one_cited_section/new.xml examples/citables/7_complex_move_one_cited_section/delta.xml examples/citables/7_complex_move_one_cited_section/semantics.xml";
+			filesParam = System.getProperty("user.dir") + "examples/citables/7_complex_move_one_cited_section/orig.xml examples/citables/7_complex_move_one_cited_section/new.xml examples/citables/7_complex_move_one_cited_section/delta.xml examples/citables/7_complex_move_one_cited_section/semantics.xml";
 			filesList = new String[1];
 			filesList[0] = filesParam;
 		}
