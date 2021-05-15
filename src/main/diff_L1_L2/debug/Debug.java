@@ -20,7 +20,7 @@ import java.io.PrintWriter;
  */
 public class Debug {
 
-	static public boolean flag = true;
+	static public boolean flag = false;
 
 	static String debugPath = "src/main/diff_L1_L2/debug";
 	static private PrintWriter indexDiffing = null; // file dei collegamenti per

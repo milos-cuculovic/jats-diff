@@ -131,7 +131,6 @@ public class Ndiff {
             Nconfig config) throws InputFileException, ComputePhaseException {
 
         return getDOMDocument(URIdocA, URIdocB, config, false);
-
     }
 
     /**

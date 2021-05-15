@@ -59,10 +59,10 @@ public class OperationsHandler {
                 params.getModifiedPath(), new Nconfig(params.getConfigPath()));
 
         if (params.getDeltaPath() == null || params.isStdout()) {
-//			document.writeToStream(System.out); //original output in jats-diff uncommend this if need)
+//			document.writeToStream(System.out); //original output in jats-diff uncomment this if need)
             String results = documentToString(document); ////added
             results = Ndiff.encodeTags(results);
-//			logger.info(StringEscapeUtils.unescapeHtml(results)); //added becasue need decode tags vs without tringEscapeUtils.unescapeHtml
+//			logger.info(StringEscapeUtils.unescapeHtml(results)); //added becasue need decode tags vs without stringEscapeUtils.unescapeHtml
 //			logger.info(results);
 
         } else {
@@ -89,9 +89,7 @@ public class OperationsHandler {
                     params.isMerge())) {
 
                 case ParametersHandler.DIFF:
-
                     doDiff(params);
-
                     break;
             }
         } catch (InputFileException e) {

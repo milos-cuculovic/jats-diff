@@ -85,7 +85,7 @@ public class Main {
 					System.exit(1);
 				}
 			}
-			else if(args.length > 4) {
+			else if(args.length >= 4) {
 				if(hasLevel) {
 					filesParam = args[2] + " " + args[3] + " " + args[4];
 					if(doSemantics ) {
@@ -105,19 +105,13 @@ public class Main {
 				filesList[0] = filesParam;
 			}
 			else {
-				System.err.println("Not enough arguments, taking the default values");
-				filesParam = System.getProperty("user.dir") + "examples/citables/7_complex_move_one_cited_section/orig.xml examples/citables/7_complex_move_one_cited_section/new.xml examples/citables/7_complex_move_one_cited_section/delta.xml examples/citables/7_complex_move_one_cited_section/semantics.xml";
-				filesList = new String[1];
-				filesList[0] = filesParam;
+				System.err.println("Not enough arguments, please specify at least the orig, new, delta and semantics XML");
+				System.exit(1);
 			}
 
 		} else {
-			System.err.println("Not enough arguments, taking the default values");
-			doDiff = true;
-			doSemantics = true;
-			filesParam = System.getProperty("user.dir") + "examples/citables/7_complex_move_one_cited_section/orig.xml examples/citables/7_complex_move_one_cited_section/new.xml examples/citables/7_complex_move_one_cited_section/delta.xml examples/citables/7_complex_move_one_cited_section/semantics.xml";
-			filesList = new String[1];
-			filesList[0] = filesParam;
+			System.err.println("Not enough arguments, please specify at least the orig, new, delta and semantics XML");
+			System.exit(1);
 		}
 
 		for (String files : filesList) {

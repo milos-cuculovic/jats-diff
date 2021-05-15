@@ -22,6 +22,8 @@ package main.diff_L1_L2.ui;
 import main.diff_L1_L2.debug.Debug;
 import main.diff_L1_L2.exceptions.ParametersException;
 import org.apache.log4j.xml.DOMConfigurator;
+
+import java.net.URL;
 //import org.apache.log4j.Logger;
 
 /**
@@ -43,9 +45,11 @@ public class Main {
 	 *            il parsing dei parametri ed
 	 *            esegue le operazioni richieste
 	 */
-	public static void main(String args[]) {
+	public void main(String args[]) {
 
-		DOMConfigurator.configure("log4j.xml");
+		URL u = getClass().getClassLoader().getResource("log4j.xml");
+		DOMConfigurator.configure(u);
+		//DOMConfigurator.configure("/log4j.xml");
 
 		if (args.length == 0) {
 			//System.err.print(ParametersHandler.getUsage());
@@ -64,19 +68,17 @@ public class Main {
 			System.exit(1);
 		}
 		// Initiate the debug
-		Debug.start();
+		//Debug.start();
 		//logger.info("Debug Status:" + Debug.flag);
 
 		try {
-			// TODO manage standard output
-
 			OperationsHandler.doOperation(params);
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			exitCode = 1;
 		}
 
-		Debug.close();
+		//Debug.close();
 
 		//System.exit(exitCode);
 	}
