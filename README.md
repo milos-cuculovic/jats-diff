@@ -12,20 +12,18 @@ In addition to the Level 2 patterns detection, this tool supports also change se
 In order to run the tool, you can do it by running the source code in your favourite IDE, or download and run the available jar file.
 The jar file can be run in the following way:
 
-    java -jar jats-diff.jar
+    java -jar jats-diff.jar -L all orig.xml new.xml delta.xml semantics.xml
 
-Without any parameter, the tool will compare a default JATS XML file pair from it's example dataset.
-In order to compar two custom JATS XML files, use the following command:
+* -L can have the following values:
 
-    java -jar jats-diff.jar orig.xml new.xml delta.xml semantics.xml
+  * diff: do only JATS diffing
+  * semantics: do only change semantics
+  * all: do both, diff and semantics
+* orig.xml being your original file
+* new.xml its modified version;
+* delta.xml the output file for the Level1 and Level2 edits
+* semantics.xml for the Level 3 change semantics
 
-orig.xml being your original file; new.xml its modified version; delta.xml the output file for the Level1 and Level2 edits; semantics.xml for the Level 3 change semantics.
-
-For more mass testing, you can use:
-
-    java -jar jats-diff.jar -l list.txt
-
-list.txt being a text file containing the previously mentioned file pairs per line.
-
+Some examples of the JATS file pairs can be found in examples directory in the project: https://github.com/milos-cuculovic/jats-diff/tree/master/examples
 
 
