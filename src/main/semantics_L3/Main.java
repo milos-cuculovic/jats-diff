@@ -38,8 +38,15 @@ public class Main {
 				doDiff = true;
 				filesParam = args[2] + " " + args[3] + " " + args[4];
 			} else if (args[1].equals("semantics")) {
-				doSemantics = true;
-				filesParam = args[2] + " " + args[3] + " " + args[4];
+				if(args.length == 6) {
+					doSemantics = true;
+					filesParam = args[2] + " " + args[3] + " " + args[4];
+				}
+				else {
+					System.err.println("Not enough arguments, for -L semantics, please specify both the <delta.xml> and <semantics.xml> files");
+					System.exit(1);
+				}
+
 			} else if(args.length == 6) {
 				doDiff = true;
 				doSemantics = true;
