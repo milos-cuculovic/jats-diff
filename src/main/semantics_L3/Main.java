@@ -40,10 +40,13 @@ public class Main {
 			} else if (args[1].equals("semantics")) {
 				if(args.length == 6) {
 					doSemantics = true;
-					filesParam = args[2] + " " + args[3] + " " + args[4];
+					filesParam = args[2] + " " + args[3] + " " + args[4] + " " + args[5];
 				}
 				else {
-					System.err.println("Not enough arguments, for -L semantics, please specify both the <delta.xml> and <semantics.xml> files");
+					System.err.println("Not enough arguments, for -L se{\n" +
+							"\t\t\t\t\tSystem.err.println(\"Not enough arguments, for -L semantics, please specify both the <delta.xml> and <semantics.xml> files\");\n" +
+							"\t\t\t\t\tSystem.exit(1);\n" +
+							"\t\t\t\t}mantics, please specify both the <delta.xml> and <semantics.xml> files");
 					System.exit(1);
 				}
 
@@ -74,14 +77,10 @@ public class Main {
 
 				if(doSemantics) {
 					System.out.println("change-semantics START");
-					// Build Document
-					Document document = builder.parse(new File(fileSplit[2]));
 
-					// Normalize the XML Structure;
+					Document document = builder.parse(new File(fileSplit[2]));
 					document.getDocumentElement().normalize();
-					// Build Document
 					Document documentO = builder.parse(new File(fileSplit[0]));
-					// Normalize the XML Structure;
 					documentO.getDocumentElement().normalize();
 
 					Document documentM = builder.parse(new File(fileSplit[1]));

@@ -61,14 +61,14 @@ public class OperationsHandler {
         if (params.getDeltaPath() == null || params.isStdout()) {
 //			document.writeToStream(System.out); //original output in jats-diff uncomment this if need)
             String results = documentToString(document); ////added
-            results = Ndiff.encodeTags(results);
+            //results = Ndiff.encodeTags(results);
 //			logger.info(StringEscapeUtils.unescapeHtml(results)); //added becasue need decode tags vs without stringEscapeUtils.unescapeHtml
 //			logger.info(results);
 
         } else {
 //			document.writeToFile(params.getDeltaPath()); //original
             String results = documentToString(document); ////added
-            results = Ndiff.encodeTags(results);
+            //results = Ndiff.encodeTags(results);
             try {
 //				Files.writeString(Paths.get(params.getDeltaPath()), StringEscapeUtils.unescapeHtml(results)); //added becasue need decode tags
                 Files.writeString(Paths.get(params.getDeltaPath()), results);

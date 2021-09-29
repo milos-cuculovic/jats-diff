@@ -2,6 +2,9 @@ package main.semantics_L3;
 
 import main.diff_L1_L2.vdom.diffing.Dnode;
 import main.diff_L1_L2.vdom.diffing.Dtree;
+import main.semantics_L3.BrowseDelta;
+import main.semantics_L3.ChangeObject;
+import main.semantics_L3.NodeChanged;
 import main.diff_L1_L2.exceptions.InputFileException;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -132,16 +135,29 @@ public class ChangeList {
 					change.setCitable("ref");
 				} else if (xr.contains("table")) {
 					change.setCitable("table");
-				} else {
+				} else if (xr.contains("scheme")) {
+					change.setCitable("scheme");
+				}
+				else {
 					change.setCitable("sec");
 				}
 				xr = xr.substring(xr.indexOf("rid") + 5);
 				xr = xr.substring(0, xr.indexOf("\"|-"));
 
-				Pattern pattern = Pattern.compile("\\d+");
-				Matcher matcher = pattern.matcher(xr);
-				matcher.find();
-				change.setLabel(Integer.parseInt(matcher.group()));
+				if (change.getCitable().equals("figure") || change.getCitable().equals("table") || change.getCitable().equals("scheme")){
+					Pattern pattern = Pattern.compile("\\d+");
+					Matcher matcher = pattern.matcher(xr);
+					String lastid="";
+					while (matcher.find()) {
+						lastid=matcher.group();
+					}
+					change.setLabel(Integer.parseInt(lastid));
+				} else {
+					Pattern pattern = Pattern.compile("\\d+");
+					Matcher matcher = pattern.matcher(xr);
+					matcher.find();
+					change.setLabel(Integer.parseInt(matcher.group()));
+				}
 				change.setLabSec(xr);
 				if (co.getOp().equals("")) {
 					co.setOp(null);

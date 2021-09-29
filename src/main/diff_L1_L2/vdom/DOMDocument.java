@@ -131,6 +131,7 @@ public class DOMDocument {
 		try {
 			DOM = parser.parse(input);
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			throw new InputFileException(URIfile);
 		}
 
