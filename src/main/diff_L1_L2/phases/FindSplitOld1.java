@@ -50,7 +50,7 @@ import main.diff_L1_L2.relation.Fragment;
  * @author Mike Fase che implementa la ricerca degli spostamenti all'interno dei
  * documenti
  */
-public class FindSplitOld extends Phase {
+public class FindSplitOld1 extends Phase {
 
     protected Node left, right;
     protected List<NodeVO> initA = new ArrayList<NodeVO>();
@@ -74,8 +74,8 @@ public class FindSplitOld extends Phase {
      * @param Tb Dtree relativo al documento modificato
      * @param cfg Nconfig relativo alla configurazione del Diff
      */
-    public FindSplitOld(NxN SearchField, Relation Rel, Dtree Ta, Dtree Tb,
-            Nconfig cfg) {
+    public FindSplitOld1(NxN SearchField, Relation Rel, Dtree Ta, Dtree Tb,
+                         Nconfig cfg) {
         super(SearchField, Rel, Ta, Tb, cfg);
     }
 

@@ -19,8 +19,6 @@
  **************************************************************************************** */
 package main.diff_L1_L2.core;
 
-import de.mcs.utils.StringUtils;
-import difflib.StringUtills;
 import main.diff_L1_L2.vdom.DOMDocument;
 import main.diff_L1_L2.vdom.diffing.Dtree;
 import main.diff_L1_L2.core.alternatives.ThreadedBuildDtree;
@@ -36,18 +34,15 @@ import main.diff_L1_L2.relation.Relation;
 import main.diff_L1_L2.ui.ParametersHandler;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import java.io.FileReader;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import java.io.File;
-import java.io.StringWriter;
 import java.io.PrintStream;
-import java.io.OutputStream;
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.Charset;
 import java.util.regex.Matcher;
@@ -248,17 +243,8 @@ public class Ndiff {
                     new FindTextChangeStyle(SearchField, R, a, b, config).compute();
                     Debug.diffing_findtextchangestyle(a, b, R, SearchField);
                     try {
-//						String sA = getDtreeAsString(a);
-//						String sB = getDtreeAsString(b);
-//						sA = clearEncodedTags(sA);
-//						sB = clearEncodedTags(sB);
                         a.writeToFile(URIdocATmp);
                         b.writeToFile(URIdocBTmp);
-//						URIdocATmp = putFileContents(sA, URIdocA, Boolean.FALSE);
-//						URIdocBTmp = putFileContents(sB, URIdocB, Boolean.FALSE);
-//						URIdocATmpObj = new File(URIdocATmp);
-//						URIdocBTmpObj = new File(URIdocBTmp);
-
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -277,8 +263,7 @@ public class Ndiff {
                         b = new Dtree(URIdocBTmp, ltrim, rtrim, collapse, emptynode,
                                 commentNode);
                     }
-                    //URIdocATmpObj.delete();
-                    //URIdocBTmpObj.delete();
+
                     new Partition(SearchField, R, a, b, config).compute();
                     break;
 
@@ -306,8 +291,7 @@ public class Ndiff {
                         b = new Dtree(URIdocBTmp, ltrim, rtrim, collapse, emptynode,
                                 commentNode);
                     }
-                    //URIdocATmpObj.delete();
-                    //URIdocBTmpObj.delete();
+
                     new Partition(SearchField, R, a, b, config).compute();
                     break;
 

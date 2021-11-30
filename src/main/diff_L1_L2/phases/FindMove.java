@@ -36,7 +36,6 @@ import main.diff_L1_L2.relation.Relation;
 public class FindMove extends Phase {
 
 	Integer range;
-	Integer minweight;
 
 	/**
 	 * Constructor
@@ -68,8 +67,7 @@ public class FindMove extends Phase {
 			// Distance calculation relative to the configuration file
 			range = (A.numNode + B.numNode) / 2;
 			range = (range * cfg.getIntPhaseParam(Nconfig.FindMove, "range")) / 100;
-			minweight = cfg.getIntPhaseParam(Nconfig.FindMove, "minweight");
-			logger.info("START with range:" + range + " minweight:" + minweight);
+			logger.info("START with range:" + range);
 
 			Interval findA = new Interval(1, 0);
 			Interval findB = new Interval(1, 0);
@@ -127,16 +125,15 @@ public class FindMove extends Phase {
 
 		for (int i = intA.inf; i <= intA.sup; i++) {
 			for (int j = intB.inf; j <= intB.sup; j++) {
-				if (	(Math.abs(i - j) <= range)
-						&& (A.getNode(i).weight >= minweight)
-						&& A.getNode(i).getHashTree().equals(B.getNode(j).getHashTree())
-						&& (i + A.getNode(i).getNumChildSubtree() <= intA.sup)
-						&& (j + B.getNode(j).getNumChildSubtree() <= intB.sup)) {
+				if ((Math.abs(i - j) <= range)
+					&& A.getNode(i).getHashTree().equals(B.getNode(j).getHashTree())
+					&& (i + A.getNode(i).getNumChildSubtree() <= intA.sup)
+					&& (j + B.getNode(j).getNumChildSubtree() <= intB.sup)) {
 
-							if (A.getNode(i).getNumChildSubtree() > findA.size()) {
-								findA.set(i, i + A.getNode(i).getNumChildSubtree());
-								findB.set(j, j + B.getNode(j).getNumChildSubtree());
-							}
+					if (A.getNode(i).getNumChildSubtree() > findA.size()) {
+						findA.set(i, i + A.getNode(i).getNumChildSubtree());
+						findB.set(j, j + B.getNode(j).getNumChildSubtree());
+					}
 				}
 			}
 		}

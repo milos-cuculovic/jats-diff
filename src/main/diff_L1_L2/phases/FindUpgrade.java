@@ -1,4 +1,4 @@
-/** ***************************************************************************************
+/*****************************************************************************************
  *
  *   This file is part of jats-diff project.
  *
@@ -11,14 +11,17 @@
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *   GNU LESSER GENERAL PUBLIC LICENSE for more details.
- *
+
  *   You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
  *   along with jats-diff; if not, write to the Free Software
  *   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
- **************************************************************************************** */
+ *****************************************************************************************/
+
 package main.diff_L1_L2.phases;
 
+import info.debatty.java.stringsimilarity.Jaccard;
+import main.diff_L1_L2.vdom.diffing.Dnode;
 import main.diff_L1_L2.vdom.diffing.Dtree;
 import main.diff_L1_L2.core.Nconfig;
 import main.diff_L1_L2.exceptions.ComputePhaseException;
@@ -26,53 +29,34 @@ import main.diff_L1_L2.relation.Field;
 import main.diff_L1_L2.relation.Interval;
 import main.diff_L1_L2.relation.NxN;
 import main.diff_L1_L2.relation.Relation;
-import org.w3c.dom.Node;
-import org.w3c.dom.Element;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import java.util.List;
+
 import java.util.ArrayList;
-import java.util.Arrays;
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.StringUtils;
+import java.util.List;
 import java.util.Vector;
-import java.util.HashMap;
-import main.diff_L1_L2.phases.common.Match;
-import org.w3c.dom.ls.DOMImplementationLS;
-import org.w3c.dom.DOMImplementation;
-import org.w3c.dom.ls.LSOutput;
-import org.w3c.dom.ls.LSSerializer;
-import java.util.Collections;
-import main.diff_L1_L2.vdom.Vnode;
-import main.diff_L1_L2.vdom.diffing.Dnode;
-import main.diff_L1_L2.relation.Fragment;
-import info.debatty.java.stringsimilarity.JaroWinkler;
-import info.debatty.java.stringsimilarity.Jaccard;
-import info.debatty.java.stringsimilarity.Cosine;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.commons.lang.time.StopWatch;
-//import org.apache.commons.text.similarity.CosineDistance;
-//import org.apache.commons.text.similarity.JaccardDistance;
-//import org.apache.commons.text.similarity.JaroWinklerDistance;
-//import org.apache.commons.text.similarity.LevenshteinDistance;
 
-/**
- * @author Mike Fase che implementa la ricerca degli spostamenti all'interno dei
- * documenti
- */
 public class FindUpgrade extends Phase {
 
-    protected static final String[] TAGS = {"sec"};
+    Integer range;
+    Integer minweight;
+
+    List<Interval> listIntervalA = new ArrayList<>();
+    List<Interval> listIntervalB = new ArrayList<>();
 
     /**
-     * Costruttore
+     * Constructor
      *
-     * @param SearchField Campi di ricerca rimasti in NxN
-     * @param Rel Relazioni che sono state rilevate tra i nodi dei documenti
-     * @param Ta Dtree relativo al documento originale
-     * @param Tb Dtree relativo al documento modificato
-     * @param cfg Nconfig relativo alla configurazione del Diff
+     * @param SearchField
+     *            Research fields left in NxN
+     * @param Rel
+     *            Relationships detected between document nodes
+     * @param Ta
+     *            Dtree related to the original document
+     * @param Tb
+     *            Dtree related to the modified document
+     * @param cfg
+     *            Nconfig related to the Diff configuration
      */
     public FindUpgrade(NxN SearchField, Relation Rel, Dtree Ta, Dtree Tb,
                        Nconfig cfg) {
@@ -87,107 +71,107 @@ public class FindUpgrade extends Phase {
     @Override
     public void compute() throws ComputePhaseException {
         try {
-            StopWatch stopWatch = new StopWatch();
-            stopWatch.start();
-            logger.info("START FIND UPGRADE");
+            logger.info("START");
 
-            upgrade();
-            logger.info("END");
-            stopWatch.stop();
-            logger.error("Upgrade : " + stopWatch.toString());
-//            System.exit(0);
-        } catch (Exception e) {
-            logger.error("ERROR LINE: " + e.getStackTrace()[0].getLineNumber());
-            e.printStackTrace();
-        }
-    }
+            Interval findA = new Interval(1, 0);
+            Interval findB = new Interval(1, 0);
 
-    protected void upgrade() {
+            Field processField;
+            SF.StartFieldProcess(Field.NO);
+            while ((processField = SF.nextField()) != null) {
 
-        Field processField;
-        List<Interval> listIntervalA = new ArrayList<>();
-        List<Interval> listIntervalB = new ArrayList<>();
-        SF.StartFieldProcess(Field.NO);
-        while ((processField = SF.nextField()) != null) {
-            for (int i = processField.yRef.inf; i <= processField.yRef.sup; i++) {
+                logger.info("FindUpgrade(Call)   \t X:" + processField.xRef.show()
+                        + " \t Y:" + processField.yRef.show());
 
-                Dnode toNode = B.getNode(i);
+                findA.set(1, 0);
+                findB.set(1, 0);
 
-                // Only for sec tag
-                if (ArrayUtils.indexOf(TAGS, toNode.getRefDomNode().getNodeName()) > -1
-                        && ArrayUtils.indexOf(TAGS, B.getNode(toNode.getPosFather()).getRefDomNode().getNodeName()) == -1) {
+                FindMaxUpgrade(processField.xRef, processField.yRef, findA, findB);
 
-                    for (int j = processField.xRef.inf; j <= processField.xRef.sup; j++) {
-                        Dnode fromNode = A.getNode(j);
+                logger.info("FindUpgrade(Return)\t X:" + findA.show() + "\t Y:"
+                        + findB.show());
 
-//                    for (Dnode fromNode : A.nodeList) { //remove this line that check all nodes, use just diff nodes from jndiff in line before
-                        if (ArrayUtils.indexOf(TAGS, fromNode.getRefDomNode().getNodeName()) > -1
-                                && ArrayUtils.indexOf(TAGS, A.getNode(fromNode.getPosFather()).getRefDomNode().getNodeName()) > -1
-                                && toNode.getNumChildSubtree() != A.getNode(fromNode.getPosFather()).getNumChildSubtree()) {
+                if (findA.size() > 0) {
+                    // Remove nodes from the search space
+                    SF.subField(findA, findB, Field.NO, Field.NO, Field.NO,
+                            Field.NO);
+                    // Insert nodes in the Relation structure
+                    R.addFragment(findA, findB, A.getNode(findA.inf).weight,
+                            Relation.UPGRADE);
 
-                            String content = toNode.getRefDomNode().getTextContent();
-                            String regExp = "^(\\d+\\.\\s)(.*)";
-                            Pattern p = Pattern.compile(regExp);
-                            Matcher m = p.matcher(content);
-                            boolean titleSec = m.find();
-                            content = m.replaceAll("$2");
-
-                            // check if father deep in B < father deep in A
-                            if (titleSec && toNode.getRefDomNode().getNodeName().equals(fromNode.getRefDomNode().getNodeName())
-                                    && toNode.posFather.intValue() < fromNode.posFather.intValue()) {
-                                String subSectionAContent = fromNode.refDomNode.getTextContent();
-                                String regExpA = "^(\\d+\\.\\d+\\.\\s)(.*)";
-                                Pattern pA = Pattern.compile(regExpA);
-                                Matcher mA = pA.matcher(subSectionAContent);
-                                boolean titleBeginWith = mA.find();
-                                subSectionAContent = mA.replaceAll("$2");
-                                // Similarity 95%
-                                Jaccard jc = new Jaccard();
-                                if (titleBeginWith && (content.equalsIgnoreCase(subSectionAContent) || jc.similarity(content, subSectionAContent) > 0.95)) {
-                                    Interval fromNodeInterval = new Interval(fromNode.getIndexKey(), fromNode.getIndexKey());
-                                    Interval toNodeInterval = new Interval(toNode.getIndexKey(), toNode.getIndexKey());
-                                    R.addFragment(fromNodeInterval, toNodeInterval, fromNode.weight, Relation.UPGRADE);
-                                    listIntervalA.add(fromNodeInterval);
-                                    listIntervalB.add(toNodeInterval);
-                                    for (int l = fromNodeInterval.inf; l <= fromNodeInterval.sup; l++) {
-                                        A.getNode(l).inRel = Relation.UPGRADE;
-                                    }
-                                    for (int l = toNodeInterval.inf; l <= toNodeInterval.sup; l++) {
-                                        B.getNode(l).inRel = Relation.UPGRADE;
-                                    }
-                                    break;
-
-                                }
-
-                            }
-                        }
-                    }
+                    // Change membership of nodes
+                    for (int i = findA.inf; i <= findA.sup; i++)
+                        A.getNode(i).inRel = Relation.UPGRADE;
+                    for (int i = findB.inf; i <= findB.sup; i++)
+                        B.getNode(i).inRel = Relation.UPGRADE;
                 }
             }
+
+            logger.info("END");
+        } catch (Exception e) {
+            throw new ComputePhaseException("FindUpgrade");
         }
-        this.clearIntervals(listIntervalA, listIntervalB);
-//        System.exit(0);
     }
 
     /**
+     * Cerca eventuali sottoalberi spostati nello spazio definito da intA e intB
      *
-     * @param listIntervalA
-     * @param listIntervalB
+     * @param intA
+     *            Intervallo di ricerca sul documento Originale
+     * @param intB
+     *            Intervallo di ricerca sul documento Modificato
+     * @param findA
+     *            Match trovato sul documento originale
+     * @param findB
+     *            Match trovato sul documento modificato
      */
-    protected void clearIntervals(List<Interval> listIntervalA, List<Interval> listIntervalB) {
+    private void FindMaxUpgrade(Interval intA, Interval intB, Interval findA,
+                             Interval findB) {
 
-        Vector<Interval> cod = SF.getIntervalsOnY();
-        for (int c = 0; c < cod.size(); c++) {
-            Interval interval = cod.get(c);
-            if (listIntervalB.contains(interval)) {
-                SF.subField(interval, interval, Field.NO, Field.LOCALITY, Field.LOCALITY, Field.NO);
-            }
-        }
-        Vector<Interval> dom = SF.getIntervalsOnX();
-        for (int d = 0; d < dom.size(); d++) {
-            Interval interval = dom.get(d);
-            if (listIntervalA.contains(interval)) {
-                SF.subField(interval, interval, Field.NO, Field.LOCALITY, Field.LOCALITY, Field.NO);
+        for (int i = intA.inf; i <= intA.sup; i++) {
+
+            Dnode fromNode = A.getNode(i);
+            for (int j = intB.inf; j <= intB.sup; j++) {
+                Dnode toNode = B.getNode(j);
+
+                String content = toNode.getRefDomNode().getTextContent();
+                String regExp = "^(\\d+\\.\\s)(.*)";
+                Pattern p = Pattern.compile(regExp);
+                Matcher m = p.matcher(content);
+                content = m.replaceAll("$2");
+
+                if (A.getNode(i).getNumChildSubtree() > findA.size()) {
+                    String subSectionAContent = fromNode.refDomNode.getTextContent();
+                    String regExpA = "^(\\d+\\.\\d+\\.\\s)(.*)";
+                    Pattern pA = Pattern.compile(regExpA);
+                    Matcher mA = pA.matcher(subSectionAContent);
+                    subSectionAContent = mA.replaceAll("$2");
+
+                    // Similarity 95%
+                    Jaccard jc = new Jaccard();
+                    if (content.equalsIgnoreCase(subSectionAContent) || jc.similarity(content, subSectionAContent) > 0.95) {
+                        var toNodeDepth = 0;
+                        var toNodeDepthChecker = B.getNode(j).getRefDomNode();;
+                        while (toNodeDepthChecker.getParentNode() != null) {
+                            toNodeDepth++;
+                            toNodeDepthChecker = toNodeDepthChecker.getParentNode();
+                        }
+                        var fromNodeDepth = 0;
+                        var fromNodeDepthChecker = A.getNode(i).getRefDomNode();
+                        while (fromNodeDepthChecker.getParentNode() != null) {
+                            fromNodeDepth++;
+                            fromNodeDepthChecker = fromNodeDepthChecker.getParentNode();
+                        }
+
+                        if(toNodeDepth < fromNodeDepth) {
+                            findA.set(i, i + A.getNode(i).getNumChildSubtree());
+                            findB.set(j, j + B.getNode(j).getNumChildSubtree());
+                            listIntervalA.add(findA);
+                            listIntervalB.add(findB);
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

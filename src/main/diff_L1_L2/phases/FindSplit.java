@@ -30,24 +30,15 @@ import main.diff_L1_L2.relation.Relation;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.StringUtils;
 import java.util.Vector;
-import java.util.HashMap;
-import main.diff_L1_L2.phases.common.Match;
 import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.DOMImplementation;
-import org.w3c.dom.ls.LSOutput;
 import org.w3c.dom.ls.LSSerializer;
 import java.util.Collections;
-import main.diff_L1_L2.vdom.Vnode;
 import main.diff_L1_L2.vdom.diffing.Dnode;
-import static main.diff_L1_L2.phases.FindMerge.TAGS;
-import main.diff_L1_L2.relation.Fragment;
 import org.apache.commons.lang.time.StopWatch;
 
 /**
@@ -60,7 +51,6 @@ public class FindSplit extends Phase {
     protected List<NodeVO> initB = new ArrayList<NodeVO>();
     protected int parentA = 0;
     protected int parentB = 0;
-    protected static final String[] TAGS = new String[]{"p", "sec"};
 
     /**
      * Costruttore
@@ -88,9 +78,7 @@ public class FindSplit extends Phase {
             stopWatch.start();
             logger.info("START FIND SPLIT");
 
-            //swich delte/insert findSplit or split similar old way
             findSplit();
-            //split();
 
             logger.info("END");
             stopWatch.stop();
@@ -100,75 +88,6 @@ public class FindSplit extends Phase {
             logger.error("ERROR LINE: " + e.getStackTrace()[0].getLineNumber());
             e.printStackTrace();
         }
-    }
-
-    protected void split() {
-
-        Field processField;
-        SF.StartFieldProcess(Field.NO);
-        List<Interval> listIntervalA = new ArrayList<>();
-        List<Interval> listIntervalB = new ArrayList<>();
-        while ((processField = SF.nextField()) != null) {
-            for (int i = processField.xRef.inf; i <= processField.xRef.sup; i++) {
-                List<Dnode> listPossibleMerge = new ArrayList<>();
-
-                if (ArrayUtils.indexOf(TAGS, A.getNode(i).getRefDomNode().getNodeName()) > -1) {
-//                    logger.info("name: " + B.getNode(i).getRefDomNode().getNodeName() + " " + B.getNode(i).getRefDomNode().getTextContent());
-                    int parentNode = A.getNode(i).getPosFather();
-                    String content = A.getNode(i).getRefDomNode().getTextContent();
-                    //potencial split
-                    for (Dnode b : B.nodeList) {
-
-                        if (A.getNode(i).getRefDomNode().getNodeName().equals(b.getRefDomNode().getNodeName())
-                                && !A.getNode(i).getRefDomNode().getTextContent().equals(b.getRefDomNode().getTextContent())
-                                && A.getNode(i).posFather.equals(b.posFather)) {
-                            if (content.contains(b.getRefDomNode().getTextContent())) {
-                                listPossibleMerge.add(b);
-                            } else {
-                                Jaccard jw = new Jaccard();
-                                if (b.getPosFather() == parentNode && jw.similarity(content, b.getRefDomNode().getTextContent()) >= 0.40) {
-                                    listPossibleMerge.add(b);
-                                }
-                            }
-                        }
-
-                    }
-
-                    if (listPossibleMerge.size() > 1) {
-                        String bText = "";
-                        for (Dnode n : listPossibleMerge) {
-                            String t = n.getRefDomNode().getTextContent().trim();
-                            bText = bText.concat(t);
-                        }
-                        Jaccard jw = new Jaccard();
-
-                        if (jw.similarity(content, bText) >= 0.90 || content.equals(bText)) {
-
-                            Interval findA = new Interval(A.getNode(i).getIndexKey(), A.getNode(i).getIndexKey());
-                            for (Dnode n : listPossibleMerge) {
-                                Interval findB = new Interval(n.getIndexKey(), n.getIndexKey());
-                                R.addFragment(findA, findB, A.getNode(findA.inf).weight, Relation.SPLIT);
-                                listIntervalA.add(findA);
-                                listIntervalB.add(findB);
-                                for (int l = findA.inf; l <= findA.sup; l++) {
-                                    A.getNode(l).inRel = Relation.SPLIT;
-                                }
-                                for (int l = findB.inf; l <= findB.sup; l++) {
-                                    B.getNode(l).inRel = Relation.SPLIT;
-                                }
-//                                SF.subField(findA, findB, Field.NO, Field.LOCALITY, Field.LOCALITY, Field.NO);
-                            }
-
-                        }
-
-                    }
-                }
-
-            }
-            this.clearIntervals(listIntervalA, listIntervalB);
-        }
-
-//        System.exit(0);
     }
 
     /**
@@ -217,7 +136,6 @@ public class FindSplit extends Phase {
             if (!insertedNodes.isEmpty()) {
                 parse(delete, insertedNodes);
             }
-
         }
     }
 
@@ -240,22 +158,25 @@ public class FindSplit extends Phase {
         insertText = insertText.trim();
         List<String> insertTextList = new ArrayList<String>(Arrays.asList(insertText.split(" ")));
         Collections.sort(insertTextList);
-        if (deleteTextList.equals(insertTextList)) {
-//            logger.info("SPLIT FOUND");
-//            System.exit(0);
-//            logger.info(insertText);
+
+        // Similarity 95%
+        Jaccard jc = new Jaccard();
+        if (deleteTextList.equals(insertTextList) || jc.similarity(deleteText, insertText) > 0.95) {
             for (Dnode insert : insertedNodes) {
                 Interval findB = new Interval(insert.getIndexKey(), insert.getIndexKey());
+
                 R.addFragment(findA, findB, A.getNode(findA.inf).weight, Relation.SPLIT);
                 for (int l = findA.inf; l <= findA.sup; l++) {
                     A.getNode(l).inRel = Relation.SPLIT;
                 }
+
                 for (int l = findB.inf; l <= findB.sup; l++) {
-                    B.getNode(l).inRel = Relation.SPLIT;
+                    if(B.getNode(l).getRefDomNode().hasChildNodes()) {
+                        B.getNode(l).inRel = Relation.SPLIT;
+                    }
                 }
             }
         }
-
     }
 
     /**
@@ -270,14 +191,10 @@ public class FindSplit extends Phase {
         for (int i = 0; i < dom.size(); i++) {
             toProcess = dom.get(i);
             for (int k = toProcess.inf; k <= toProcess.sup; k++) {
-                if (ArrayUtils.indexOf(TAGS, A.getNode(k).refDomNode.getNodeName()) > -1) {
-                    foundNodeDelete.add(A.getNode(k));
-                }
+                foundNodeDelete.add(A.getNode(k));
             }
         }
-
         return foundNodeDelete;
-
     }
 
     protected List<Dnode> populateInsertNodes() {
@@ -289,126 +206,10 @@ public class FindSplit extends Phase {
         for (int i = 0; i < cod.size(); i++) {
             toProcess = cod.get(i);
             for (int k = toProcess.inf; k <= toProcess.sup; k++) {
-                if (ArrayUtils.indexOf(TAGS, B.getNode(k).refDomNode.getNodeName()) > -1) {
-                    foundNodeInsert.add(B.getNode(k));
-                }
+                foundNodeInsert.add(B.getNode(k));
             }
         }
 
         return foundNodeInsert;
-    }
-
-    /**
-     *
-     * @param node
-     *
-     * @return
-     */
-    public String getChildTextContent(Node node) {
-        String result = "";
-
-        for (int i = 0; i < node.getChildNodes().getLength(); i++) {
-            if (!node.getChildNodes().item(i).getNodeName().equals("title")) {
-                result = result + node.getChildNodes().item(i).getTextContent();
-            }
-        }
-
-        return result;
-    }
-
-    public void setParentANodes(int indexA) {
-        Dnode nodeA = A.getNode(indexA);
-
-        if (nodeA.posFather != 0) {
-//            logger.info(nodeA.posFather);
-            nodeA.inRel = Relation.SPLIT;
-
-//            R.addFragment(new Interval(indexA, indexA + nodeA.numChildSubtree), new Interval(indexB, indexB + nodeB.numChildSubtree), nodeA.weight, Relation.MERGE);
-            setParentANodes(nodeA.posFather);
-        }
-    }
-
-    public void setParentBNodes(int indexB) {
-        Dnode nodeB = B.getNode(indexB);
-
-        if (nodeB.posFather != 0) {
-//            logger.info(nodeB.posFather);
-            nodeB.inRel = Relation.SPLIT;
-
-//            R.addFragment(new Interval(indexA, indexA + nodeA.numChildSubtree), new Interval(indexB, indexB + nodeB.numChildSubtree), nodeA.weight, Relation.MERGE);
-            setParentBNodes(nodeB.posFather);
-        }
-    }
-
-    /**
-     *
-     * @param inf
-     * @param sup
-     * @param domNode
-     * @return
-     */
-    protected Interval getRangeA(int inf, int sup, Node domNode) {
-        Interval interval = new Interval(1, 0);
-        String domNodeString = getNodeXmlString(domNode);
-
-        for (int i = inf; i <= sup; i++) {
-
-            String refNodeString = getNodeXmlString(A.getNode(i).refDomNode);
-
-            if (domNodeString.equals(refNodeString)) {
-
-                return new Interval(i, i);
-
-            }
-
-        }
-//        logger.info("GET B RANGE : " + interval.show());
-        return interval;
-    }
-
-    /**
-     *
-     * @param inf
-     * @param sup
-     * @param domNode
-     * @return
-     */
-    protected Interval getRangeB(int inf, int sup, Node domNode) {
-        Interval interval = new Interval(1, 0);
-        String domNodeString = getNodeXmlString(domNode);
-
-        for (int i = inf; i <= sup; i++) {
-
-            String refNodeString = getNodeXmlString(B.getNode(i).refDomNode);
-
-            if (domNodeString.equals(refNodeString)) {
-
-                return new Interval(i, i);
-
-            }
-
-        }
-//        logger.info("GET B RANGE : " + interval.show());
-        return interval;
-    }
-
-    protected String getNodeXmlString(Node node) {
-        try {
-            Document document
-                    = node.getOwnerDocument().getImplementation().createDocument("", "fake", null);
-            Element copy = (Element) document.importNode(node, true);
-            document.importNode(node, false);
-            document.removeChild(document.getDocumentElement());
-            document.appendChild(copy);
-            DOMImplementation domImpl = document.getImplementation();
-            DOMImplementationLS domImplLs = (DOMImplementationLS) domImpl.getFeature("LS", "3.0");
-            LSSerializer serializer = domImplLs.createLSSerializer();
-            serializer.getDomConfig().setParameter("format-pretty-print", false);
-
-            return serializer.writeToString(document);
-        } catch (Exception e) {
-            return "";
-        }
-
     }
 }

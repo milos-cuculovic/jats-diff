@@ -37,7 +37,7 @@ public class XmlFileAttributes {
 
 	}
 	public ArrayList<NodeChanged> addChanging(ArrayList<NodeChanged> modif, BrowseDelta bd, boolean jaccard,
-			boolean simitext, boolean simtextW) throws InputFileException {
+											  boolean simitext, boolean simtextW) throws InputFileException {
 		// modif est de la forme [key nodenumber et value [cgt,fromto]]
 		Dtree treeorig = bd.getTreeorig();
 		Dtree treemodif = bd.getTreemodif();
@@ -116,7 +116,7 @@ public class XmlFileAttributes {
 
 	}
 
-	
+
 	public String nodeSpace(Node noeud) {
 		if (noeud.getNodeType() == Node.ELEMENT_NODE) {
 			Element eElementmodif1 = (Element) noeud;
@@ -150,7 +150,7 @@ public class XmlFileAttributes {
 		return "";
 	}
 	public ArrayList<NodeChanged> propSimilarity(ArrayList<NodeChanged> modif, BrowseDelta bd, boolean jaccar,
-			boolean simitext, boolean simtextW) throws InputFileException {
+												 boolean simitext, boolean simtextW) throws InputFileException {
 
 		Dtree treeorig = bd.getTreeorig();
 		ArrayList<NodeChanged> modif1 = new ArrayList<NodeChanged>();
@@ -175,7 +175,7 @@ public class XmlFileAttributes {
 					Element el = (Element) noeudorig;
 					size1 = el.getTextContent().length();
 				}
-				while (noeudorig.getNodeName() != "article") {
+				while (noeudorig.getParentNode().getParentNode() != null) {
 					int pap = dnoeud.getPosFather();
 					dnoeud = treeorig.getNode(pap);
 					noeudorig = dnoeud.refDomNode;
@@ -190,6 +190,12 @@ public class XmlFileAttributes {
 							Element e = (Element) noeudorig;
 							if (e.hasAttribute("id")) {
 								nCh.setId(e.getAttribute("id"));
+							}
+							if (e.getFirstChild().getNodeName() == "title") {
+								if (noeudorig.getFirstChild().getNodeType() == Node.ELEMENT_NODE) {
+									Element elt = (Element) noeudorig.getFirstChild();
+									nCh.setTitle(elt.getTextContent());
+								}
 							}
 							double size2 = e.getTextContent().length();
 							if (jaccar) {
@@ -229,6 +235,12 @@ public class XmlFileAttributes {
 								Element e = (Element) noeudorig;
 								if (e.hasAttribute("id")) {
 									noch.setId(e.getAttribute("id"));
+								}
+								if (e.getFirstChild().getNodeName() == "title") {
+									if (noeudorig.getFirstChild().getNodeType() == Node.ELEMENT_NODE) {
+										Element elt = (Element) noeudorig.getFirstChild();
+										noch.setTitle(elt.getTextContent());
+									}
 								}
 								noch.setDepth(Integer.toString(getDepth(e)));
 
@@ -290,6 +302,12 @@ public class XmlFileAttributes {
 								if (e.hasAttribute("id")) {
 									nCh.setId(e.getAttribute("id"));
 								}
+								if (e.getFirstChild().getNodeName() == "title") {
+									if (noeudorig.getFirstChild().getNodeType() == Node.ELEMENT_NODE) {
+										Element elt = (Element) noeudorig.getFirstChild();
+										nCh.setTitle(elt.getTextContent());
+									}
+								}
 								nCh.setNodetype(noeudorig.getNodeName());
 								nCh.setDepth(Integer.toString(getDepth(e)));
 								modif.add(nCh);
@@ -304,6 +322,12 @@ public class XmlFileAttributes {
 								noch.setDepth(Integer.toString(getDepth(e)));
 								if (e.hasAttribute("id")) {
 									noch.setId(e.getAttribute("id"));
+								}
+								if (e.getFirstChild().getNodeName() == "title") {
+									if (noeudorig.getFirstChild().getNodeType() == Node.ELEMENT_NODE) {
+										Element elt = (Element) noeudorig.getFirstChild();
+										noch.setTitle(elt.getTextContent());
+									}
 								}
 								modif.add(noch);
 

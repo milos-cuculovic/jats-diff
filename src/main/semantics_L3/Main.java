@@ -133,7 +133,7 @@ public class Main {
 								System.out.println(indent + "* " + nc.getFinall());
 							}
 							if (nc.hasid()) {
-								System.out.println(indent + "* " + nc.getId());
+								System.out.println(indent + "* id :" + nc.getId());
 							}
 							if (nc.hasTitle()) {
 								System.out.println(indent + "* " + nc.getTitle());
@@ -143,26 +143,26 @@ public class Main {
 							}
 							if (nc.hasChangelist()) {
 								for (ChangeObject cOb : nc.getChangelist()) {
-									System.out.println(indent + "* " + cOb.getChangement());
+									String print = indent + "* change-type: " + cOb.getChangement();
 									if (cOb.hasOp()) {
-										System.out.println(indent + "* " + cOb.getOp());
-
+										print += " - " + cOb.getOp();
 									}
 									if (cOb.hasTableChange()) {
 										for (TableChange tc : cOb.getTablechange()) {
-											System.out.println("        * " + tc.toString());
+											print += " - " + tc.toString();
 										}
 									}
+									System.out.println(print);
 								}
 							}
 							if (nc.hasJaccard()) {
-								System.out.println(indent + "* " + nc.getJaccard());
+								System.out.println(indent + "* jaccard: " + nc.getJaccard());
 							}
 							if (nc.hasSimilartext()) {
-								System.out.println(indent + "* " + nc.getSimilartext());
+								System.out.println(indent + "* similar-text: " + nc.getSimilartext());
 							}
 							if (nc.hasSimilartextW()) {
-								System.out.println(indent + "* " + nc.getSimitextword());
+								System.out.println(indent + "* similar-word: " + nc.getSimitextword());
 							}
 						}
 					}

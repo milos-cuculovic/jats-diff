@@ -222,24 +222,15 @@ public class DeltaDerive extends Phase {
             if (tmpFragMerge != null) {
                 //merge to
                 for (int i = 0; i < tmpFragMerge.size(); i++) {
-
                     for (int k = tmpFragMerge.get(i).getB().inf; k <= tmpFragMerge.get(i).getB().inf; k++) {
-//                        if (B.getNode(B.getNode(k).posFather).inRel == Relation.MERGE) {
                         Ndelta.addMergeToOperation(B.getNode(k), tmpFragMerge.get(i).getID());
-//                        }
                     }
-
                 }
 
                 //merge from
                 for (int i = 0; i < tmpFragMerge.size(); i++) {
-
                     for (int k = tmpFragMerge.get(i).getA().inf; k <= tmpFragMerge.get(i).getA().sup; k++) {
-//                        if (A.getNode(A.getNode(k).posFather).inRel == Relation.MERGE) {
-                        String hash = tmpFragMerge.get(i).getID();
-                        logger.info(hash);
                         Ndelta.addMergeFromOperation(A.getNode(k), tmpFragMerge.get(i).getID());
-//                        }
                     }
                 }
             }
@@ -252,26 +243,17 @@ public class DeltaDerive extends Phase {
             if (tmpFragSplit != null) {
                 //split to
                 for (int i = 0; i < tmpFragSplit.size(); i++) {
-
                     for (int k = tmpFragSplit.get(i).getB().inf; k <= tmpFragSplit.get(i).getB().inf; k++) {
-//                        if (B.getNode(B.getNode(k).posFather).inRel == Relation.SPLIT) {
                         Ndelta.addSplitToOperation(B.getNode(k), tmpFragSplit.get(i).getID());
-//                        }
                     }
-
                 }
 
                 //split from
                 for (int i = 0; i < tmpFragSplit.size(); i++) {
-
                     for (int k = tmpFragSplit.get(i).getA().inf; k <= tmpFragSplit.get(i).getA().sup; k++) {
-//                        if (A.getNode(A.getNode(k).posFather).inRel == Relation.SPLIT) {
-                        Ndelta.addSplitFromOperation(A.getNode(k), tmpFragSplit.get(i).getID());//
-//                        }
+                        Ndelta.addSplitFromOperation(A.getNode(k), tmpFragSplit.get(i).getID());
                     }
                 }
-//
-
             }
 
             // CALCULATE Upgrade
@@ -282,22 +264,16 @@ public class DeltaDerive extends Phase {
             if (tmpFragUpgrade != null) {
                 //upgrade to
                 for (int i = 0; i < tmpFragUpgrade.size(); i++) {
-
                     for (int k = tmpFragUpgrade.get(i).getB().inf; k <= tmpFragUpgrade.get(i).getB().inf; k++) {
-//                        if (B.getNode(B.getNode(k).posFather).inRel == Relation.MERGE) {
                         Ndelta.addUpgradeToOperation(B.getNode(k));
-//                        }
                     }
 
                 }
 
                 //upgrade from
                 for (int i = 0; i < tmpFragUpgrade.size(); i++) {
-
-                    for (int k = tmpFragUpgrade.get(i).getA().inf; k <= tmpFragUpgrade.get(i).getA().sup; k++) {
-//                        if (A.getNode(A.getNode(k).posFather).inRel == Relation.MERGE) {
+                    for (int k = tmpFragUpgrade.get(i).getA().inf; k <= tmpFragUpgrade.get(i).getA().inf; k++) {
                         Ndelta.addUpgradeFromOperation(A.getNode(k));
-//                        }
                     }
                 }
             }
@@ -310,22 +286,15 @@ public class DeltaDerive extends Phase {
             if (tmpFragDowngrade != null) {
                 //downgrade to
                 for (int i = 0; i < tmpFragDowngrade.size(); i++) {
-
                     for (int k = tmpFragDowngrade.get(i).getB().inf; k <= tmpFragDowngrade.get(i).getB().inf; k++) {
-//                        if (B.getNode(B.getNode(k).posFather).inRel == Relation.MERGE) {
                         Ndelta.addDowngradeToOperation(B.getNode(k));
-//                        }
                     }
-
                 }
 
                 //downgrade from
                 for (int i = 0; i < tmpFragDowngrade.size(); i++) {
-
-                    for (int k = tmpFragDowngrade.get(i).getA().inf; k <= tmpFragDowngrade.get(i).getA().sup; k++) {
-//                        if (A.getNode(A.getNode(k).posFather).inRel == Relation.MERGE) {
+                    for (int k = tmpFragDowngrade.get(i).getA().inf; k <= tmpFragDowngrade.get(i).getA().inf; k++) {
                         Ndelta.addDowngradeFromOperation(A.getNode(k));
-//                        }
                     }
                 }
             }

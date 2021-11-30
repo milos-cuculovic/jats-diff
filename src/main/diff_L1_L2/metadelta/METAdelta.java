@@ -270,7 +270,6 @@ public class METAdelta {
 	 * @param nodeB node representing the root of the subtree to be merged to the modified document
 	 */
 	public void addMergeToOperation(Dnode nodeB, String id) {
-
 		SOperation tmpOp = new SOperation(Operation.MERGE_TO, null, nodeB);
 		tmpOp.IDmerge = id;
 		mergeToOps.add(tmpOp);
@@ -284,7 +283,6 @@ public class METAdelta {
 	}
 
 	public void addSplitToOperation(Dnode nodeB, String id) {
-
 		SOperation tmpOp = new SOperation(Operation.SPLIT_TO, null, nodeB);
 		tmpOp.IDsplit = id;
 		splitToOps.add(tmpOp);
@@ -390,7 +388,7 @@ public class METAdelta {
 	/**
 	 * style to
 	 *
-	 * @param nodeB
+	 * @param nodeA
 	 */
 	public void addStyleUpdateFromOperation(Dnode nodeA) {
 
@@ -442,7 +440,7 @@ public class METAdelta {
 	/**
 	 * Update Style text operation
 	 *
-	 * @param nodeB
+	 * @param nodeA
 	 */
 	public void addUpdateStyleFromTextOperation(Dnode nodeA) {
 
@@ -511,11 +509,7 @@ public class METAdelta {
 
 		//INSERT STYLE
 		for (int i = 0; i < insertStyleOps.size(); i++) {
-//			logger.info("main.diff_L1_L2.test");
-//			System.exit(0);
-
 			insertStyleOps.get(i).dump(Ndelta);
-
 		}
 		//DELETE STYLE
 		for (int i = 0; i < deleteStyleOps.size(); i++) {
@@ -659,7 +653,6 @@ public class METAdelta {
 		///// SPLIT
 		List<Dnode> tmpSplitTo = new ArrayList<>();
 		for (int i = 0; i < splitToOps.size(); i++) {
-
 			if (tmpSplitTo.contains(splitToOps.get(i).nodeB)) {
 				continue;
 			}

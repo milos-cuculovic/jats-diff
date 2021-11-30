@@ -19,12 +19,9 @@
  *****************************************************************************************/
 package main.diff_L1_L2.ui;
 
-import main.diff_L1_L2.debug.Debug;
 import main.diff_L1_L2.exceptions.ParametersException;
 import org.apache.log4j.xml.DOMConfigurator;
-
 import java.net.URL;
-//import org.apache.log4j.Logger;
 
 /**
  * 
@@ -34,9 +31,6 @@ import java.net.URL;
  * 
  */
 public class Main {
-
-	//static Logger logger = Logger.getLogger(Main.class);
-
 	/**
 	 * @param args
 	 *            Argomenti da riga di comando
@@ -49,14 +43,10 @@ public class Main {
 
 		URL u = getClass().getClassLoader().getResource("log4j.xml");
 		DOMConfigurator.configure(u);
-		//DOMConfigurator.configure("/log4j.xml");
 
 		if (args.length == 0) {
-			//System.err.print(ParametersHandler.getUsage());
 			System.exit(1);
 		}
-
-		int exitCode = 0;
 
 		Parameters params = null;
 		try {
@@ -67,20 +57,11 @@ public class Main {
 			System.err.println(e.getMessage());
 			System.exit(1);
 		}
-		// Initiate the debug
-		//Debug.start();
-		//logger.info("Debug Status:" + Debug.flag);
 
 		try {
 			OperationsHandler.doOperation(params);
 		} catch (Exception e) {
-			System.err.println(e.getMessage());
-			exitCode = 1;
+			e.printStackTrace(System.out);
 		}
-
-		//Debug.close();
-
-		//System.exit(exitCode);
 	}
-
 }

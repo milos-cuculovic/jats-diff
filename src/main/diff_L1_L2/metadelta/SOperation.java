@@ -216,9 +216,6 @@ public class SOperation extends Operation {
                     newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                 }
                 newOp.setAttribute(NODE_NAME_ATTR, nodeA.refDomNode.getNodeName());
-                // newOp.appendChild(Ndelta.DOM.adoptNode(
-                // nodeA.refDomNode).cloneNode(false));
-//				nodeA.refDomNode.setNodeValue(Ndiff.encodeTags(nodeA.refDomNode.getNodeValue()));
                 newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, false));
                 Ndelta.root.appendChild(newOp);
                 break;
@@ -235,9 +232,6 @@ public class SOperation extends Operation {
                         ((Integer) (nodeA.numChildSubtree + 1)).toString());
                 newOp.setAttribute(MOVEID_ATTR, IDmove);
                 newOp.setAttribute(OPERATION_ATTR, MOVEDTO_VALUE);
-                // newOp.appendChild(Ndelta.DOM.adoptNode(
-                // nodeA.refDomNode.cloneNode(true)));
-//				nodeA.refDomNode.setNodeValue(Ndiff.encodeTags(nodeA.refDomNode.getNodeValue()));
                 newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
                 break;
@@ -255,103 +249,95 @@ public class SOperation extends Operation {
                 newOp.setAttribute(NODECOUNT_ATTR, nodeB.numChildSubtree.toString());
                 newOp.setAttribute(MOVEID_ATTR, IDmove);
                 newOp.setAttribute(OPERATION_ATTR, MOVEDFROM_VALUE);
-//				nodeB.refDomNode.setNodeValue(Ndiff.encodeTags(nodeB.refDomNode.getNodeValue()));
                 newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
                 break;
 
             case MERGE_TO:
-
                 newOp = Ndelta.DOM.createElement(MERGE_ELEMENT);
                 if (nodeA != null) {
+                    //if(nodeA.getRefDomNode().getNodeName() != "#text") {
+                    //    break;
+                    //}
                     newOp.setAttribute(NODE_NUMBER_A_ATTR, nodeA.indexKey.toString());
                 }
                 if (nodeB != null) {
+                    //if(nodeB.getRefDomNode().getNodeName() != "#text") {
+                    //    break;
+                    //å}
                     newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                 }
                 newOp.setAttribute(AT_ATTR, nodeB.posFather.toString());
                 newOp.setAttribute(POS_ATTR, nodeB.posLikeChild.toString());
-
                 newOp.setAttribute(ID_ATTR, IDmerge);
-
-//				newOp.setAttribute(NODECOUNT_ATTR,
-//					((Integer) (nodeB.numChildSubtree + 1)).toString());
-//                newOp.setAttribute(MERGEID_ATTR, IDmerge);
                 newOp.setAttribute(OPERATION_ATTR, MERGEDTO_VALUE);
-                //newOp.appendChild(Ndelta.DOM.importNode(nodeB.refDomNode, true));
-//				nodeB.refDomNode.setNodeValue(Ndiff.encodeTags(nodeB.refDomNode.getNodeValue()));
-                Node tmpNode = nodeB.refDomNode.cloneNode(false);
-                Node node = removeChildNodesRecursion(tmpNode);
-                newOp.appendChild(Ndelta.DOM.importNode(node, true));
+                newOp.appendChild(Ndelta.DOM.importNode(nodeB.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
                 break;
 
             case MERGE_FROM:
-
                 newOp = Ndelta.DOM.createElement(MERGE_ELEMENT);
                 if (nodeA != null) {
+                    if(nodeA.getRefDomNode().getNodeName() == "#text") {
+                        break;
+                    }
                     newOp.setAttribute(NODE_NUMBER_A_ATTR, nodeA.indexKey.toString());
                 }
                 if (nodeB != null) {
+                    if(nodeB.getRefDomNode().getNodeName() == "#text") {
+                        break;
+                    }
                     newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                 }
-//				newOp.setAttribute(NODECOUNT_ATTR, nodeA.numChildSubtree.toString());
                 newOp.setAttribute(ID_ATTR, IDmerge);
                 newOp.setAttribute(OPERATION_ATTR, MERGEDFROM_VALUE);
-//                newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
-//				nodeA.refDomNode.setNodeValue(Ndiff.encodeTags(nodeA.refDomNode.getNodeValue()));
-                Node tmpNodeMerge = nodeA.refDomNode.cloneNode(false);
-                Node nodeMerge = removeChildNodesRecursion(tmpNodeMerge);
-                newOp.appendChild(Ndelta.DOM.importNode(nodeMerge, true));
+                newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
                 break;
 
             case SPLIT_TO:
-
                 newOp = Ndelta.DOM.createElement(SPLIT_ELEMENT);
                 if (nodeA != null) {
+                    if(nodeA.getRefDomNode().getNodeName() == "#text") {
+                        break;
+                    }
                     newOp.setAttribute(NODE_NUMBER_A_ATTR, nodeA.indexKey.toString());
                 }
                 if (nodeB != null) {
+                    if(nodeB.getRefDomNode().getNodeName() == "#text") {
+                        break;
+                    }
                     newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                 }
                 newOp.setAttribute(AT_ATTR, nodeB.posFather.toString());
                 newOp.setAttribute(POS_ATTR, nodeB.posLikeChild.toString());
-//                newOp.setAttribute(NODECOUNT_ATTR,
-//                        ((Integer) (nodeB.numChildSubtree + 1)).toString());
                 newOp.setAttribute(ID_ATTR, IDsplit);
                 newOp.setAttribute(OPERATION_ATTR, SPLITEDTO_VALUE);
-//                newOp.appendChild(Ndelta.DOM.importNode(nodeB.refDomNode, true));
-//				nodeB.refDomNode.setNodeValue(Ndiff.encodeTags(nodeB.refDomNode.getNodeValue()));
-                Node tmpNodeSplitTo = nodeB.refDomNode.cloneNode(false);
-                Node nodeSplitTo = removeChildNodesRecursion(tmpNodeSplitTo);
-                newOp.appendChild(Ndelta.DOM.importNode(nodeSplitTo, true));
+                newOp.appendChild(Ndelta.DOM.importNode(nodeB.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
                 break;
 
             case SPLIT_FROM:
-
                 newOp = Ndelta.DOM.createElement(SPLIT_ELEMENT);
                 if (nodeA != null) {
+                    if(nodeA.getRefDomNode().getNodeName() == "#text") {
+                        break;
+                    }
                     newOp.setAttribute(NODE_NUMBER_A_ATTR, nodeA.indexKey.toString());
                 }
                 if (nodeB != null) {
+                    if(nodeB.getRefDomNode().getNodeName() == "#text") {
+                        break;
+                    }
                     newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                 }
-//				newOp.setAttribute(NODECOUNT_ATTR, nodeA.numChildSubtree.toString());
                 newOp.setAttribute(ID_ATTR, IDsplit);
                 newOp.setAttribute(OPERATION_ATTR, SPLITEDFROM_VALUE);
-//                newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
-//				nodeA.refDomNode.setNodeValue(Ndiff.encodeTags(nodeA.refDomNode.getNodeValue()));
-                Node tmpNodeSplitFrom = nodeA.refDomNode.cloneNode(false);
-                Node nodeSplitFrom = removeChildNodesRecursion(tmpNodeSplitFrom);
-                newOp.appendChild(Ndelta.DOM.importNode(nodeSplitFrom, true));
+                newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
-                break;
 
             //UPGRADE
             case UPGRADE_TO:
-
                 newOp = Ndelta.DOM.createElement(UPGRADE_ELEMENT);
                 if (nodeA != null) {
                     newOp.setAttribute(NODE_NUMBER_A_ATTR, nodeA.indexKey.toString());
@@ -359,26 +345,15 @@ public class SOperation extends Operation {
                 if (nodeB != null) {
                     newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                 }
-                newOp.setAttribute(AT_ATTR, nodeB.posFather.toString());
-                newOp.setAttribute(POS_ATTR, nodeB.posLikeChild.toString());
                 newOp.setAttribute(NODECOUNT_ATTR,
-                        ((Integer) (nodeB.numChildSubtree + 1)).toString());
-//                newOp.setAttribute(SPLITID_ATTR, IDsplit);
+                        ((Integer) (nodeA.numChildSubtree + 1)).toString());
                 newOp.setAttribute(OPERATION_ATTR, UPGRADEDTO_VALUE);
-                newOp.setAttribute(AT_ATTR, nodeB.posFather.toString());
-                newOp.setAttribute(POS_ATTR, nodeB.posLikeChild.toString());
-//                newOp.appendChild(Ndelta.DOM.importNode(nodeB.refDomNode, true));
-                //----
-//				nodeB.refDomNode.setNodeValue(Ndiff.encodeTags(nodeB.refDomNode.getNodeValue()));
-                Node tmpNodeUpgradeTo = nodeB.refDomNode.cloneNode(false);
-                Node nodeUpgradeTo = removeChildNodesRecursion(tmpNodeUpgradeTo);
-                newOp.appendChild(Ndelta.DOM.importNode(nodeUpgradeTo, true));
-                //----
+                newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
+
                 break;
 
             case UPGRADE_FROM:
-
                 newOp = Ndelta.DOM.createElement(UPGRADE_ELEMENT);
                 if (nodeA != null) {
                     newOp.setAttribute(NODE_NUMBER_A_ATTR, nodeA.indexKey.toString());
@@ -387,19 +362,14 @@ public class SOperation extends Operation {
                     newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                 }
                 newOp.setAttribute(NODECOUNT_ATTR, nodeA.numChildSubtree.toString());
-//                newOp.setAttribute(SPLITID_ATTR, IDsplit);
                 newOp.setAttribute(OPERATION_ATTR, UPGRADEDFROM_VALUE);
-//                newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
-//				nodeA.refDomNode.setNodeValue(Ndiff.encodeTags(nodeA.refDomNode.getNodeValue()));
-                Node tmpNodeUpgradeFrom = nodeA.refDomNode.cloneNode(false);
-                Node nodeUpgradeFrom = removeChildNodesRecursion(tmpNodeUpgradeFrom);
-                newOp.appendChild(Ndelta.DOM.importNode(nodeUpgradeFrom, true));
+                newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
+
                 break;
 
             //DOWNGRADE
             case DOWNGRADE_TO:
-
                 newOp = Ndelta.DOM.createElement(DOWNGRADE_ELEMENT);
                 if (nodeA != null) {
                     newOp.setAttribute(NODE_NUMBER_A_ATTR, nodeA.indexKey.toString());
@@ -407,22 +377,15 @@ public class SOperation extends Operation {
                 if (nodeB != null) {
                     newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                 }
-                newOp.setAttribute(AT_ATTR, nodeB.posFather.toString());
-                newOp.setAttribute(POS_ATTR, nodeB.posLikeChild.toString());
                 newOp.setAttribute(NODECOUNT_ATTR,
                         ((Integer) (nodeB.numChildSubtree + 1)).toString());
-//                newOp.setAttribute(SPLITID_ATTR, IDsplit);
                 newOp.setAttribute(OPERATION_ATTR, DOWNGRADEDTO_VALUE);
-//                newOp.appendChild(Ndelta.DOM.importNode(nodeB.refDomNode, true));
-//				nodeB.refDomNode.setNodeValue(Ndiff.encodeTags(nodeB.refDomNode.getNodeValue()));
-                Node tmpNodeDowngradeTo = nodeB.refDomNode.cloneNode(false);
-                Node nodeDowngradeTo = removeChildNodesRecursion(tmpNodeDowngradeTo);
-                newOp.appendChild(Ndelta.DOM.importNode(nodeDowngradeTo, true));
+                newOp.appendChild(Ndelta.DOM.importNode(nodeB.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
+
                 break;
 
             case DOWNGRADE_FROM:
-
                 newOp = Ndelta.DOM.createElement(DOWNGRADE_ELEMENT);
                 if (nodeA != null) {
                     newOp.setAttribute(NODE_NUMBER_A_ATTR, nodeA.indexKey.toString());
@@ -431,14 +394,10 @@ public class SOperation extends Operation {
                     newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                 }
                 newOp.setAttribute(NODECOUNT_ATTR, nodeA.numChildSubtree.toString());
-//                newOp.setAttribute(SPLITID_ATTR, IDsplit);
                 newOp.setAttribute(OPERATION_ATTR, DOWNGRADEDFROM_VALUE);
-//                newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
-//				nodeA.refDomNode.setNodeValue(Ndiff.encodeTags(nodeB.refDomNode.getNodeValue()));
-                Node tmpNodeDowngradeFrom = nodeA.refDomNode.cloneNode(false);
-                Node nodeDowngradeFrom = removeChildNodesRecursion(tmpNodeDowngradeFrom);
-                newOp.appendChild(Ndelta.DOM.importNode(nodeDowngradeFrom, true));
+                newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
+
                 break;
 
             case MOVETEXT_TO:
@@ -559,7 +518,6 @@ public class SOperation extends Operation {
             //next operations INSERT_STYLE_TEXT/DELETE_STYLE_TEXT/UPDATE_STYLE_TEXT
             //case if exists changes in move text change or style text cahnges then check and set raw text changes
         }
-
     }
 
     /*

@@ -170,7 +170,7 @@ public class Nconfig {
                 for (int k = 0; k < phase.getAttributes().getLength(); k++) {
                     addPhaseParam(FindUpgrade, phase.getAttributes().item(k)
                             .getNodeName(), phase.getAttributes().item(k)
-                                    .getNodeValue());
+                            .getNodeValue());
                 }
             } else if (phase.getNodeName().equals("FindDowngrade")) {
                 phasesOrder.add(FindDowngrade);
@@ -257,6 +257,8 @@ public class Nconfig {
 
         phasesOrder.add(FindUpgrade);
         addPhaseParam(FindUpgrade, "level", "40");
+        addPhaseParam(FindUpgrade, "range", "40");
+        addPhaseParam(FindUpgrade, "minweight", "10");
 
         phasesOrder.add(FindDowngrade);
         addPhaseParam(FindDowngrade, "level", "40");

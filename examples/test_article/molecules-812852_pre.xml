@@ -1,0 +1,1650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.2 20190208//EN" "JATS-journalpublishing1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article" dtd-version="1.2" xml:lang="en">
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="publisher-id">molecules</journal-id>
+      <journal-title-group>
+        <journal-title>Molecules</journal-title>
+        <abbrev-journal-title abbrev-type="publisher">Molecules</abbrev-journal-title>
+        <abbrev-journal-title abbrev-type="pubmed">Molecules</abbrev-journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1420-3049</issn>
+      <publisher>
+        <publisher-name>MDPI</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="doi">10.3390/molecules26190000</article-id>
+      <article-id pub-id-type="publisher-id">molecules-812852</article-id>
+      <article-categories>
+        <subj-group>
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Synergistic Activity of Nitroimidazole-Oxazolidinone Conjugates against Anaerobic Bacteria</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ma</surname>
+            <given-names>Zhijun Zhuang Dawei Wan Jun Ding Shijie He Qian Zhang Xiaomei Wang Ying Yuan Yu Lu Charles Z. Ding Anthony Simon Lynch Anna M. Upton Christopher B. Cooper William A. Denny Zhenkun</given-names>
+          </name>
+          <xref rid="af1-molecules-812852" ref-type="aff">1</xref>
+          <xref rid="af1-molecules-812852" ref-type="aff">1</xref>
+          <xref rid="af1-molecules-812852" ref-type="aff">1</xref>
+          <xref rid="af1-molecules-812852" ref-type="aff">1</xref>
+          <xref rid="af1-molecules-812852" ref-type="aff">1</xref>
+          <xref rid="af1-molecules-812852" ref-type="aff">1</xref>
+          <xref rid="af1-molecules-812852" ref-type="aff">1</xref>
+          <xref rid="af2-molecules-812852" ref-type="aff">2</xref>
+          <xref rid="af3-molecules-812852" ref-type="aff">3</xref>
+          <xref rid="af4-molecules-812852" ref-type="aff">4</xref>
+          <xref rid="af5-molecules-812852" ref-type="aff">5</xref>
+          <xref rid="af5-molecules-812852" ref-type="aff">5</xref>
+          <xref rid="af6-molecules-812852" ref-type="aff">6</xref>
+          <xref rid="af1-molecules-812852" ref-type="aff">1</xref>
+          <xref rid="c1-molecules-812852" ref-type="corresp">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="af1-molecules-812852"><label>1</label>TenNor Therapeutics Limited, 218 Xinghu Street, Building B2, Suite 711, Suzhou Industrial Park, Suzhou 215123, China; <email>zhijun.zhuang@tennorx.com</email> (Z.Z.); <email>dawei.wan@tennorx.com</email> (D.W.); <email>jun.ding@tennorx.com</email> (J.D.); <email>shijie.he@tennorx.com</email> (S.H.); <email>qian.zhang@tennorx.com</email> (Q.Z.); <email>xiaomei.wang@tennorx.com</email> (X.W.); <email>ying.yuan@tennorx.com</email> (Y.Y.)</aff>
+      <aff id="af2-molecules-812852"><label>2</label>Department of Pharmacology, Beijing Tuberculosis and Thoracic Tumor Research Institute, Beijing Chest Hospital, Capital Medical University, 97 Ma Chang Street, Beijing 101149, China; <email>luyu4876@hotmail.com</email></aff>
+      <aff id="af3-molecules-812852"><label>3</label>Current address: WuXi AppTec. Co. Ltd., 288 Fute Zhong Road, Waigaoqiao Free Trade Zone, Shanghai 200131, China; <email>charles_ding@wuxiapptec.com</email></aff>
+      <aff id="af4-molecules-812852"><label>4</label>Current address: Janssen Research &amp; Development LLC., 1400 McKean Road, Spring House, Pennsylvania 18940, USA; <email>alynch2@its.jnj.com</email></aff>
+      <aff id="af5-molecules-812852"><label>5</label>Global Alliance for TB Drug Development, 40 Wall Street, New York, NY 10005, USA; <email>anna.upton@tballiance.org</email> (A.M.U.); <email>christopher.cooper@tballiance.org</email> (C.B.C.)</aff>
+      <aff id="af6-molecules-812852"><label>6</label>Auckland Cancer Society Research Centre, School of Medical Sciences, University of Auckland, Private Bag 92019, Auckland 1142, New Zealand; <email>b.denny@auckland.ac.nz</email></aff>
+      <pub-date pub-type="epub">
+        <day>00</day>
+        <month>00</month>
+        <year>0000</year>
+      </pub-date>
+      <pub-date pub-type="collection">
+        <month>10</month>
+        <year>2021</year>
+      </pub-date>
+      <volume>26</volume>
+      <issue>19</issue>
+      <elocation-id>0</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>01</day>
+          <month>01</month>
+          <year>1970</year>
+        </date>
+        <date date-type="accepted">
+          <day>01</day>
+          <month>01</month>
+          <year>1970</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>&#xA9; 2021 by the author.</copyright-statement>
+        <copyright-year>2021</copyright-year>
+        <license license-type="open-access">
+          <license-p>Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (<ext-link ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</ext-link>).</license-p>
+        </license>
+      </permissions>
+      <kwd-group>
+        <kwd><bold>Keywords:</bold> Nitroimidazole-Oxazolidinone Conjugates, Anaerobic Bacterium, Synergy, Nitroimidazole and Oxazolidinone.</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="sec1-molecules-812852" sec-type="intro">
+      <title>1. Introduction</title>
+      <p>Oxazolidinones, as represented by linezolid (<bold>1</bold>) and tedizolid (<bold>2</bold>), and bicyclic 4-nitroimidazoles, as represented by delamanid (<bold>3</bold>) and pretomanid (<bold>4</bold>), are two relatively new classes of antimicrobial agents (Figure 1). Linezolid, the first oxazolidinone approved for clinical use, was introduced in 2000 for the treatment of Gram-positive bacterial infections, including those resistant to other classes of antibiotics [1]. This drug class inhibits bacterial protein synthesis by binding to rRNA on both the 30S and 50S ribosomal subunits and preventing the formation of a translation initiation complex. The first bicyclic 4-nitroimidazole, delamanid, was introduced in 2014 for the treatment of drug-resistant tuberculosis (TB). This drug class utilizes a deazaflavin-dependent nitroreductase (Ddn) to catalyze the bioreduction of the 4-nitroimidazole core, leading to intracellular generation of reactive chemical species which are toxic to bacterial cells [2]. However, the primary mechanism of action of the bicyclic 4-nitroimidazole class against <italic>M. tuberculosis</italic> appeared to be different under aerobic and anaerobic conditions. Inhibition of mycolic acid synthesis appeared to be the main mechanism under aerobic conditions, while generation of reactive nitrogen species and inhibition of energy metabolism appeared to be the main mechanism under anaerobic conditions [3].</p>
+      <p>Resistance to oxazolidinones and bicyclic 4-nitroimidazoles are relatively uncommon. Both drug classes have been used for the treatment of multidrug-resistant (MDR) and extensively drug resistant (XDR) TB. Recently, a three-drug combination containing both pretomanid and linezolid has been approved by the US Food and Drug Administration for the treatment of pulmonary XDR, treatment-intolerant or nonresponsive MDR-TB [4].</p>
+      <p>Previously, we have utilized a drug conjugation strategy to identify the dual-acting molecule TNP-2092 for the treatment of bacterial biofilm infections [5]. This strategy provides several advantages as compared to a drug combination therapy, including matched pharmacokinetics, tissue distribution and potential synergistic activity. Considering the importance of the oxazolidinone and the bicyclic 4-nitroimidazole classes, a series of oxazolidinone-nitroimidazole conjugate molecules were designed, synthesized and evaluated against an isogenic mutant panel of <italic>M. tuberculosis</italic> conferring resistance to linezolid or pretomanid as well as a panel of clinically important anaerobic pathogens.</p>
+    </sec>
+    <sec id="sec2-molecules-812852" sec-type="results">
+      <title>2. Results and Discussion</title>
+      <sec id="sec2dot1-molecules-812852">
+        <title>2.1. Chemistry</title>
+        <p>The safety and efficacy of the oxazolidinone and bicyclic 4-nitroimidazole classes have been validated clinically. The structure-activity relationships (SARs) of both drug classes have been extensively studied in the past, which serve as the foundation for the design of the conjugation molecules.</p>
+        <p>As a protein synthesis inhibitor, linezolid utilizes hydrogen bonding and hydrophobic interactions to bind to a binding domain located within the ribosomal peptidyltransferase center. Analysis of a high resolution of crystal structure of linezolid bound to the 50S ribosomal subunit indicates that the oxazolidinone ring and the acetamide group on the right side of the molecule are essential for the target interactions. The fluorophenyl moiety in the middle is also important. However, the morpholino ring on the left side does not appear to have significant interactions with the binding site, which is consistent with the known SARs that various structures can be used to substitute the morpholine group without a significant loss of activity [6]. This position was therefore identified as the linking point for conjugation to a bicyclic 4-nitroimidazole core.</p>
+        <p>On the bicyclic 4-nitroimidazole side, the nitroimidazole group and its fused oxazine or oxazole ring are essential and directly responsible for the formation of intracellular reactive species via a bioreduction process. The stereochemistry of the substituents connected to the oxazine or oxazole ring also plays an important role for the antimicrobial activity. However, the structure of the substituents on the right-hand side are highly variable, which can tolerate many functional groups. This site was hence identified as the linking point for the bicyclic 4-nitroimidazole class.</p>
+        <p>A series of drug conjugate were therefore designed and synthesized by connecting the right-hand side of the bicyclic 4-nitroimidazole and the left-hand side of the oxazolidinone core through various linkers. The syntheses of these conjugate molecules are illustrated in Scheme 1-3. Compound <bold>5</bold> (Figure 1) is a previously known oxazolidinone-metronidazole conjugate and it has not been evaluated for its activity against <italic>M. tuberculosis</italic> or anaerobic organisms [7]. Compound <bold>5</bold> was also prepared in the current study and evaluated for its activity against <italic>M. tuberculosis</italic> isogenic mutant panel and anaerobic bacterial panel.</p>
+        <p>Syntheses of the conjugate molecules formed by the oxazine fused nitroimidazole and the oxazolidinone core <bold>8a-b</bold> and <bold>11a-b</bold> are summarized in Scheme 1. The known (<italic>S</italic>)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazin-6-ol core (<bold>6</bold>) was prepared according to literature procedures [8]. Intermediates <bold>7a-b</bold> and <bold>10a-b</bold> were prepared by aromatic or nucleophilic substitution reaction. Suzuki coupling with the oxazolidinone piece <bold>9a</bold> or <bold>9b</bold> provided conjugate molecules <bold>8a-b</bold> and <bold>11a-b</bold>.</p>
+        <p>Syntheses of the conjugate molecules formed by the oxazole fused nitroimidazole and the oxazolidinone core <bold>14a-d</bold> and <bold>16</bold> are summarized in Scheme 2. The known 2-bromo-1-((2-methyloxiran-2-yl)methyl)-4-nitro-1<italic>H</italic>-imidazole (<bold>12</bold>) was prepared according to literature procedure [9]. Intermediate <bold>13a-d</bold> were prepared by epoxide opening followed subsequently by intramolecular cyclization. Suzuki or copper catalyzed coupling provided conjugate molecules <bold>14a-d</bold> and <bold>16</bold>.</p>
+        <p class="MDPI52figure">
+          <span style="mso-bookmark:&#10;  _Hlk36898438">
+            <span lang="EN-US" style="layout-grid-mode:both;mso-no-proof:&#10;  yes">
+              <!--[if gte vml 1]><v:shape id="_x0000_i1028" type="#_x0000_t75" alt=""
+   style='width:414pt;height:124pt;mso-width-percent:0;mso-height-percent:0;
+   mso-width-percent:0;mso-height-percent:0' o:ole="">
+   <v:imagedata src="molecules-812852_pre.fld/image007.emz" o:title=""/>
+  </v:shape><![endif]-->
+            </span>
+            <span lang="EN-US">
+              <!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="ChemDraw.Document.6.0"
+    ShapeID="_x0000_i1028" DrawAspect="Content" ObjectID="_1693913272">
+   </o:OLEObject>
+  </xml><![endif]-->
+            </span>
+          </span>
+          <span lang="EN-US">.</span></p>
+        <p>Scheme 3 summarizes the syntheses of a third series of conjugate molecules <bold>19a-c</bold>. This series contains the same oxazine fused nitroimidazole core as shown in Scheme 1 but connects to the oxazolidinones via a different linking point. The known intermediates (2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazin-7-yl)methanol (<bold>17a</bold>) and (7-methyl-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazin-7-yl)methanol (<bold>17b</bold>) were prepared according to literature procedure [10]. Aromatic substitution provided intermediates <bold>18a-c</bold>. Suzuki coupling with the oxazolidinone precursor <bold>9a</bold> provided conjugate molecules <bold>19a-c</bold>.</p>
+      </sec>
+      <sec id="sec2dot2-molecules-812852">
+        <title>2.2. Mechanism of Action</title>
+        <p>The mechanisms of action of the precursor antibiotics of the conjugate molecules have been well established. In order to understand whether the conjugate molecules synthesized in the current study maintained antibacterial activity and received contribution from both precursor antibiotic classes, an isogenic panel of resistant mutant strains was prepared from wild-type strain <italic>M. tuberculosis</italic> H37Rv by stepwise resistance induction with linezolid or pretomanid (Table 1). Resistant mutant strains L1 and L3 were induced by linezolid with mutations on <italic>rplC</italic> gene encoding the 50S ribosomal protein L3. The minimum inhibitory concentrations (MICs) of linezolid against L1 and L3 were 4.80 and 8.18 ?g/mL respectively, as compared to 0.15 ?g/mL against the wild-type H37Rv strain. The resistant mutant strains P1 and P3 were induced by pretomanid with mutations in the <italic>ddn</italic> gene encoding the deazoflavin-dependent nitroreductase. The MICs of pretomanid against P1 and P3 strains were &gt;20 and &gt;20 ?g/mL respectively, as compared to 0.07 ?g/mL for the H37Rv strain.</p>
+        <p>All four conjugate compounds listed in Table 1 (<bold>8a</bold>, <bold>8b</bold>, <bold>14c</bold> and <bold>14d)</bold> were highly active against the H37Rv strain with MICs similar to that of linezolid and pretomanid. More importantly, all compounds were significantly more potent than linezolid against the L1 and L3 strains and significantly more potent than pretomanid against the P1 and P3 mutant strains, indicating that the antimicrobial activity of the conjugate molecules includes contributions from both parental antibiotic pharmacophores.</p>
+        <p>Compounds <bold>8a</bold> and <bold>8b</bold> were formed by the oxazine fused 4-nitroimidazole and the oxazolidinone core. These compounds, particularly compound <bold>8a</bold>, appeared to be more potent against linezolid resistant strains L1 and L3, suggesting that the 4-nitroimidazole function makes a relatively more significant contribution to the antibacterial activity than the oxazolidonone function in these conjugate molecules. However, compounds <bold>14c</bold> and <bold>14d</bold>, formed by the oxazole fused 4-nitroimidazole and the oxazolidinone core, demonstrated balanced activity against the linezolid resistant strains L1 and L3 and the pretomanid resistant strains P1 and P3, suggesting that these conjugate molecules exhibit a balanced contribution from the two parental antibiotic pharmacophores.</p>
+      </sec>
+      <sec id="sec2dot3-molecules-812852">
+        <title>2.3. Spectrum of Activity</title>
+        <p>Selected compounds from the current study were tested against a panel of representative pathogens (Table 2). All eight conjugate compounds tested showed a similar spectrum of activity as linezolid against the ESKAPE pathogens: <italic>Enterococcus faecium</italic> (Ef), <italic>Staphylococcus aureus</italic> (Sa), <italic>Klebsiella pneumoniae</italic> (Kp), <italic>Acinetobacter baumannii</italic> (Ab), <italic>Pseudomonas aeruginosa</italic> (Pa), and <italic>Escherichia coli</italic> (Ec). Specifically, these compounds were active against Ef and Sa, but inactive against Kp, Ac, Pa and Ec strains. Several compounds (<bold>8a</bold>, <bold>8b</bold> and <bold>11a</bold>) were substantially more active than linezolid against Ef and Sa. All conjugate compounds were substantially more active than linezolid against the obligate anaerobic pathogen <italic>Clostridium difficile</italic> (Cd). The activities of these compounds were similar to that of metronidazole. These compounds were not cytotoxic with IC<sub>50s</sub> &gt; 64 &#x3BC;g/mL for all compounds tested against the Vero cell-line.</p>
+      </sec>
+      <sec id="sec2dot4-molecules-812852">
+        <title>2.4. Anaerobic Activity</title>
+        <p>The promising activity of the 4-nitromidazole-oxazolidinone conjugate series against the anaerobic pathogen <italic>C. difficile</italic> encouraged us to explore a broader panel of clinically important anaerobic bacteria (Table 3). The test panel included 13 strains of anaerobic bacteria and <italic>Helicobacter pylori</italic> (Hp) a gram-negative microaerophilic bacterium. Seven of the 13 anaerobic bacteria were Gram-positive and the rest were Gram-negative strains. The full names of the anaerobic bacterial panel strains are listed in Table 4.</p>
+        <p>Metronidazole, a 5-nitroimidazole, is one of the most important drugs for the treatment of anaerobic bacterial infections. The activity of metronidazole against this panel was inconsistent with virtually no activity against <italic>Lactobacillus acidophilus</italic> (La), <italic>Peptostreptococcus micros</italic> (Pm), <italic>Propionibacterium acnes</italic> (Pas) and <italic>Veillonella parvula</italic> (Vp). Pretomanid, a 4-nitroimidazole, exhibited a similar spectrum of activity against this panel as metronidazole but with higher MICs. Linezolid was active against all the strains with MICs ranging from 0.06 to 2 &#x3BC;g/mL against the 13 anaerobic bacteria. Interestingly, the 1:1 combination of linezolid and pretomanid was about one dilution less active than linezolid, virtually reflecting the activity of linezolid in the mixture. Pretomanid did not appear to make any contribution to the activity of the combination.</p>
+        <p>Compound <bold>5</bold>, a conjugate molecule between linezolid and metronidazole, a 5-nitroimidazole, appeared to be more potent than either of its precursor antibiotics against all strains tested with MICs ranging from 0.06 to 1 &#x3BC;g/mL. The apparent synergistic effect of the 4-nitroimidazole-oxazolidione conjugate was more profound. The majority of the 12 compounds were significantly more potent than the combination of linezolid and pretomanid with the exception of compound <bold>16</bold>. Several compounds (<bold>8a</bold>, <bold>8b</bold>, <bold>11a</bold>, <bold>14c</bold>, <bold>19a</bold>, <bold>19b</bold> and <bold>19c</bold>) were 10-100 folds more potent against the majority of the tested strains than the combination.</p>
+        <p>The underlying mechanism for the apparent synergistic effect of this conjugate series is still unclear. A number of hypotheses are currently under consideration. The first hypothesis is that conjugation of a nitroimidazole to the oxazolidinone simply makes the oxazolidinone more potent. The nitroimidazole group plays a role of a substituent that make the oxazolidinone bind to the ribosomal RNA better. This hypnosis appears less plausible as the synergistic effect was only observed with anaerobic bacteria. We did not observe parallel improvement of potency against aerobic bacteria <italic>Enterococcus faecium</italic> and <italic>Staphylococcus aureus</italic> (Table 2). The second hypothesis is that the conjugate molecules bring additional nitromidazole inside of the cells by better penetration or avoidance of efflux. A third hypothesis is that nitroimidazole moiety acts synergistically when conjugated to an oxazolidinone pharmacophore. The high binding affinity of the oxazolidinone moiety to ribosomes or ribosomal components could bring the reactive species generated from the nitroimidazole moiety to the close affinity of the transcription/translation machinery and make them work more efficiently. This includes the possibility for irreversible covalent linking to ribosome or other enzymes associated with intrinsic oxazolidinone resistance. The last two hypotheses are supported by the mechanism of action study which indicated that both the nitroimidazole and the oxazolidinone functions contribute the antibacterial activity inside a <italic>M.</italic> <italic>tuberculosis</italic> cell (Table 1).</p>
+      </sec>
+    </sec>
+    <sec id="sec3-molecules-812852" sec-type="methods">
+      <title>3. Experimental</title>
+      <sec id="sec3dot1-molecules-812852">
+        <title>3.1. Chemistry</title>
+        <p><bold>General</bold>: Reference compounds linezolid, levofloxacin and metronidazole were purchased from ChemPacific or Sigma-Aldrich. Pretomanid (PA-824) and compound <bold>5</bold> were prepared according to published procedures [7]. All other compounds were synthesized by TenNor Therapeutics.</p>
+        <p>All starting materials are either purchased from commercial sources or prepared according to published procedures. Operations involving moisture and/or oxygen sensitive materials are conducted under an atmosphere of nitrogen. Flash chromatography is performed using silica gel 60 as normal phase adsorbent or C18 silica gel as reverse phase adsorbent. Nuclear magnetic resonance (NMR) spectra are recorded on a Varian 400 MHz magnetic resonance spectrometer. 1H NMR chemical shift are given in parts per million (<italic>&#x3B4;</italic>) downfield from TMS. <sup>1</sup>H NMR information is tabulated in the following format: number of protons, multiplicity (<italic>s</italic>, singlet; <italic>d</italic>, doublet; <italic>t</italic>, triplet; <italic>q</italic>, quartet; <italic>m</italic>, multiplet; <italic>td</italic>, triplet of doublet; <italic>dt</italic>, doublet of triplet), coupling constant(s) (<italic>J</italic>) in hertz. The prefix app is occasionally applied in cases where the true signal multiplicity is unresolved, and prefix <italic>br</italic> indicates a broad signal. High performance liquid chromatography (HPLC) analysis for the final compound is performed on Agilent 1100 instrument using a Waters Xterra RP18 column (5 &#x3BC;m, 4.6 mm &#xD7; 250 mm) and gradient elution (solvent A, 20 mM NaH<sub>2</sub>PO4/acetonitrile, 60:40 v/v; solvent B, acetonitrile). HPLC purities for the final compound are &#x2265;95%.</p>
+        <p><bold>(<italic>R</italic>)-3-(3-fluoro-4-(6-(((<italic>S</italic>)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazin-6-yl)oxy)pyridin-3-yl)phenyl)-5-(hydroxymethyl)oxazolidin-2-one (8a)</bold> [11]. To a solution of (<italic>S</italic>)-6-((5-bromopyridin-2-yl)oxy)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine (1.01g, 2.96 mmol) and (<italic>R</italic>)-3-(3-fluoro-4-(4,4,5,5-tetramethyl-1,3,2-dioxaborolan-2-yl)phenyl)-5-(hydroxymethyl) -oxazolidin-2-onein DMF (30 mL) was added a solution of K<sub>2</sub>CO<sub>3</sub> (0.90 g, 6.51 mmol) in water (1 mL) and the mixture was purged with nitrogen. Pd(PPh<sub>3</sub>)<sub>4</sub> (0.17 g, 0.15 mmol) was then added and the mixture was warmed with stirring under nitrogen at 80&#x2103; for 3 hours. The solvents were completely removed under reduced pressure and the residue was partitioned between EtOAc and water. The extract was worked up and chromatographed on silica. Elution with EtOAc gave fore fractions, then elution with (1:20) MeOH/DCM gave <bold>8a</bold> as a yellow powder (460 mg, 33%). This general procedure of Suzuki coupling reaction was also applied for the synthesis of <bold>8b</bold>, <bold>11b</bold>, <bold>14a-d</bold>, and <bold>19a-c</bold>. <sup>1</sup>H NMR (400 MHz, DMSO) <italic>&#x3B4;</italic> 8.38 (s, 1H), 8.06(s, 1 H), 7.94-7.91 (m, 1 H), 7.63 (dt, <italic>J</italic> = 13.6, 2.4 Hz, 1 H), 7.57 (d, <italic>J</italic> = 8.8 Hz, 1 H), 7.46-7.43 (m, 1 H), 6.97 (d, <italic>J</italic> = 9.2 Hz, 1H), 5.76 (s, 1H), 5.24 (t, <italic>J</italic> = 5.6 Hz, 1H), 4.74-4.67 (m,2 H), 4.48-4.38 (m, 2 H), 4.13-4.09 (m, 1 H), 3.86 (dd, <italic>J</italic> = 8.8, 6.0 Hz, 1 H), 3.70-3.64 (m, 1H), 3.56-3.52 (m, 1 H), 3.14 (d, <italic>J</italic> = 5.2 Hz, 1 H). LC-MS (ESI): m/z = 472 (M+H)<sup>+</sup>.</p>
+        <p><bold>(<italic>R</italic>)-3-(3-fluoro-4-(2-(((<italic>S</italic>)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazin-6-yl)oxy)pyrimidin-5-yl)phenyl)-5-(hydroxymethyl)oxazolidin-2-one (8b)</bold> [11]<bold>.</bold> The title compound was prepared by following the same procedure as described in preparation of <bold>8a</bold> except (<italic>S</italic>)-6-((5-bromopyrimidin-2-yl)oxy)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine was used instead of (<italic>S</italic>)-6-((5-bromopyridin-2-yl)oxy)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine. (580 mg, 41%). <sup>1</sup>H NMR (400 MHz, DMSO) &#x3B4; 8.86 (s, 2 H), 8.06 (s, 1 H), 7.68 (d, <italic>J</italic> = 8.8 Hz, 1 H), 7.66 (t, <italic>J</italic> = 2.8 Hz, 1 H), 7.47 (dd, <italic>J</italic> = 8.8, 2.4 Hz, 1H), 5.74 (s, 1 H), 5.23 (t, <italic>J</italic> = 5.6 Hz,1 H), 4.77-4.70 (m, 2 H), 4.47 (s, 1 H), 4.1 1 (t, <italic>J</italic> = 9.0 Hz, 1 H), 3.86 (dd, <italic>J</italic> = 8.8, 6.0 Hz, 1H), 3.71-3.65 (m, 1 H), 3.57-3.53 (m, 1 H), 3.38-3.35 (m, 1 H). LC-MS (ESI): m/z = 473 (M+H)<sup>+</sup>.</p>
+        <p><bold><italic>N</italic></bold><bold>-(((<italic>S</italic>)-3-(2-fluoro-4'-((((<italic>S</italic>)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazin-6-yl)oxy)methyl)-[1,1'-biphenyl]-4-yl)-2-oxooxazolidin-5-yl)methyl)acetamide (11a)</bold> [11]<bold>.</bold> To a solution of (<italic>S</italic>)-6-((4-bromobenzyl)oxy)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine (70.4 mg, 0.21 mmol) and (<italic>S</italic>)-<italic>N</italic>-((3-(3-fluoro-4-(4,4,5,5-tetramethyl-1,3,2-dioxaborolan-2-yl)phenyl)-2-oxooxazolidin-5-yl) methyl)acetamide (86.0 mg, 0.227 mmol) in DMF (8 mL) was added a solution of Na<sub>2</sub>CO<sub>3</sub> 57.0 mg, 0.538 mmol) in water (1 mL) and the mixture was purged with nitrogen. Pd(PPh<sub>3</sub>)<sub>4</sub> (24.0 mg, 0.021 mmol) was then added and the mixture was warmed with stirring under nitrogen at 85<sup>o</sup>C for 90 min. The solvents were completely removed under reduced pressure and the residue was partitioned between EtOAc and water. The extract was worked up and chromatographed on silica. Elution with EtOAc gave fore fractions, then elution with (1:9) MeOH/EtOAc gave <bold>11a</bold> as an off-white powder. (59.4 mg, 44%). <sup>1</sup>H NMR (DMSO-D6, 400 MHz) &#x3B4; 8.22 (t, <italic>J</italic> =5.8 Hz, 1H), 8.07 (s, 1H), 7.60-7.50 (m, 4H), 7.39 (dd, <italic>J</italic> =8.6, 2.2 Hz, 1H), 7.15 (d, <italic>J</italic> =8.8 Hz, 2H), 5.29 (br s, 1H), 4.79-4.70 (m, 2H), 4.70-4.64 (m, 2H), 4.42 (dd, <italic>J</italic> =13.8, 3.2 Hz, 1H), 4.35 (br d, <italic>J</italic> =13.8 Hz, 1H), 4.16 (t, <italic>J</italic> =9.0 Hz, 1H), 40.03 (M, 1H), 3.78 (dd, <italic>J</italic> =9.2, 6.5 Hz, 1H), 3.43 (t, <italic>J</italic> =5.5 Hz, 2H), 1.84 (s, 3H). LC-MS (ESI): m/z = 526 (M+H)<sup>+</sup>.</p>
+        <p><bold>(<italic>R</italic>)-3-(3-fluoro-4-(6-((((<italic>S</italic>)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazin-6-yl)oxy)methyl)pyridin-3-yl)phenyl)-5-(hydroxymethyl)oxazolidin-2-one (11b)</bold> [11]. The title compound was prepared by following the same procedure as described in preparation of <bold>8a</bold> except (<italic>S</italic>)-6-((5-bromopyridin-2-yl)methoxy)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine was used instead of (<italic>S</italic>)-6-((5-bromopyridin-2-yl)oxy)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine. (360 mg, 38%). <sup>1</sup>H NMR (400 MHz, DMSO) <italic>&#x3B4;</italic> 8.68 (s, 1 H), 8.04 (s, 1 H), 7.96 (dt, <italic>J</italic> = 8.8, 1.6 Hz, 1 H), 7.65 (dd, <italic>J</italic> = 13.6, 2.4 Hz, 1 H), 7.60 (d, <italic>J</italic> = 8.8 Hz, IH), 7.46 (dd, <italic>J</italic> = 8.4, 2.8 Hz, 2 H), 5.74 (s, 1 H), 5.24 (t, <italic>J</italic> = 5.6 Hz, 1 H), 4.77-4.69 (m, 3 H), 4.48 (d, <italic>J</italic> = 12.0 Hz, 1 H), 4.35-4.22 (m, 3 H), 4.12 (t, <italic>J</italic> = 9.2 Hz, 1 H), 3.86 (dd, <italic>J</italic> = 8.8, 5.6 Hz, 1 H), 3.70-3.65 (m, 1 H), 3.58-3.52 (m, 1 H), 3.16-3.12 (m, 1 H). LC-MS (ESI): m/z = 486 (M+H)<sup>+</sup>.</p>
+        <p><bold>(5<italic>R</italic>)-3-(2-fluoro-4'-((2-methyl-6-nitro-2,3-dihydroimidazo[2,1-<italic>b</italic>]oxazol-2-yl)methoxy)-[1,1'-biphenyl]-4-yl)-5-(hydroxymethyl)oxazolidin-2-one (14a)</bold>. The title compound was prepared by following the same procedure as described in preparation of <bold>8a</bold> except (<italic>S</italic>)-6-((5-bromopyridin-2-yl)methoxy)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine was used instead of (<italic>S</italic>)-6-((5-bromopyridin-2-yl)oxy)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine. <sup>1</sup>H NMR (400 MHz, DMSO) &#x3B4; 8.14 (s, 1H), 7.67 &#x2013; 7.26 (m, 5H), 6.96 (d, <italic>J</italic> = 8.8 Hz, 2H), 5.20 (t, <italic>J</italic> = 5.6 Hz, 1H), 4.69 (td, <italic>J</italic> = 9.3, 3.6 Hz, 1H), 4.39 &#x2013; 4.28 (m, 3H), 4.17 (d, <italic>J</italic> = 11.0 Hz, 1H), 4.07 (t, <italic>J</italic> = 9.0 Hz, 1H), 3.82 (dd, <italic>J</italic> = 8.8, 6.3 Hz, 1H), 3.65 (ddd, <italic>J</italic> = 12.2, 5.4, 3.2 Hz, 1H), 3.58 &#x2013; 3.48 (m, 1H), 1.66 (s, 3H). LC-MS (ESI): m/z = 485 (M+H)<sup>+</sup>.</p>
+        <p><bold>(5<italic>R</italic>)-3-(2'-chloro-2-fluoro-4'-((2-methyl-6-nitro-2,3-dihydroimidazo[2,1-<italic>b</italic>]oxazol-2-yl)methoxy)-[1,1'-biphenyl]-4-yl)-5-(hydroxymethyl)oxazolidin-2-one (14b)</bold>. The title compound was prepared by following the same procedure as described in preparation of <bold>8a</bold> except 2-((4-bromo-3-chlorophenoxy)methyl)-2-methyl-6-nitro-2,3-dihydroimidazo[2,1-<italic>b</italic>]oxazole was used instead of (<italic>S</italic>)-6-((5-bromopyridin-2-yl)oxy)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine. <sup>1</sup>H NMR (400 MHz, DMSO) &#x3B4; 8.13 (s, 1H), 7.55 (dd, <italic>J</italic> = 12.5, 2.0 Hz, 1H), 7.37 (dd, <italic>J</italic> = 8.6, 2.0 Hz, 1H), 7.28 (dd, <italic>J</italic> = 15.5, 8.5 Hz, 2H), 7.13 (d, <italic>J</italic> = 2.5 Hz, 1H), 6.93 (dd, <italic>J</italic> = 8.6, 2.5 Hz, 1H), 5.20 (t, <italic>J</italic> = 5.6 Hz, 1H), 4.69 (dd, <italic>J</italic> = 9.1, 5.6 Hz, 1H), 4.41 &#x2013; 4.29 (m, 3H), 4.16 (d, <italic>J</italic> = 11.0 Hz, 1H), 4.08 (t, <italic>J</italic> = 9.0 Hz, 1H), 3.82 (dd, <italic>J</italic> = 8.9, 6.1 Hz, 1H), 3.69 &#x2013; 3.60 (m, 1H), 3.58 &#x2013; 3.49 (m, 1H), 1.65 (s, 3H). LC-MS (ESI): m/z = 567 (M+H)<sup>+</sup>.</p>
+        <p><bold>(5<italic>R</italic>)-3-(3-fluoro-4-(6-((2-methyl-6-nitro-2,3-dihydroimidazo[2,1-<italic>b</italic>]oxazol-2-yl)methoxy)pyridin-3-yl)phenyl)-5-(hydroxymethyl)oxazolidin-2-one (14c)</bold>. The title compound was prepared by following the same procedure as described in preparation of <bold>8a</bold> except 2-(((5-bromopyridin-2-yl)oxy)methyl)-2-methyl-6-nitro-2,3-dihydroimidazo[2,1-<italic>b</italic>]oxazole was used instead of (<italic>S</italic>)-6-((5-bromopyridin-2-yl)oxy)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine. <sup>1</sup>H NMR (400 MHz, DMSO ) &#x3B4; 8.34 (s, 1H), 8.15 (s, 1H), 7.94 &#x2013; 7.87 (m, 1H), 7.68 &#x2013; 7.55 (m, 2H), 7.45 (dd, <italic>J</italic> = 8.6, 2.1 Hz, 1H), 6.86 (d, <italic>J</italic> = 8.6 Hz, 1H), 5.22 (t, <italic>J</italic> = 5.6 Hz, 1H), 4.74 (td, <italic>J</italic> = 5.8, 2.7 Hz, 1H), 4.63 (s, 2H), 4.41 (d, <italic>J</italic> = 11.0 Hz, 1H), 4.25 &#x2013; 4.09 (m, 2H), 3.88 (dd, <italic>J</italic> = 8.9, 6.2 Hz, 1H), 3.70 (ddd, <italic>J</italic> = 12.3, 5.5, 3.4 Hz, 1H), 3.58 (ddd, <italic>J</italic> = 12.3, 5.7, 4.1 Hz, 1H), 1.71 (s, 3H). LC-MS (ESI): M/Z = 486 (M+H)<sup>+</sup>.</p>
+        <p><bold>(5<italic>R</italic>)-3-(3-fluoro-4-(5-((2-methyl-6-nitro-2,3-dihydroimidazo[2,1-<italic>b</italic>]oxazol-2-yl)methoxy)pyridin-2-yl)phenyl)-5-(hydroxymethyl)oxazolidin-2-one (14d)</bold>. The title compound was prepared by following the same procedure as described in preparation of <bold>8a</bold> except 2-(((6-bromopyridin-3-yl)oxy)methyl)-2-methyl-6-nitro-2,3-dihydroimidazo[2,1-<italic>b</italic>]oxazole was used instead of (<italic>S</italic>)-6-((5-bromopyridin-2-yl)oxy)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine. <sup>1</sup>H NMR (400 MHz, DMSO) &#x3B4; 8.32 (d, <italic>J</italic> = 2.9 Hz, 1H), 8.16 (d, <italic>J</italic> = 17.1 Hz, 1H), 7.90 (t, <italic>J</italic> = 9.0 Hz, 1H), 7.69 (d, <italic>J</italic> = 7.6 Hz, 1H), 7.58 (dd, <italic>J</italic> = 14.2, 1.9 Hz, 1H), 7.48 &#x2013; 7.38 (m, 2H), 5.21 (t, <italic>J</italic> = 5.6 Hz, 1H), 4.70 (dd, <italic>J</italic> = 9.0, 5.7 Hz, 1H), 4.40 (dt, <italic>J</italic> = 11.0, 9.4 Hz, 3H), 4.17 (d, <italic>J</italic> = 11.0 Hz, 1H), 4.08 (t, <italic>J</italic> = 9.0 Hz, 1H), 3.83 (dd, <italic>J</italic> = 8.7, 6.3 Hz, 1H), 3.65 (ddd, <italic>J</italic> = 12.2, 5.2, 3.4 Hz, 1H), 3.59 &#x2013; 3.49 (m, 1H), 1.67 (s, 3H). LC-MS (ESI): M/Z = 486 (M+H)<sup>+</sup>.</p>
+        <p><bold>(5<italic>R</italic>)-3-(3-fluoro-4-((5-((2-methyl-6-nitro-2,3-dihydroimidazo[2,1-<italic>b</italic>]oxazol-2-yl)methoxy)pyridin-2-yl)oxy)phenyl)-5-(hydroxymethyl)oxazolidin-2-one (16)</bold>. </p>
+        <p class="MDPI31text" style="layout-grid-mode:char;mso-layout-grid-align:none">
+          <span lang="EN-US" style="font-size:10.0pt;font-family:&quot;Palatino Linotype&quot;,serif;&#10;color:windowtext;mso-fareast-language:EN-US">2-(((5-bromopyridin-2-yl)oxy)methyl)-2-methyl-6-nitro-2,3-dihydroimidazo[2,1-b]oxazole
+(532 mg, 1.5 mmol), (R)-3-(3-fluoro-4-hydroxyphenyl)-5-(hydroxymethyl)oxazolidin-2-one
+(376 mg, 1.65 mmol ),<span style="mso-spacerun:yes">&#xA0; </span>Potassium
+carbonate(622mg, 4.5mmol), Cuprous iodide(286 mg, 1.5 mmol) and
+N,N,N',N'-Tetramethylethylenediamine (TMEDA) (174 mg, 1.5 mmol) were added in
+N,N-dimethylformamide (5mL). The mixture was stirred at 90</span>
+          <span lang="EN-US" style="font-size:10.0pt;font-family:SimSun;mso-bidi-font-family:&#10;SimSun;color:windowtext;mso-fareast-language:EN-US">&#x2103;</span>
+          <span lang="EN-US" style="font-size:10.0pt;font-family:&quot;Palatino Linotype&quot;,serif;&#10;color:windowtext;mso-fareast-language:EN-US"> for 12h. The mixture was cooled
+to room temperature, then poured into water (50mL), the solvent was filtered
+and the filtered solid was pump dried. The crude product was further purified
+by silica chromatography column (DCM:MeOH = 100:2 ) to give (5<i style="mso-bidi-font-style:normal">R</i>)-3-(3-fluoro-4-((5-((2-methyl-6-nitro-2,3-dihydroimidazo
+-[2,1-b]oxazol-2-yl)methoxy)pyridin-2-yl)oxy)phenyl)-5-(hydroxymethyl)oxazolidin-2-one(200mg,yield:
+26.6%). <sup>1</sup>H NMR (500 MHz, DMSO) &#x3B4; 8.29 (s, 1H), 8.05 (s, 1H),
+7.88 (d, <i style="mso-bidi-font-style:normal">J</i> = 8.4 Hz, 1H), 7.64
+&#x2013; 7.50 (m, 2H), 7.41 (d, <i style="mso-bidi-font-style:normal">J</i> =
+8.5 Hz, 1H), 6.92 (d, <i style="mso-bidi-font-style:normal">J</i> = 8.5 Hz,
+1H), 4.70 (s, 1H), 4.48 (s, 2H), 4.23 &#x2013; 4.01 (m, 3H), 3.83 (t, <i style="mso-bidi-font-style:normal">J</i> = 7.3 Hz, 1H), 3.65 (d, <i style="mso-bidi-font-style:normal">J</i> = 12.4 Hz, 1H), 3.53 (d, <i style="mso-bidi-font-style:normal">J</i> = 12.2 Hz, 1H), 2.40 &#x2013; 2.29 (m,
+1H), 2.22 &#x2013; 2.09 (m, 1H), 1.46 (s, 3H). LC-MS (ESI): m/z = 502 (M+H)<sup>+</sup>.</span></p>
+        <p><bold>(5<italic>R</italic>)-3-(3-fluoro-4-(6-((2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazin-7-yl)methoxy)pyridin-3-yl)phenyl)-5-(hydroxymethyl)oxazolidin-2-one (19a)</bold>. The title compound was prepared by following the same procedure as described in preparation of <bold>8a</bold> except 7-(((5-bromopyridin-2-yl)oxy)methyl)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine was used instead of (<italic>S</italic>)-6-((5-bromopyridin-2-yl)oxy)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine. <sup>1</sup>H NMR (400 MHz, DMSO) &#x3B4; 8.32 (s, 1H), 8.06 (s, 1H), 7.91 (d, <italic>J</italic> = 8.2 Hz, 1H), 7.58 (dd, <italic>J</italic> = 22.0, 11.8 Hz, 2H), 7.42 (d, <italic>J</italic> = 8.0 Hz, 1H), 6.97 (d, <italic>J</italic> = 8.5 Hz, 1H), 5.21 (t, <italic>J</italic> = 5.4 Hz, 1H), 4.91 (s, 1H), 4.71 (d, <italic>J</italic> = 2.9 Hz, 1H), 4.57 (dt, <italic>J</italic> = 12.1, 7.7 Hz, 2H), 4.21 &#x2013; 4.01 (m, 3H), 3.89 &#x2013; 3.80 (m, 1H), 3.66 (d, <italic>J</italic> = 11.5 Hz, 1H), 3.60 &#x2013; 3.49 (m, 1H), 2.29 (d, <italic>J</italic> = 13.4 Hz, 1H), 2.18 (dd, <italic>J</italic> = 15.1, 9.6 Hz, 1H). LC-MS (ESI): m/z = 486 (M+H)<sup>+</sup>.</p>
+        <p><bold>(5<italic>R</italic>)-3-(3-fluoro-4-(2-((2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazin-7-yl)methoxy)pyrimidin-5-yl)phenyl)-5-(hydroxymethyl)oxazolidin-2-one (19b)</bold>. The title compound was prepared by following the same procedure as described in preparation of <bold>8a</bold> except 7-(((5-bromopyrimidin-2-yl)oxy)methyl)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine was used instead of (<italic>S</italic>)-6-((5-bromopyridin-2-yl)oxy)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine. <sup>1</sup>H NMR (400 MHz, DMSO) &#x3B4; 8.81 (d, <italic>J</italic> = 0.9 Hz, 2H), 8.07 (s, 1H), 7.70 &#x2013; 7.62 (m, 2H), 7.48 &#x2013; 7.41 (m, 1H), 5.22 (t, <italic>J</italic> = 5.6 Hz, 1H), 5.01 &#x2013; 4.90 (m, 1H), 4.76 &#x2013; 4.61 (m, 3H), 4.20 &#x2013; 4.06 (m, 3H), 3.85 (dd, <italic>J</italic> = 8.8, 6.3 Hz, 1H), 3.66 (ddd, <italic>J</italic> = 12.3, 5.2, 3.4 Hz, 1H), 3.54 (ddd, <italic>J</italic> = 12.4, 5.6, 4.1 Hz, 1H), 2.30 (dd, <italic>J</italic> = 11.9, 2.4 Hz, 1H), 2.24 &#x2013; 2.10 (m, 1H). LC-MS (ESI): m/z = 487 (M+H)<sup>+</sup>.</p>
+        <p><bold>(5<italic>R</italic>)-3-(3-fluoro-4-(6-((7-methyl-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazin-7-yl)methoxy)pyridin-3-yl)phenyl)-5-(hydroxymethyl)oxazolidin-2-one (19c)</bold>. The title compound was prepared by following the same procedure as described in preparation of <bold>8a</bold> except 7-(((5-bromopyridin-2-yl)oxy)methyl)-7-methyl-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine was used instead of (<italic>S</italic>)-6-((5-bromopyridin-2-yl)oxy)-2-nitro-6,7-dihydro-5<italic>H</italic>-imidazo[2,1-<italic>b</italic>][1,3]oxazine. <sup>1</sup>H NMR (500 MHz, DMSO) &#x3B4; 8.29 (s, 1H), 8.05 (s, 1H), 7.88 (d, <italic>J</italic> = 8.4 Hz, 1H), 7.64 &#x2013; 7.50 (m, 2H), 7.41 (d, <italic>J</italic> = 8.5 Hz, 1H), 6.92 (d, <italic>J</italic> = 8.5 Hz, 1H), 4.70 (s, 1H), 4.48 (s, 2H), 4.11 (dt, <italic>J</italic> = 17.0, 7.2 Hz, 3H), 3.83 (t, <italic>J</italic> = 7.3 Hz, 1H), 3.65 (d, <italic>J</italic> = 12.4 Hz, 1H), 3.53 (d, <italic>J</italic> = 12.2 Hz, 1H), 2.40 &#x2013; 2.29 (m, 1H), 2.22 &#x2013; 2.09 (m, 1H), 1.46 (s, 3H). LC-MS (ESI): m/z = 500 (M +H)<sup>+</sup><sub>.</sub></p>
+      </sec>
+      <sec id="sec3dot2-molecules-812852">
+        <title>3.2. Biology</title>
+        <p><bold>Bacterial Strains</bold>: Bacterial strains used in the current study are listed in Table 4. Strains in the <italic>Mycobacterium tuberculosis</italic> isogenic resistant mutant panel used for the mechanism of action study were generated and tested at Beijing Tuberculosis and Thoracic Tumor Research Institute (BTTTRI, Bejing, China). Strains of the spectrum panel were all ATCC stains and the testing was conducted at HD Biosciences (Shanghai, China). Strains of the anaerobic bacterial panel were ATCC strains and the test was conducted at Micomyx Inc. (Kalamazoe, Michigan, USA).</p>
+        <p><bold>Generation of Isogenic Mutant Panel</bold><bold>:</bold> The methods to induce and characterize the Mtb isogenic mutant strains resistant to pretomanid or linezolid have been described previously [12-13]. Briefly, 200 ?l of 10<sup>4</sup> - 10<sup>5</sup> CFU/ml of <italic>M. tuberculosis</italic> H37Rv (ATCC27294) in 7H9 liquid culture medium at logarithmic growth phase were evenly spread on 7H11 solid medium containing 1? MIC (0.07 ?g / ml) of pretomanid and blank control medium. After sealing, the plates were incubated at 37 ?C under 5% CO<sub>2</sub> for 3 to 4 weeks. Single colonies with good growth were collected from the drug-containing solid medium, milled and diluted to a concentration of 10<sup>4</sup>-10<sup>5</sup> CFU/ml, and then inoculated onto 7H11 solid medium with pretomanid at 2? MIC (0.15 &#x3BC;g / ml) and blank control medium. The plates were then incubated under the same condition for another 3 to 4 weeks to observe the growth of single colonies. A single colony with robust growth was collected from the drug-containing medium and further subcultured on drug-containing solid medium with a 2-fold increase of concentration of pretomanid until the selection of a single colonies that grew well on solid medium with pretomanid concentration of 16? MIC. The phenotypic confirmation of the pretomanid resistant mutant strains were performed by Alamar Blue double dilution method [14]. The genotypic change of the resistant mutant strains were confirmed to be the T265C point mutation&#xFF08;TAC&#x2192;CAC, Y89H&#xFF09;in the <italic>ddn</italic> gene. Similar sequential drug selection method was applied to obtain linezolid resistant mutant trains. The genotypic change of the linezolid resistant mutant strains was found to be the point mutation of the <italic>rplC</italic> (T460C).</p>
+        <p><bold>Media:</bold> Media were prepared according to guidelines from CLSI. The test medium used for the anaerobic bacterial was supplemented Brucella broth (BD, Lot No. 6278735) containing 5 &#x3BC;g/mL hemin (Sigma, Lot No. SLBC4685V), 1 mg/mL Vitamin K1 (Sigma, Lot No. MKBN5958V), and 5% (v/v) laked horse blood (LHB, Cleveland Scientific, Lot No. 385663). Brucella broth (BD) supplemented with 10% fetal bovine serum (FBS, Gibco, Lot No. 1709261) was used for testing of <italic>H. pylori</italic>. Cation-adjusted Mueller Hinton Broth (CAMHB) media was used for the spectrum determination against the spectrum panel. Difco Middlebrook 7H9 Broth (Catalog No. 271310) supplemented with 0.2% (v/v) glycerol, 0.05% Tween 80, and 10% (v/v) albumin-dextrosecatalase (BBL Middlebrook ADC Enrichment, Catalog No. 212352) (7H9-ADC-T) was used for the MIC assay against the <italic>M. tuberculosis</italic> isogenic resistant mutant panel.</p>
+        <p><bold>Minimum Inhibitory Concentration Testing:</bold> The MIC test against the spectrum panel was conducted at HB Biosciences, following the broth microdilution method per CLSI guidance. The six ESKAPE ATCC strains were recovered in Trypticase Soy Agar (TSA) plates and tested with drug in CAMHB. Anaerobic bacterial <italic>C. difficile</italic> strains were recovered on TSA agar, grown and tested with compounds in Blucella broth with 5 ?g/ml chlorhematin and 10 ?g/ml vitamin K<sub>1</sub> in an anaerobic chamber.</p>
+        <p>The MIC assay against the Mtb isogenic resistant mutant strains was performed at BTTTRI by the microplate Alamar blue assay [14]. Pretomanid, linezolid and metronidazole were used as comparators. The H37Rv strain and its derived isogenic resistant mutant strains were grown for 1-2 weeks at 37<sup>0</sup>C and adjusted to a turbidity of McFarland 1 at 10<sup>7</sup>CFU/mL and diluted 1:20. Twofold dilutions of testing compounds and comparators were prepared in 7H9-ADC-TG in a volume of 100 ?l in 96-well, black, clear-bottom microplates (BD Biosciences, Franklin Lakes, NJ). Bacterial cells (100 ?l containing 2 x 10<sup>5</sup> CFU) was added, yielding a final testing volume of 200 ?l. The plates were incubated at 37?C, on day 7, 12.5 ?l of 20% Tween 80 and 20 ?l of Alamar blue were added to all wells. After incubation at 37?C for 16 to 24 h, the fluorescence was read at an excitation of 530 nm and an emission of 590 nm. The MIC was defined as the lowest concentration effecting a reduction in fluorescence of &#x2265; 90% relative to the mean of replicate bacterium-only controls.</p>
+        <p>The MIC assay against anaerobic bacterial strains was performed at Micromyx by following the procedure described by CLSI [15-17]. A standardized inoculum of each organism was prepared per CLSI methods. Colonies were picked from the primary plate and a suspension was prepared to equal to a 0.5 McFarland turbidity standard. Anaerobic suspensions were diluted 1:10 in Brucella broth with 5% laked horse blood and each well was inoculated with 10 &#x3BC;L using a multichannel pipette in the Bactron anaerobe chamber, resulting in a final cell density of approximately 5?10<sup>5</sup> CFU/mL (5?10<sup>4</sup> CFU/mL for Clostridium spp.). For the <italic>H. pylori</italic> strain, colonies were picked from the primary plate and a suspension was prepared to equal a 2.0 McFarland turbidity standard. Suspensions were diluted 1:15 in Brucella broth with 10% FBS, then transferred to compartments of sterile reservoirs divided by length (Beckman Coulter). The Biomek 2000 was used to inoculate the plates. Daughter plates were placed on the Biomek 2000 work surface in reverse orientation so that plates were inoculated from low to high drug concentration. The Biomek 2000 delivered 10 &#x3BC;L of standardized inoculum into each well of the appropriate daughter plate for an additional 1:20 dilution. Anaerobe plates were placed in an anaerobic box with GasPak sachets (BD), and were incubated anaerobically for 46-48 hr at 35-37?C. <italic>H. pylori</italic> was incubated for 72 hr in a microaerophilic atmosphere using boxes with GasPak EZ Campy sachets (BD) prior to reading. After incubation, plates were viewed from the bottom using a plate viewer. An un-inoculated solubility control plate was observed for evidence of drug precipitation. MIC values were read and recorded as the lowest concentration of drug that inhibited visible growth of the organism.</p>
+        <p><bold>Cytotoxicity Assay:</bold> The cytotoxicity assay followed the previously published protocol [14]. Briefly, Vero cells in RPMI 1640 medium supplemented with 10% fetal bovine serum (FBS) were incubated in a humidified atmosphere of 5% CO<sub>2</sub> at 37?C to reach confluent and then diluted to 4 x 10<sup>5</sup> cells/ml. Threefold serial dilutions of the stock solutions resulted in final concentrations of 64 to 0.26 ?g/ml in a final volume of 100 ?l. Cytotoxicity testing was performed in a transparent 96-well microplate. After incubation at 37?C for 48 h, the medium was removed, and the monolayers were washed twice with 100 ?l of warm Hanks balanced salt solution (HBSS). Warm medium and freshly made methyl-thiazolyldiphenyl-tetrazolium bromide (MTT) were added to each well, and then the plates were incubated for 4 h, after which the absorbance was determined at 492 nm.</p>
+      </sec>
+    </sec>
+    <sec id="sec4-molecules-812852" sec-type="conclusions">
+      <title>4. Conclusions</title>
+      <p>A series of 4-nitroimidazole and oxazolidione conjugate molecules were designed, synthesized and evaluated based on previous structure-activity relationship information. The dual mechanism of action of this series was demonstrated against <italic>Mycobacterium tuberculosis</italic> by utilizing an isogenic mutant panel resistant to either pretomanid or linezolid. Compounds in the series are highly active against a panel of clinically important anaerobic bacteria. Strong synergy was observed as compared to the combination of linezolid and pretomanid. The nitroimidazole-oxazolidinone conjugate molecules hold potential for the treatment of anaerobic bacterial infections.</p>
+    </sec>
+    <sec>
+      <title><bold>Funding:</bold> We thank the National Science and Technology Project of China (No.2015ZX09102007-007) for partial financial support of this project.</title>
+      <p class="MDPI64CoI">
+        <b style="mso-bidi-font-weight:normal">
+          <span lang="EN-US">Conflicts
+of Interest:</span>
+        </b>
+        <span lang="EN-US"> The authors declare no conflict of
+interest.</span></p>
+    </sec>
+  </body>
+  <back>
+    <notes>
+      <title><bold>Author Contributions:</bold> Zhenkun Ma, Charles Z. Ding, Anthony Simon Lynch, Anna M. Upton, Christopher B. Cooper and William A. Denny conceived the compound series and were responsible for the initial design, synthesis and evaluation of the conjugate series. Zhijun Zhuang, Dawei Wan, Jun Ding and Qian Zhang conducted the synthesis and characterization of the conjugate molecules of the current study. Shijie He, Xiaomei Wang and Ying Yuan coordinated and oversaw compound testing. Yu Lu generated and tested against the Mtb isogenic resistant mutant panel.</title>
+    </notes>
+    <ref-list>
+      <title>References</title>
+      <ref id="B1-molecules-812852">
+        <label>1.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hashemian</surname>
+              <given-names>S. M. R.</given-names>
+            </name>
+            <name>
+              <surname>Farhadi</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Ganjparvar</surname>
+              <given-names>M.</given-names>
+            </name>
+          </person-group>
+          <article-title>, Linezolid: a review of its properties, function, and use in critical care</article-title>
+          <source>Drug Des. Devel. Ther.</source>
+          <year>2018</year>
+          <volume>12</volume>
+          <fpage>1759</fpage>
+          <lpage>1767</lpage>
+          <original>1. Hashemian, S. M. R.; Farhadi, T.; Ganjparvar, M., Linezolid: a review of its properties, function, and use in critical care. <italic>Drug Des. Devel. Ther.</italic>&#xA0;<bold>2018</bold>, <italic>12</italic>, 1759-1767.</original>
+        </element-citation>
+      </ref>
+      <ref id="B2-molecules-812852">
+        <label>2.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <collab>Cellitti, Susan E</collab>
+          </person-group>
+          <article-title>; Shaffer, J.; Jones, David H.; Mukherjee, T.; Gurumurthy, M.; Bursulaya, B.; Boshoff, Helena I.; Choi, I.; Nayyar, A.; Lee, Yong S.; Cherian, J.; Niyomrattanakit, P.; Dick, T.; Manjunatha, Ujjini H.; Barry, Clifton E., III; Spraggon, G.; Geierstanger, Bernhard H., Structure of Ddn, the Deazaflavin-Dependent Nitroreductase from <italic>Mycobacterium tuberculosis</italic> Involved in Bioreductive Activation of PA-824</article-title>
+          <source>Structure</source>
+          <year>2012</year>
+          <volume>20</volume>
+          <fpage>101</fpage>
+          <lpage>112</lpage>
+          <original>2. Cellitti, Susan E.; Shaffer, J.; Jones, David H.; Mukherjee, T.; Gurumurthy, M.; Bursulaya, B.; Boshoff, Helena I.; Choi, I.; Nayyar, A.; Lee, Yong S.; Cherian, J.; Niyomrattanakit, P.; Dick, T.; Manjunatha, Ujjini H.; Barry, Clifton E., III; Spraggon, G.; Geierstanger, Bernhard H., Structure of Ddn, the Deazaflavin-Dependent Nitroreductase from <italic>Mycobacterium tuberculosis</italic> Involved in Bioreductive Activation of PA-824. <italic>Structure</italic>&#xA0;<bold>2012</bold>, <italic>20</italic>, 101-112.</original>
+        </element-citation>
+      </ref>
+      <ref id="B3-molecules-812852">
+        <label>3.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Singh</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Manjunatha</surname>
+              <given-names>U.</given-names>
+            </name>
+            <name>
+              <surname>Boshoff</surname>
+              <given-names>H. I. M.</given-names>
+            </name>
+            <name>
+              <surname>Ha</surname>
+              <given-names>Y. H.</given-names>
+            </name>
+            <name>
+              <surname>Niyomrattanakit</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Ledwidge</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Dowd</surname>
+              <given-names>C. S.</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>I. Y.</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Kang</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Keller</surname>
+              <given-names>T. H.</given-names>
+            </name>
+            <name>
+              <surname>Jiricek</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Barry</surname>
+              <given-names>C. E.</given-names>
+            </name>
+          </person-group>
+          <article-title>, PA-824 Kills Nonreplicating <italic>Mycobacterium tuberculosis</italic> by Intracellular NO Release</article-title>
+          <source>Science</source>
+          <year>2008</year>
+          <volume>322</volume>
+          <fpage>1392</fpage>
+          <lpage>1395</lpage>
+          <original>3. Singh, R.; Manjunatha, U.; Boshoff, H. I. M.; Ha, Y. H.; Niyomrattanakit, P.; Ledwidge, R.; Dowd, C. S.; Lee, I. Y.; Kim, P.; Zhang, L.; Kang, S.; Keller, T. H.; Jiricek, J.; Barry, C. E., PA-824 Kills Nonreplicating <italic>Mycobacterium tuberculosis</italic> by Intracellular NO Release. <italic>Science</italic>&#xA0;<bold>2008</bold>, <italic>322</italic>, 1392-1395.</original>
+        </element-citation>
+      </ref>
+      <ref id="B4-molecules-812852">
+        <label>4.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Conradie</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Diacon</surname>
+              <given-names>A. H.</given-names>
+            </name>
+            <name>
+              <surname>Ngubane</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Howell</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Everitt</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Crook</surname>
+              <given-names>A. M.</given-names>
+            </name>
+            <name>
+              <surname>Mendel</surname>
+              <given-names>C. M.</given-names>
+            </name>
+            <name>
+              <surname>Egizi</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Moreira</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Timm</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>McHugh</surname>
+              <given-names>T. D.</given-names>
+            </name>
+            <name>
+              <surname>Wills</surname>
+              <given-names>G. H.</given-names>
+            </name>
+            <name>
+              <surname>Bateson</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Hunt</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Van Niekerk</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Olugbosi</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Spigelman</surname>
+              <given-names>M.</given-names>
+            </name>
+          </person-group>
+          <article-title>, Treatment of Highly Drug-Resistant Pulmonary Tuberculosis</article-title>
+          <source>N. Engl. J. Med.</source>
+          <year>2020</year>
+          <volume>382</volume>
+          <fpage>893</fpage>
+          <lpage>902</lpage>
+          <original>4. Conradie, F.; Diacon, A. H.; Ngubane, N.; Howell, P.; Everitt, D.; Crook, A. M.; Mendel, C. M.; Egizi, E.; Moreira, J.; Timm, J.; McHugh, T. D.; Wills, G. H.; Bateson, A.; Hunt, R.; Van Niekerk, C.; Li, M.; Olugbosi, M.; Spigelman, M., Treatment of Highly Drug-Resistant Pulmonary Tuberculosis. <italic>N. Engl. J. Med.</italic>&#xA0;<bold>2020</bold>, <italic>382</italic>, 893-902.</original>
+        </element-citation>
+      </ref>
+      <ref id="B5-molecules-812852">
+        <label>5.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ma</surname>
+              <given-names>Z.</given-names>
+            </name>
+            <name>
+              <surname>Lynch</surname>
+              <given-names>A. S.</given-names>
+            </name>
+          </person-group>
+          <article-title>, Development of a Dual-Acting Antibacterial Agent (TNP-2092) for the Treatment of Persistent Bacterial Infections</article-title>
+          <source>J. Med. Chem.</source>
+          <year>2016</year>
+          <volume>59</volume>
+          <fpage>6645</fpage>
+          <lpage>6657</lpage>
+          <original>5. Ma, Z.; Lynch, A. S., Development of a Dual-Acting Antibacterial Agent (TNP-2092) for the Treatment of Persistent Bacterial Infections. <italic>J. Med. Chem.</italic>&#xA0;<bold>2016</bold>, <italic>59</italic>, 6645-6657.</original>
+        </element-citation>
+      </ref>
+      <ref id="B6-molecules-812852">
+        <label>6.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ippolito</surname>
+              <given-names>J. A.</given-names>
+            </name>
+            <name>
+              <surname>Kanyo</surname>
+              <given-names>Z. F.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Franceschi</surname>
+              <given-names>F. J.</given-names>
+            </name>
+            <name>
+              <surname>Moore</surname>
+              <given-names>P. B.</given-names>
+            </name>
+            <name>
+              <surname>Steitz</surname>
+              <given-names>T. A.</given-names>
+            </name>
+            <name>
+              <surname>Duffy</surname>
+              <given-names>E. M.</given-names>
+            </name>
+          </person-group>
+          <article-title>, Crystal Structure of the Oxazolidinone Antibiotic Linezolid Bound to the 50S Ribosomal Subunit</article-title>
+          <source>J. Med. Chem.</source>
+          <year>2008</year>
+          <volume>51</volume>
+          <fpage>3353</fpage>
+          <lpage>3356</lpage>
+          <original>6. Ippolito, J. A.; Kanyo, Z. F.; Wang, D.; Franceschi, F. J.; Moore, P. B.; Steitz, T. A.; Duffy, E. M., Crystal Structure of the Oxazolidinone Antibiotic Linezolid Bound to the 50S Ribosomal Subunit. <italic>J. Med. Chem.</italic>&#xA0;<bold>2008</bold>, <italic>51</italic>, 3353-3356.</original>
+        </element-citation>
+      </ref>
+      <ref id="B7-molecules-812852">
+        <label>7.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Varshney</surname>
+              <given-names>V.</given-names>
+            </name>
+            <name>
+              <surname>Mishra</surname>
+              <given-names>N. N.</given-names>
+            </name>
+            <name>
+              <surname>Shukla</surname>
+              <given-names>P. K.</given-names>
+            </name>
+            <name>
+              <surname>Sahu</surname>
+              <given-names>D. P.</given-names>
+            </name>
+          </person-group>
+          <article-title>, Synthesis of nitroimidazole derived oxazolidinones as antibacterial agents</article-title>
+          <source>Eur. J. Med. Chem.</source>
+          <year>2010</year>
+          <volume>45</volume>
+          <fpage>661</fpage>
+          <lpage>666</lpage>
+          <original>7. Varshney, V.; Mishra, N. N.; Shukla, P. K.; Sahu, D. P., Synthesis of nitroimidazole derived oxazolidinones as antibacterial agents. <italic>Eur. J. Med. Chem.</italic>&#xA0;<bold>2010</bold>, <italic>45</italic>, 661-666.</original>
+        </element-citation>
+      </ref>
+      <ref id="B8-molecules-812852">
+        <label>8.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Markad</surname>
+              <given-names>S. D.</given-names>
+            </name>
+            <name>
+              <surname>Kaur</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Kishore Reddy</surname>
+              <given-names>B. K.</given-names>
+            </name>
+            <name>
+              <surname>Chinnapattu</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Raichurkar</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Nandishaiah</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Panda</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Iyer</surname>
+              <given-names>P. S.</given-names>
+            </name>
+          </person-group>
+          <article-title>, Novel lead generation of an anti-tuberculosis agent active against non-replicating mycobacteria: exploring hybridization of pyrazinamide with multiple fragments</article-title>
+          <source>Med. Chem. Res.</source>
+          <year>2015</year>
+          <volume>24</volume>
+          <fpage>2986</fpage>
+          <lpage>2992</lpage>
+          <original>8. Markad, S. D.; Kaur, P.; Kishore Reddy, B. K.; Chinnapattu, M.; Raichurkar, A.; Nandishaiah, R.; Panda, M.; Iyer, P. S., Novel lead generation of an anti-tuberculosis agent active against non-replicating mycobacteria: exploring hybridization of pyrazinamide with multiple fragments. <italic>Med. Chem. Res.</italic>&#xA0;<bold>2015</bold>, <italic>24</italic>, 2986-2992.</original>
+        </element-citation>
+      </ref>
+      <ref id="B9-molecules-812852">
+        <label>9.</label>
+        <element-citation publication-type="patent">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Goto</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Takemura</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Otani</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Hasegawa</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Tsubouchi</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Utsumi</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Fujita</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Kuroda</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Shitsuta</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Sasaki</surname>
+              <given-names>H.</given-names>
+            </name>
+          </person-group>
+          <article-title>1-substituted-4-nitroimidazole compound and process for producing the same</article-title>
+          <source>U.S. Patent</source>
+          <patent>7,368,579</patent>
+          <year>2008</year>
+          <original>9. Goto, F.; Takemura, N.; Otani, T.; Hasegawa, T.; Tsubouchi, H.; Utsumi, N.; Fujita, S.; Kuroda, H.; Shitsuta, T.; Sasaki, H. 1-substituted-4-nitroimidazole compound and process for producing the same. U.S. Patent 7,368,579, 2008.</original>
+        </element-citation>
+      </ref>
+      <ref id="B10-molecules-812852">
+        <label>10.</label>
+        <element-citation publication-type="patent">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Thompson</surname>
+              <given-names>A. M.</given-names>
+            </name>
+            <name>
+              <surname>Denny</surname>
+              <given-names>W. A.</given-names>
+            </name>
+            <name>
+              <surname>Blaser</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>Z.</given-names>
+            </name>
+          </person-group>
+          <article-title>Nitroimidazooxazine and nitroimidazooxazole analogues and their uses</article-title>
+          <source>U.S. Patent</source>
+          <patent>8,293,734</patent>
+          <year>2012</year>
+          <original>10. Thompson, A. M.; Denny, W. A.; Blaser, A.; Ma, Z. Nitroimidazooxazine and nitroimidazooxazole analogues and their uses. U.S. Patent 8,293,734, 2012.</original>
+        </element-citation>
+      </ref>
+      <ref id="B11-molecules-812852">
+        <label>11.</label>
+        <element-citation publication-type="patent">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ding</surname>
+              <given-names>C. Z.</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>G.</given-names>
+            </name>
+            <name>
+              <surname>Combrink</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>D. D.</given-names>
+            </name>
+            <name>
+              <surname>Song</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>Z.</given-names>
+            </name>
+            <name>
+              <surname>Palmer</surname>
+              <given-names>B. D.</given-names>
+            </name>
+            <name>
+              <surname>Blaser</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Thompson</surname>
+              <given-names>A. M.</given-names>
+            </name>
+          </person-group>
+          <article-title>Bicyclic nitroimidazole-substituted phenyl oxazolidinones</article-title>
+          <source>U.S. Patent</source>
+          <patent>7,666,864</patent>
+          <year>2010</year>
+          <original>11. Ding, C. Z.; Lu, G.; Combrink, K.; Chen, D. D.; Song, M.; Wang, J.; Ma, Z.; Palmer, B. D.; Blaser, A.; Thompson, A. M. Bicyclic nitroimidazole-substituted phenyl oxazolidinones. U.S. Patent 7,666,864, 2010.</original>
+        </element-citation>
+      </ref>
+      <ref id="B12-molecules-812852">
+        <label>12.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hu</surname>
+              <given-names>M.H.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Fu</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>Y.</given-names>
+            </name>
+          </person-group>
+          <article-title>Induction and stability of M<italic>ycobacterium tuberculosis</italic> resistance to PA-824 in vitro</article-title>
+          <source>J. Chinese Ant.</source>
+          <year>2011</year>
+          <volume>42</volume>
+          <fpage>144</fpage>
+          <lpage>148</lpage>
+          <original>12. Hu, M.H.; Wang, B.; Fu, L.; Xu, J.; Lu, Y. Induction and stability of M<italic>ycobacterium tuberculosis</italic> resistance to PA-824 in vitro. <italic>J. Chinese Ant.</italic>&#xA0;<bold>2011</bold>, <italic>42</italic>, 144-148.</original>
+        </element-citation>
+      </ref>
+      <ref id="B13-molecules-812852">
+        <label>13.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hu</surname>
+              <given-names>M.H.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Fu</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>Y.</given-names>
+            </name>
+          </person-group>
+          <article-title>Induction in vitro and stability of <italic>Mycobacterium tuberculosis</italic> resistance to Linezolid</article-title>
+          <source>Chin. J. Antibio.</source>
+          <year>2017</year>
+          <volume>39</volume>
+          <fpage>400</fpage>
+          <lpage>405</lpage>
+          <original>13. Hu, M.H.; Wang, B.; Fu, L.; Xu, J.; Lu, Y. Induction in vitro and stability of <italic>Mycobacterium tuberculosis</italic> resistance to Linezolid. <italic>Chin. J. Antibio.</italic>&#xA0;<bold>2017</bold>, <italic>39</italic>, 400-405.</original>
+        </element-citation>
+      </ref>
+      <ref id="B14-molecules-812852">
+        <label>14.</label>
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lu</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Zheng</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Fu</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Zhao</surname>
+              <given-names>W.</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Zhu</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Jin</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Yin</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Huang</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Upton</surname>
+              <given-names>A. M.</given-names>
+            </name>
+            <name>
+              <surname>Ma</surname>
+              <given-names>Z.</given-names>
+            </name>
+          </person-group>
+          <article-title>, Clofazimine Analogs with Efficacy against Experimental Tuberculosis and Reduced Potential for Accumulation</article-title>
+          <source>Antimicrob. Agents Chemother.</source>
+          <year>2011</year>
+          <volume>55</volume>
+          <fpage>5185</fpage>
+          <lpage>5193</lpage>
+          <original>14. Lu, Y.; Zheng, M.; Wang, B.; Fu, L.; Zhao, W.; Li, P.; Xu, J.; Zhu, H.; Jin, H.; Yin, D.; Huang, H.; Upton, A. M.; Ma, Z., Clofazimine Analogs with Efficacy against Experimental Tuberculosis and Reduced Potential for Accumulation. <italic>Antimicrob. Agents Chemother.</italic>&#xA0;<bold>2011</bold>, <italic>55</italic>, 5185-5193.</original>
+        </element-citation>
+      </ref>
+      <ref id="B15-molecules-812852">
+        <label>15.</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <collab>Clinical and Laboratory Standards Institute (CLSI)</collab>
+          </person-group>
+          <source>Methods for Antimicrobial Dilution and Disk Susceptibility Testing of Infrequently Isolated or Fastidious Bacteria</source>
+          <publisher-name>Approved Guideline Second Edition. CLSI document M45-A2. Clinical and Laboratory Standards Institute</publisher-name>
+          <publisher-loc>Wayne, Pennsylvania, USA</publisher-loc>
+          <year>2010</year>
+          <original>15. Clinical and Laboratory Standards Institute (CLSI). Methods for Antimicrobial Dilution and Disk Susceptibility Testing of Infrequently Isolated or Fastidious Bacteria; Approved Guideline Second Edition. CLSI document M45-A2. Clinical and Laboratory Standards Institute: Wayne, Pennsylvania, USA, 2010.</original>
+        </element-citation>
+      </ref>
+      <ref id="B16-molecules-812852">
+        <label>16.</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <collab>Clinical Laboratory and Standards Institute (CLSI)</collab>
+          </person-group>
+          <source>Methods for Antimicrobial Susceptibility Testing of Anaerobic Bacteria</source>
+          <publisher-name>Approved Standard-Eighth Edition. CLSI document M11-A8. Clinical and Laboratory Standards Institute</publisher-name>
+          <publisher-loc>Wayne, Pennsylvania, USA</publisher-loc>
+          <year>2012</year>
+          <original>16. Clinical Laboratory and Standards Institute (CLSI). Methods for Antimicrobial Susceptibility Testing of Anaerobic Bacteria; Approved Standard-Eighth Edition. CLSI document M11-A8. Clinical and Laboratory Standards Institute: Wayne, Pennsylvania, USA, 2012.</original>
+        </element-citation>
+      </ref>
+      <ref id="B17-molecules-812852">
+        <label>17.</label>
+        <element-citation publication-type="book">
+          <person-group person-group-type="author">
+            <collab>Clinical Laboratory and Standards Institute (CLSI)</collab>
+          </person-group>
+          <source>Performance Standards for Antimicrobial Susceptibility Testing</source>
+          <publisher-name>Twenty-Seventh Informational Supplement. CLSI document M100-S27. Clinical and Laboratory Standards Institute</publisher-name>
+          <publisher-loc>Wayne, Pennsylvania, USA</publisher-loc>
+          <year>2017</year>
+          <original>17. Clinical Laboratory and Standards Institute (CLSI). Performance Standards for Antimicrobial Susceptibility Testing; Twenty-Seventh Informational Supplement. CLSI document M100-S27. Clinical and Laboratory Standards Institute: Wayne, Pennsylvania, USA, 2017.</original>
+        </element-citation>
+      </ref>
+    </ref-list>
+    <sec sec-type="display-objects">
+      <title>Tables</title>
+      <table-wrap id="molecules-812852-t001" position="float">
+        <object-id pub-id-type="pii">molecules-812852-t001_Table 1</object-id>
+        <label>Table 1</label>
+        <caption>
+          <p>Minimum inhibitory concentrations of selected conjugate molecules against isogenic resistant mutant strains of <italic>M. tuberculosis</italic>.</p>
+        </caption>
+        <table>
+          <tbody>
+            <tr>
+              <td rowspan="2" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin;mso-border-top-alt:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>Compounds</bold>
+              </td>
+              <td colspan="5" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin;mso-border-top-alt:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>
+                  <italic>M. tuberculosis</italic>
+               </bold> 
+                 <bold>Isogenic Mutant Panel MIC (&#x3BC;g/mL)</bold>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>H37Rv</bold>
+              </td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>L1</bold>
+              </td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>L3</bold>
+              </td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>P1</bold>
+              </td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>P3</bold>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle">
+                <bold>Linezolid</bold>
+              </td>
+              <td align="center" valign="middle">0.15</td>
+              <td align="center" valign="middle">4.80</td>
+              <td align="center" valign="middle">8.18</td>
+              <td align="center" valign="middle">0.29</td>
+              <td align="center" valign="middle">0.31</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle">
+                <bold>Pretomanid</bold>
+              </td>
+              <td align="center" valign="middle">0.07</td>
+              <td align="center" valign="middle">0.15</td>
+              <td align="center" valign="middle">0.24</td>
+              <td align="center" valign="middle">&gt;20</td>
+              <td align="center" valign="middle">&gt;20</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle">
+                <bold>8a</bold>
+              </td>
+              <td align="center" valign="middle">0.06</td>
+              <td align="center" valign="middle">1.95</td>
+              <td align="center" valign="middle">1.78</td>
+              <td align="center" valign="middle">6.48</td>
+              <td align="center" valign="middle">5.96</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle">
+                <bold>8b</bold>
+              </td>
+              <td align="center" valign="middle">0.20</td>
+              <td align="center" valign="middle">0.91</td>
+              <td align="center" valign="middle">1.87</td>
+              <td align="center" valign="middle">1.04</td>
+              <td align="center" valign="middle">3.30</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle">
+                <bold>14c</bold>
+              </td>
+              <td align="center" valign="middle">0.08</td>
+              <td align="center" valign="middle">1.84</td>
+              <td align="center" valign="middle">0.81</td>
+              <td align="center" valign="middle">1.77</td>
+              <td align="center" valign="middle">1.80</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle" style="border-bottom:solid thin">
+                <bold>14d</bold>
+              </td>
+              <td align="center" valign="middle" style="border-bottom:solid thin">0.33</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin">1.88</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin">1.46</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin">1.93</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin">2.94</td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <table-wrap id="molecules-812852-t002" position="float">
+        <object-id pub-id-type="pii">molecules-812852-t002_Table 2</object-id>
+        <label>Table 2</label>
+        <caption>
+          <p>Minimum inhibitory concentrations of selected conjugate molecules against representative strains from seven major pathogen classes.</p>
+        </caption>
+        <table>
+          <tbody>
+            <tr>
+              <td rowspan="2" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin;mso-border-top-alt:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>Compounds</bold>
+              </td>
+              <td colspan="7" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin;mso-border-top-alt:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>Representative of Major Pathogens MIC (&#x3BC;g/mL)</bold>
+              </td>
+              <td rowspan="2" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin;mso-border-top-alt:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>Vero IC<sub>50</sub> &#x3BC;g/mL</bold>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>Ef</bold>
+                <bold>ATCC 708221</bold>
+              </td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>Sa</bold>
+                <bold>ATCC 29213</bold>
+              </td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>Kp ATCC 43816</bold>
+              </td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>Ab ATCC 19606</bold>
+              </td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>Pa ATCC 27853</bold>
+              </td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>Ec</bold>
+                <bold>ATCC 25922</bold>
+              </td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin">
+                <bold>Cd ATCC 43255</bold>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle">
+                <bold>Linezolid</bold>
+              </td>
+              <td align="center" valign="middle">4</td>
+              <td align="center" valign="middle">8</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">4</td>
+              <td align="center" valign="middle">&gt;64</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle">
+                <bold>Levofloxacin</bold>
+              </td>
+              <td align="center" valign="middle">&gt;16</td>
+              <td align="center" valign="middle">0.25</td>
+              <td align="center" valign="middle">0.063</td>
+              <td align="center" valign="middle">0.5</td>
+              <td align="center" valign="middle">1</td>
+              <td align="center" valign="middle">&lt;0.016</td>
+              <td align="center" valign="middle">4</td>
+              <td align="center" valign="middle">-</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle">
+                <bold>Metronidazole</bold>
+              </td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">0.25</td>
+              <td align="center" valign="middle">-</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle">
+                <bold>8a</bold>
+              </td>
+              <td align="center" valign="middle">0.5</td>
+              <td align="center" valign="middle">1</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">0.125</td>
+              <td align="center" valign="middle">&gt;64</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle">
+                <bold>8b</bold>
+              </td>
+              <td align="center" valign="middle">2</td>
+              <td align="center" valign="middle">2</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">0.25</td>
+              <td align="center" valign="middle">&gt;64</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle">
+                <bold>11a</bold>
+              </td>
+              <td align="center" valign="middle">1</td>
+              <td align="center" valign="middle">2</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">0.25</td>
+              <td align="center" valign="middle">-</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle">
+                <bold>11b</bold>
+              </td>
+              <td align="center" valign="middle">4</td>
+              <td align="center" valign="middle">8</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">0.125</td>
+              <td align="center" valign="middle">&gt;64</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle">
+                <bold>14a</bold>
+              </td>
+              <td align="center" valign="middle">4</td>
+              <td align="center" valign="middle">4</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">0.25</td>
+              <td align="center" valign="middle">&gt;64</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle">
+                <bold>14b</bold>
+              </td>
+              <td align="center" valign="middle">8</td>
+              <td align="center" valign="middle">16</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">0.5</td>
+              <td align="center" valign="middle">&gt;64</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle">
+                <bold>14c</bold>
+              </td>
+              <td align="center" valign="middle">1</td>
+              <td align="center" valign="middle">2</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">&gt;64</td>
+              <td align="center" valign="middle">0.125</td>
+              <td align="center" valign="middle">&gt;64</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle" style="border-bottom:solid thin">
+                <bold>14d</bold>
+              </td>
+              <td align="center" valign="middle" style="border-bottom:solid thin">4</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin">4</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin">&gt;64</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin">&gt;64</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin">&gt;64</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin">&gt;64</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin">0.5</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin">&gt;64</td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <table-wrap id="molecules-812852-t003" position="float">
+        <object-id pub-id-type="pii">molecules-812852-t003_Table 3</object-id>
+        <label>Table 3</label>
+        <caption>
+          <p>Minimum inhibitory concentrations of 12 conjugate molecules against clinically important anaerobic and microaerophilic bacterial strains</p>
+        </caption>
+        <table>
+          <tbody>
+            <tr>
+              <td rowspan="3" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin">
+                <bold>Compounds</bold>
+              </td>
+              <td colspan="14" align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin">
+                <bold>Anaerobic and Microaerophilic Bacterial Panel, MIC (ug/mL)</bold>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">Gram-positive</td>
+              <td colspan="6" align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">Gram-negative</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">Micro-aerophilic</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">CdATCC 700057</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">LaATCC 4356</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">ElATCC 43055</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">GvATCC 14018</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">PmATCC 23195</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">PasATCC 3553</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">PacATCC 11829</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">BfATCC 25285</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">BlATCC 15707</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">FnATCC 10953</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">MmATCC 35243</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">PvATCC 29303</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">VpATCC 17745</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">HpATCC43504</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" style="mso-border-top-alt:solid thin">
+                <bold>Metronidazole</bold>
+              </td>
+              <td align="center" valign="top" style="mso-border-top-alt:solid thin">&#x2264;0.25</td>
+              <td align="center" valign="top" style="mso-border-top-alt:solid thin">&gt;256</td>
+              <td align="center" valign="top" style="mso-border-top-alt:solid thin">0.5</td>
+              <td align="center" valign="top" style="mso-border-top-alt:solid thin">2</td>
+              <td align="center" valign="top" style="mso-border-top-alt:solid thin">&gt;256</td>
+              <td align="center" valign="top" style="mso-border-top-alt:solid thin">0.5</td>
+              <td align="center" valign="top" style="mso-border-top-alt:solid thin">&gt;256</td>
+              <td align="center" valign="top" style="mso-border-top-alt:solid thin">&#x2264;0.25</td>
+              <td align="center" valign="top" style="mso-border-top-alt:solid thin">4</td>
+              <td align="center" valign="top" style="mso-border-top-alt:solid thin">&#x2264;0.25</td>
+              <td align="center" valign="top" style="mso-border-top-alt:solid thin">8</td>
+              <td align="center" valign="top" style="mso-border-top-alt:solid thin">2</td>
+              <td align="center" valign="top" style="mso-border-top-alt:solid thin">&gt;256</td>
+              <td align="center" valign="top" style="mso-border-top-alt:solid thin">64</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <bold>Pretomanid (P)</bold>
+              </td>
+              <td align="center" valign="top">2</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">8</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">2</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">16</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">4</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">32</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">16</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <bold>Linezolid (L)</bold>
+              </td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">2</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">2</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">2</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">8</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <bold>L + P (1:1)</bold>
+              </td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">4</td>
+              <td align="center" valign="top">2</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">2</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">4</td>
+              <td align="center" valign="top">2</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">4</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">16</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <bold>5</bold>
+              </td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">NA</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">-</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <bold>8a</bold>
+              </td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">4</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">0.5</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <bold>8b</bold>
+              </td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">4</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">8</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">1</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <bold>11a</bold>
+              </td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">2</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">4</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">2</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <bold>11b</bold>
+              </td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">2</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">4</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">8</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">2</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <bold>14a</bold>
+              </td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">16</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">2</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <bold>14b</bold>
+              </td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">2</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">4</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">8</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <bold>14c</bold>
+              </td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">8</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">1</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <bold>14d</bold>
+              </td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">2</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">8</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">16</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">1</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <bold>16</bold>
+              </td>
+              <td align="center" valign="top">4</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">16</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">8</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">&gt;32</td>
+              <td align="center" valign="top">16</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <bold>19a</bold>
+              </td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">&#x2264;0.06</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">2</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">0.25</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+                <bold>19b</bold>
+              </td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.5</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">0.12</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">1</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">&#x2264;0.03</td>
+              <td align="center" valign="top">0.06</td>
+              <td align="center" valign="top">4</td>
+              <td align="center" valign="top">0.25</td>
+              <td align="center" valign="top">0.25</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" style="border-bottom:solid thin">
+                <bold>19c</bold>
+              </td>
+              <td align="center" valign="top" style="border-bottom:solid thin">&#x2264;0.03</td>
+              <td align="center" valign="top" style="border-bottom:solid thin">0.25</td>
+              <td align="center" valign="top" style="border-bottom:solid thin">&#x2264;0.03</td>
+              <td align="center" valign="top" style="border-bottom:solid thin">&#x2264;0.03</td>
+              <td align="center" valign="top" style="border-bottom:solid thin">0.06</td>
+              <td align="center" valign="top" style="border-bottom:solid thin">&#x2264;0.03</td>
+              <td align="center" valign="top" style="border-bottom:solid thin">&#x2264;0.03</td>
+              <td align="center" valign="top" style="border-bottom:solid thin">0.5</td>
+              <td align="center" valign="top" style="border-bottom:solid thin">0.12</td>
+              <td align="center" valign="top" style="border-bottom:solid thin">&#x2264;0.03</td>
+              <td align="center" valign="top" style="border-bottom:solid thin">0.06</td>
+              <td align="center" valign="top" style="border-bottom:solid thin">2</td>
+              <td align="center" valign="top" style="border-bottom:solid thin">0.25</td>
+              <td align="center" valign="top" style="border-bottom:solid thin">0.5</td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <table-wrap id="molecules-812852-t004" position="float">
+        <object-id pub-id-type="pii">molecules-812852-t004_Table 4</object-id>
+        <label>Table 4</label>
+        <caption>
+          <p>List of bacterial strains used in the current study.</p>
+        </caption>
+        <table>
+          <tbody>
+            <tr>
+              <td align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin">Panel</td>
+              <td align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin">Organism</td>
+              <td align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin">ATCC No.</td>
+              <td align="center" valign="middle" style="border-top:solid thin;border-bottom:solid thin">Testing Facility</td>
+            </tr>
+            <tr>
+              <td rowspan="7" align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin;mso-border-top-alt:solid thin;mso-border-bottom-alt:solid thin">Spectrum Panel</td>
+              <td align="center" valign="middle" style="mso-border-top-alt:solid thin"><italic>Enterococcus faecalis</italic> (Ef)</td>
+              <td align="center" valign="middle" style="mso-border-top-alt:solid thin">700221</td>
+              <td rowspan="7" align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin;mso-border-top-alt:solid thin;mso-border-bottom-alt:solid thin">HD Biosciences</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Staphylococcus aureus</italic> (Sa)</td>
+              <td align="center" valign="middle">292213</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Klebciella pneumonia</italic> (Kp)</td>
+              <td align="center" valign="middle">43816</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Acinetobacter baumannii</italic> (Ab)</td>
+              <td align="center" valign="middle">19606</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Pseudomonas aeruginosa</italic> (Pa)</td>
+              <td align="center" valign="middle">27853</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Escherichia coli</italic> (Ec)</td>
+              <td align="center" valign="middle">25922</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin"><italic>Clostrium difficile</italic> (Cd)</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin">43255</td>
+            </tr>
+            <tr>
+              <td rowspan="5" align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin;mso-border-top-alt:solid thin;mso-border-bottom-alt:solid thin"><italic>M. tuberculosis</italic> Isogenic Resistant Mutant Panel</td>
+              <td align="center" valign="middle" style="mso-border-top-alt:solid thin"><italic>M. tuberculosis</italic> H37Rv (Wild-Type)</td>
+              <td align="center" valign="middle" style="mso-border-top-alt:solid thin">27294</td>
+              <td rowspan="5" align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin;mso-border-top-alt:solid thin;mso-border-bottom-alt:solid thin">BTTTRI</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>M. tuberculosis</italic> P1 (Pretomanid-R)</td>
+              <td align="center" valign="middle">Isogenic</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>M. tuberculosis</italic> P3 (Pretomanis-R)</td>
+              <td align="center" valign="middle">Isogenic</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>M. tuberculosis</italic> L1 (Linezolid-R)</td>
+              <td align="center" valign="middle">Isogenic</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin"><italic>M. tuberculosis</italic> L3 (Linezolid-R)</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin;mso-border-bottom-alt:solid thin">Isogenic</td>
+            </tr>
+            <tr>
+              <td rowspan="14" align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">Anaerobic Bacterial Panel</td>
+              <td align="center" valign="middle" style="mso-border-top-alt:solid thin"><italic>Clostridium difficile</italic> (Cd)</td>
+              <td align="center" valign="middle" style="mso-border-top-alt:solid thin">700057</td>
+              <td rowspan="14" align="center" valign="middle" style="border-bottom:solid thin;mso-border-top-alt:solid thin">Micromyx</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Lactobacillus acidophilus</italic> (Lc)</td>
+              <td align="center" valign="middle">4356</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Eggerthella lenta</italic> (El)</td>
+              <td align="center" valign="middle">43055</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Gardnerella vaginalis</italic> (Gv)</td>
+              <td align="center" valign="middle">14018</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Peptostreptococcus micros</italic> (Pm)</td>
+              <td align="center" valign="middle">23195</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Porphyromonas asaccharolytica</italic> (Pas)</td>
+              <td align="center" valign="middle">M3553</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Propionibacterium acnes</italic> (Pac)</td>
+              <td align="center" valign="middle">11892</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Bacteroides fragilis</italic> (Bf)</td>
+              <td align="center" valign="middle">25285</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Bifidobacterium longum</italic> (Bl)</td>
+              <td align="center" valign="middle">15707</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Fusobacterium nucleatum</italic> (Fn)</td>
+              <td align="center" valign="middle">10953</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Mobiluncus mulieris</italic> (Mm)</td>
+              <td align="center" valign="middle">35243</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Prevotella bivia</italic> (Pb)</td>
+              <td align="center" valign="middle">29303</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle"><italic>Veillonella parvula</italic> (Vp)</td>
+              <td align="center" valign="middle">17745</td>
+            </tr>
+            <tr>
+              <td align="center" valign="middle" style="border-bottom:solid thin"><italic>Helicobacter pylori</italic> (Hp)</td>
+              <td align="center" valign="middle" style="border-bottom:solid thin">43504</td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+    </sec>
+  <fn-group>
+    <fn>
+        <p><bold>Publisher&#x2019;s Note:</bold> MDPI stays neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+    </fn>
+    </fn-group>
+</back>
+</article>

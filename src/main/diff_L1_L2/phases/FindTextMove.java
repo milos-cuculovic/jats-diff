@@ -57,7 +57,6 @@ import com.github.difflib.DiffUtils;
 import com.github.difflib.patch.AbstractDelta;
 import com.github.difflib.patch.Patch;
 import com.github.difflib.patch.Chunk;
-import com.sun.org.apache.xalan.internal.xsltc.compiler.util.StringStack;
 import main.diff_L1_L2.vdom.diffing.Hash;
 import main.diff_L1_L2.core.Ndiff;
 import static main.diff_L1_L2.core.Ndiff.EXCLUDE_STYLE_TAG;

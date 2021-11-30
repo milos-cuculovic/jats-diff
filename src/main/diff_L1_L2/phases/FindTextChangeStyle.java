@@ -335,7 +335,7 @@ public class FindTextChangeStyle extends Phase {
                     deltaChangesB.add(nodeDelta);
                 }
 
-                //this part necessary to delete all that equals, such should not processed
+                //this part is needed to delete all matched words with style edits
                 Iterator<NodeDeltaStyle> deltaAItr = deltaChangesA.iterator();
                 Iterator<NodeDeltaStyle> deltaBItr;
                 while (deltaAItr.hasNext()) {
@@ -458,12 +458,15 @@ public class FindTextChangeStyle extends Phase {
 
                     }
 
-//                    textNode = textChange.getNodeB().getRefDomNode().getNodeValue();
-//                    textNode = StringUtils.replaceOnce(textNode, textChange.getTextTarget(), "");
-//                    textChange.getNodeB().getRefDomNode().setNodeValue(textNode);
-                    textNode = textChange.getNodeB().getRefDomNode().getNodeValue();
-                    textNode = textNode.replace(textChange.getTextTargetOrig(), "");
-                    textChange.getNodeB().getRefDomNode().setNodeValue(textNode);
+                    String textNodeB = textChange.getNodeB().getRefDomNode().getNodeValue();
+                    StringBuffer bufB = new StringBuffer(textNodeB);
+                    int startB = textChange.getPositionTo();
+                    int endB = startB + textChange.getTextTarget().length();
+                    String insertTextWithoutTag = Ndiff.clearEncodedTags(textChange.getTextTarget());
+                    bufB.replace(startB, endB, insertTextWithoutTag);
+                    textNodeB = bufB.toString();
+                    textChange.getNodeB().getRefDomNode().setNodeValue(textNodeB);
+
                     break;
                 case TextChangeData.ACTION_UPDATE_STYLE_FROM:
                     R.addFragment(findA, findB, A.getNode(findA.inf).weight, Relation.UPDATE_STYLE_FROM);
@@ -474,15 +477,17 @@ public class FindTextChangeStyle extends Phase {
 
                     for (int l = findB.inf; l <= findB.sup; l++) {
                         B.getNode(l).inRel = Relation.UPDATE_STYLE_FROM;
-
                     }
 
-//                    textNode = textChange.getNodeA().getRefDomNode().getNodeValue();
-//                    textNode = StringUtils.replaceOnce(textNode, textChange.getTextSource(), "");
-//                    textChange.getNodeA().getRefDomNode().setNodeValue(textNode);
-                    textNode = textChange.getNodeA().getRefDomNode().getNodeValue();
-                    textNode = textNode.replace(textChange.getTextSourceOrig(), "");
-                    textChange.getNodeA().getRefDomNode().setNodeValue(textNode);
+                    String textNodeA = textChange.getNodeA().getRefDomNode().getNodeValue();
+                    StringBuffer bufA = new StringBuffer(textNodeA);
+                    int startA = textChange.getPositionFrom();
+                    int endA = startA + textChange.getTextSource().length();
+                    insertTextWithoutTag = Ndiff.clearEncodedTags(textChange.getTextSource());
+                    bufA.replace(startA, endA, insertTextWithoutTag);
+                    textNodeA = bufA.toString();
+                    textChange.getNodeA().getRefDomNode().setNodeValue(textNodeA);
+
                     break;
                 case TextChangeData.ACTION_INSERT_STYLE:
                     R.addFragment(findA, findB, A.getNode(findA.inf).weight, Relation.INSERT_STYLE);
@@ -494,16 +499,17 @@ public class FindTextChangeStyle extends Phase {
                         B.getNode(l).inRel = Relation.INSERT_STYLE;
                     }
 
-                    //necessary delete both string with tags and raw string becasue catch as update
-                    String textNodeB = textChange.getNodeB().getRefDomNode().getNodeValue();
-                    textNodeB = StringUtils.replaceOnce(textNodeB, textChange.getTextTarget(), "");
-                    //if replaceOnce replace first  then this may be good solution
-                    textChange.getNodeB().getRefDomNode().setNodeValue(textNodeB);
-                    String textNodeA = textChange.getNodeA().getRefDomNode().getNodeValue();
-                    String insertTextWithTag = textChange.getTextTarget();
-                    String insertTextWithoutTag = Ndiff.clearEncodedTags(insertTextWithTag);
+                    textNodeB = textChange.getNodeB().getRefDomNode().getNodeValue();
 
-                    textNodeA = StringUtils.replaceOnce(textNodeA, insertTextWithoutTag, "");
+                    bufB = new StringBuffer(textNodeB);
+                    startB = textChange.getPositionTo();
+                    endB = startB + textChange.getTextTarget().length();
+                    insertTextWithoutTag = Ndiff.clearEncodedTags(textChange.getTextTarget());
+                    bufB.replace(startB, endB, insertTextWithoutTag);
+                    textNodeB = bufB.toString();
+                    textChange.getNodeB().getRefDomNode().setNodeValue(textNodeB);
+
+                    textNodeA = textChange.getNodeA().getRefDomNode().getNodeValue();
                     textChange.getNodeA().getRefDomNode().setNodeValue(textNodeA);
 
                     break;
@@ -516,18 +522,16 @@ public class FindTextChangeStyle extends Phase {
                     for (int l = findB.inf; l <= findB.sup; l++) {
                         B.getNode(l).inRel = Relation.DELETE_STYLE;
                     }
-                    //necessary delete both string with tags and raw string becasue catch as update
+
                     textNodeA = textChange.getNodeA().getRefDomNode().getNodeValue();
+                    bufA = new StringBuffer(textNodeA);
+                    startA = textChange.getPositionFrom();
+                    endA = startA + textChange.getTextSource().length();
+                    insertTextWithoutTag = Ndiff.clearEncodedTags(textChange.getTextSource());
+                    bufA.replace(startA, endA, insertTextWithoutTag);
 
-                    textNodeA = StringUtils.replaceOnce(textNodeA, textChange.getTextSource(), "");
+                    textNodeA = bufA.toString();
                     textChange.getNodeA().getRefDomNode().setNodeValue(textNodeA);
-
-                    String textNodeBDel = textChange.getNodeB().getRefDomNode().getNodeValue();
-                    String insertTextWithTagSource = textChange.getTextSource();
-                    String insertTextWithoutTagSource = Ndiff.clearEncodedTags(insertTextWithTagSource);
-
-                    textNodeBDel = StringUtils.replaceOnce(textNodeBDel, insertTextWithoutTagSource, "");
-                    textChange.getNodeB().getRefDomNode().setNodeValue(textNodeBDel);
 
                     break;
                 case TextChangeData.ACTION_MOVE_TEXT_FROM:
@@ -656,7 +660,7 @@ public class FindTextChangeStyle extends Phase {
     /**
      * Tune Up List Of Text
      * NOTE this function work in first level
-     * ORIG NO DELTE YET
+     * ORIG NO DELETE YET
      *
      * @param listOfText
      * @return

@@ -54,7 +54,7 @@ import java.util.regex.MatchResult;
 /**
  * @author Mike Fase che implementa la ricerca degli spostamenti all'interno dei documenti
  */
-public class FindDowngradeOld extends Phase {
+public class FindDowngradeOld1 extends Phase {
 
     protected Node left, right;
     protected List<NodeVO> initA = new ArrayList<NodeVO>();
@@ -78,8 +78,8 @@ public class FindDowngradeOld extends Phase {
      * @param Tb Dtree relativo al documento modificato
      * @param cfg Nconfig relativo alla configurazione del Diff
      */
-    public FindDowngradeOld(NxN SearchField, Relation Rel, Dtree Ta, Dtree Tb,
-            Nconfig cfg) {
+    public FindDowngradeOld1(NxN SearchField, Relation Rel, Dtree Ta, Dtree Tb,
+                             Nconfig cfg) {
         super(SearchField, Rel, Ta, Tb, cfg);
     }
 

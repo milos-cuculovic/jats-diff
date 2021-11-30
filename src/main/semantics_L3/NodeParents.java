@@ -39,8 +39,7 @@ public class NodeParents {	Similarity sim = new Similarity();
 					delcit.add(nCh);
 					continue;
 				}
-				while (!n.getNodeName().equals("body") && !n.getNodeName().equals("front")
-						&& !n.getNodeName().equals("back")) {
+				while (n.getParentNode().getParentNode() != null) {
 					n = n.getParentNode();
 					if (n.getNodeName().equals(specobj)) {
 						tab.add(nCh);
@@ -68,8 +67,7 @@ public class NodeParents {	Similarity sim = new Similarity();
 					delcit.add(nCh);
 					continue;
 				}
-				while (!n.getNodeName().equals("body") && !n.getNodeName().equals("front")
-						&& !n.getNodeName().equals("back")) {
+				while (n.getParentNode().getParentNode() != null) {
 					n = n.getParentNode();
 					if (n.getNodeName().equals(specobj)) {
 						tab.add(nCh);
@@ -287,8 +285,7 @@ public class NodeParents {	Similarity sim = new Similarity();
 					}
 					continue;
 				} else {
-					while (!n.getNodeName().equals("article") && !n.getNodeName().equals("body")
-							&& !n.getNodeName().equals("front") && !n.getNodeName().equals("back")) {
+					while (n.getParentNode().getParentNode() != null) {
 						int pap = noeud.getPosFather();
 						noeud = treem.getNode(pap);
 						n = noeud.refDomNode;
@@ -353,8 +350,7 @@ public class NodeParents {	Similarity sim = new Similarity();
 					}
 					continue;
 				} else {
-					while (!n.getNodeName().equals("front") && !n.getNodeName().equals("body")
-							&& !n.getNodeName().equals("back")) {
+					while (n.getParentNode().getParentNode() != null) {
 						int pap = noeud.getPosFather();
 						noeud = tree.getNode(pap);
 						n = noeud.refDomNode;
@@ -426,8 +422,7 @@ public class NodeParents {	Similarity sim = new Similarity();
 					}
 					break;
 				} else {
-					while (!n.getNodeName().equals("article") && !n.getNodeName().equals("body")
-							&& !n.getNodeName().equals("front") && !n.getNodeName().equals("back")) {
+					while (n.getParentNode().getParentNode() != null) {
 						int pap = noeud.getPosFather();
 						if (papA == null) {
 							papA = Integer.parseInt(nCh.getChangelist().get(0).getAtA());
@@ -515,8 +510,7 @@ public class NodeParents {	Similarity sim = new Similarity();
 						noeudB = treem.getNode(papB);
 						isF = false;
 					}
-					while (!n.getNodeName().equals("front") && !n.getNodeName().equals("body")
-							&& !n.getNodeName().equals("back")) {
+					while (n.getParentNode().getParentNode() != null) {
 						int pap = noeud.getPosFather();
 						if (papB == null) {
 							papB = Integer.parseInt(nCh.getChangelist().get(0).getAtB());
