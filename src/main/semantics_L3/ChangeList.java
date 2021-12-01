@@ -318,7 +318,6 @@ public class ChangeList {
 		// si c le nnb test est le meme quun nna et que le nna est lui meme true on met
 		// enseöble TextContentddate et update attribute
 
-//SEOARER CA A FONNNNND
 
 		return modif;
 	}
