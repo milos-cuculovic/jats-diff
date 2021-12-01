@@ -180,12 +180,9 @@ public class References {
 		}
 
 		return modif;
-
 	}
 
-
-	public ArrayList<NodeChanged> findRef(ArrayList<NodeChanged> modif, BrowseDelta bd, boolean jaccard,
-										  boolean simitext, boolean simtextW) throws InputFileException {
+	public ArrayList<NodeChanged> findRef(ArrayList<NodeChanged> modif, BrowseDelta bd) throws InputFileException {
 		ArrayList<NodeChanged> tab = new ArrayList<NodeChanged>();
 		Dtree tree = bd.getTreeorig();
 		Dtree treem = bd.getTreemodif();
@@ -228,8 +225,7 @@ public class References {
 				}
 			}
 		}
-//			}
-//		}
+
 		Node nA = dnoeudA.refDomNode;
 		if (!nA.getNodeName().equals("ref-list")) {
 			nA = nA.getParentNode();
@@ -246,8 +242,5 @@ public class References {
 		nCh.setModified("Modified: " + Integer.toString(tab.size()));
 		modif.add(nCh);
 		return modif;
-
 	}
 }
-
-

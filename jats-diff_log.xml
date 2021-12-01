@@ -1,8 +1,8 @@
-<log4j:event logger="main.diff_L1_L2.phases.FindUpgrade" timestamp="1620312118842" level="ERROR" thread="main">
+<log4j:event logger="main.diff_L1_L2.phases.FindUpgradeOld2" timestamp="1620312118842" level="ERROR" thread="main">
 <log4j:message><![CDATA[Upgrade : 0:00:00.147]]></log4j:message>
 </log4j:event>
 
-<log4j:event logger="main.diff_L1_L2.phases.FindDowngrade" timestamp="1620312119240" level="ERROR" thread="main">
+<log4j:event logger="main.diff_L1_L2.phases.FindDowngradeOld2" timestamp="1620312119240" level="ERROR" thread="main">
 <log4j:message><![CDATA[Downgrade : 0:00:00.316]]></log4j:message>
 </log4j:event>
 

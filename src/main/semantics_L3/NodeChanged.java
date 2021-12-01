@@ -10,6 +10,7 @@ public class NodeChanged {
 	private String valueCitable;
 	private ArrayList<ChangeObject> changelist;
 	private String jaccard;
+	private String tf;
 	private Integer atB;
 	private Integer atA;
 	private String similartext;
@@ -93,11 +94,16 @@ public class NodeChanged {
 	}
 
 	public boolean hasPourcentage() {
-		return (!(similartext == null) || !(simitextword == null) || !(jaccard == null));
+		return (!(similartext == null) || !(simitextword == null)
+				|| !(jaccard == null) || !(tf == null));
 	}
 
 	public boolean hasJaccard() {
 		return !(jaccard == null);
+	}
+
+	public boolean hasTF() {
+		return !(tf == null);
 	}
 
 	public boolean hasSimilartext() {
@@ -132,8 +138,14 @@ public class NodeChanged {
 		return jaccard;
 	}
 
+	public String getTF() {return tf;}
+
 	public void setJaccard(String jaccard) {
 		this.jaccard = jaccard;
+	}
+
+	public void setTF(String tf) {
+		this.tf = tf;
 	}
 
 	public String getSimilartext() {

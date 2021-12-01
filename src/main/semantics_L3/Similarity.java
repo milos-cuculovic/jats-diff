@@ -3,13 +3,15 @@ package main.semantics_L3;
 import info.debatty.java.stringsimilarity.Jaccard;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class Similarity {
 
-	public ArrayList<String> score(String orig, String modif, boolean jaccard, boolean simitext, boolean simtextW) {
+	public ArrayList<String> score(String orig, String modif, boolean doJaccard, boolean doSimitext, boolean doSimtextW, boolean doTF) {
 		ArrayList<String> scores = new ArrayList<String>();
-		if (jaccard) {
+		if (doJaccard) {
 			Jaccard distance = new Jaccard();
 			double jacNum = distance.distance(orig, modif);
 			double pourcentage = (double) ((1 - jacNum) * 100);
@@ -18,21 +20,47 @@ public class Similarity {
 		} else {
 			scores.add(null);
 		}
-		if (simitext) {
+		if (doSimitext) {
 			double similar = Math.abs(similarText(orig, modif));
 			similar = (double) Math.round(similar * 10) / 10;
 			scores.add(Double.toString(similar) + " %");
 		} else {
 			scores.add(null);
 		}
-		if (simtextW) {
+		if (doSimtextW) {
 			double similar = Math.abs(similarTextword(orig, modif));
 			similar = (double) Math.round(similar * 10) / 10;
 			scores.add(Double.toString(similar) + " %");
-
 		} else {
 			scores.add(null);
 
+		}
+		if (doTF) {
+			TFIDFCalculator tfidf = new TFIDFCalculator();
+			List<String> doc1 = Arrays.asList(orig.split(" "));
+			List<String> doc2 = Arrays.asList(modif.split(" "));
+			Integer total_positive_tf = 0;
+
+			for (String term : doc1) {
+				double tf_value = tfidf.tf(doc2, term);
+				if (tf_value > 0) {
+					total_positive_tf++;
+				}
+				else {
+					total_positive_tf--;
+				}
+			}
+
+			if (total_positive_tf < 0) {
+				scores.add("0 %");
+			}
+			else {
+				double tf_score = (float)(((double)(total_positive_tf) / (double)(doc2.size())) * 100);
+				scores.add(Double.toString(Math.round(tf_score)) + " %");
+			}
+		}
+		else {
+			scores.add(null);
 		}
 		return scores;
 	}

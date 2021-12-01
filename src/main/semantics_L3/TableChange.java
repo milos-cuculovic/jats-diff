@@ -5,6 +5,7 @@ public class TableChange {
 	private String jaccard;
 	private String similartext;
 	private String simitextword;
+	private String tf;
 	public String getName() {
 		return name;
 	}
@@ -24,9 +25,18 @@ public class TableChange {
 	public void setSimilartext(String similartext) {
 		this.similartext = similartext;
 	}
+
 	public String getSimitextword() {
 		return simitextword;
 	}
+
+	public String getTF() {
+		return tf;
+	}
+	public void setTF(String tf) {
+		this.tf = tf;
+	}
+
 	@Override
 	public String toString() {
 		String retour="";
@@ -40,6 +50,9 @@ public class TableChange {
 		}
 		if(simitextword!=null) {
 			retour+="\n            * " + simitextword;
+		}
+		if(tf!=null) {
+			retour+="\n            * " + tf;
 		}
 		return retour;
 	}

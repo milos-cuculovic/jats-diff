@@ -36,8 +36,8 @@ public class XmlFileAttributes {
 		return compteur;
 
 	}
-	public ArrayList<NodeChanged> addChanging(ArrayList<NodeChanged> modif, BrowseDelta bd, boolean jaccard,
-											  boolean simitext, boolean simtextW) throws InputFileException {
+	public ArrayList<NodeChanged> addChanging(ArrayList<NodeChanged> modif, BrowseDelta bd, boolean doJaccard,
+											  boolean doSimitext, boolean doSimtextW, boolean doTF) throws InputFileException {
 		// modif est de la forme [key nodenumber et value [cgt,fromto]]
 		Dtree treeorig = bd.getTreeorig();
 		Dtree treemodif = bd.getTreemodif();
@@ -67,13 +67,10 @@ public class XmlFileAttributes {
 					if (nbmodif == nCh.getChangelist().size()) {
 						continue;
 					}
-
 				}
 			}
 			NodeChanged nCh1 = nCh;
 
-//			if (key.equals(""))
-//				continue;
 			int nodenumber = nCh.getNodenumberA();
 			int nodenumberB = 0;
 			if (nCh.hasNodenumberB()) {
@@ -100,20 +97,19 @@ public class XmlFileAttributes {
 
 					String txt = nodeSpace(noeud).replaceAll("( )+", " ");
 					String txtmodif = nodeSpace(noeudmodif).replaceAll("( )+", " ");
-					ArrayList<String> scores = sim.score(txt.trim(), txtmodif.trim(), jaccard, simitext, simtextW);
+					ArrayList<String> scores = sim.score(txt.trim(), txtmodif.trim(), doJaccard, doSimitext, doSimtextW, doTF);
 					// Element eElementorg = (Element) noeud;
 					nCh.setDepth(Integer.toString(getDepth(eElementorg)));
 					nCh.setJaccard(scores.get(0));
 					nCh.setSimilartext(scores.get(1));
 					nCh.setSimitextword(scores.get(2));
+					nCh.setTF(scores.get(3));
 					// on ajoute cette liste a notre hashmap modif
 					modif.set(modif.indexOf(nCh1), nCh);
 				}
 			}
-
 		}
 		return modif;
-
 	}
 
 
@@ -149,8 +145,8 @@ public class XmlFileAttributes {
 		}
 		return "";
 	}
-	public ArrayList<NodeChanged> propSimilarity(ArrayList<NodeChanged> modif, BrowseDelta bd, boolean jaccar,
-												 boolean simitext, boolean simtextW) throws InputFileException {
+	public ArrayList<NodeChanged> propSimilarity(ArrayList<NodeChanged> modif, BrowseDelta bd, boolean doJaccard,
+												 boolean doSimitext, boolean doSimtextW, boolean doTF) throws InputFileException {
 
 		Dtree treeorig = bd.getTreeorig();
 		ArrayList<NodeChanged> modif1 = new ArrayList<NodeChanged>();
@@ -198,26 +194,31 @@ public class XmlFileAttributes {
 								}
 							}
 							double size2 = e.getTextContent().length();
-							if (jaccar) {
+							if (doJaccard) {
 								double jaccard = Double.parseDouble(nC.getJaccard().split(" ", 2)[0]);
 								jaccard = 1 - ((size1 / size2) * (1 - (jaccard / 100)));
 								jaccard = (double) Math.round(jaccard * 1000) / 10;
 								nCh.setJaccard(Double.toString(Math.abs(jaccard)) + " %");
 							}
-							if (simitext) {
+							if (doSimitext) {
 								double sim = Double.parseDouble(nC.getSimilartext().split(" ", 2)[0]);
 								sim = 1 - ((size1 / size2) * (1 - (sim / 100)));
 								sim = (double) Math.round(sim * 1000) / 10;
 								nCh.setSimilartext(Double.toString(Math.abs(sim)) + " %");
 							}
-							if (simtextW) {
-
+							if (doSimtextW) {
 								double simW = Double.parseDouble(nC.getSimitextword().split(" ", 2)[0]);
 								simW = 1 - ((size1 / size2) * (1 - (simW / 100)));
 								simW = (double) Math.round(simW * 1000) / 10;
 								nCh.setSimitextword(Double.toString(Math.abs(simW)) + " %");
-
 							}
+							if (doTF) {
+								double tf = Double.parseDouble(nC.getSimitextword().split(" ", 2)[0]);
+								tf = 1 - ((size1 / size2) * (1 - (tf / 100)));
+								tf = (double) Math.round(tf * 1000) / 10;
+								nCh.setTF(Double.toString(Math.abs(tf)) + " %");
+							}
+
 							nCh.setNodetype(e.getNodeName());
 							nCh.setDepth(Integer.toString(getDepth(e)));
 
@@ -245,7 +246,7 @@ public class XmlFileAttributes {
 								noch.setDepth(Integer.toString(getDepth(e)));
 
 								double size2 = e.getTextContent().length();
-								if (jaccar) {
+								if (doJaccard) {
 									double jaccard = Double.parseDouble(nC.getJaccard().split(" ", 2)[0]);
 									double jaccard1 = Double.parseDouble(noch.getJaccard().split(" ", 2)[0]);
 									jaccard = (jaccard1 / 100) - ((size1 / size2) * (1 - (jaccard / 100)));
@@ -253,7 +254,7 @@ public class XmlFileAttributes {
 									noch.setJaccard(Double.toString(Math.abs(jaccard)) + " %");
 
 								}
-								if (simitext) {
+								if (doSimitext) {
 									double sim = Double.parseDouble(nC.getSimilartext().split(" ", 2)[0]);
 									double sim1 = Double.parseDouble(noch.getSimilartext().split(" ", 2)[0]);
 									sim = (sim1 / 100) - ((size1 / size2) * (1 - (sim / 100)));
@@ -261,13 +262,20 @@ public class XmlFileAttributes {
 									noch.setSimilartext(Double.toString(Math.abs(sim)) + " %");
 
 								}
-								if (simtextW) {
+								if (doSimtextW) {
 									double simW = Double.parseDouble(nC.getSimitextword().split(" ", 2)[0]);
 									double simW1 = Double.parseDouble(noch.getSimitextword().split(" ", 2)[0]);
 									simW = (simW1 / 100) - ((size1 / size2) * (1 - (simW / 100)));
 									simW = (double) Math.round(simW * 1000) / 10;
 									noch.setSimitextword(Double.toString(Math.abs(simW)) + " %");
+								}
 
+								if (doTF) {
+									double tf = Double.parseDouble(nC.getTF().split(" ", 2)[0]);
+									double tf1 = Double.parseDouble(noch.getTF().split(" ", 2)[0]);
+									tf = (tf1 / 100) - ((size1 / size2) * (1 - (tf / 100)));
+									tf = (double) Math.round(tf * 1000) / 10;
+									noch.setTF(Double.toString(Math.abs(tf)) + " %");
 								}
 
 								modif.add(noch);

@@ -95,10 +95,11 @@ public class Main {
 
 					ArrayList<NodeChanged> modif = null;
 
-					boolean jaccard = true;
-					boolean simtext = false;
-					boolean simtextW = true;
-					modif = att.toolChange(bD, jaccard, simtext, simtextW);
+					boolean doJaccard = true;
+					boolean doSimtext = false;
+					boolean doSimtextW = true;
+					boolean doTF = true;
+					modif = att.toolChange(bD, doJaccard, doSimtext, doSimtextW, doTF);
 					modif.sort(Comparator.comparing(NodeChanged::getNodenumberA));
 					File semantics = new File(fileSplit[3]);
 					semantics.delete();
@@ -163,6 +164,9 @@ public class Main {
 							}
 							if (nc.hasSimilartextW()) {
 								System.out.println(indent + "* similar-word: " + nc.getSimitextword());
+							}
+							if (nc.hasTF()) {
+								System.out.println(indent + "* TF: " + nc.getTF());
 							}
 						}
 					}
