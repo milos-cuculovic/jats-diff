@@ -7,7 +7,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,7 +14,6 @@ import java.util.regex.Pattern;
 public class References {
 
 	NodeParents np = new NodeParents();
-	Similarity sim = new Similarity();
 	public ArrayList<NodeChanged> labelCondi(ArrayList<NodeChanged> modif) {
 		ArrayList<String> labList = new ArrayList<String>();
 		ArrayList<NodeChanged> del = new ArrayList<NodeChanged>();
@@ -180,7 +178,9 @@ public class References {
 		}
 
 		return modif;
+
 	}
+
 
 	public ArrayList<NodeChanged> findRef(ArrayList<NodeChanged> modif, BrowseDelta bd) throws InputFileException {
 		ArrayList<NodeChanged> tab = new ArrayList<NodeChanged>();
@@ -225,7 +225,8 @@ public class References {
 				}
 			}
 		}
-
+//			}
+//		}
 		Node nA = dnoeudA.refDomNode;
 		if (!nA.getNodeName().equals("ref-list")) {
 			nA = nA.getParentNode();
@@ -242,5 +243,8 @@ public class References {
 		nCh.setModified("Modified: " + Integer.toString(tab.size()));
 		modif.add(nCh);
 		return modif;
+
 	}
 }
+
+

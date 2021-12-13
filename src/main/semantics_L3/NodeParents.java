@@ -7,10 +7,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
-public class NodeParents {	Similarity sim = new Similarity();
-	AtRectif at = new AtRectif();
+public class NodeParents {	AtRectif at = new AtRectif();
 
 	public ArrayList<NodeChanged> tabMaker(String specobj, ArrayList<NodeChanged> modif, ArrayList<NodeChanged> delcit,
 										   BrowseDelta bd) {
@@ -79,8 +79,7 @@ public class NodeParents {	Similarity sim = new Similarity();
 		return tab;
 	}
 
-	public ArrayList<NodeChanged> findNoeudPar(ArrayList<NodeChanged> modif, BrowseDelta bd, boolean doJaccard,
-											   boolean doSimitext, boolean doSimtextW, boolean doTF) throws InputFileException {
+	public ArrayList<NodeChanged> findNoeudPar(ArrayList<NodeChanged> modif, BrowseDelta bd, Similarity sim) throws InputFileException, IOException {
 		Dtree treeorig = bd.getTreeorig();
 		Dtree treemodif = bd.getTreemodif();
 		ArrayList<ArrayList<String>> stocknoeud = new ArrayList<ArrayList<String>>();
@@ -232,11 +231,7 @@ public class NodeParents {	Similarity sim = new Similarity();
 			if (!(modif.stream().anyMatch(o -> o.getNodenumberA() == Integer.parseInt(element.get(2))))) {
 
 				NodeChanged nCh = new NodeChanged(Integer.parseInt(element.get(2)));
-				ArrayList<String> scores = sim.score(element.get(0), element.get(1), doJaccard, doSimitext, doSimtextW, doTF);
-				nCh.setJaccard(scores.get(0));
-				nCh.setSimilartext(scores.get(1));
-				nCh.setSimitextword(scores.get(2));
-				nCh.setTF(scores.get(3));
+				nCh= (NodeChanged) sim.score(element.get(0), element.get(1),nCh);
 				nCh.setNodetype(element.get(3));
 				nCh.setDepth(element.get(4));
 				if (element.size() > 5) {
@@ -250,6 +245,7 @@ public class NodeParents {	Similarity sim = new Similarity();
 			}
 		}
 		return modif;
+
 	}
 
 	public ArrayList<NodeChanged> specFather1(ArrayList<NodeChanged> modif, BrowseDelta bd) throws InputFileException {

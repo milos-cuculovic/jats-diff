@@ -9,12 +9,13 @@ public class NodeChanged {
 	private boolean isA=true;
 	private String valueCitable;
 	private ArrayList<ChangeObject> changelist;
-	private String jaccard;
-	private String tf;
+	private Double jaccard;
+	private Double tf;
+	private Double topicModel;
 	private Integer atB;
 	private Integer atA;
-	private String similartext;
-	private String simitextword;
+	private Double similartext;
+	private Double simitextword;
 	private String nodetype;
 	private String id;
 	private String title;
@@ -25,6 +26,14 @@ public class NodeChanged {
 	private String labelRef;
 	private String labelObj;
 	private String labelSec;
+
+	public Double getTopicModel() {
+		return topicModel;
+	}
+
+	public void setTopicModel(Double topicModel) {
+		this.topicModel = topicModel;
+	}
 
 	public String getModified() {
 		return modified;
@@ -79,7 +88,9 @@ public class NodeChanged {
 	public boolean hasLabelObj() {
 		return !(labelObj == null);
 	}
-
+	public boolean hasTopicmodel() {
+		return !(topicModel == null);
+	}
 
 	public boolean hasid() {
 		return !(id == null);
@@ -94,8 +105,7 @@ public class NodeChanged {
 	}
 
 	public boolean hasPourcentage() {
-		return (!(similartext == null) || !(simitextword == null)
-				|| !(jaccard == null) || !(tf == null));
+		return (!(similartext == null) || !(simitextword == null) || !(jaccard == null)|| !(tf == null));
 	}
 
 	public boolean hasJaccard() {
@@ -105,7 +115,6 @@ public class NodeChanged {
 	public boolean hasTF() {
 		return !(tf == null);
 	}
-
 	public boolean hasSimilartext() {
 		return !(similartext == null);
 	}
@@ -134,33 +143,35 @@ public class NodeChanged {
 		this.changelist = changelist;
 	}
 
-	public String getJaccard() {
+	public Double getJaccard() {
 		return jaccard;
 	}
 
-	public String getTF() {return tf;}
-
-	public void setJaccard(String jaccard) {
-		this.jaccard = jaccard;
+	public Double getTf() {
+		return tf;
 	}
 
-	public void setTF(String tf) {
+	public void setTf(Double tf) {
 		this.tf = tf;
 	}
 
-	public String getSimilartext() {
+	public void setJaccard(Double jaccard) {
+		this.jaccard = jaccard;
+	}
+
+	public Double getSimilartext() {
 		return similartext;
 	}
 
-	public void setSimilartext(String similartext) {
+	public void setSimilartext(Double similartext) {
 		this.similartext = similartext;
 	}
 
-	public String getSimitextword() {
+	public Double getSimitextword() {
 		return simitextword;
 	}
 
-	public void setSimitextword(String simitextword) {
+	public void setSimitextword(Double simitextword) {
 		this.simitextword = simitextword;
 	}
 

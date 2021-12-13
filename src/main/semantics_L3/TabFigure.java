@@ -7,6 +7,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -15,13 +16,12 @@ import java.util.stream.Collectors;
 
 public class TabFigure {
 
-	Similarity sim = new Similarity();
+
 	NodeParents np = new NodeParents();
 	AtRectif at = new AtRectif();
 
 	public ArrayList<NodeChanged> specObjtreatment(ArrayList<NodeChanged> modif, BrowseDelta bd, String specobj,
-												   String cgt, boolean doJaccard, boolean doSimitext,
-												   boolean doSimtextW, boolean doTF) throws InputFileException {
+												   String cgt, Similarity sim) throws InputFileException, IOException {
 
 		ArrayList<NodeChanged> delcit = new ArrayList<NodeChanged>();
 		ArrayList<NodeChanged> tab = np.tabMaker(specobj, modif, delcit, bd);
@@ -210,13 +210,8 @@ public class TabFigure {
 								Element e = (Element) n;
 								if (noeudA.refDomNode.getNodeType() == Node.ELEMENT_NODE) {
 									Element eA = (Element) noeudA.refDomNode;
-									ArrayList<String> scores = sim.score(e.getTextContent(), eA.getTextContent(),
-											doJaccard, doSimitext, doSimtextW, doTF);
+									tc = (TableChange) sim.score(e.getTextContent(), eA.getTextContent(),tc);
 									tc.setName(n.getNodeName());
-									tc.setJaccard(scores.get(0));
-									tc.setSimilartext(scores.get(1));
-									tc.setSimitextword(scores.get(2));
-									tc.setTF(scores.get(3));
 									pa = noeud.posFather;
 									noeud = treem.getNode(pa);
 									da = noeudA.posFather;
@@ -257,7 +252,8 @@ public class TabFigure {
 					nCh1.setNodetype(n.getNodeName());
 					if (cO.hasTableChange()) {
 						ArrayList<TableChange> aT = cO.getTablechange();
-						if (!(aT.stream().anyMatch(o -> o.getName() == tc.getName()))) {
+						TableChange finalTc = tc;
+						if (!(aT.stream().anyMatch(o -> o.getName() == finalTc.getName()))) {
 							aT.add(tc);
 							cO.setTablechange(aT);
 						}
@@ -350,13 +346,10 @@ public class TabFigure {
 
 								if (noeudB.refDomNode.getNodeType() == Node.ELEMENT_NODE) {
 									Element eB = (Element) noeudB.refDomNode;
-									ArrayList<String> scores = sim.score(e.getTextContent(), eB.getTextContent(),
-											doJaccard, doSimitext, doSimtextW, doTF);
+									tc = (TableChange) sim.score(e.getTextContent(), eB.getTextContent(),tc);
 									tc.setName(n.getNodeName());
-									tc.setJaccard(scores.get(0));
-									tc.setSimilartext(scores.get(1));
-									tc.setSimitextword(scores.get(2));
-									tc.setTF(scores.get(3));
+
+
 								}
 							}
 							da = noeudA.getPosFather();
@@ -396,7 +389,8 @@ public class TabFigure {
 					nCh1.setNodetype(n.getNodeName());
 					ArrayList<TableChange> aT = cO.getTablechange();
 					if (!n.getNodeName().equals("ref")) {
-						if (!(aT.stream().anyMatch(o -> o.getName() == tc.getName()))) {
+						TableChange finalTc1 = tc;
+						if (!(aT.stream().anyMatch(o -> o.getName() == finalTc1.getName()))) {
 							aT.add(tc);
 							cO.setNodenumA(Integer.toString(nCh.getNodenumberA()));
 							cO.setTablechange(aT);
@@ -471,15 +465,10 @@ public class TabFigure {
 							Node nm = dnm.refDomNode;
 							Element e = (Element) n;
 							Element em = (Element) nm;
-							ArrayList<String> scores = sim.score(e.getTextContent(), em.getTextContent(), doJaccard,
-									doSimitext, doSimtextW, doTF);
+							nCh = (NodeChanged) sim.score(e.getTextContent(), em.getTextContent(), nCh);
 							nCh.setAtA(dn.getPosFather());
 							nCh.setAtB(dnm.getPosFather());
 							nCh.setDepth(Integer.toString(XmlFileAttributes.getDepth(e)));
-							nCh.setJaccard(scores.get(0));
-							nCh.setSimilartext(scores.get(1));
-							nCh.setSimitextword(scores.get(2));
-							nCh.setTF(scores.get(3));
 							nCh.setDepth(Integer.toString(XmlFileAttributes.getDepth(e)));
 							nnbpobj = nCh.getAtB();
 						} else {
@@ -507,7 +496,6 @@ public class TabFigure {
 					}
 				}
 			}
-
 			Dnode dn = null;
 			int noeudsec = -1;
 			NodeChanged nSec = new NodeChanged(noeudsec);
@@ -545,14 +533,9 @@ public class TabFigure {
 					Dnode dnodemsec = treem.getNode(nSec.getNodenumberB());
 					Element esec = (Element) dnodesec.refDomNode;
 					Element esecm = (Element) dnodemsec.refDomNode;
-					ArrayList<String> scores = sim.score(esec.getTextContent(), esecm.getTextContent(), doJaccard,
-							doSimitext, doSimtextW, doTF);
+					nc = (NodeChanged) sim.score(esec.getTextContent(), esecm.getTextContent(),nc);
 					nc.setDepth(Integer.toString(XmlFileAttributes.getDepth(esec)));
 					nSec.setDepth(Integer.toString(XmlFileAttributes.getDepth(esec)));
-					nSec.setJaccard(scores.get(0));
-					nSec.setSimilartext(scores.get(1));
-					nSec.setSimitextword(scores.get(2));
-					nSec.setTF(scores.get(3));
 					nc.setNodetype(cgt);
 					modif.add(nc);
 				} else if (nnbpobj != null) {
@@ -570,30 +553,30 @@ public class TabFigure {
 					Dnode dnodemsec = treem.getNode(nSec.getNodenumberB());
 					Element esec = (Element) dnodesec.refDomNode;
 					Element esecm = (Element) dnodemsec.refDomNode;
-					ArrayList<String> scores = sim.score(esec.getTextContent(), esecm.getTextContent(), doJaccard,
-							doSimitext, doSimtextW, doTF);
+					nc = (NodeChanged) sim.score(esec.getTextContent(), esecm.getTextContent(),nc);
 					nc.setDepth(Integer.toString(XmlFileAttributes.getDepth(esec)));
 					nSec.setDepth(Integer.toString(XmlFileAttributes.getDepth(esec)));
-					nSec.setJaccard(scores.get(0));
-					nSec.setSimilartext(scores.get(1));
-					nSec.setSimitextword(scores.get(2));
-					nSec.setTF(scores.get(3));
 					nc.setNodetype(cgt);
 					modif.add(nc);
 				}
+
 			}
 			int nna = nSec.getNodenumberA();
 			if (!(modif.stream().anyMatch(o -> o.getNodenumberA() == nna))) {
 				modif.add(nSec);
 			}
 		}
+//		else {
+//			References ref = new References();
+//			modif = ref.findRef(modif, bd, jaccard, simitext, simtextW, specobj);
+//		}
 		return modif;
 	}
 
-	public ArrayList<NodeChanged> findTabFig(ArrayList<NodeChanged> modif, BrowseDelta bd, boolean doJaccard,
-											 boolean doSimitext, boolean doSimtextW, boolean doTF) throws InputFileException {
-		modif = specObjtreatment(modif, bd, "fig", "figure", doJaccard, doSimitext, doSimtextW, doTF);
-		modif = specObjtreatment(modif, bd, "table-wrap", "table", doJaccard, doSimitext, doSimtextW, doTF);
+	public ArrayList<NodeChanged> findTabFig(ArrayList<NodeChanged> modif, BrowseDelta bd, Similarity sim) throws InputFileException, IOException {
+//		modif = specObjtreatment(modif, bd, "ref", "ref", jaccard, simitext, simtextW);
+		modif = specObjtreatment(modif, bd, "fig", "figure", sim);
+		modif = specObjtreatment(modif, bd, "table-wrap", "table", sim);
 		return modif;
 	}
 }

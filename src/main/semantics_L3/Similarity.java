@@ -1,41 +1,87 @@
 package main.semantics_L3;
 
+import com.topic.model.BTM;
 import info.debatty.java.stringsimilarity.Jaccard;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
+import com.topic.utils.FileUtil;
+import com.topic.model.GibbsSamplingLDA;
 
 public class Similarity {
+	private boolean jaccard;
+	private boolean simitext;
+	private boolean simtextW;
+	private boolean topicModel;
+	private boolean tf;
 
-	public ArrayList<String> score(String orig, String modif, boolean doJaccard, boolean doSimitext, boolean doSimtextW, boolean doTF) {
-		ArrayList<String> scores = new ArrayList<String>();
-		if (doJaccard) {
+	public Similarity(boolean jaccard, boolean simitext, boolean simtextW, boolean topicModel,boolean tf) {
+		this.jaccard = jaccard;
+		this.simitext = simitext;
+		this.simtextW = simtextW;
+		this.topicModel=topicModel;
+		this.tf=tf;
+	}
+
+	public Object score(String orig, String modif,Object change) throws IOException {
+		if (jaccard) {
 			Jaccard distance = new Jaccard();
 			double jacNum = distance.distance(orig, modif);
 			double pourcentage = (double) ((1 - jacNum) * 100);
 			pourcentage = (double) Math.round(pourcentage * 10) / 10;
-			scores.add(Double.toString(Math.abs(pourcentage)) + " %");
+			if (change instanceof NodeChanged){
+				((NodeChanged) change).setJaccard(pourcentage);
+			}
+			else if (change instanceof TableChange){
+				((TableChange) change).setJaccard(pourcentage);
+			}
 		} else {
-			scores.add(null);
+			if (change instanceof NodeChanged){
+				((NodeChanged) change).setJaccard(null);
+			}
+			else if (change instanceof TableChange){
+				((TableChange) change).setJaccard(null);
+			}
 		}
-		if (doSimitext) {
+		if (simitext) {
 			double similar = Math.abs(similarText(orig, modif));
 			similar = (double) Math.round(similar * 10) / 10;
-			scores.add(Double.toString(similar) + " %");
+			if (change instanceof NodeChanged){
+				((NodeChanged) change).setSimilartext(similar);
+			}
+			else if (change instanceof TableChange){
+				((TableChange) change).setSimilartext(similar);
+			}
 		} else {
-			scores.add(null);
+			if (change instanceof NodeChanged){
+				((NodeChanged) change).setSimilartext(null);
+			}
+			else if (change instanceof TableChange){
+				((TableChange) change).setSimilartext(null);
+			}
 		}
-		if (doSimtextW) {
-			double similar = Math.abs(similarTextword(orig, modif));
-			similar = (double) Math.round(similar * 10) / 10;
-			scores.add(Double.toString(similar) + " %");
-		} else {
-			scores.add(null);
-
+		if(topicModel){
+			if (change instanceof NodeChanged){
+				((NodeChanged) change).setTopicModel(topicmodel(orig,modif));
+			}
+			else if (change instanceof TableChange){
+				((TableChange) change).setTopicModel(topicmodel(orig,modif));
+			}
 		}
-		if (doTF) {
+		else{
+			if (change instanceof NodeChanged){
+				((NodeChanged) change).setTopicModel(null);
+			}
+			else if (change instanceof TableChange){
+				((TableChange) change).setTopicModel(null);
+			}
+		}
+		if (tf) {
 			TFIDFCalculator tfidf = new TFIDFCalculator();
 			List<String> doc1 = Arrays.asList(orig.split(" "));
 			List<String> doc2 = Arrays.asList(modif.split(" "));
@@ -52,19 +98,142 @@ public class Similarity {
 			}
 
 			if (total_positive_tf < 0) {
-				scores.add("0 %");
+				if (change instanceof NodeChanged){
+					((NodeChanged) change).setTf((double) 0);
+				}
+				else if (change instanceof TableChange){
+					((TableChange) change).setTf((double) 0);
+				}
 			}
 			else {
 				double tf_score = (float)(((double)(total_positive_tf) / (double)(doc2.size())) * 100);
-				scores.add(Double.toString(Math.round(tf_score)) + " %");
+				if (change instanceof NodeChanged){
+					((NodeChanged) change).setTf((double) Math.round(tf_score));
+				}
+				else if (change instanceof TableChange){
+					((TableChange) change).setTf((double) Math.round(tf_score));
+				}
 			}
 		}
-		else {
-			scores.add(null);
+
+		else{
+			if (change instanceof NodeChanged){
+				((NodeChanged) change).setTf(null);
+			}
+			else if (change instanceof TableChange){
+				((TableChange) change).setTf(null);
+			}
 		}
-		return scores;
+
+		if (simtextW) {
+			double similar = Math.abs(similarTextword(orig, modif));
+			similar = (double) Math.round(similar * 10) / 10;
+			if (change instanceof NodeChanged){
+				((NodeChanged) change).setSimitextword(similar);
+			}
+			else if (change instanceof TableChange){
+				((TableChange) change).setSimitextword(similar);
+			}
+
+		} else {
+			if (change instanceof NodeChanged){
+				((NodeChanged) change).setSimitextword(null);
+			}
+			else if (change instanceof TableChange){
+				((TableChange) change).setSimitextword(null);
+			}
+
+		}
+		if(topicModel){
+			double topicM=Math.abs(topicmodel(orig,modif));
+			topicM = (double) Math.round(topicM * 10) / 10;
+			if (change instanceof NodeChanged){
+				((NodeChanged) change).setTopicModel(topicM);
+			}
+			else if (change instanceof TableChange){
+				((TableChange) change).setTopicModel(topicM);
+			}
+		}
+		else{
+			if (change instanceof NodeChanged){
+				((NodeChanged) change).setTopicModel(null);
+			}
+			else if (change instanceof TableChange){
+				((TableChange) change).setTopicModel(null);
+			}
+		}
+		return change;
 	}
 
+	private double topicmodel(String orig, String modif) throws IOException {
+		//token etc
+		ArrayList<String> wordsorig = new ArrayList<String>();
+		FileUtil.getlema(orig, wordsorig);
+		String textorig = FileUtil.RemoveNoiseWord(wordsorig);
+		ArrayList<String> wordsmodif = new ArrayList<String>();
+		FileUtil.getlema(modif, wordsmodif);
+		String textmodif = FileUtil.RemoveNoiseWord(wordsmodif);
+		ArrayList<String> keyModif=topicModelList(textmodif);
+		ArrayList<String> keyOrig=topicModelList(textorig);
+
+//		GibbsSamplingLDA lda = new GibbsSamplingLDA("examples\\rawdata_process_lda.txt", "gbk",  50, 0.1,
+//				0.01, 500, 50, "examples\\");
+//		lda.MCMCSampling();
+		TFIDFCalculator tfidf = new TFIDFCalculator();
+		Integer total_positive_tf = 0;
+		for (String term : keyModif) {
+			double tf_value = tfidf.tf(keyOrig, term);
+			if (tf_value > 0) {
+				total_positive_tf++;
+			}
+			else {
+				total_positive_tf--;
+			}
+		}
+		if (total_positive_tf < 0) {
+			return 0;
+
+		}
+		else {
+			double tf_score = (float)(((double)(total_positive_tf) / (double)(keyOrig.size())) * 100);
+			return (double) Math.round(tf_score);
+
+		}
+	}
+	public ArrayList<String> topicModelList(String text) throws IOException {
+		FileWriter writer = new FileWriter("examples\\rawdata_process_lda.txt");
+		writer.write(text + System.lineSeparator());
+		writer.close();
+		BTM btm = new BTM("examples\\rawdata_process_lda.txt", "gbk", 15, 0.1,
+				0.01, 1000, 30, 50, "examples\\");
+		btm.MCMCSampling();
+		BufferedReader reader;
+		ArrayList<String> keyWord=new ArrayList<>();
+		try {
+			reader = new BufferedReader(new FileReader(
+					"examples\\topic_word_BTM_15.txt"));
+			String line = reader.readLine();
+			boolean topic15=false;
+			while (line != null) {
+				if(topic15){
+					keyWord.add(line.split(" ")[0]);
+				}
+				if(line=="Topic:15"){
+					topic15=true;
+				}
+				line = reader.readLine();
+			}
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Files.delete(Path.of("examples\\doc_topic_BTM_15.txt"));
+		Files.delete(Path.of("examples\\rawdata_process_lda.txt"));
+		Files.delete(Path.of("examples\\topic_theta_BTM15.txt"));
+		Files.delete(Path.of("examples\\topic_word_BTM_15.txt"));
+		Files.delete(Path.of("examples\\topic_wordnop_BTM_15.txt"));
+		return keyWord;
+	}
 	public int similarword(String first, String second) {
 		int p, q, l, sum;
 		int pos1 = 0;

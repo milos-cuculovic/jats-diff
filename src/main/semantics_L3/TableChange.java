@@ -2,41 +2,54 @@ package main.semantics_L3;
 
 public class TableChange {
 	private String name;
-	private String jaccard;
-	private String similartext;
-	private String simitextword;
-	private String tf;
+	private Double jaccard;
+	private Double similartext;
+	private Double simitextword;
+
+	public Double getTf() {
+		return tf;
+	}
+
+	public void setTf(Double tf) {
+		this.tf = tf;
+	}
+
+	private Double tf;
+
+	public TableChange() {
+	}
+
+	public Double getTopicModel() {
+		return topicModel;
+	}
+
+	public void setTopicModel(Double topicModel) {
+		this.topicModel = topicModel;
+	}
+
+	private Double topicModel;
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getJaccard() {
+	public Double getJaccard() {
 		return jaccard;
 	}
-	public void setJaccard(String jaccard) {
+	public void setJaccard(Double jaccard) {
 		this.jaccard = jaccard;
 	}
 
-	public String getSimilartext() {
+	public Double getSimilartext() {
 		return similartext;
 	}
-	public void setSimilartext(String similartext) {
+	public void setSimilartext(Double similartext) {
 		this.similartext = similartext;
 	}
-
-	public String getSimitextword() {
+	public Double getSimitextword() {
 		return simitextword;
 	}
-
-	public String getTF() {
-		return tf;
-	}
-	public void setTF(String tf) {
-		this.tf = tf;
-	}
-
 	@Override
 	public String toString() {
 		String retour="";
@@ -51,12 +64,10 @@ public class TableChange {
 		if(simitextword!=null) {
 			retour+="\n            * " + simitextword;
 		}
-		if(tf!=null) {
-			retour+="\n            * " + tf;
-		}
 		return retour;
 	}
-	public void setSimitextword(String simitextword) {
+	public void setSimitextword(Double simitextword) {
 		this.simitextword = simitextword;
 	}
+
 }
