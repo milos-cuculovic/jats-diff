@@ -98,8 +98,8 @@ public class Main {
 					boolean jaccard = false;
 					boolean simtext = false;
 					boolean simtextW = true;
-					boolean modelTopic=false;
-					boolean tf=true;
+					boolean modelTopic=true;
+					boolean tf=false;
 					Similarity sim=new Similarity(jaccard,simtext,simtextW,modelTopic,tf);
 					modif = att.toolChange(bD, sim);
 					modif.sort(Comparator.comparing(NodeChanged::getNodenumberA));

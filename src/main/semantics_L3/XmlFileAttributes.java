@@ -146,9 +146,10 @@ public class XmlFileAttributes {
 		}
 		return "";
 	}
-	public ArrayList<NodeChanged> propSimilarity(ArrayList<NodeChanged> modif, BrowseDelta bd, Similarity sim) throws InputFileException {
+	public ArrayList<NodeChanged> propSimilarity(ArrayList<NodeChanged> modif, BrowseDelta bd, Similarity sim) throws InputFileException, IOException {
 
 		Dtree treeorig = bd.getTreeorig();
+		Dtree treemodif = bd.getTreemodif();
 		ArrayList<NodeChanged> modif1 = new ArrayList<NodeChanged>();
 		for (NodeChanged nc : modif) {
 			if (nc.hasNodeT()) {
@@ -220,7 +221,13 @@ public class XmlFileAttributes {
 								tf = (double) Math.round(tf * 1000) / 10;
 								nCh.setTf(Math.abs(tf));
 							}
+							if(nC.hasTopicmodel()){
+								double tm = nC.getTopicModel();
+								tm = 1 - ((size1 / size2) * (1 - (tm / 100)));
+								tm = (double) Math.round(tm * 1000) / 10;
+								nCh.setTopicModel(Math.abs(tm));
 
+							}
 							nCh.setNodetype(e.getNodeName());
 							nCh.setDepth(Integer.toString(getDepth(e)));
 
@@ -345,7 +352,6 @@ public class XmlFileAttributes {
 						}
 
 						int pap = dnoeud.getPosFather();
-						System.out.println(pap);
 						dnoeud = treeorig.getNode(pap);
 						noeudorig = dnoeud.refDomNode;
 					}

@@ -29,59 +29,56 @@ public class Similarity {
 	}
 
 	public Object score(String orig, String modif,Object change) throws IOException {
+		ObjectChange<Object> change1=new ObjectChange<>();
+		change1.add(change);
+		change1.add(change);
 		if (jaccard) {
 			Jaccard distance = new Jaccard();
 			double jacNum = distance.distance(orig, modif);
 			double pourcentage = (double) ((1 - jacNum) * 100);
 			pourcentage = (double) Math.round(pourcentage * 10) / 10;
-			if (change instanceof NodeChanged){
-				((NodeChanged) change).setJaccard(pourcentage);
-			}
-			else if (change instanceof TableChange){
-				((TableChange) change).setJaccard(pourcentage);
-			}
+			change1.setJaccard(pourcentage);
 		} else {
-			if (change instanceof NodeChanged){
-				((NodeChanged) change).setJaccard(null);
-			}
-			else if (change instanceof TableChange){
-				((TableChange) change).setJaccard(null);
-			}
+			change1.setJaccard(null);
 		}
 		if (simitext) {
 			double similar = Math.abs(similarText(orig, modif));
 			similar = (double) Math.round(similar * 10) / 10;
-			if (change instanceof NodeChanged){
-				((NodeChanged) change).setSimilartext(similar);
-			}
-			else if (change instanceof TableChange){
-				((TableChange) change).setSimilartext(similar);
-			}
+			change1.setSimtext(similar);
+
 		} else {
-			if (change instanceof NodeChanged){
-				((NodeChanged) change).setSimilartext(null);
-			}
-			else if (change instanceof TableChange){
-				((TableChange) change).setSimilartext(null);
-			}
+			change1.setSimtext(null);
 		}
 		if(topicModel){
-			if (change instanceof NodeChanged){
-				((NodeChanged) change).setTopicModel(topicmodel(orig,modif));
-			}
-			else if (change instanceof TableChange){
-				((TableChange) change).setTopicModel(topicmodel(orig,modif));
-			}
+			change1.setTopicModel(topicmodel(orig,modif));
 		}
 		else{
-			if (change instanceof NodeChanged){
-				((NodeChanged) change).setTopicModel(null);
-			}
-			else if (change instanceof TableChange){
-				((TableChange) change).setTopicModel(null);
-			}
+			change1.setTopicModel(null);
+
 		}
 		if (tf) {
+			change1.setTF(tf(orig,modif));
+		}
+
+		else{
+			change1.setTF(null);
+
+		}
+
+		if (simtextW) {
+			double similar = Math.abs(similarTextword(orig, modif));
+			similar = (double) Math.round(similar * 10) / 10;
+			change1.setSimtextWord(similar);
+
+		} else {
+			change1.setSimtextWord(null);
+
+		}
+		return change;
+	}
+	public double tf(String orig,String modif)
+	{
+		{
 			TFIDFCalculator tfidf = new TFIDFCalculator();
 			List<String> doc1 = Arrays.asList(orig.split(" "));
 			List<String> doc2 = Arrays.asList(modif.split(" "));
@@ -98,76 +95,21 @@ public class Similarity {
 			}
 
 			if (total_positive_tf < 0) {
-				if (change instanceof NodeChanged){
-					((NodeChanged) change).setTf((double) 0);
-				}
-				else if (change instanceof TableChange){
-					((TableChange) change).setTf((double) 0);
-				}
+				return (double)0;
+
 			}
 			else {
 				double tf_score = (float)(((double)(total_positive_tf) / (double)(doc2.size())) * 100);
-				if (change instanceof NodeChanged){
-					((NodeChanged) change).setTf((double) Math.round(tf_score));
-				}
-				else if (change instanceof TableChange){
-					((TableChange) change).setTf((double) Math.round(tf_score));
-				}
-			}
-		}
+				return(double) Math.round(tf_score);
 
-		else{
-			if (change instanceof NodeChanged){
-				((NodeChanged) change).setTf(null);
-			}
-			else if (change instanceof TableChange){
-				((TableChange) change).setTf(null);
 			}
 		}
-
-		if (simtextW) {
-			double similar = Math.abs(similarTextword(orig, modif));
-			similar = (double) Math.round(similar * 10) / 10;
-			if (change instanceof NodeChanged){
-				((NodeChanged) change).setSimitextword(similar);
-			}
-			else if (change instanceof TableChange){
-				((TableChange) change).setSimitextword(similar);
-			}
-
-		} else {
-			if (change instanceof NodeChanged){
-				((NodeChanged) change).setSimitextword(null);
-			}
-			else if (change instanceof TableChange){
-				((TableChange) change).setSimitextword(null);
-			}
-
-		}
-		if(topicModel){
-			double topicM=Math.abs(topicmodel(orig,modif));
-			topicM = (double) Math.round(topicM * 10) / 10;
-			if (change instanceof NodeChanged){
-				((NodeChanged) change).setTopicModel(topicM);
-			}
-			else if (change instanceof TableChange){
-				((TableChange) change).setTopicModel(topicM);
-			}
-		}
-		else{
-			if (change instanceof NodeChanged){
-				((NodeChanged) change).setTopicModel(null);
-			}
-			else if (change instanceof TableChange){
-				((TableChange) change).setTopicModel(null);
-			}
-		}
-		return change;
 	}
-
-	private double topicmodel(String orig, String modif) throws IOException {
+	public double topicmodel(String orig, String modif) throws IOException {
 		//token etc
 		ArrayList<String> wordsorig = new ArrayList<String>();
+		orig=sepWord(orig);
+		modif=sepWord(modif);
 		FileUtil.getlema(orig, wordsorig);
 		String textorig = FileUtil.RemoveNoiseWord(wordsorig);
 		ArrayList<String> wordsmodif = new ArrayList<String>();
@@ -175,37 +117,74 @@ public class Similarity {
 		String textmodif = FileUtil.RemoveNoiseWord(wordsmodif);
 		ArrayList<String> keyModif=topicModelList(textmodif);
 		ArrayList<String> keyOrig=topicModelList(textorig);
-
+		System.out.println(keyOrig);
+		System.out.println(keyModif);
 //		GibbsSamplingLDA lda = new GibbsSamplingLDA("examples\\rawdata_process_lda.txt", "gbk",  50, 0.1,
 //				0.01, 500, 50, "examples\\");
 //		lda.MCMCSampling();
 		TFIDFCalculator tfidf = new TFIDFCalculator();
 		Integer total_positive_tf = 0;
+		double score=0;
+		double pourcentage = 0;
 		for (String term : keyModif) {
-			double tf_value = tfidf.tf(keyOrig, term);
-			if (tf_value > 0) {
-				total_positive_tf++;
-			}
-			else {
-				total_positive_tf--;
-			}
-		}
-		if (total_positive_tf < 0) {
+			for(String oriTerm : keyOrig){
+				if(term.equals(oriTerm)){
+					score++;
+					break;
+				}
+			}}
+			pourcentage=score/(double)Math.max(keyModif.size(),keyOrig.size())*100;
+//			double tf_value = tfidf.tf(keyOrig, term);
+//			if (tf_value > 0) {
+//				total_positive_tf++;
+//			}
+//			else {
+//				total_positive_tf--;
+//			}
+
+		return pourcentage;
+	/*	if (total_positive_tf < 0) {
+			System.out.println(total_positive_tf);
 			return 0;
 
 		}
 		else {
 			double tf_score = (float)(((double)(total_positive_tf) / (double)(keyOrig.size())) * 100);
+			System.out.println(total_positive_tf);
+			System.out.println(keyOrig.size());
+			System.out.println(tf_score);
 			return (double) Math.round(tf_score);
 
-		}
+		}*/
+	}
+	public String sepWord(String origormodif){
+		String sentence="";
+		for (String element : origormodif.split(" ")) {
+			if(!isStringUpperCase(element)){
+				String[] listword = element.split("");
+				element=listword[0];
+				for (int i=1;i<listword.length;i++){
+					if(isStringUpperCase(listword[i])){
+						element+=" ";
+					}
+					element+=listword[i];
+				}
+			}
+			sentence+=element+" ";
+	}
+		System.out.println(sentence);
+		return sentence;
 	}
 	public ArrayList<String> topicModelList(String text) throws IOException {
 		FileWriter writer = new FileWriter("examples\\rawdata_process_lda.txt");
+		String[] xmlword={"article","xref", "type", "ref", "rid","aff", "italy"};
+		for (String rep:xmlword){
+			text=text.replaceAll(rep,"");
+		}
 		writer.write(text + System.lineSeparator());
 		writer.close();
 		BTM btm = new BTM("examples\\rawdata_process_lda.txt", "gbk", 15, 0.1,
-				0.01, 1000, 30, 50, "examples\\");
+				0.01, 1000, 50, 50, "examples\\");
 		btm.MCMCSampling();
 		BufferedReader reader;
 		ArrayList<String> keyWord=new ArrayList<>();
@@ -216,9 +195,13 @@ public class Similarity {
 			boolean topic15=false;
 			while (line != null) {
 				if(topic15){
-					keyWord.add(line.split(" ")[0]);
+					if (!line.equals("")){
+					keyWord.add(line.split(" ")[0]);}
+					else{
+						break;
+					}
 				}
-				if(line=="Topic:15"){
+				if(line.contains("Topic:15")){
 					topic15=true;
 				}
 				line = reader.readLine();
@@ -227,12 +210,42 @@ public class Similarity {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Files.delete(Path.of("examples\\doc_topic_BTM_15.txt"));
+		/*Files.delete(Path.of("examples\\doc_topic_BTM_15.txt"));
 		Files.delete(Path.of("examples\\rawdata_process_lda.txt"));
 		Files.delete(Path.of("examples\\topic_theta_BTM15.txt"));
 		Files.delete(Path.of("examples\\topic_word_BTM_15.txt"));
-		Files.delete(Path.of("examples\\topic_wordnop_BTM_15.txt"));
-		return keyWord;
+		Files.delete(Path.of("examples\\topic_wordnop_BTM_15.txt"));*/
+		ArrayList<String> key=new ArrayList<String>();
+		for (String element : keyWord) {
+
+			element=element.replaceAll("-","");
+			element=element.replaceAll("article","");
+			element=element.replaceAll("[0-9]", "");
+			element = element.replaceAll("[^a-zA-Z0-9]", "");
+
+			// If this element is not present in newList
+			// then add it
+			for (String word : element.split("\\s+")) {
+				if (!key.contains(element)) {
+					key.add(element);
+				}
+			}
+		}
+		return key;
+	}
+	private static boolean isStringUpperCase(String str){
+
+		//convert String to char array
+		char[] charArray = str.toCharArray();
+
+		for(int i=0; i < charArray.length; i++){
+
+			//if any character is not in upper case, return false
+			if( !Character.isUpperCase( charArray[i] ))
+				return false;
+		}
+
+		return true;
 	}
 	public int similarword(String first, String second) {
 		int p, q, l, sum;
