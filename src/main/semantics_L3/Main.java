@@ -29,7 +29,6 @@ public class Main {
 
 		String filesParam = null;
 		String[] filesList = null;
-		boolean fileExists;
 		boolean doDiff = false;
 		boolean doSemantics = false;
 

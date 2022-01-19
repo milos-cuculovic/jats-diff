@@ -20,13 +20,9 @@
 package main.diff_L1_L2.ui;
 
 import gnu.getopt.Getopt;
-import main.diff_L1_L2.core.Ndiff;
 import main.diff_L1_L2.exceptions.ParametersException;
-import main.diff_L1_L2.ui.i18n.MessageHandler;
-import org.apache.log4j.Logger;
 
 import java.io.File;
-import java.text.MessageFormat;
 
 /**
  * @author Cesare Jacopo Corzani
@@ -39,7 +35,6 @@ public class ParametersHandler {
 	public static final int DIFF_MERGE = 3;
 
 	public static final int NO_OPERATION = 0;
-	//private static final MessageHandler messages = new MessageHandler("textUI");
 
 	public static void checkParameters(Parameters params)
 			throws ParametersException {
@@ -192,7 +187,6 @@ public class ParametersHandler {
 	public static Parameters getParameters(String args[])
 			throws ParametersException {
 
-		Logger logger = Logger.getLogger(ParametersHandler.class);
 		Parameters params = new Parameters();
 
 
@@ -229,11 +223,8 @@ public class ParametersHandler {
 				break;
 			case 'h':
 				throw new ParametersException(getUsage());
-			//
 			case '?':
 			default:
-				//throw new ParametersException(
-				//		messages.getString("ParametersHandler.INVALID_PARAMETERS"));
 			}
 		}
 
@@ -246,16 +237,12 @@ public class ParametersHandler {
 				if (!params.isMerge()) {
 					params.setDeltaPath(args[args.length - 1]);
 				} else {
-
 					params.setMarkupPath(args[args.length - 1]);
-
 				}
 				if (params.isDiff()) {
 					params.setModifiedPath(args[args.length - 2]);
 				} else {
-
 					params.setDeltaPath(args[args.length - 2]);
-
 				}
 				params.setOriginalPath(args[args.length - 3]);
 
@@ -267,33 +254,12 @@ public class ParametersHandler {
 					params.setDeltaPath(args[args.length - 1]);
 				} else {
 					params.setModifiedPath(args[args.length - 1]);
-
 				}
-
 				break;
-
 			}
-
 		}
 		else
 			throw new ParametersException("Invalid parameters number");
-			//throw new ParametersException(
-			//		messages.getString("ParametersHandler.NUM_PARAMS_ERR"));
-
-		// Stampo i parametri
-		//logger.debug(messages.getString("Config path")
-		//		+ ((params.getConfigPath() == null) ? "null" : params
-		//				.getConfigPath()));
-		logger.debug("Diff=" + params.isDiff());
-		logger.debug("Merge=" + params.isMerge());
-		logger.debug("Stdout=" + params.isStdout());
-		logger.debug("Xslt=" + params.isXslt());
-		logger.debug("Original file path=" + params.getOriginalPath());
-		logger.debug("Modified file path" + params.getModifiedPath());
-		logger.debug("Delta file path=" + params.getDeltaPath());
-		logger.debug("Markup file path" + params.getMarkupPath());
-		logger.debug("Xslt file path=" + params.getXsltPath());
-		logger.debug("Xslt output file=" + params.getXsltOutputPath());
 
 		return params;
 
@@ -309,10 +275,6 @@ public class ParametersHandler {
 	public static String getUsage() {
 
 		String usage = "";
-		//	MessageFormat.format(messages.getString("ParametersHandler.USAGE"), Ndiff.getNdiffVersion()
-		//		);
-
 		return usage;
 	}
-
 }

@@ -32,8 +32,6 @@ import main.diff_L1_L2.relation.Field;
 import main.diff_L1_L2.relation.NxN;
 import main.diff_L1_L2.relation.Relation;
 import main.diff_L1_L2.ui.ParametersHandler;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -41,7 +39,6 @@ import java.nio.file.Paths;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.File;
 import java.io.PrintStream;
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.Charset;
@@ -154,18 +151,6 @@ public class Ndiff {
         Relation R;
         METAdelta Delta;
 
-        // Initialize data structures
-        Logger.getLogger("vdom.diffing.Dtree").setLevel(Level.ERROR);
-        Logger.getLogger("ndiff.TXTdiff").setLevel(Level.ERROR);
-        Logger.getLogger("ndiff.relation.NxN").setLevel(Level.ERROR);
-        Logger.getLogger("ndiff.phases.Partition").setLevel(Level.ERROR);
-        Logger.getLogger("ndiff.phases.FindMove").setLevel(Level.ERROR);
-        Logger.getLogger("ndiff.phases.FindUpdate").setLevel(Level.ERROR);
-        Logger.getLogger("ndiff.phases.Propagation").setLevel(Level.ERROR);
-        Logger.getLogger("ndiff.phases.DeltaDerive").setLevel(Level.ERROR);
-        Logger.getLogger("ndiff.delta.DeltaBuilder").setLevel(Level.ERROR);
-
-        // logger.info("START");
         // Nconfig parameters
         boolean ltrim = config.getBoolPhaseParam(Nconfig.Normalize, "ltrim");
         boolean rtrim = config.getBoolPhaseParam(Nconfig.Normalize, "rtrim");
@@ -185,38 +170,24 @@ public class Ndiff {
         // Construction of the data structure for comparison, with or without
         // using threads
         if (enableThread) {
-
             Dtree[] tempTree = (new ThreadedBuildDtree()).getDTree(URIdocA,
                     URIdocB, ltrim, rtrim, collapse, emptynode, commentNode);
 
             Dtree[] tempTreeTmp = (new ThreadedBuildDtree()).getDTree(URIdocATmp,
                     URIdocBTmp, ltrim, rtrim, collapse, emptynode, commentNode);
 
-//			a = tempTree[0];
-//			b = tempTree[1];
             a = tempTreeTmp[0];
             b = tempTreeTmp[1];
 
         } else {
-
-//			a = new Dtree(URIdocA, ltrim, rtrim, collapse, emptynode,
-//				commentNode);
-//
-//			b = new Dtree(URIdocB, ltrim, rtrim, collapse, emptynode,
-//				commentNode);
             a = new Dtree(URIdocATmp, ltrim, rtrim, collapse, emptynode,
                     commentNode);
 
             b = new Dtree(URIdocBTmp, ltrim, rtrim, collapse, emptynode,
                     commentNode);
         }
-        File URIdocATmpObj = new File(URIdocATmp);
-        File URIdocBTmpObj = new File(URIdocBTmp);
-        //URIdocATmpObj.delete();
-        //URIdocBTmpObj.delete();
 
         SearchField = new NxN(a.count() - 1, b.count() - 1);
-//		SearchFieldTmp = new NxN(aTmp.count() - 1, bTmp.count() - 1);
         R = new Relation();
 
         Debug.diffing_normalize(a, b, R, SearchField);
@@ -224,18 +195,19 @@ public class Ndiff {
         // The root must be the same
         SearchField.subPoint(0, 0, Field.LOCALITY, Field.LOCALITY,
                 Field.LOCALITY, Field.LOCALITY);
-//		SearchFieldTmp.subPoint(0, 0, Field.LOCALITY, Field.LOCALITY,
-//			Field.LOCALITY, Field.LOCALITY);
         R.addFragment(0, 0, 1, Relation.EQUAL);
         a.getNode(0).inRel = Relation.EQUAL;
         b.getNode(0).inRel = Relation.EQUAL;
 
         // Calculation in different phases
-//		new Partition(SearchFieldTmp, R, aTmp, bTmp, config).compute();
         new Partition(SearchField, R, a, b, config).compute();
 
         Debug.diffing_partition(a, b, R, SearchField);
 
+        PhaseBuilder.build(SearchField, R, a, b, config,
+                "<", "=");
+
+        /**
         for (int i = 0; i < config.phasesOrder.size(); i++) {
             switch (config.phasesOrder.get(i)) {
 
@@ -331,6 +303,7 @@ public class Ndiff {
                     break;
             }
         }
+         */
 
         // Derivazione del delta
         Delta = new DeltaDerive(SearchField, R, a, b, config).derive();
@@ -342,8 +315,6 @@ public class Ndiff {
          */
         return Delta.transformToXML(config);
     }
-
-    Logger logger = Logger.getLogger(getClass());
 
     Nconfig config = null;
 
@@ -385,7 +356,7 @@ public class Ndiff {
 
     /**
      *
-     * @param fileName
+     * @param filePath
      * @return
      */
     public static String getFileContents(String filePath) {
@@ -410,10 +381,6 @@ public class Ndiff {
     public static String putFileContents(String contents, String filePath, Boolean excludeStyleTag, Boolean excludeXrefTag) {
 
         try {
-
-//			contents = contents.replaceAll("(?<=\\>)[\n\r]\t+", " ");
-//			contents = contents.replaceAll("[\n\r]\t+(?=\\<)", " ");
-//			contents = contents.replaceAll("[\n\r]\t+", " ");
             contents = contents.replaceAll("[\n\r]", "");
 
             Path p = Paths.get(filePath);
@@ -467,7 +434,6 @@ public class Ndiff {
     /**
      *
      * @param contents
-     * @param filePath file name
      *
      * @return
      *
@@ -491,7 +457,6 @@ public class Ndiff {
     /**
      *
      * @param contents
-     * @param filePath file name
      *
      * @return
      *
@@ -499,7 +464,6 @@ public class Ndiff {
     public static String encodeXrefTags(String contents) {
 
         try {
-
             //NOTE: additional encode xref
             contents = contents.replaceAll("(-\\|xref)(.*?)(\\|-)", "<xref$2>");
             contents = contents.replaceAll("(-\\|xref\\|-)", "<xref>");

@@ -56,8 +56,6 @@ public abstract class Phase {
 	 *            - Dtree A
 	 * @param Tb
 	 *            - Dtree B
-	 * @param cfg
-	 *            - Configurazione
 	 */
 	Phase(NxN SearchField, Relation Rel, Dtree Ta, Dtree Tb, Nconfig config) {
 		SF = SearchField;
@@ -75,6 +73,6 @@ public abstract class Phase {
 	 *             Solleva l'eccezione nel caso si abbia un'errore durante la
 	 *             fase
 	 */
-	abstract void compute() throws ComputePhaseException;
+	protected abstract void compute() throws ComputePhaseException;
 
 }

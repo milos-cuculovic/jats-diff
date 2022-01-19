@@ -25,24 +25,16 @@ import main.diff_L1_L2.core.Ndiff;
 import main.diff_L1_L2.exceptions.ComputePhaseException;
 import main.diff_L1_L2.exceptions.InputFileException;
 import main.diff_L1_L2.exceptions.OutputFileException;
-import org.apache.log4j.Logger;
-import java.io.StringReader;
 import java.io.StringWriter;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
-import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.apache.commons.lang.StringEscapeUtils;
 
 public class OperationsHandler {
 
@@ -59,7 +51,6 @@ public class OperationsHandler {
                 params.getModifiedPath(), new Nconfig(params.getConfigPath()));
 
         if (params.getDeltaPath() == null || params.isStdout()) {
-//			document.writeToStream(System.out); //original output in jats-diff uncomment this if need)
             String results = documentToString(document); ////added
             //results = Ndiff.encodeTags(results);
 //			logger.info(StringEscapeUtils.unescapeHtml(results)); //added becasue need decode tags vs without stringEscapeUtils.unescapeHtml
@@ -75,7 +66,6 @@ public class OperationsHandler {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
     }
 
@@ -83,7 +73,6 @@ public class OperationsHandler {
             throws InputFileException, OutputFileException,
             ComputePhaseException, FileNotFoundException {
 
-        Logger logger = Logger.getLogger(OperationsHandler.class);
         try {
             switch (ParametersHandler.getOperation(params.isDiff(),
                     params.isMerge())) {
@@ -93,22 +82,18 @@ public class OperationsHandler {
                     break;
             }
         } catch (InputFileException e) {
-            logger.fatal("Error in the input file", e);
             throw e;
 
         } catch (OutputFileException e) {
-            logger.fatal("Error in the output file", e);
             throw e;
 
         } catch (ComputePhaseException e) {
-            logger.fatal("Error processing a phase", e);
             throw e;
         }
     }
 
     public static String documentToString(DOMDocument document) {
         try {
-
             TransformerFactory tf = TransformerFactory.newInstance();
             Transformer trans = tf.newTransformer();
             StringWriter sw = new StringWriter();

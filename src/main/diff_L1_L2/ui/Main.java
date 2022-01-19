@@ -20,7 +20,6 @@
 package main.diff_L1_L2.ui;
 
 import main.diff_L1_L2.exceptions.ParametersException;
-import org.apache.log4j.xml.DOMConfigurator;
 import java.net.URL;
 
 /**
@@ -41,9 +40,6 @@ public class Main {
 	 */
 	public void main(String args[]) {
 
-		URL u = getClass().getClassLoader().getResource("log4j.xml");
-		DOMConfigurator.configure(u);
-
 		if (args.length == 0) {
 			System.exit(1);
 		}
@@ -59,7 +55,10 @@ public class Main {
 		}
 
 		try {
+			long start = System.nanoTime();
 			OperationsHandler.doOperation(params);
+			long elapsedTime = System.nanoTime() - start;
+			System.out.println("Total time elapsed: " + elapsedTime);
 		} catch (Exception e) {
 			e.printStackTrace(System.out);
 		}

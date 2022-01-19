@@ -22,53 +22,28 @@ package main.diff_L1_L2.phases;
 import main.diff_L1_L2.vdom.diffing.Dtree;
 import main.diff_L1_L2.core.Nconfig;
 import main.diff_L1_L2.exceptions.ComputePhaseException;
-import main.diff_L1_L2.relation.Field;
 import main.diff_L1_L2.relation.Interval;
 import main.diff_L1_L2.relation.NxN;
 import main.diff_L1_L2.relation.Relation;
 import org.w3c.dom.Node;
-import org.w3c.dom.Element;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.StringUtils;
 import java.util.Vector;
-import java.util.HashMap;
-import java.util.Map;
-import main.diff_L1_L2.phases.common.Match;
-import org.w3c.dom.ls.DOMImplementationLS;
-import org.w3c.dom.DOMImplementation;
-import org.w3c.dom.ls.LSOutput;
-import org.w3c.dom.ls.LSSerializer;
-import java.util.Collections;
 import java.util.Iterator;
-import main.diff_L1_L2.vdom.Vnode;
 import main.diff_L1_L2.vdom.diffing.Dnode;
-import main.diff_L1_L2.relation.Fragment;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
-import java.util.regex.MatchResult;
-import main.diff_L1_L2.phases.MoveTextVO;
-import com.github.difflib.DiffUtils;
-import com.github.difflib.patch.AbstractDelta;
-import com.github.difflib.patch.Patch;
-import com.github.difflib.patch.Chunk;
-import main.diff_L1_L2.vdom.diffing.Hash;
 import main.diff_L1_L2.core.Ndiff;
-import static main.diff_L1_L2.core.Ndiff.EXCLUDE_STYLE_TAG;
-import main.diff_L1_L2.metadelta.METAdelta;
-import main.diff_L1_L2.vo.NodeHandler;
-import main.diff_L1_L2.vo.StyleMatcherData;
 import main.diff_L1_L2.vo.MoveText;
 import main.diff_L1_L2.vo.MoveTextData;
 import main.diff_L1_L2.vo.NodeDeltaStyle;
 import main.diff_L1_L2.vo.TextChange;
 import main.diff_L1_L2.vo.TextChangeData;
 import java.util.ListIterator;
+import com.github.difflib.DiffUtils;
+import com.github.difflib.patch.AbstractDelta;
+import com.github.difflib.patch.Patch;
 
 /**
  * @author Sasa Simic
@@ -81,10 +56,7 @@ public class FindTextChangeStyle extends Phase {
     public List<List<Dnode>> foundNodeUpdate = new ArrayList<>();
     public List<Dnode> foundNodeInsert = new ArrayList<>();
     public List<Dnode> foundNodeDelete = new ArrayList<>();
-    //define two temporary list of AbstracDelta object for compare text
-//	List<NodeDelta> textDataInsertTmp = new ArrayList<>();
-//	List<NodeDelta> textDataDeleteTmp = new ArrayList<>();
-//	List<NodeDelta> textDataChangeTmp = new ArrayList<>();
+
     MoveTextData moveTextData = new MoveTextData();
     public int maxSimilarity;
     TextChangeData textChangeData;
@@ -112,24 +84,17 @@ public class FindTextChangeStyle extends Phase {
     public void compute() throws ComputePhaseException {
         try {
             textChangeData = TextChangeData.getInstance();
-            logger.info("START FIND STYLE CHANGES");
             findStyleChanges();
-            logger.info("END");
         } catch (Exception e) {
-            logger.error("ERROR LINE: " + e.getStackTrace()[0].getLineNumber() + " Message: " + e.getMessage());
             e.printStackTrace();
             System.exit(0);
-
         }
     }
 
     protected void findStyleChanges() {
         try {
-
             //call function initChanges prepare three list foundNodeUpdate/foundNodeInsert/foundNodeDelete
             this.initChanges();
-            //show|hide debug info about changes
-//			this.debugChanges();
 
             //observe changes in the text - updates (style, for update points no insert or delete node)
             this.getTextStyleChanges();
@@ -138,8 +103,6 @@ public class FindTextChangeStyle extends Phase {
 
             //set text change fragments
             this.setTextChangeFragment();
-
-//			System.exit(0);
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
@@ -155,12 +118,9 @@ public class FindTextChangeStyle extends Phase {
                 toProcess = dom.get(i);
 
                 for (int k = toProcess.inf; k <= toProcess.sup; k++) {
-//                    if (k + A.getNode(k).getNumChildSubtree() <= toProcess.sup) {
                     if (A.getNode(k).refDomNode.getNodeType() == Node.TEXT_NODE) {
                         foundNodeDelete.add(A.getNode(k));
-//						logger.info(A.getNode(k).hashTree + " " + A.getNode(k).hashNode + " A DELETE" + A.getNode(k).refDomNode);
                     }
-//					k += A.getNode(k).getNumChildSubtree();
                 }
             }
 
@@ -170,12 +130,9 @@ public class FindTextChangeStyle extends Phase {
                 toProcess = cod.get(i);
 
                 for (int k = toProcess.inf; k <= toProcess.sup; k++) {
-//                    if (k + B.getNode(k).getNumChildSubtree() <= toProcess.sup) {
                     if (B.getNode(k).refDomNode.getNodeType() == Node.TEXT_NODE) {
                         foundNodeInsert.add(B.getNode(k));
-//						logger.info(B.getNode(k).hashTree + " " + B.getNode(k).hashNode + " B INSERT" + B.getNode(k).refDomNode);
                     }
-//					k += B.getNode(k).getNumChildSubtree();
                 }
             }
 
@@ -192,10 +149,8 @@ public class FindTextChangeStyle extends Phase {
                     for (int j = 0; j < foundNodeInsert.size(); j++) {
 
                         if (foundNodeInsert.get(j).refDomNode.getNodeType() == Node.TEXT_NODE) {
-
                             int tmpSimilarity = foundNodeDelete.get(i).getSimilarity(foundNodeInsert.get(j));
                             if (tmpSimilarity > maxSimilarity) {
-
                                 maxSimilarity = tmpSimilarity;
                                 tmpAUpdate = foundNodeDelete.get(i);
                                 tmpBUpdate = foundNodeInsert.get(j);
@@ -203,11 +158,9 @@ public class FindTextChangeStyle extends Phase {
                             }
                         }
                     }
-
                 }
                 //prepare update list in list nodes
                 if (detectUpdate == Boolean.TRUE) {
-
                     removeDeleteTmp.add(tmpAUpdate);
                     removeInsertTmp.add(tmpBUpdate);
                     List<Dnode> tmpList = new ArrayList<>();
@@ -245,8 +198,6 @@ public class FindTextChangeStyle extends Phase {
 
         // For each foundNodeUpdate:
         for (int i = 0; i < foundNodeUpdate.size(); i++) {
-//			Dnode aT = foundNodeUpdate.get(i).get(0);
-//			Dnode bT = foundNodeUpdate.get(i).get(1);
             Dnode a = A.getNode(foundNodeUpdate.get(i).get(0).getIndexKey());
             Dnode b = B.getNode(foundNodeUpdate.get(i).get(1).getIndexKey());
             String aText = a.refDomNode.getTextContent(); //.replaceAll("\n\r", "").replaceAll("\n", "").replaceAll("\r", "");
@@ -258,8 +209,6 @@ public class FindTextChangeStyle extends Phase {
 
             String patterOpenTags = Ndiff.prepareRexExpPaternAsString(false);
             String patterCloseTags = Ndiff.prepareRexExpPaternAsString(true);
-//			List<String> listOfTextA = new ArrayList<String>(Arrays.asList(aText.split("_\\|\\|_")));
-//			List<String> listOfTextB = new ArrayList<String>(Arrays.asList(bText.split("_\\|\\|_")));
             listOfTextA = this.tuneUpListOfText(listOfTextA, patterOpenTags, patterCloseTags, 0);
             listOfTextB = this.tuneUpListOfText(listOfTextB, patterOpenTags, patterCloseTags, 0);
             //use java-diff-utils to try find changes in text (return type action CHANGE, INSERT, DELETE position, source text, target text
