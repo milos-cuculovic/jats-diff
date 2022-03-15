@@ -8,14 +8,12 @@ import main.diff_L1_L2.vdom.diffing.Dtree;
 
 public class PhaseBuilder {
 
-    protected String depth_rel_AtoB, node_rel;
-
     public static void build(NxN SearchField, Relation Rel, Dtree Ta, Dtree Tb, Nconfig config,
-                     String depth_relation_AtoB, String node_relation) throws ComputePhaseException {
+                     String depth_relation_AtoB, String content_relation_AtoB) throws ComputePhaseException {
         try {
             System.out.println("Start phase build");
-            new PhaseCalculator(SearchField, Rel, Ta, Tb, config, depth_relation_AtoB, node_relation).compute();
-            //new Propagation(SearchField, Rel, Ta, Tb, config).compute();
+            new PhaseCalculator(SearchField, Rel, Ta, Tb, config, depth_relation_AtoB, content_relation_AtoB).compute();
+            new Propagation(SearchField, Rel, Ta, Tb, config).compute();
 
         } catch (Exception e) {
             throw new ComputePhaseException("PhaseBuilder");

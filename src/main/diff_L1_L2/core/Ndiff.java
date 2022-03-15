@@ -207,6 +207,8 @@ public class Ndiff {
         PhaseBuilder.build(SearchField, R, a, b, config,
                 "<", "=");
 
+        //new Propagation(SearchField, R, a, b, config).compute();
+
         /**
         for (int i = 0; i < config.phasesOrder.size(); i++) {
             switch (config.phasesOrder.get(i)) {
