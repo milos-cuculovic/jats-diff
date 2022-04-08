@@ -335,6 +335,7 @@ public class SOperation extends Operation {
                 newOp.setAttribute(OPERATION_ATTR, SPLITEDFROM_VALUE);
                 newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
+                break;
 
             //UPGRADE
             case UPGRADE_TO:
