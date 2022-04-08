@@ -8,9 +8,9 @@ jats-diff is an XML diff algorithm able to detect level 1, 2 and 3 edits while c
 Although being a generic XML diff algorithm, jats-diff was mainly tested on comparing JATS XML documents (acdemic journal articles).
 
 Beside the basic Level 1 edits detection: text INSERT, text DELETE, tree INSERT, tree DELETE and tree attribute change, 
-algorithm also supports Level 2 edits: text UPDATE, text MOVE, tree MOVE, tree UPGRADE, tree DOWNGRADE, tree SPLIT, tree MERGE, style INSERT, style DELETE, style type UPDATE and style content UPDATE.
+jats-diff also supports Level 2 edits: text UPDATE, text MOVE, tree MOVE, tree UPGRADE, tree DOWNGRADE, tree SPLIT, tree MERGE, style INSERT, style DELETE, style type UPDATE and style content UPDATE.
 
-In addition to the Level 2 edit patterns detection, this tool also supports change semantics detection and calculates the similarity indexes between different XML nodes. We call this being Level 3 edits.
+In addition to the Level 2 edit patterns detection, jats-diff also supports change semantics detection and calculates the similarity indexes between different XML nodes. We call this being Level 3 edits.
 
 In order to run the tool, you can do it by running the source code in your favourite IDE, or download and run the available jar file: https://github.com/milos-cuculovic/jats-diff/blob/master/jats-diff.jar.
 
@@ -21,7 +21,6 @@ The jar file can be run in the following way:
     java -jar jats-diff.jar -L all orig.xml new.xml delta.xml semantics.xml
 
 * -L can have the following values:
-
   * diff: for Level 1 and Level 2 edits
   * semantics: for Level 3 edits
   * all: do both, diff and semantics
