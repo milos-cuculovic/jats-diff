@@ -87,7 +87,7 @@ public class SOperation extends Operation {
     public static final String ID_ATTR = "id";
     public static final String IDREF_ATTR = "idref";
     public static final String OPERATION_ATTR = "op";
-    public static final String MOVEID_ATTR = "move";
+    public static final String DIRECTION_ATTR = "direction";
     public static final String MERGEID_ATTR = "merge";
     public static final String SPLITID_ATTR = "split";
     public static final String UPGRADEID_ATTR = "upgrade";
@@ -230,7 +230,7 @@ public class SOperation extends Operation {
                 }
                 newOp.setAttribute(NODECOUNT_ATTR,
                         ((Integer) (nodeA.numChildSubtree + 1)).toString());
-                newOp.setAttribute(MOVEID_ATTR, IDmove);
+                newOp.setAttribute(DIRECTION_ATTR, IDmove);
                 newOp.setAttribute(OPERATION_ATTR, MOVEDTO_VALUE);
                 newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
@@ -247,7 +247,7 @@ public class SOperation extends Operation {
                 newOp.setAttribute(AT_ATTR, nodeB.posFather.toString());
                 newOp.setAttribute(POS_ATTR, nodeB.posLikeChild.toString());
                 newOp.setAttribute(NODECOUNT_ATTR, nodeB.numChildSubtree.toString());
-                newOp.setAttribute(MOVEID_ATTR, IDmove);
+                newOp.setAttribute(DIRECTION_ATTR, IDmove);
                 newOp.setAttribute(OPERATION_ATTR, MOVEDFROM_VALUE);
                 newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
@@ -269,7 +269,7 @@ public class SOperation extends Operation {
                 }
                 newOp.setAttribute(AT_ATTR, nodeB.posFather.toString());
                 newOp.setAttribute(POS_ATTR, nodeB.posLikeChild.toString());
-                newOp.setAttribute(ID_ATTR, IDmerge);
+                newOp.setAttribute(DIRECTION_ATTR, IDmerge);
                 newOp.setAttribute(OPERATION_ATTR, MERGEDTO_VALUE);
                 newOp.appendChild(Ndelta.DOM.importNode(nodeB.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
@@ -289,7 +289,7 @@ public class SOperation extends Operation {
                     }
                     newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                 }
-                newOp.setAttribute(ID_ATTR, IDmerge);
+                newOp.setAttribute(DIRECTION_ATTR, IDmerge);
                 newOp.setAttribute(OPERATION_ATTR, MERGEDFROM_VALUE);
                 newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
@@ -311,7 +311,7 @@ public class SOperation extends Operation {
                 }
                 newOp.setAttribute(AT_ATTR, nodeB.posFather.toString());
                 newOp.setAttribute(POS_ATTR, nodeB.posLikeChild.toString());
-                newOp.setAttribute(ID_ATTR, IDsplit);
+                newOp.setAttribute(DIRECTION_ATTR, IDsplit);
                 newOp.setAttribute(OPERATION_ATTR, SPLITEDTO_VALUE);
                 newOp.appendChild(Ndelta.DOM.importNode(nodeB.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
@@ -331,7 +331,7 @@ public class SOperation extends Operation {
                     }
                     newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                 }
-                newOp.setAttribute(ID_ATTR, IDsplit);
+                newOp.setAttribute(DIRECTION_ATTR, IDsplit);
                 newOp.setAttribute(OPERATION_ATTR, SPLITEDFROM_VALUE);
                 newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
                 Ndelta.root.appendChild(newOp);
@@ -451,9 +451,8 @@ public class SOperation extends Operation {
                     if (nodeB != null) {
                         newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                     }
-                    newOp.setAttribute(NODECOUNT_ATTR, ((Integer) (nodeB.numChildSubtree + 1)).toString());
                     newOp.setAttribute(OPERATION_ATTR, INSERTSTYLE_VALUE);
-                    newOp.setAttribute("text-position-insert-tag", textChange.getPositionTo().toString());
+                    newOp.setAttribute("pos", textChange.getPositionTo().toString());
                     newOp.appendChild(Ndelta.DOM.createTextNode(textChange.getTextTarget()));
                     Ndelta.root.appendChild(newOp);
                     textChangeData.remove(textChange);
@@ -470,9 +469,8 @@ public class SOperation extends Operation {
                     if (nodeB != null) {
                         newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                     }
-                    newOp.setAttribute(NODECOUNT_ATTR, ((Integer) (nodeA.numChildSubtree + 1)).toString());
                     newOp.setAttribute(OPERATION_ATTR, DELETESTYLE_VALUE);
-                    newOp.setAttribute("text-position-delete-tag", textChange.getPositionFrom().toString());
+                    newOp.setAttribute("pos", textChange.getPositionFrom().toString());
                     newOp.appendChild(Ndelta.DOM.createCDATASection(textChange.getTextSource()));
                     Ndelta.root.appendChild(newOp);
                     textChangeData.remove(textChange);
@@ -489,9 +487,8 @@ public class SOperation extends Operation {
                     if (nodeB != null) {
                         newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                     }
-                    newOp.setAttribute(NODECOUNT_ATTR, ((Integer) (nodeB.numChildSubtree + 1)).toString());
                     newOp.setAttribute(OPERATION_ATTR, UPDATESTYLE_VALUE_TO);
-                    newOp.setAttribute("text-position-update-tag", textChange.getPositionTo().toString());
+                    newOp.setAttribute("pos", textChange.getPositionTo().toString());
                     newOp.appendChild(Ndelta.DOM.createCDATASection(textChange.getTextTarget()));
                     Ndelta.root.appendChild(newOp);
                     textChangeData.remove(textChange);
@@ -508,9 +505,8 @@ public class SOperation extends Operation {
                     if (nodeB != null) {
                         newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                     }
-                    newOp.setAttribute(NODECOUNT_ATTR, ((Integer) (nodeA.numChildSubtree + 1)).toString());
                     newOp.setAttribute(OPERATION_ATTR, UPDATESTYLE_VALUE_FROM);
-                    newOp.setAttribute("text-position-update-tag", textChange.getPositionFrom().toString());
+                    newOp.setAttribute("pos", textChange.getPositionFrom().toString());
                     newOp.appendChild(Ndelta.DOM.createCDATASection(textChange.getTextSource()));
                     Ndelta.root.appendChild(newOp);
                     textChangeData.remove(textChange);
