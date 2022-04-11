@@ -61,7 +61,6 @@ public class SOperation extends Operation {
     public static final String DELETE_STYLE_ELEMENT = "text-style-delete";
     public static final String UPDATE_STYLE_ELEMENT = "text-style-update";
 
-    public static final String NODE_NAME_ATTR = "nodename";
     public static final String AT_ATTR = "at";
     public static final String NODECOUNT_ATTR = "nodecount";
     public static final String POS_ATTR = "pos";
@@ -144,7 +143,6 @@ public class SOperation extends Operation {
                 }
                 newOp.setAttribute(AT_ATTR, nodeB.posFather.toString());
                 newOp.setAttribute(POS_ATTR, nodeB.posLikeChild.toString());
-                newOp.setAttribute(NODE_NAME_ATTR, nodeB.refDomNode.getNodeName());
                 newOp.setAttribute(CHILDREN_ATTR, ((Integer) (nodeB.refDomNode
                         .getChildNodes().getLength() - nodeB.insOnMe)).toString());
                 newOp.appendChild(Ndelta.DOM.importNode(nodeB.refDomNode, false));
@@ -173,7 +171,6 @@ public class SOperation extends Operation {
                 if (nodeB != null) {
                     newOp.setAttribute(NODE_NUMBER_B_ATTR, nodeB.indexKey.toString());
                 }
-                newOp.setAttribute(NODE_NAME_ATTR, nodeA.refDomNode.getNodeName());
                 newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, false));
                 Ndelta.root.appendChild(newOp);
                 break;
