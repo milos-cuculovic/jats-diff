@@ -95,12 +95,12 @@ public class Main {
 
 					ArrayList<NodeChanged> modif = null;
 
-					boolean jaccard = false;
-					boolean simtext = false;
-					boolean simtextW = true;
-					boolean modelTopic=true;
-					boolean tf=false;
-					Similarity sim=new Similarity(jaccard,simtext,simtextW,modelTopic,tf);
+					boolean jaccard 	= true;
+					boolean simtext 	= false;
+					boolean simtextW 	= true;
+					boolean topicModel	= false;
+					boolean tf			= false;
+					Similarity sim=new Similarity(jaccard,simtext,simtextW,topicModel,tf);
 					modif = att.toolChange(bD, sim);
 					modif.sort(Comparator.comparing(NodeChanged::getNodenumberA));
 					File semantics = new File(fileSplit[3]);
