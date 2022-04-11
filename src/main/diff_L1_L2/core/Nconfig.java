@@ -92,7 +92,6 @@ public class Nconfig {
                     if (slice.getNodeName().equals("phases")) {
                         parseParamPhases(slice);
                     }
-
                 }
 
             } else {

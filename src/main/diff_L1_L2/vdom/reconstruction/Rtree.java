@@ -471,46 +471,6 @@ public class Rtree extends Vtree<Rnode> {
 	}
 
 	/**
-	 * Remove the node with the specified key
-	 * 
-	 * @param nn
-	 *            Key of the node to be removed. node's children will be
-	 *            adopted by the node's parent
-	 */
-	public void UNWRAP(Integer nodenumber, String nodename) {
-
-		System.out.println(" UNWRAP nn:" + nodenumber + "(" + (nodenumber - nodeDeleted) + ")");
-
-		nodenumber -= nodeDeleted;
-		nodeDeleted++;
-
-		Node removeNode = getNode(nodenumber).getRefDomNode();
-		Node father = removeNode.getParentNode();
-		
-		//creating markup node
-		Element markupFather = DOM.createElement(SOperation.UNWRAP_ELEMENT);
-		markupFather.setPrefix(NDIFF_PREFIX);
-		markupFather.setAttribute(Operation.NODE_NUMBER_A_ATTR, nodenumber.toString() );
-		markupFather.setAttribute(Operation.NODE_NUMBER_B_ATTR, nodenumber.toString() );
-		markupFather.setAttribute(SOperation.NODE_NAME_ATTR, nodename );
-
-		//inserting markup node in the document
-		father.insertBefore(markupFather, removeNode);
-		
-		while (removeNode.hasChildNodes()) {
-			Node insertedNode = father.insertBefore(removeNode.getFirstChild(), removeNode);
-			markupFather.appendChild(insertedNode);
-		}
-		
-		father.removeChild(removeNode);
-
-		subNodeList(nodenumber, 1);
-		
-		//notify something changed
-		propagationModify(father);
-	}
-
-	/**
 	 * Calculating the insertion position not taking into account the nodes
 	 * marked as deleted
 	 * 

@@ -94,7 +94,7 @@ public class TextChangeData {
 
     }
 
-    //check is insert raw text object exists as move-text object
+    //check is insert raw text object exists as text-move object
     public TextChange isInsertMoveObject(TextChange insertObj) {
         TextChange result = textChangeData.stream()
                 .filter(textChange -> insertObj.textTarget.equals(textChange.getTextSource())
