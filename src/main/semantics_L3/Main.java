@@ -95,7 +95,7 @@ public class Main {
 
 					ArrayList<NodeChanged> modif = null;
 
-					boolean jaccard 	= true;
+					boolean jaccard 	= false;
 					boolean simtext 	= false;
 					boolean simtextW 	= true;
 					boolean topicModel	= false;
