@@ -117,11 +117,7 @@ public class Similarity {
 		String textmodif = FileUtil.RemoveNoiseWord(wordsmodif);
 		ArrayList<String> keyModif=topicModelList(textmodif);
 		ArrayList<String> keyOrig=topicModelList(textorig);
-		System.out.println(keyOrig);
-		System.out.println(keyModif);
-//		GibbsSamplingLDA lda = new GibbsSamplingLDA("examples\\rawdata_process_lda.txt", "gbk",  50, 0.1,
-//				0.01, 500, 50, "examples\\");
-//		lda.MCMCSampling();
+
 		TFIDFCalculator tfidf = new TFIDFCalculator();
 		Integer total_positive_tf = 0;
 		double score=0;
@@ -172,7 +168,6 @@ public class Similarity {
 			}
 			sentence+=element+" ";
 	}
-		System.out.println(sentence);
 		return sentence;
 	}
 	public ArrayList<String> topicModelList(String text) throws IOException {
