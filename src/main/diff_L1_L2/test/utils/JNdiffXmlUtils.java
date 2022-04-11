@@ -249,7 +249,7 @@ public class JNdiffXmlUtils {
 	public static long nodeCount(String source) throws XPathOperationException {
 		DocumentBuilderFactory domFactory = DocumentBuilderFactory
 				.newInstance();
-		domFactory.setNamespaceAware(true); // never forget this!
+		//domFactory.setNamespaceAware(false); // never forget this!
 		DocumentBuilder builder;
 		try {
 			builder = domFactory.newDocumentBuilder();

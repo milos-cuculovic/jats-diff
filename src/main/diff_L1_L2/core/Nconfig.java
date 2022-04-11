@@ -250,7 +250,7 @@ public class Nconfig {
         addPhaseParam(Normalize, "commentnode", "true");
 
         phasesOrder.add(FindTextChangeStyle);
-        addPhaseParam(FindTextChangeStyle, "level", "40");
+        addPhaseParam(FindTextChangeStyle, "level", "5");
 
         phasesOrder.add(FindTextMove);
         addPhaseParam(FindTextMove, "level", "40");
@@ -264,10 +264,10 @@ public class Nconfig {
         addPhaseParam(FindDowngrade, "level", "40");
 
         phasesOrder.add(FindMerge);
-        addPhaseParam(FindMerge, "level", "40");
+        addPhaseParam(FindMerge, "level", "30");
 
         phasesOrder.add(FindSplit);
-        addPhaseParam(FindSplit, "level", "40");
+        addPhaseParam(FindSplit, "level", "10");
 
         phasesOrder.add(FindMove);
         addPhaseParam(FindMove, "range", "40");

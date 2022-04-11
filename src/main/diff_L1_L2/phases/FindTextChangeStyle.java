@@ -184,6 +184,7 @@ public class FindTextChangeStyle extends Phase {
             List<Dnode> removeInsertTmp = new ArrayList<>();
             for (int i = 0; i < foundNodeDelete.size(); i++) {
                 maxSimilarity = cfg.getIntPhaseParam(Nconfig.FindUpdate, "level");
+
                 Dnode tmpAUpdate = null;
                 Dnode tmpBUpdate = null;
                 Boolean detectUpdate = Boolean.FALSE;

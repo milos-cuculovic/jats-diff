@@ -22,7 +22,6 @@ package main.diff_L1_L2.core;
 import main.diff_L1_L2.vdom.DOMDocument;
 import main.diff_L1_L2.vdom.diffing.Dtree;
 import main.diff_L1_L2.core.alternatives.ThreadedBuildDtree;
-import main.diff_L1_L2.debug.Debug;
 import main.diff_L1_L2.exceptions.ComputePhaseException;
 import main.diff_L1_L2.exceptions.InputFileException;
 import main.diff_L1_L2.exceptions.OutputFileException;
@@ -219,8 +218,6 @@ public class Ndiff {
 //		SearchFieldTmp = new NxN(aTmp.count() - 1, bTmp.count() - 1);
         R = new Relation();
 
-        Debug.diffing_normalize(a, b, R, SearchField);
-
         // The root must be the same
         SearchField.subPoint(0, 0, Field.LOCALITY, Field.LOCALITY,
                 Field.LOCALITY, Field.LOCALITY);
@@ -234,14 +231,11 @@ public class Ndiff {
 //		new Partition(SearchFieldTmp, R, aTmp, bTmp, config).compute();
         new Partition(SearchField, R, a, b, config).compute();
 
-        Debug.diffing_partition(a, b, R, SearchField);
-
         for (int i = 0; i < config.phasesOrder.size(); i++) {
             switch (config.phasesOrder.get(i)) {
 
                 case Nconfig.FindTextChangeStyle:
                     new FindTextChangeStyle(SearchField, R, a, b, config).compute();
-                    Debug.diffing_findtextchangestyle(a, b, R, SearchField);
                     try {
                         a.writeToFile(URIdocATmp);
                         b.writeToFile(URIdocBTmp);
@@ -269,7 +263,6 @@ public class Ndiff {
 
                 case Nconfig.FindTextMove:
                     new FindTextMove(SearchField, R, a, b, config).compute();
-                    Debug.diffing_findtextmove(a, b, R, SearchField);
                     try {
                         a.writeToFile(URIdocATmp);
                         b.writeToFile(URIdocBTmp);
@@ -297,37 +290,30 @@ public class Ndiff {
 
                 case Nconfig.FindUpgrade:
                     new FindUpgrade(SearchField, R, a, b, config).compute();
-                    Debug.diffing_findupgrade(a, b, R, SearchField);
                     break;
 
                 case Nconfig.FindDowngrade:
                     new FindDowngrade(SearchField, R, a, b, config).compute();
-                    Debug.diffing_finddowngrade(a, b, R, SearchField);
                     break;
 
                 case Nconfig.FindMerge:
                     new FindMerge(SearchField, R, a, b, config).compute();
-                    Debug.diffing_findmerge(a, b, R, SearchField);
                     break;
 
                 case Nconfig.FindSplit:
                     new FindSplit(SearchField, R, a, b, config).compute();
-                    Debug.diffing_findsplit(a, b, R, SearchField);
                     break;
 
                 case Nconfig.FindMove:
                     new FindMove(SearchField, R, a, b, config).compute();
-                    Debug.diffing_findmove(a, b, R, SearchField);
                     break;
 
                 case Nconfig.FindUpdate:
                     new FindUpdate(SearchField, R, a, b, config).compute();
-                    Debug.diffing_findupdate(a, b, R, SearchField);
                     break;
 
                 case Nconfig.Propagation:
                     new Propagation(SearchField, R, a, b, config).compute();
-                    Debug.diffing_propagation(a, b, R, SearchField);
                     break;
             }
         }
@@ -335,11 +321,6 @@ public class Ndiff {
         // Derivazione del delta
         Delta = new DeltaDerive(SearchField, R, a, b, config).derive();
 
-        /*
-		 * Debug.status(SearchField, "../debug/SearchField.html");
-		 * Debug.status(R, "../debug/Relation.html"); Debug.status(Delta,
-		 * "../debug/Mdelta.html");
-         */
         return Delta.transformToXML(config);
     }
 

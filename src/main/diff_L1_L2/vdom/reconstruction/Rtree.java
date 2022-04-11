@@ -75,7 +75,7 @@ public class Rtree extends Vtree<Rnode> {
 	Logger logger = Logger.getLogger(getClass().getName());
 	public static final String NDIFF_NAMESPACE = "https://github.com/milos-cuculovic/jats-diff";
 
-	public static final String NDIFF_PREFIX = "ndiff";
+	public static final String NDIFF_PREFIX = "jats-diff";
 	private Integer counter; // Per inserimento ricorsivo
 
 	private int nodeDeleted = 0;
@@ -106,9 +106,6 @@ public class Rtree extends Vtree<Rnode> {
 			boolean collapse, boolean emptynode, boolean commentnode)
 			throws InputFileException {
 		super(fileXML, ltrim, rtrim, collapse, emptynode, commentnode);
-		Attr attr = DOM.createAttribute("xmlns:" + NDIFF_PREFIX);
-		attr.setValue(NDIFF_NAMESPACE);
-		root.setAttributeNode(attr);
 	}
 
 	/**
@@ -136,10 +133,10 @@ public class Rtree extends Vtree<Rnode> {
 		
 		//marking up node
 		Element markup = (Element) toIns;
-		markup.setAttributeNS(NDIFF_PREFIX, NDIFF_PREFIX+":"+ Operation.STATUS_ATTR, SOperation.WRAP_OP_VALUE);
-		markup.setAttributeNS(NDIFF_PREFIX, NDIFF_PREFIX+":"+SOperation.AT_ATTR, at.toString() );
-		markup.setAttributeNS(NDIFF_PREFIX, NDIFF_PREFIX+":"+SOperation.POS_ATTR, pos.toString() );
-		markup.setAttributeNS(NDIFF_PREFIX, NDIFF_PREFIX+":"+SOperation.CHILDREN_ATTR, children.toString() );
+		markup.setAttribute(NDIFF_PREFIX+":"+ Operation.STATUS_ATTR, SOperation.WRAP_OP_VALUE);
+		markup.setAttribute(NDIFF_PREFIX+":"+SOperation.AT_ATTR, at.toString() );
+		markup.setAttribute(NDIFF_PREFIX+":"+SOperation.POS_ATTR, pos.toString() );
+		markup.setAttribute(NDIFF_PREFIX+":"+SOperation.CHILDREN_ATTR, children.toString() );
 
 		if (refNode != null)
 			father.insertBefore(toIns, refNode);
@@ -220,7 +217,7 @@ public class Rtree extends Vtree<Rnode> {
 		editNode.setAttribute(name, newValue);
 		
 		//create markup node
-		Element markup = DOM.createElementNS(NDIFF_NAMESPACE, AOperation.ELEMENT_NAME);
+		Element markup = DOM.createElement(AOperation.ELEMENT_NAME);
 		markup.setPrefix(NDIFF_PREFIX);
 		markup.setAttribute(AOperation.NEWVALUE_ATTR, newValue);
 		markup.setAttribute(AOperation.OLDVALUE_ATTR, oldValue);
@@ -252,7 +249,7 @@ public class Rtree extends Vtree<Rnode> {
 		editNode.setAttribute(name, newValue);
 		
 		//markup node
-		Element markup = DOM.createElementNS(NDIFF_NAMESPACE, AOperation.ELEMENT_NAME);
+		Element markup = DOM.createElement(AOperation.ELEMENT_NAME);
 		markup.setPrefix(NDIFF_PREFIX);
 		markup.setAttribute(AOperation.NEWVALUE_ATTR, newValue);
 		markup.setAttribute(AOperation.NAME_ATTR, name);
@@ -280,7 +277,7 @@ public class Rtree extends Vtree<Rnode> {
 		editNode.removeAttribute(name);
 		
 		//markup node
-		Element markup = DOM.createElementNS(NDIFF_NAMESPACE, AOperation.ELEMENT_NAME);
+		Element markup = DOM.createElement(AOperation.ELEMENT_NAME);
 		markup.setPrefix(NDIFF_PREFIX);
 		markup.setAttribute(AOperation.NAME_ATTR, name);
 		markup.setAttribute(Operation.NODE_NUMBER_A_ATTR, nodenumber.toString() );
@@ -307,7 +304,7 @@ public class Rtree extends Vtree<Rnode> {
 
 			Node father = getNode(nn).refDomNode.getParentNode();
 
-			Node editing = DOM.createElementNS(NDIFF_NAMESPACE, TOperation.EDITING_VALUE);
+			Node editing = DOM.createElement(TOperation.EDITING_VALUE);
 			editing.setPrefix(NDIFF_PREFIX);
 
 			father.insertBefore(editing, getNode(nn).refDomNode);
@@ -392,7 +389,7 @@ public class Rtree extends Vtree<Rnode> {
 		}
 
 		Node nodeDelete = DOM.createTextNode(textToDelete);
-		Element markup = DOM.createElementNS(NDIFF_NAMESPACE, TOperation.TEXT_OPERATION_ELEMENT);
+		Element markup = DOM.createElement(TOperation.TEXT_OPERATION_ELEMENT);
 		markup.setAttribute(Operation.STATUS_ATTR, Operation.DELETED_VALUE);
 		markup.setPrefix(NDIFF_PREFIX);
 		markup.appendChild(nodeDelete);
@@ -433,7 +430,7 @@ public class Rtree extends Vtree<Rnode> {
 		if (toDelete.getNodeType() != Node.ELEMENT_NODE) {
 
 			// Creating wrapper node 
-			Element markup = DOM.createElementNS(NDIFF_NAMESPACE, TOperation.TEXT_OPERATION_ELEMENT);
+			Element markup = DOM.createElement(TOperation.TEXT_OPERATION_ELEMENT);
 			markup.setPrefix(NDIFF_PREFIX);
 			if (move == null) {
 				markup.setAttribute(Operation.STATUS_ATTR, SOperation.DELETED_VALUE);
@@ -451,17 +448,17 @@ public class Rtree extends Vtree<Rnode> {
 		} else { // Node to be deleted is an element
 
 			if (move == null) {
-				Attr attr = DOM.createAttributeNS(NDIFF_NAMESPACE, Operation.STATUS_ATTR);
+				Attr attr = DOM.createAttribute(Operation.STATUS_ATTR);
 				attr.setPrefix(NDIFF_PREFIX);
 				attr.setValue(SOperation.DELETED_VALUE);
 				((Element) toDelete).setAttributeNode(attr);
 			} else {
-				Attr attr = DOM.createAttributeNS(NDIFF_NAMESPACE, Operation.STATUS_ATTR);
+				Attr attr = DOM.createAttribute(Operation.STATUS_ATTR);
 				attr.setPrefix(NDIFF_PREFIX);
 				attr.setValue(SOperation.MOVEDTO_VALUE);
 				((Element) toDelete).setAttributeNode(attr);
 
-				attr = DOM.createAttributeNS(NDIFF_NAMESPACE, SOperation.IDREF_ATTR);
+				attr = DOM.createAttribute(SOperation.IDREF_ATTR);
 				attr.setPrefix(NDIFF_PREFIX);
 				attr.setValue(move);
 				((Element) toDelete).setAttributeNode(attr);
@@ -491,7 +488,7 @@ public class Rtree extends Vtree<Rnode> {
 		Node father = removeNode.getParentNode();
 		
 		//creating markup node
-		Element markupFather = DOM.createElementNS(NDIFF_NAMESPACE, SOperation.UNWRAP_ELEMENT);
+		Element markupFather = DOM.createElement(SOperation.UNWRAP_ELEMENT);
 		markupFather.setPrefix(NDIFF_PREFIX);
 		markupFather.setAttribute(Operation.NODE_NUMBER_A_ATTR, nodenumber.toString() );
 		markupFather.setAttribute(Operation.NODE_NUMBER_B_ATTR, nodenumber.toString() );
@@ -630,7 +627,7 @@ public class Rtree extends Vtree<Rnode> {
 		/* Creating markup node */
 		Node nodeInsert = DOM.adoptNode(content.cloneNode(true));
 
-		Element markup = DOM.createElementNS(NDIFF_NAMESPACE, TOperation.TEXT_OPERATION_ELEMENT);
+		Element markup = DOM.createElement(TOperation.TEXT_OPERATION_ELEMENT);
 		markup.setAttribute(Operation.STATUS_ATTR, Operation.INSERTED_VALUE);
 		markup.setPrefix(NDIFF_PREFIX);
 
@@ -704,7 +701,7 @@ public class Rtree extends Vtree<Rnode> {
 
 		// if the node is not an element mark as a wrapper
 		if (toIns.getNodeType() != Node.ELEMENT_NODE) {
-			Element tmp = DOM.createElementNS(NDIFF_NAMESPACE, TOperation.TEXT_OPERATION_ELEMENT);
+			Element tmp = DOM.createElement(TOperation.TEXT_OPERATION_ELEMENT);
 			tmp.setPrefix(NDIFF_PREFIX);
 			tmp.appendChild(toIns);
 			markup = tmp;
@@ -715,7 +712,7 @@ public class Rtree extends Vtree<Rnode> {
 		if (move == null) {
 
 			if (!wrapper) {
-				Attr attr = DOM.createAttributeNS(NDIFF_NAMESPACE, Operation.STATUS_ATTR);
+				Attr attr = DOM.createAttribute(Operation.STATUS_ATTR);
 				attr.setPrefix(NDIFF_PREFIX);
 				attr.setValue(Operation.INSERTED_VALUE);
 				markup.setAttributeNode(attr);
@@ -725,12 +722,12 @@ public class Rtree extends Vtree<Rnode> {
 		} else {
 
 			if (!wrapper) {
-				Attr attr = DOM.createAttributeNS(NDIFF_NAMESPACE, Operation.STATUS_ATTR);
+				Attr attr = DOM.createAttribute(Operation.STATUS_ATTR);
 				attr.setPrefix(NDIFF_PREFIX);
 				attr.setValue(SOperation.MOVEDFROM_VALUE);
 				markup.setAttributeNode(attr);
 
-				attr = DOM.createAttributeNS(NDIFF_NAMESPACE, SOperation.ID_ATTR);
+				attr = DOM.createAttribute(SOperation.ID_ATTR);
 				attr.setPrefix(NDIFF_PREFIX);
 				attr.setValue(move);
 				markup.setAttributeNode(attr);
@@ -847,7 +844,7 @@ public class Rtree extends Vtree<Rnode> {
 		Element eNode = (Element) node;
 		
 		if( !eNode.hasAttributeNS(NDIFF_PREFIX, Operation.STATUS_ATTR) ){
-			Attr attr = DOM.createAttributeNS(NDIFF_NAMESPACE, Operation.STATUS_ATTR);
+			Attr attr = DOM.createAttribute(Operation.STATUS_ATTR);
 			attr.setPrefix(NDIFF_PREFIX);
 			attr.setValue(Operation.MODIFIED_VALUE);
 			((Element) node).setAttributeNode(attr);
