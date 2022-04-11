@@ -36,7 +36,7 @@ public class BrowseDelta {
 			throws InputFileException {
 		this.treeorig = new Dtree(original, true, true, true, true, true);
 		this.treemodif = new Dtree(modified, true, true, true, true, true);
-		NodeList nod = this.doc.getElementsByTagName("ndiff");
+		NodeList nod = this.doc.getElementsByTagName("jats-diff");
 		NodeList nList = nod.item(0).getChildNodes();
 		ArrayList<ChangeObject> coList = new ArrayList<ChangeObject>();
 		for (int temp = 0; temp < nList.getLength(); temp++) {
