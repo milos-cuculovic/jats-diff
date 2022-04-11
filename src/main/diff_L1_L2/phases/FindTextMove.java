@@ -84,7 +84,8 @@ public class FindTextMove extends Phase {
 		try {
 			textChangeData = TextChangeData.getInstance();
 			logger.info("START FIND TEXTMOVE CHANGES");
-			findTextMoveChanges();
+			// Commented as not yet tested - improvements needed
+			//findTextMoveChanges();
 			logger.info("END");
 		} catch (Exception e) {
 			logger.error("ERROR LINE: " + e.getStackTrace()[0].getLineNumber() + " Message: " + e.getMessage());
