@@ -118,11 +118,18 @@ public class FindMerge extends Phase {
     protected void findAndCalculateMerge(List<Dnode> foundNodeDelete, List<Dnode> foundNodeInsert) {
         for (Dnode insert : foundNodeInsert) {
             List<Dnode> deletedNodes = new ArrayList<>();
+
             for (Dnode delete : foundNodeDelete) {
-                if (B.getNode(insert.getPosFather()).getRefDomNode().getNodeName().equals(A.getNode(delete.getPosFather()).getRefDomNode().getNodeName())
+                var a = insert.getRefDomNode().getTextContent();
+                var b = delete.getRefDomNode().getTextContent();
+                var c = insert.getRefDomNode().getTextContent().length();
+                var d = delete.getRefDomNode().getTextContent().length();
+                if (
+                        B.getNode(insert.getPosFather()).getRefDomNode().getNodeName().equals(A.getNode(delete.getPosFather()).getRefDomNode().getNodeName())
                         && insert.getRefDomNode().getTextContent().contains(delete.getRefDomNode().getTextContent())
                         && insert.getRefDomNode().getTextContent().length() > delete.getRefDomNode().getTextContent().length()
-                        && delete.getRefDomNode().getNodeName() != "#text") {
+                        && delete.getRefDomNode().getNodeName() != "#text"
+                        && insert.posLikeChild == delete.posLikeChild) {
                     deletedNodes.add(delete);
                 }
             }

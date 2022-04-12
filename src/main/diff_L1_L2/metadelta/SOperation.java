@@ -298,7 +298,7 @@ public class SOperation extends Operation {
                 newOp.setAttribute(NODECOUNT_ATTR,
                         ((Integer) (nodeB.numChildSubtree + 1)).toString());
                 newOp.setAttribute(OPERATION_ATTR, UPGRADEDTO_VALUE);
-                newOp.appendChild(Ndelta.DOM.importNode(nodeB.refDomNode, true));
+                newOp.appendChild(Ndelta.DOM.importNode(nodeB.refDomNode, false));
                 Ndelta.root.appendChild(newOp);
 
                 break;
@@ -313,7 +313,7 @@ public class SOperation extends Operation {
                 }
                 newOp.setAttribute(NODECOUNT_ATTR, nodeA.numChildSubtree.toString());
                 newOp.setAttribute(OPERATION_ATTR, UPGRADEDFROM_VALUE);
-                newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, true));
+                newOp.appendChild(Ndelta.DOM.importNode(nodeA.refDomNode, false));
                 Ndelta.root.appendChild(newOp);
 
                 break;

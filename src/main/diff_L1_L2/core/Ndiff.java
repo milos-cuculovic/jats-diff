@@ -297,7 +297,7 @@ public class Ndiff {
                     break;
 
                 case Nconfig.FindMerge:
-                    new FindMerge(SearchField, R, a, b, config).compute();
+                    new FindMergeOld(SearchField, R, a, b, config).compute();
                     break;
 
                 case Nconfig.FindSplit:
