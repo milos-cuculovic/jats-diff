@@ -301,7 +301,7 @@ public class Ndiff {
                     break;
 
                 case Nconfig.FindSplit:
-                    new FindSplit(SearchField, R, a, b, config).compute();
+                    new FindSplitOld1(SearchField, R, a, b, config).compute();
                     break;
 
                 case Nconfig.FindMove:
