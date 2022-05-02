@@ -261,7 +261,7 @@ public class NodeParents {	AtRectif at = new AtRectif();
 				int nnb = nCh.getNodenumberA();
 				String cgt = nCh.getChangelist().get(0).changement;
 				Dnode noeud = treem.getNode(nnb);
-				Dnode noeudA = tree.getNode(0);
+
 				String eltCit = noeud.refDomNode.getNodeName();
 				// Dnode noeuda = null;
 				boolean isT = true;
@@ -270,8 +270,7 @@ public class NodeParents {	AtRectif at = new AtRectif();
 					modif.remove(nCh);
 					nCh.setNodetype(n.getNodeName());
 					Node nolab = n.getFirstChild();
-					noeudA = at.atcalcul(treem, tree, "ref-list", "ref-list", noeud, noeudA, bd, bd.getOrignal());
-					nCh.setAtA(noeudA.indexKey);
+					nCh.setAtA(at.atcalcul(nCh.getAtB(), bd,  true));
 					if (nolab.getNodeType() == Node.ELEMENT_NODE) {
 						Element elmt = (Element) nolab;
 						nCh.setLabelRef(elmt.getTextContent());
@@ -292,16 +291,16 @@ public class NodeParents {	AtRectif at = new AtRectif();
 							ArrayList<ChangeObject> lcO = new ArrayList<ChangeObject>();
 							ChangeObject co = new ChangeObject();
 							if (noeud.refDomNode.getNodeType() == Node.ELEMENT_NODE) {
-								noeudA = at.atcalcul(treem, tree, n.getNodeName(), n.getNodeName(), noeud, noeudA, bd,
-										bd.getOrignal());
-								co.setAtA(Integer.toString(noeud.getPosFather()));
+								co.setAtA(Integer.toString(at.atcalcul(Integer.parseInt(nCh.getChangelist().get(0).getAtA()), bd,  true
+								)));
 
 							}
 							nCh.setNodenumberB(nCh.getNodenumberA());
-							nCh.setNodenumberA(noeudA.indexKey);
+							nCh.setNodenumberA(at.atcalcul(nCh.getNodenumberB(), bd,  true));
 							nCh.setA(true);
 							co.setNodenumB(Integer.toString(pap));
-							co.setNodenumA(Integer.toString(noeudA.indexKey));
+							co.setNodenumA(Integer.toString(at.atcalcul(Integer.parseInt(co.getNodenumB()), bd,  true)));
+							Dnode noeudA= tree.getNode(at.atcalcul(nCh.getNodenumberB(), bd,  true));
 							if (noeudA.refDomNode.getNodeName().equals("ref")) {
 								if (eltCit.equals("element-citation")) {
 									co.setChangement(cgt);
@@ -329,14 +328,13 @@ public class NodeParents {	AtRectif at = new AtRectif();
 				Dnode noeud = tree.getNode(nna);
 				String eltCit = noeud.refDomNode.getNodeName();
 				Node n = noeud.refDomNode;
-				Dnode noeudB = null;
 				boolean isF = true;
 				if (n.getNodeName().equals("ref")) {
 					modif.remove(nCh);
 					nCh.setNodetype(n.getNodeName());
 					Node nolab = n.getFirstChild();
-					noeudB = at.atcalcul(tree, treem, "ref-list", "ref-list", noeud, noeudB, bd, bd.getModified());
-					nCh.setAtB(noeudB.indexKey);
+					Dnode noeudB=treem.getNode(at.atcalcul(nna, bd, false));
+					nCh.setAtB(noeudB.posFather);
 					if (nolab.getNodeType() == Node.ELEMENT_NODE) {
 						Element elmt = (Element) nolab;
 						nCh.setLabelRef(elmt.getTextContent());
@@ -353,12 +351,13 @@ public class NodeParents {	AtRectif at = new AtRectif();
 						if (n.getNodeName().equals("ref")) {
 							modif.remove(nCh);
 							nCh.setNodenumberA(pap);
-							noeudB = at.atcalcul(tree, treem, "ref", "ref", noeud, noeudB, bd, bd.getOrignal());
-							nCh.setNodenumberB(noeudB.indexKey);
+							nCh.setNodenumberB(at.atcalcul(pap, bd, false));
+							Dnode noeudB= treem.getNode(at.atcalcul(pap, bd, false));
 							nCh.setNodetype(n.getNodeName());
 							ArrayList<ChangeObject> lcO = new ArrayList<ChangeObject>();
 							ChangeObject co = new ChangeObject();
 							co.setFrom(isF);
+							co.setChangement(cgt);
 							co.setAtB(Integer.toString(noeudB.posFather));
 							nCh.setAtB(noeudB.posFather);
 							if (eltCit.equals("element-citation")) {

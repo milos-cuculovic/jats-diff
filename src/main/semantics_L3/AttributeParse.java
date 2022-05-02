@@ -27,6 +27,7 @@ public class AttributeParse {
 		modif = ref.labelCondi(modif);
 		modif = ref.refNeg(modif,bD);
 		modif = ref.findRef(modif,bD);
+		//
 		modif = tf.findTabFig(modif, bD, sim);
 		modif = tc.movetext1( modif, bD,sim);
 		modif = tc.objupdate(modif);

@@ -205,7 +205,7 @@ public class References {
 				int papB = dnoeudB.posFather;
 				dnoeudB = treem.getNode(papB);
 				if (cO.hasAtA()) {
-					dnoeudA = tree.getNode(Integer.parseInt(cO.getAtA()));
+					dnoeudA = treem.getNode(Integer.parseInt(cO.getAtA()));
 				} else {
 					dnoeudA = tree.getNode(Integer.parseInt(cO.getNodenumA()));
 					int papA = dnoeudA.posFather;
@@ -236,6 +236,7 @@ public class References {
 		int comp = XmlFileAttributes.numChild(dnoeudA.indexKey, bd.getOrignal(), "ref", bd.getTreeorig());
 		nCh.setNodenumberB(dnoeudB.getIndexKey());
 		nCh.setNodetype(nA.getNodeName());
+
 		nCh.setA(true);
 		int compB = XmlFileAttributes.numChild(dnoeudB.indexKey, bd.getModified(), "ref", bd.getTreemodif());
 		nCh.setFinall("Final: " + Integer.toString(compB));
