@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jats-diff>
+    <delete nodename="sec" nodenumberA="33" xmlns="">
+        <sec id="sec5"/>
+    </delete>
+    <insert at="1" children="3" nodename="sec" nodenumberB="31" pos="5" xmlns="">
+        <sec id="sec6"/>
+    </insert>
+    <update-attribute name="id" newvalue="sec6dot1" nodenumberA="38" nodenumberB="36" oldvalue="sec6" op="change-attr" xmlns=""/>
+    <upgrade at="388" nodecount="5" nodenumberB="601" op="upgradedTo" pos="5" xmlns="">
+        <sec id="sec6-remotesensing-10-00641"/>
+    </upgrade>
+    <upgrade nodecount="4" nodenumberA="447" op="upgradedFrom" xmlns="">
+        <sec id="sec2dot3-remotesensing-10-00641"/>
+    </upgrade>
+    <downgrade at="410" nodecount="89" nodenumberB="452" op="downgradedTo" pos="5" xmlns="">
+        <sec id="sec2dot4-remotesensing-10-00641"/>
+    </downgrade>
+    <downgrade nodecount="88" nodenumberA="517" op="downgradedFrom" xmlns="">
+        <sec id="sec5-remotesensing-10-00641"/>
+    </downgrade>
+    <merge at="2" direction="5:5" nodenumberB="5" op="mergedTo" pos="1" xmlns="">
+        <p>Content one a b. Content two c d. Content three e f.</p>
+    </merge>
+    <merge direction="5:5" nodenumberA="5" op="mergedFrom" xmlns="">
+        <p>Content one a b.</p>
+    </merge>
+    <merge direction="7:5" nodenumberA="7" op="mergedFrom" xmlns="">
+        <p>Content two c d.</p>
+    </merge>
+    <merge direction="9:5" nodenumberA="9" op="mergedFrom" xmlns="">
+        <p>Content three e f.</p>
+    </merge>
+    <split at="7" direction="14:10" nodenumberB="10" op="splitedTo" pos="1" xmlns="">
+        <p>Content four g h.</p>
+    </split>
+    <split at="7" direction="14:12" nodenumberB="12" op="splitedTo" pos="2" xmlns="">
+        <p>Content five i j.</p>
+    </split>
+    <split direction="14:10" nodenumberA="14" op="splitedFrom" xmlns="">
+        <p>Content four g h. Content five i j.</p>
+    </split>
+    <move direction="7::9" nodecount="2" nodenumberA="7" nodenumberB="9" op="movedTo" xmlns="">
+        <p>Text paragraph three</p>
+    </move>
+    <move at="0" direction="3::5" nodecount="1" nodenumberA="3" nodenumberB="5" op="movedFrom" pos="2" xmlns="">
+        <p>Text paragraph _|i|_one_|/i|_</p>
+    </move>
+    <text-style-insert nodenumberB="35" op="insert-style" pos="89" xmlns="">_|b|_s_|/b|_ _|i|__|u|_t_|/u|__|/i|_</text-style-insert>
+    <text-style-delete nodenumberA="35" op="insert-style" pos="89" xmlns="">_|b|_s_|/b|_ _|i|__|u|_t_|/u|__|/i|_</text-style-delete>
+    <text-style-update nodenumberB="117" op="update-style-to" pos="14">
+        <i>monitoring</i>
+    </text-style-update>
+    <text-style-update nodenumberA="117" op="update-style-from" pos="14">
+        <b>monitoring</b>
+    </text-style-update>
+    <move-text nodecount="1" nodenumberB="2" op="movedTo" text-position-to="-1" xmlns="">nsdkfndjd abjw bqjdnwqaje bwn dksamdfnsa </move-text>
+    <move-text nodecount="1" nodenumberA="10" op="movedFrom" text-position-from="62" xmlns="">nsdkfndjd abjw bqjdnwqaje bwn dksamdfnsa </move-text>
+    <text-update length="2" nodenumberA="20" nodenumberB="18" op="text-inserted" pos="15" xmlns="">m</text-update>
+    <text-update length="12" nodenumberA="30" nodenumberB="28" op="text-deleted" pos="8" xmlns="">four dot one</text-update>
+</jats-diff>

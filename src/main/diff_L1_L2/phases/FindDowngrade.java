@@ -139,7 +139,7 @@ public class FindDowngrade extends Phase {
                 Matcher m = p.matcher(content);
                 content = m.replaceAll("$2");
 
-                if (B.getNode(i).getNumChildSubtree() > findB.size()) {
+                if (B.getNode(i).getNumChildSubtree() > findB.size() && B.getNode(i).getNumChildSubtree() == A.getNode(j).getNumChildSubtree()) {
                     String subSectionAContent = fromNode.refDomNode.getTextContent();
                     String regExpB = "^(\\d+\\.\\d+\\.\\s)(.*)";
                     Pattern pB = Pattern.compile(regExpB);

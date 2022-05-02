@@ -22,47 +22,21 @@ package main.diff_L1_L2.phases;
 import main.diff_L1_L2.vdom.diffing.Dtree;
 import main.diff_L1_L2.core.Nconfig;
 import main.diff_L1_L2.exceptions.ComputePhaseException;
-import main.diff_L1_L2.relation.Field;
 import main.diff_L1_L2.relation.Interval;
 import main.diff_L1_L2.relation.NxN;
 import main.diff_L1_L2.relation.Relation;
 import org.w3c.dom.Node;
-import org.w3c.dom.Element;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import java.util.Vector;
-import java.util.HashMap;
-import java.util.Map;
-import main.diff_L1_L2.phases.common.Match;
-import org.w3c.dom.ls.DOMImplementationLS;
-import org.w3c.dom.DOMImplementation;
-import org.w3c.dom.ls.LSOutput;
-import org.w3c.dom.ls.LSSerializer;
-import java.util.Collections;
-import java.util.Iterator;
-import main.diff_L1_L2.vdom.Vnode;
 import main.diff_L1_L2.vdom.diffing.Dnode;
-import main.diff_L1_L2.relation.Fragment;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-import java.util.regex.MatchResult;
-import main.diff_L1_L2.phases.MoveTextVO;
 import com.github.difflib.DiffUtils;
 import com.github.difflib.patch.AbstractDelta;
 import com.github.difflib.patch.Patch;
 import com.github.difflib.patch.Chunk;
-import main.diff_L1_L2.vdom.diffing.Hash;
-import main.diff_L1_L2.core.Ndiff;
-import static main.diff_L1_L2.core.Ndiff.EXCLUDE_STYLE_TAG;
-import main.diff_L1_L2.metadelta.METAdelta;
-import main.diff_L1_L2.vo.NodeHandler;
-import main.diff_L1_L2.vo.StyleMatcherData;
 import main.diff_L1_L2.vo.MoveText;
 import main.diff_L1_L2.vo.MoveTextData;
 import main.diff_L1_L2.vo.NodeDelta;
@@ -76,17 +50,14 @@ import main.diff_L1_L2.vo.TextChangeData;
  */
 public class FindTextMove extends Phase {
 
-	//found array dat by jats-diff
 	public List<List<Dnode>> foundNodeUpdate = new ArrayList<>();
 	public List<Dnode> foundNodeInsert = new ArrayList<>();
 	public List<Dnode> foundNodeDelete = new ArrayList<>();
-	//define two temporary list of AbstracDelta object for compare text
 	List<NodeDelta> textDataInsertTmp = new ArrayList<>();
 	List<NodeDelta> textDataDeleteTmp = new ArrayList<>();
 	List<NodeDelta> textDataChangeTmp = new ArrayList<>();
 	MoveTextData moveTextData = new MoveTextData();
 	public int maxSimilarity = 30;
-	public int minCharsMoveText = 10;
 	TextChangeData textChangeData;
 
 	/**
@@ -113,7 +84,8 @@ public class FindTextMove extends Phase {
 		try {
 			textChangeData = TextChangeData.getInstance();
 			logger.info("START FIND TEXTMOVE CHANGES");
-//			findTextMoveChanges();
+			// Commented as not yet tested - improvements needed
+			//findTextMoveChanges();
 			logger.info("END");
 		} catch (Exception e) {
 			logger.error("ERROR LINE: " + e.getStackTrace()[0].getLineNumber() + " Message: " + e.getMessage());
@@ -125,11 +97,7 @@ public class FindTextMove extends Phase {
 
 	protected void findTextMoveChanges() {
 		try {
-
-			//call function initChanges prepare three list foundNodeUpdate/foundNodeInsert/foundNodeDelete
 			this.initChanges();
-			//show|hide debug info about changes
-//			this.debugChanges();
 
 			//observe changes in the text - updates ( movetext for update points no insert or delete node)
 			//1. call and get deltas
@@ -137,13 +105,10 @@ public class FindTextMove extends Phase {
 
 			//2. call move text
 			this.getTextMoveChanges();
-			//show|hide debug info about movetext
-//			this.debugMoveChanges();
 
 			//set text change fragments
 			this.setTextChangeFragment();
 
-//			System.exit(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(0);
@@ -166,8 +131,6 @@ public class FindTextMove extends Phase {
 
 			int infParentA = textChange.getNodeA().getPosFather();
 			int infParentB = textChange.getNodeB().getPosFather();
-			int supParentA = infParentA + A.getNode(infParentA).numChildSubtree;
-			int supParentB = infParentB + B.getNode(infParentB).numChildSubtree;
 
 			Interval newAInterval = new Interval(infA, infA);
 			Interval newBInterval = new Interval(infB, infB);
@@ -191,8 +154,8 @@ public class FindTextMove extends Phase {
 					for (int l = findB.inf; l <= findB.sup; l++) {
 						B.getNode(l).inRel = Relation.MOVETEXT_FROM;
 					}
-
 					break;
+
 				case TextChangeData.ACTION_MOVE_TEXT_TO:
 					R.addFragment(findA, findB, A.getNode(findA.inf).weight, Relation.MOVETEXT_TO);
 					for (int l = findA.inf; l <= findA.sup; l++) {
@@ -202,21 +165,18 @@ public class FindTextMove extends Phase {
 					for (int l = findB.inf; l <= findB.sup; l++) {
 						B.getNode(l).inRel = Relation.MOVETEXT_TO;
 					}
-
 					break;
 
 				default:
 					logger.info("There are no text changes action");
 			}
 		}
-
 	}
 
 	/**
 	 * Find move text
 	 */
 	public void getTextMoveChanges() {
-		//		logger.info(moveTextDataDeleteTmp);
 		//compare two array insert and delete text and try find is have move
 		for (NodeDelta deleteObj : textDataDeleteTmp) {
 			List<String> deletes = null;
@@ -225,7 +185,6 @@ public class FindTextMove extends Phase {
 
 			for (int s = 0; s < deletes.size(); s++) {
 				deleteString += deletes.get(s).toString() + " ";
-
 			}
 
 			int changePositionFrom = deleteObj.a.getRefDomNode().getNodeValue().indexOf(deleteString.trim());
@@ -239,12 +198,7 @@ public class FindTextMove extends Phase {
 
 				}
 				int changePositionTo = deleteObj.b.getRefDomNode().getNodeValue().indexOf(insertString.trim());
-				//if there are matches delete and insert (same text delete and insert) for the same text then it can be move
-				// this comersion work for string grater length 10 chars
-				//works for some cases if the situation is clear
-//                logger.info("delete " + deleteString);
-//                logger.info("insert " + insertString);
-//                logger.info("================");
+
 				if (deleteString.equals(insertString) && changePositionFrom != changePositionTo) {
 					Dnode aTmp = deleteObj.a;
 					Dnode bTmp = insertObj.b;
@@ -256,7 +210,7 @@ public class FindTextMove extends Phase {
 					mt.setAction(TextChangeData.ACTION_MOVE_TEXT_TO);
 					mt.setPositionTo(changePositionTo);
 					mt.setPositionFrom(changePositionFrom);
-					mt.setTextSource(deleteString); //both insert string and delete string are same
+					mt.setTextSource(deleteString); //both insert string and delete string are the same
 					mt.setTextTarget(insertString);
 					TextChange mtTmp = mt.cloneObject(); //second case for from/to
 					mtTmp.setAction(TextChangeData.ACTION_MOVE_TEXT_FROM);
@@ -271,7 +225,6 @@ public class FindTextMove extends Phase {
 					StringBuilder textTargetValue = new StringBuilder(textValueB);
 //					textTargetValue.delete(changePositionTo, changePositionTo + insertString.length() - 1);
 					mt.getNodeB().getRefDomNode().setNodeValue(textTargetValue.toString());
-
 				}
 			}
 		}
@@ -283,23 +236,14 @@ public class FindTextMove extends Phase {
 	public void getDeltas() {
 
 		for (int i = 0; i < foundNodeUpdate.size(); i++) {
-//			Dnode aT = foundNodeUpdate.get(i).get(0);
-//			Dnode bT = foundNodeUpdate.get(i).get(1);
 			Dnode a = A.getNode(foundNodeUpdate.get(i).get(0).getIndexKey());
 			Dnode b = B.getNode(foundNodeUpdate.get(i).get(1).getIndexKey());
 			String aText = a.refDomNode.getTextContent();
 			String bText = b.refDomNode.getTextContent();
 
-			//remove all what is tag replacement with content in tag, how try find move text
-//            for (String var : Ndiff.EXCLUDE_STYLE_TAG) {
-//                aText = aText.replaceAll("\\_\\_\\|(.+?)\\|\\_\\_", "$1");
-//                bText = bText.replaceAll("\\_\\_\\|(.+?)\\|\\_\\_", "$1");
-//            }
-			//make array of strings split by space, try diffing whole words
 			List<String> listOfTextA = new ArrayList<String>(Arrays.asList(aText.split(" ")));
 			List<String> listOfTextB = new ArrayList<String>(Arrays.asList(bText.split(" ")));
 
-			//use java-diff-utils to try find changes in text (return type action CHANGE, INSERT, DELETE position, source text, target text
 			Patch<String> patch = DiffUtils.diff(listOfTextA, listOfTextB);
 
 			AbstractDelta delta;
@@ -307,18 +251,14 @@ public class FindTextMove extends Phase {
 			//Collect all deltas for insert and delete and add in temporary array
 			for (int pathIndex = 0; pathIndex < patch.getDeltas().size(); pathIndex++) {
 				delta = patch.getDeltas().get(pathIndex);
-//				logger.info(delta + "->" + delta.getType().toString());
 				String action = delta.getType().toString();
-				//insert in text is enough for find move text
+
 				if (action.equals("INSERT")) {
 					NodeDelta nodeDelta = new NodeDelta();
 					nodeDelta.a = a;
 					nodeDelta.b = b;
 					nodeDelta.delta = delta;
 					textDataInsertTmp.add(nodeDelta);
-
-//                    logger.info("DELTA INSERT source" + delta.getSource().getLines().toString());
-//                    logger.info("DELTA INSERT target" + delta.getTarget().getLines().toString());
 				}
 
 				if (action.equals("DELETE")) {
@@ -327,9 +267,6 @@ public class FindTextMove extends Phase {
 					nodeDelta.b = b;
 					nodeDelta.delta = delta;
 					textDataDeleteTmp.add(nodeDelta);
-
-//					logger.info("DELTA DELETE source" + delta.getSource().getLines());
-//					logger.info("DELTA DELETE target" + delta.getTarget().getLines());
 				}
 
 				if (action.equals("CHANGE")) {
@@ -339,12 +276,9 @@ public class FindTextMove extends Phase {
 					nodeDelta.b = b;
 					nodeDelta.delta = delta;
 					textDataChangeTmp.add(nodeDelta);
-
 				}
-
 			}
 		}
-
 	}
 
 	public void initChanges() {
@@ -355,12 +289,9 @@ public class FindTextMove extends Phase {
 				toProcess = dom.get(i);
 
 				for (int k = toProcess.inf; k <= toProcess.sup; k++) {
-//                    if (k + A.getNode(k).getNumChildSubtree() <= toProcess.sup) {
 					if (A.getNode(k).refDomNode.getNodeType() == Node.TEXT_NODE) {
 						foundNodeDelete.add(A.getNode(k));
-//						logger.info(A.getNode(k).hashTree + " " + A.getNode(k).hashNode + " A DELETE" + A.getNode(k).refDomNode);
 					}
-//					k += A.getNode(k).getNumChildSubtree();
 				}
 			}
 
@@ -369,12 +300,9 @@ public class FindTextMove extends Phase {
 				toProcess = cod.get(i);
 
 				for (int k = toProcess.inf; k <= toProcess.sup; k++) {
-//                    if (k + B.getNode(k).getNumChildSubtree() <= toProcess.sup) {
 					if (B.getNode(k).refDomNode.getNodeType() == Node.TEXT_NODE) {
 						foundNodeInsert.add(B.getNode(k));
-//						logger.info(B.getNode(k).hashTree + " " + B.getNode(k).hashNode + " B INSERT" + B.getNode(k).refDomNode);
 					}
-//					k += B.getNode(k).getNumChildSubtree();
 				}
 			}
 
@@ -387,13 +315,11 @@ public class FindTextMove extends Phase {
 				Boolean detectUpdate = Boolean.FALSE;
 				if (foundNodeDelete.get(i).refDomNode.getNodeType() == Node.TEXT_NODE) {
 					tmpBUpdate = null;
+
 					for (int j = 0; j < foundNodeInsert.size(); j++) {
-
 						if (foundNodeInsert.get(j).refDomNode.getNodeType() == Node.TEXT_NODE) {
-
 							int tmpSimilarity = foundNodeDelete.get(i).getSimilarity(foundNodeInsert.get(j));
 							if (tmpSimilarity > maxSimilarity) {
-
 								maxSimilarity = tmpSimilarity;
 								tmpAUpdate = foundNodeDelete.get(i);
 								tmpBUpdate = foundNodeInsert.get(j);
@@ -401,11 +327,10 @@ public class FindTextMove extends Phase {
 							}
 						}
 					}
-
 				}
+
 				//prepare update list in list nodes
 				if (detectUpdate == Boolean.TRUE) {
-
 					removeDeleteTmp.add(tmpAUpdate);
 					removeInsertTmp.add(tmpBUpdate);
 					List<Dnode> tmpList = new ArrayList<>();
@@ -433,31 +358,4 @@ public class FindTextMove extends Phase {
 			throw e;
 		}
 	}
-
-	/**
-	 * preview move text
-	 */
-	public void debugMoveChanges() {
-		List<MoveText> mtd = moveTextData.getAllMoveChanges();
-		for (MoveText mt : mtd) {
-			logger.info(mt);
-		}
-	}
-
-	/**
-	 * preview changes
-	 */
-	public void debugChanges() {
-		for (int i = 0; i < foundNodeInsert.size(); i++) {
-			logger.info("---FOUND Insert: " + foundNodeInsert.get(i).refDomNode);
-		}
-		for (int i = 0; i < foundNodeDelete.size(); i++) {
-			logger.info("---FOUND Delete: " + foundNodeDelete.get(i).refDomNode);
-		}
-		for (int i = 0; i < foundNodeUpdate.size(); i++) {
-			logger.info("---FOUND Update A: " + foundNodeUpdate.get(i).get(0).refDomNode);
-			logger.info("---FOUND Update B: " + foundNodeUpdate.get(i).get(1).refDomNode);
-		}
-	}
-
 }

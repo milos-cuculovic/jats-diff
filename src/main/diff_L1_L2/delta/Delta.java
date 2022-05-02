@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
     "insert",
     "updateAttribute"
 })
-@XmlRootElement(name = "ndiff")
+@XmlRootElement(name = "jats-diff")
 public class Delta {
 
     @XmlElement(name = "delete")

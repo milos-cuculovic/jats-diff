@@ -19,51 +19,29 @@
  **************************************************************************************** */
 package main.diff_L1_L2.phases;
 
+
 import main.diff_L1_L2.vdom.diffing.Dtree;
 import main.diff_L1_L2.core.Nconfig;
 import main.diff_L1_L2.exceptions.ComputePhaseException;
-import main.diff_L1_L2.relation.Field;
 import main.diff_L1_L2.relation.Interval;
 import main.diff_L1_L2.relation.NxN;
 import main.diff_L1_L2.relation.Relation;
 import org.w3c.dom.Node;
-import org.w3c.dom.Element;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import java.util.Vector;
-import java.util.HashMap;
-import java.util.Map;
-import main.diff_L1_L2.phases.common.Match;
-import org.w3c.dom.ls.DOMImplementationLS;
-import org.w3c.dom.DOMImplementation;
-import org.w3c.dom.ls.LSOutput;
-import org.w3c.dom.ls.LSSerializer;
-import java.util.Collections;
 import java.util.Iterator;
-import main.diff_L1_L2.vdom.Vnode;
 import main.diff_L1_L2.vdom.diffing.Dnode;
-import main.diff_L1_L2.relation.Fragment;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
-import java.util.regex.MatchResult;
-import main.diff_L1_L2.phases.MoveTextVO;
 import com.github.difflib.DiffUtils;
 import com.github.difflib.patch.AbstractDelta;
 import com.github.difflib.patch.Patch;
 import com.github.difflib.patch.Chunk;
-import main.diff_L1_L2.vdom.diffing.Hash;
 import main.diff_L1_L2.core.Ndiff;
-import static main.diff_L1_L2.core.Ndiff.EXCLUDE_STYLE_TAG;
-import main.diff_L1_L2.metadelta.METAdelta;
-import main.diff_L1_L2.vo.NodeHandler;
-import main.diff_L1_L2.vo.StyleMatcherData;
-import main.diff_L1_L2.vo.MoveText;
 import main.diff_L1_L2.vo.MoveTextData;
 import main.diff_L1_L2.vo.NodeDeltaStyle;
 import main.diff_L1_L2.vo.TextChange;
@@ -81,10 +59,6 @@ public class FindTextChangeStyle extends Phase {
     public List<List<Dnode>> foundNodeUpdate = new ArrayList<>();
     public List<Dnode> foundNodeInsert = new ArrayList<>();
     public List<Dnode> foundNodeDelete = new ArrayList<>();
-    //define two temporary list of AbstracDelta object for compare text
-//	List<NodeDelta> textDataInsertTmp = new ArrayList<>();
-//	List<NodeDelta> textDataDeleteTmp = new ArrayList<>();
-//	List<NodeDelta> textDataChangeTmp = new ArrayList<>();
     MoveTextData moveTextData = new MoveTextData();
     public int maxSimilarity;
     TextChangeData textChangeData;
@@ -105,7 +79,6 @@ public class FindTextChangeStyle extends Phase {
 
     /*
 	 * (non-Javadoc)
-	 *
 	 * @see ndiff.phases.Phase#compute()
      */
     @Override
@@ -119,18 +92,13 @@ public class FindTextChangeStyle extends Phase {
             logger.error("ERROR LINE: " + e.getStackTrace()[0].getLineNumber() + " Message: " + e.getMessage());
             e.printStackTrace();
             System.exit(0);
-
         }
     }
 
     protected void findStyleChanges() {
         try {
-
             //call function initChanges prepare three list foundNodeUpdate/foundNodeInsert/foundNodeDelete
             this.initChanges();
-            //show|hide debug info about changes
-//			this.debugChanges();
-
             //observe changes in the text - updates (style, for update points no insert or delete node)
             this.getTextStyleChanges();
             //show|hide debug info about movetext
@@ -138,8 +106,6 @@ public class FindTextChangeStyle extends Phase {
 
             //set text change fragments
             this.setTextChangeFragment();
-
-//			System.exit(0);
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
@@ -155,12 +121,9 @@ public class FindTextChangeStyle extends Phase {
                 toProcess = dom.get(i);
 
                 for (int k = toProcess.inf; k <= toProcess.sup; k++) {
-//                    if (k + A.getNode(k).getNumChildSubtree() <= toProcess.sup) {
                     if (A.getNode(k).refDomNode.getNodeType() == Node.TEXT_NODE) {
                         foundNodeDelete.add(A.getNode(k));
-//						logger.info(A.getNode(k).hashTree + " " + A.getNode(k).hashNode + " A DELETE" + A.getNode(k).refDomNode);
                     }
-//					k += A.getNode(k).getNumChildSubtree();
                 }
             }
 
@@ -170,12 +133,9 @@ public class FindTextChangeStyle extends Phase {
                 toProcess = cod.get(i);
 
                 for (int k = toProcess.inf; k <= toProcess.sup; k++) {
-//                    if (k + B.getNode(k).getNumChildSubtree() <= toProcess.sup) {
                     if (B.getNode(k).refDomNode.getNodeType() == Node.TEXT_NODE) {
                         foundNodeInsert.add(B.getNode(k));
-//						logger.info(B.getNode(k).hashTree + " " + B.getNode(k).hashNode + " B INSERT" + B.getNode(k).refDomNode);
                     }
-//					k += B.getNode(k).getNumChildSubtree();
                 }
             }
 
@@ -184,18 +144,17 @@ public class FindTextChangeStyle extends Phase {
             List<Dnode> removeInsertTmp = new ArrayList<>();
             for (int i = 0; i < foundNodeDelete.size(); i++) {
                 maxSimilarity = cfg.getIntPhaseParam(Nconfig.FindUpdate, "level");
+
                 Dnode tmpAUpdate = null;
                 Dnode tmpBUpdate = null;
                 Boolean detectUpdate = Boolean.FALSE;
                 if (foundNodeDelete.get(i).refDomNode.getNodeType() == Node.TEXT_NODE) {
                     tmpBUpdate = null;
+
                     for (int j = 0; j < foundNodeInsert.size(); j++) {
-
                         if (foundNodeInsert.get(j).refDomNode.getNodeType() == Node.TEXT_NODE) {
-
                             int tmpSimilarity = foundNodeDelete.get(i).getSimilarity(foundNodeInsert.get(j));
                             if (tmpSimilarity > maxSimilarity) {
-
                                 maxSimilarity = tmpSimilarity;
                                 tmpAUpdate = foundNodeDelete.get(i);
                                 tmpBUpdate = foundNodeInsert.get(j);
@@ -203,11 +162,10 @@ public class FindTextChangeStyle extends Phase {
                             }
                         }
                     }
-
                 }
+
                 //prepare update list in list nodes
                 if (detectUpdate == Boolean.TRUE) {
-
                     removeDeleteTmp.add(tmpAUpdate);
                     removeInsertTmp.add(tmpBUpdate);
                     List<Dnode> tmpList = new ArrayList<>();
@@ -245,12 +203,10 @@ public class FindTextChangeStyle extends Phase {
 
         // For each foundNodeUpdate:
         for (int i = 0; i < foundNodeUpdate.size(); i++) {
-//			Dnode aT = foundNodeUpdate.get(i).get(0);
-//			Dnode bT = foundNodeUpdate.get(i).get(1);
             Dnode a = A.getNode(foundNodeUpdate.get(i).get(0).getIndexKey());
             Dnode b = B.getNode(foundNodeUpdate.get(i).get(1).getIndexKey());
-            String aText = a.refDomNode.getTextContent(); //.replaceAll("\n\r", "").replaceAll("\n", "").replaceAll("\r", "");
-            String bText = b.refDomNode.getTextContent(); //.replaceAll("\n\r", "").replaceAll("\n", "").replaceAll("\r", "");
+            String aText = a.refDomNode.getTextContent();
+            String bText = b.refDomNode.getTextContent();
 
             //make array of strings split by space, try diffing whole words
             List<String> listOfTextA = new ArrayList<String>(Arrays.asList(aText.split("\\s+")));
@@ -258,8 +214,6 @@ public class FindTextChangeStyle extends Phase {
 
             String patterOpenTags = Ndiff.prepareRexExpPaternAsString(false);
             String patterCloseTags = Ndiff.prepareRexExpPaternAsString(true);
-//			List<String> listOfTextA = new ArrayList<String>(Arrays.asList(aText.split("_\\|\\|_")));
-//			List<String> listOfTextB = new ArrayList<String>(Arrays.asList(bText.split("_\\|\\|_")));
             listOfTextA = this.tuneUpListOfText(listOfTextA, patterOpenTags, patterCloseTags, 0);
             listOfTextB = this.tuneUpListOfText(listOfTextB, patterOpenTags, patterCloseTags, 0);
             //use java-diff-utils to try find changes in text (return type action CHANGE, INSERT, DELETE position, source text, target text
@@ -275,7 +229,6 @@ public class FindTextChangeStyle extends Phase {
                 String sourceText = "";
                 logger.info("DELTA CHANGES : " + delta);
                 String action = delta.getType().toString();
-                //Pattern pattern = Pattern.compile("(_\\|.+?\\|_)(.*?)(_\\|\\/.+?\\|_)");
                 Pattern pattern = Pattern.compile("(_\\|.+?\\|_)(.*|.*?)(_\\|\\/.+?\\|_)");
                 Matcher matcherSource;
                 Matcher matcherTarget;
@@ -283,13 +236,7 @@ public class FindTextChangeStyle extends Phase {
                 sourceText = "";
                 //concatenate all changes from array how to get one full string 1 INFO - #### SOURCE: _|italic|_Yersinia 2#### SOURCE: enterocolitica_|/italic|_
                 for (int c = 0; c < delta.getSource().getLines().size(); c++) {
-                    //it is necessary becsaue have situation as
-//                    sourceText += delta.getSource().getLines().get(c).toString() + " ";
-//                    if (Character.isWhitespace(delta.getSource().getLines().get(c).toString().charAt(0))) {
-//                        sourceText += delta.getSource().getLines().get(c).toString().substring(1, delta.getSource().getLines().get(c).toString().length()) + " ";
-//                    } else {
                     sourceText += delta.getSource().getLines().get(c).toString().trim() + " ";
-//                    }
                 }
                 sourceText = sourceText.trim();
 
@@ -309,21 +256,13 @@ public class FindTextChangeStyle extends Phase {
 
                 targetText = "";
                 for (int t = 0; t < delta.getTarget().getLines().size(); t++) {
-
-//                    if (Character.isWhitespace(delta.getTarget().getLines().get(t).toString().charAt(0))) {
-//                        targetText += delta.getTarget().getLines().get(t).toString().substring(1, delta.getTarget().getLines().get(t).toString().length()) + " ";
-//                    } else {
                     targetText += delta.getTarget().getLines().get(t).toString().trim() + " ";
-//                    }
-
                 }
                 targetText = targetText.trim();
 
                 matcherTarget = pattern.matcher(targetText);
 
                 while (matcherTarget.find()) {
-                    //logger.info("CHANGE TARGET MACHERR: " + targetText);
-
                     NodeDeltaStyle nodeDelta = new NodeDeltaStyle();
                     nodeDelta.setA(a);
                     nodeDelta.setB(b);
@@ -343,20 +282,13 @@ public class FindTextChangeStyle extends Phase {
                     deltaBItr = deltaChangesB.iterator();
                     while (deltaBItr.hasNext()) {
                         NodeDeltaStyle nB = deltaBItr.next();
-                        //logger.info("TEST XXX" + nA.content);
-                        //logger.info("TEST XXX" + nB.content);
                         if (nB.action.equals(nA.action) && nB.content.equals(nA.content)) {
-
                             deltaBItr.remove();
                             deltaAItr.remove();
-                            //deltaAItr = deltaChangesA.iterator();
-                            //deltaBItr = deltaChangesB.iterator();
                         }
                     }
                 }
 
-                //logger.info(deltaChangesA);
-                //logger.info(deltaChangesB);
                 if (deltaChangesA.size() > 0 && deltaChangesB.size() > 0) {
                     for (NodeDeltaStyle tmpNA : deltaChangesA) {
                         TextChange textChanges = new TextChange();
@@ -402,21 +334,13 @@ public class FindTextChangeStyle extends Phase {
                         textChanges.setTextTarget(tmpNB.getContent());
                         textChanges.setPositionTo(tmpNB.b.getRefDomNode().getNodeValue().indexOf(tmpNB.getContent()));
                         textChangeData.add(textChanges);
-
                     }
                 }
                 deltaChangesA.removeAllElements();
                 deltaChangesB.removeAllElements();
 
             }
-            //ENABLE this points if need
-            //foundNodeUpdate.get(i).get(0).refDomNode.setNodeValue(foundNodeUpdate.get(i).get(0).refDomNode.getNodeValue().replaceAll("(_\\|.+?\\|_)(.*?)(_\\|\\/.+?\\|_)", ""));
-            //foundNodeUpdate.get(i).get(1).refDomNode.setNodeValue(foundNodeUpdate.get(i).get(1).refDomNode.getNodeValue().replaceAll("(_\\|.+?\\|_)(.*?)(_\\|\\/.+?\\|_)", ""));
-
         }
-//      logger.info(textChangeData.getAllTextChanges());
-//      System.exit(0);
-
     }
 
     /**
@@ -428,7 +352,7 @@ public class FindTextChangeStyle extends Phase {
         Interval findB = new Interval(1, 0);
         findA.set(1, 0);
         findB.set(1, 0);
-        String textNode;
+
         for (TextChange textChange : textChangeData.getAllTextChanges()) {
             int infA = textChange.getNodeA().getIndexKey();
             int infB = textChange.getNodeB().getIndexKey();
@@ -444,9 +368,9 @@ public class FindTextChangeStyle extends Phase {
             if (!listProcessedInterval.contains(tmpListInterval)) {
                 listProcessedInterval.add(tmpListInterval);
             }
+
             switch (textChange.getAction()) {
                 case TextChangeData.ACTION_UPDATE_STYLE_TO:
-
                     R.addFragment(findA, findB, A.getNode(findA.inf).weight, Relation.UPDATE_STYLE_TO);
 
                     for (int l = findA.inf; l <= findA.sup; l++) {
@@ -455,7 +379,6 @@ public class FindTextChangeStyle extends Phase {
 
                     for (int l = findB.inf; l <= findB.sup; l++) {
                         B.getNode(l).inRel = Relation.UPDATE_STYLE_TO;
-
                     }
 
                     String textNodeB = textChange.getNodeB().getRefDomNode().getNodeValue();
@@ -466,8 +389,8 @@ public class FindTextChangeStyle extends Phase {
                     bufB.replace(startB, endB, insertTextWithoutTag);
                     textNodeB = bufB.toString();
                     textChange.getNodeB().getRefDomNode().setNodeValue(textNodeB);
-
                     break;
+
                 case TextChangeData.ACTION_UPDATE_STYLE_FROM:
                     R.addFragment(findA, findB, A.getNode(findA.inf).weight, Relation.UPDATE_STYLE_FROM);
 
@@ -487,8 +410,8 @@ public class FindTextChangeStyle extends Phase {
                     bufA.replace(startA, endA, insertTextWithoutTag);
                     textNodeA = bufA.toString();
                     textChange.getNodeA().getRefDomNode().setNodeValue(textNodeA);
-
                     break;
+
                 case TextChangeData.ACTION_INSERT_STYLE:
                     R.addFragment(findA, findB, A.getNode(findA.inf).weight, Relation.INSERT_STYLE);
                     for (int l = findA.inf; l <= findA.sup; l++) {
@@ -511,8 +434,8 @@ public class FindTextChangeStyle extends Phase {
 
                     textNodeA = textChange.getNodeA().getRefDomNode().getNodeValue();
                     textChange.getNodeA().getRefDomNode().setNodeValue(textNodeA);
-
                     break;
+
                 case TextChangeData.ACTION_DELETE_STYLE:
                     R.addFragment(findA, findB, A.getNode(findA.inf).weight, Relation.DELETE_STYLE);
                     for (int l = findA.inf; l <= findA.sup; l++) {
@@ -532,8 +455,8 @@ public class FindTextChangeStyle extends Phase {
 
                     textNodeA = bufA.toString();
                     textChange.getNodeA().getRefDomNode().setNodeValue(textNodeA);
-
                     break;
+
                 case TextChangeData.ACTION_MOVE_TEXT_FROM:
                     R.addFragment(findA, findB, A.getNode(findA.inf).weight, Relation.MOVETEXT_FROM);
                     for (int l = findA.inf; l <= findA.sup; l++) {
@@ -543,8 +466,8 @@ public class FindTextChangeStyle extends Phase {
                     for (int l = findB.inf; l <= findB.sup; l++) {
                         B.getNode(l).inRel = Relation.MOVETEXT_FROM;
                     }
-
                     break;
+
                 case TextChangeData.ACTION_MOVE_TEXT_TO:
                     R.addFragment(findA, findB, A.getNode(findA.inf).weight, Relation.MOVETEXT_TO);
                     for (int l = findA.inf; l <= findA.sup; l++) {
@@ -554,7 +477,6 @@ public class FindTextChangeStyle extends Phase {
                     for (int l = findB.inf; l <= findB.sup; l++) {
                         B.getNode(l).inRel = Relation.MOVETEXT_TO;
                     }
-
                     break;
 
                 default:
@@ -571,32 +493,6 @@ public class FindTextChangeStyle extends Phase {
         List<TextChange> mtd = textChangeData.getAllTextChanges();
         for (TextChange mt : mtd) {
             logger.info(mt);
-        }
-    }
-
-    /**
-     * preview move text
-     */
-    public void debugMoveChanges() {
-        List<MoveText> mtd = moveTextData.getAllMoveChanges();
-        for (MoveText mt : mtd) {
-            logger.info(mt);
-        }
-    }
-
-    /**
-     * preview changes
-     */
-    public void debugChanges() {
-        for (int i = 0; i < foundNodeInsert.size(); i++) {
-            logger.info("---FOUND Insert: " + foundNodeInsert.get(i).refDomNode);
-        }
-        for (int i = 0; i < foundNodeDelete.size(); i++) {
-            logger.info("---FOUND Delete: " + foundNodeDelete.get(i).refDomNode);
-        }
-        for (int i = 0; i < foundNodeUpdate.size(); i++) {
-            logger.info("---FOUND Update A: " + foundNodeUpdate.get(i).get(0).refDomNode);
-            logger.info("---FOUND Update B: " + foundNodeUpdate.get(i).get(1).refDomNode);
         }
     }
 
@@ -629,15 +525,6 @@ public class FindTextChangeStyle extends Phase {
             }
 
             if (index > -1) {
-                //comment next block if recursion will have problem  -- start
-//                if (i > index) {
-//                    startTagsExists = Pattern.compile(patterOpenTags).matcher(str).find();
-//                    if (startTagsExists) {
-//                        tuneUpListOfText(listOfText, patterOpenTags, patterCloseTags, i);
-//                    }
-//                }
-                // -- end
-
                 tmpStr = tmpStr.concat(str).concat(" ");
                 if (i > index) {
                     iterator.remove();
@@ -656,58 +543,4 @@ public class FindTextChangeStyle extends Phase {
 
         return listOfText;
     }
-
-    /**
-     * Tune Up List Of Text
-     * NOTE this function work in first level
-     * ORIG NO DELETE YET
-     *
-     * @param listOfText
-     * @return
-     */
-//    public List<String> tuneUpListOfText(List<String> listOfText, String patterOpenTags, String patterCloseTags, int startIndex) {
-//        String tmpStr = "";
-//        int index = -1;
-//        int i = startIndex;
-//        ListIterator<String> iterator = listOfText.listIterator(startIndex);
-//
-//        while (iterator.hasNext()) {
-//
-//            String str = iterator.next();
-//            boolean startTagsExists = Pattern.compile(patterOpenTags).matcher(str).find();
-//            boolean endTagsExists = Pattern.compile(patterCloseTags).matcher(str).find();
-//
-//            if (startTagsExists && !endTagsExists) {
-//                index = i;
-//
-//            }
-//
-//            if (index > -1) {
-//                //comment next block if recursion will have problem  -- start
-////                if (i > index) {
-////                    startTagsExists = Pattern.compile(patterOpenTags).matcher(str).find();
-////                    if (startTagsExists) {
-////                        tuneUpListOfText(listOfText, patterOpenTags, patterCloseTags, i);
-////                    }
-////                }
-//                // -- end
-//
-//                tmpStr = tmpStr.concat(str).concat(" ");
-//                if (i > index) {
-//                    iterator.remove();
-//                }
-//            }
-//
-//            if (!startTagsExists && endTagsExists) {
-//                if (index > -1) {
-//                    listOfText.set(index, tmpStr);
-//                }
-//                index = -1;
-//                tmpStr = "";
-//            }
-//            i++;
-//        }
-//
-//        return listOfText;
-//    }
 }

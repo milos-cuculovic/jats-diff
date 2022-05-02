@@ -140,7 +140,9 @@ public class FindUpgrade extends Phase {
                 Matcher m = p.matcher(content);
                 content = m.replaceAll("$2");
 
-                if (A.getNode(i).getNumChildSubtree() > findA.size()) {
+                var a = A.getNode(i).getNumChildSubtree();
+                var b =  findA.size();
+                if (A.getNode(i).getNumChildSubtree() > findA.size() && A.getNode(i).getNumChildSubtree() == B.getNode(j).getNumChildSubtree()) {
                     String subSectionAContent = fromNode.refDomNode.getTextContent();
                     String regExpA = "^(\\d+\\.\\d+\\.\\s)(.*)";
                     Pattern pA = Pattern.compile(regExpA);

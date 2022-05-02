@@ -186,10 +186,12 @@ public class TabFigure {
 						nCh.setId(e.getAttribute("id"));
 					}
 					ChangeObject co = nCh.getChangelist().get(0);
+					noeudA = tree.getNode(Integer.parseInt(co.getAtA()));
 					Dnode noeudB = treem.getNode(Integer.parseInt(co.getNodenumB()));
-					noeudA = tree.getNode(at.atcalcul(Integer.parseInt(co.getAtB()), bd,  true));
+					noeudA = at.atcalcul(bd.getTreemodif(), bd.getTreeorig(), specobj, specobj, noeudB, noeudA, bd,
+							bd.getModified());
 					nCh.setAtB(Integer.parseInt(co.getAtB()));
-					nCh.setAtA(noeudA.indexKey);
+					nCh.setAtA(noeudA.getPosFather());
 					isTo = true;
 				} else {
 					while (!n.getNodeName().equals(specobj)) {
@@ -197,7 +199,9 @@ public class TabFigure {
 								|| n.getNodeName().equals("table-wrap-foot")) {
 							ChangeObject co = nCh.getChangelist().get(0);
 							Dnode noeudB = treem.getNode(Integer.parseInt(co.getAtB()));
-							noeudA = tree.getNode(at.atcalcul(Integer.parseInt(co.getAtB()), bd,  true));
+							noeudA = tree.getNode(Integer.parseInt(co.getAtA()));
+							noeudA = at.atcalcul(bd.getTreemodif(), bd.getTreeorig(), n.getNodeName(), specobj, noeudB,
+									noeudA, bd, bd.getModified());
 							nCh.setAtB(noeud.getIndexKey());
 							nCh.setAtA(noeudA.getIndexKey());
 							da = noeudA.indexKey;
@@ -221,14 +225,14 @@ public class TabFigure {
 						noeud = treem.getNode(pa);
 						n = noeud.refDomNode;
 					}
-
+				}
 				if (n.getNodeType() == Node.ELEMENT_NODE) {
 					Element e = (Element) n;
 					nCh.setId(e.getAttribute("id"));
 				}
 				nCh.setNodenumberB(pa);
 				nCh.setNodenumberA(pa);
-				nCh.setNodetype(n.getNodeName());}
+				nCh.setNodetype(n.getNodeName());
 				int nodenumA;
 				if (da != null) {
 					nCh.setA(true);
@@ -308,11 +312,12 @@ public class TabFigure {
 				Dnode noeudB = treem.getNode(0);
 				if (co.hasNodenumB()) {
 					noeudB = treem.getNode(Integer.parseInt(co.getNodenumB()));
-					nCh.setAtB(at.atcalcul(nna, bd,  false));
+					nCh.setAtB(noeudB.getPosFather());
 					nCh.setAtA(noeud.posFather);
 					noeudB = treem.getNode(noeudB.posFather);
 				} else {
-					noeudB = treem.getNode(at.atcalcul(nna, bd,  false));;
+					noeudB = treem.getNode(0);
+					noeudB = at.atcalcul(tree, treem, specobj, specobj, noeud, noeudB, bd, bd.getModified());
 					nCh.setAtB(noeudB.posFather);
 					nCh.setAtA(Integer.parseInt(co.getAtA()));
 				}
@@ -328,7 +333,8 @@ public class TabFigure {
 						if (n.getNodeName().equals("caption") || n.getNodeName().equals("table")
 								|| n.getNodeName().equals("table-wrap-foot")) {
 							Dnode noeudA = tree.getNode(nCh.getAtA());
-							noeudB = treem.getNode(at.atcalcul(nCh.getAtA(), bd,  false));
+							noeudB = at.atcalcul(tree, treem, n.getNodeName(), specobj, noeud, noeudB, bd,
+									bd.getModified());
 							da = noeudA.indexKey;
 							pa = noeudB.indexKey;
 							da = count;
@@ -467,7 +473,7 @@ public class TabFigure {
 							nnbpobj = nCh.getAtB();
 						} else {
 							if (!nCh.isA()) {
-								nnbpobj = nCh.getAtB();
+								nnbpobj = nCh.getNodenumberB();
 								Dnode dnm = treem.getNode(nCh.getNodenumberA());
 								Node nm = dnm.refDomNode;
 								Element em = (Element) nm;
@@ -531,8 +537,6 @@ public class TabFigure {
 					nc.setDepth(Integer.toString(XmlFileAttributes.getDepth(esec)));
 					nSec.setDepth(Integer.toString(XmlFileAttributes.getDepth(esec)));
 					nc.setNodetype(cgt);
-					nc.setNodenumberA(noeudobj);
-					nc.setNodenumberB(nnbpobj);
 					modif.add(nc);
 				} else if (nnbpobj != null) {
 					NodeChanged nc = new NodeChanged(noeudsec + 1);
@@ -553,8 +557,6 @@ public class TabFigure {
 					nc.setDepth(Integer.toString(XmlFileAttributes.getDepth(esec)));
 					nSec.setDepth(Integer.toString(XmlFileAttributes.getDepth(esec)));
 					nc.setNodetype(cgt);
-					nc.setNodenumberA(noeudobj);
-					nc.setNodenumberB(nnbpobj);
 					modif.add(nc);
 				}
 
@@ -572,6 +574,7 @@ public class TabFigure {
 	}
 
 	public ArrayList<NodeChanged> findTabFig(ArrayList<NodeChanged> modif, BrowseDelta bd, Similarity sim) throws InputFileException, IOException {
+//		modif = specObjtreatment(modif, bd, "ref", "ref", jaccard, simitext, simtextW);
 		modif = specObjtreatment(modif, bd, "fig", "figure", sim);
 		modif = specObjtreatment(modif, bd, "table-wrap", "table", sim);
 		return modif;
