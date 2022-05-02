@@ -1,0 +1,17 @@
+-L
+all
+/Users/miloscuculovic/Desktop/orig.xml
+/Users/miloscuculovic/Desktop/new.xml
+/Users/miloscuculovic/Desktop/delta.xml
+/Users/miloscuculovic/Desktop/semantics.xml
+
+
+
+OR
+
+
+
+
+-L
+file
+/Users/miloscuculovic/full_test/full_test.txt
