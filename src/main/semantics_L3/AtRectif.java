@@ -6,61 +6,52 @@ import main.diff_L1_L2.vdom.diffing.Dtree;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
-
+//at.atcalcul(nCh.getAtB(), bd,  nCh.getChangelist().get(0).isTo())
 public class AtRectif {
-    public Dnode atcalcul(Dtree treea, Dtree treeb, String cond, String specobj, Dnode da, Dnode db, BrowseDelta bd,
-                          String pathb) throws InputFileException {
-        Dnode dspec = da;
-        while (!dspec.refDomNode.getNodeName().equals(specobj)) {
-            dspec = treea.getNode(dspec.getPosFather());
-        }
-        Node nspec = dspec.refDomNode;
-        if (nspec.getNodeType() == Node.ELEMENT_NODE) {
-            Element espec = (Element) nspec;
-            if (espec.hasAttribute("id")) {
-                String id = espec.getAttribute("id");
-                Vector<Dnode> nl = treeb.nodeList;
-                Dnode dbfather = db;
-                for (Dnode dn : nl) {
-                    if (dn.refDomNode.getNodeType() == Node.ELEMENT_NODE) {
-                        Element e = (Element) dn.refDomNode;
-                        if (e.hasAttribute("id")) {
-                            if (e.getAttribute("id").equals(id)) {
-                                dbfather = dn;
-                                if(cond.equals(specobj)) {
-                                    return dbfather;
-                                }
-                                break;
-                            }
-                        }
-                    }
-                }
-                int nc = bd.nodecounter(dbfather.getIndexKey(), pathb, treeb);
-                int min = dbfather.indexKey;
-                int max = min + nc;
-                for (Dnode dn : nl) {
-                    if (dn.indexKey > min && dn.indexKey < max) {
-                        if (dn.refDomNode.getNodeName().equals(cond)) {
-                            db = dn;
-                            break;
-                        }
-                    }
-                }
-            }
-            else {
-                Vector<Dnode> nl = treeb.nodeList;
-                for (Dnode dn : nl) {
-                    if(dn.refDomNode.getNodeName().equals(specobj)) {
-                        return dn;
-                    }
-                }
-            }
-        }
+    public int atcalcul(int oldat, BrowseDelta bd,boolean isto) throws InputFileException {
+        int atA =oldat;
+        int actualNodeNumberDiff = 0;
+        int newat = oldat;
+        for (ChangeObject tempco : bd.getChangeList()) {
+            if (tempco.hasNodecount()) {
+                if (tempco.getChangement().equals("delete")) {
+                    actualNodeNumberDiff += Integer.parseInt(tempco.getNodecount());
 
-        return db;
 
+                } else if (tempco.hasOp()) {
+                    if (tempco.getOp().contains("To")) {
+                        actualNodeNumberDiff -= Integer.parseInt(tempco.getNodecount());
+
+                    } else if (tempco.getOp().contains("From")) {
+                        actualNodeNumberDiff += Integer.parseInt(tempco.getNodecount());
+
+                    }
+                } else {// insert
+                    actualNodeNumberDiff -= Integer.parseInt(tempco.getNodecount());
+                }
+                if (isto) {
+                    if (oldat> Integer.parseInt(tempco.getAtB())) {
+                        newat += actualNodeNumberDiff;
+
+                    }
+                }
+                if (!isto) {
+                    if (oldat > Integer.parseInt(tempco.getAtA())) {
+                        newat -= actualNodeNumberDiff;
+                    }
+                }else {// insert
+                    actualNodeNumberDiff -= Integer.parseInt(tempco.getNodecount());
+                }
+                }
+
+            actualNodeNumberDiff = 0;
+            }
+        return newat;
     }
+
 }
+
 

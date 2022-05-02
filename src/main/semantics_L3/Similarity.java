@@ -1,41 +1,84 @@
 package main.semantics_L3;
 
+import com.topic.model.BTM;
 import info.debatty.java.stringsimilarity.Jaccard;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
+import com.topic.utils.FileUtil;
+import com.topic.model.GibbsSamplingLDA;
 
 public class Similarity {
+	private boolean jaccard;
+	private boolean simitext;
+	private boolean simtextW;
+	private boolean topicModel;
+	private boolean tf;
 
-	public ArrayList<String> score(String orig, String modif, boolean doJaccard, boolean doSimitext, boolean doSimtextW, boolean doTF) {
-		ArrayList<String> scores = new ArrayList<String>();
-		if (doJaccard) {
+	public Similarity(boolean jaccard, boolean simitext, boolean simtextW, boolean topicModel,boolean tf) {
+		this.jaccard = jaccard;
+		this.simitext = simitext;
+		this.simtextW = simtextW;
+		this.topicModel=topicModel;
+		this.tf=tf;
+	}
+
+	public Object score(String orig, String modif,Object change) throws IOException {
+		ObjectChange<Object> change1=new ObjectChange<>();
+		change1.add(change);
+		change1.add(change);
+		if (jaccard) {
 			Jaccard distance = new Jaccard();
 			double jacNum = distance.distance(orig, modif);
 			double pourcentage = (double) ((1 - jacNum) * 100);
 			pourcentage = (double) Math.round(pourcentage * 10) / 10;
-			scores.add(Double.toString(Math.abs(pourcentage)) + " %");
+			change1.setJaccard(pourcentage);
 		} else {
-			scores.add(null);
+			change1.setJaccard(null);
 		}
-		if (doSimitext) {
+		if (simitext) {
 			double similar = Math.abs(similarText(orig, modif));
 			similar = (double) Math.round(similar * 10) / 10;
-			scores.add(Double.toString(similar) + " %");
+			change1.setSimtext(similar);
+
 		} else {
-			scores.add(null);
+			change1.setSimtext(null);
 		}
-		if (doSimtextW) {
-			double similar = Math.abs(similarTextword(orig, modif));
-			similar = (double) Math.round(similar * 10) / 10;
-			scores.add(Double.toString(similar) + " %");
-		} else {
-			scores.add(null);
+		if(topicModel){
+			change1.setTopicModel(topicmodel(orig,modif));
+		}
+		else{
+			change1.setTopicModel(null);
 
 		}
-		if (doTF) {
+		if (tf) {
+			change1.setTF(tf(orig,modif));
+		}
+
+		else{
+			change1.setTF(null);
+
+		}
+
+		if (simtextW) {
+			double similar = Math.abs(similarTextword(orig, modif));
+			similar = (double) Math.round(similar * 10) / 10;
+			change1.setSimtextWord(similar);
+
+		} else {
+			change1.setSimtextWord(null);
+
+		}
+		return change;
+	}
+	public double tf(String orig,String modif)
+	{
+		{
 			TFIDFCalculator tfidf = new TFIDFCalculator();
 			List<String> doc1 = Arrays.asList(orig.split(" "));
 			List<String> doc2 = Arrays.asList(modif.split(" "));
@@ -52,19 +95,153 @@ public class Similarity {
 			}
 
 			if (total_positive_tf < 0) {
-				scores.add("0 %");
+				return (double)0;
+
 			}
 			else {
 				double tf_score = (float)(((double)(total_positive_tf) / (double)(doc2.size())) * 100);
-				scores.add(Double.toString(Math.round(tf_score)) + " %");
+				return(double) Math.round(tf_score);
+
 			}
 		}
-		else {
-			scores.add(null);
-		}
-		return scores;
 	}
+	public double topicmodel(String orig, String modif) throws IOException {
+		//token etc
+		ArrayList<String> wordsorig = new ArrayList<String>();
+		orig=sepWord(orig);
+		modif=sepWord(modif);
+		FileUtil.getlema(orig, wordsorig);
+		String textorig = FileUtil.RemoveNoiseWord(wordsorig);
+		ArrayList<String> wordsmodif = new ArrayList<String>();
+		FileUtil.getlema(modif, wordsmodif);
+		String textmodif = FileUtil.RemoveNoiseWord(wordsmodif);
+		ArrayList<String> keyModif=topicModelList(textmodif);
+		ArrayList<String> keyOrig=topicModelList(textorig);
 
+		TFIDFCalculator tfidf = new TFIDFCalculator();
+		Integer total_positive_tf = 0;
+		double score=0;
+		double pourcentage = 0;
+		for (String term : keyModif) {
+			for(String oriTerm : keyOrig){
+				if(term.equals(oriTerm)){
+					score++;
+					break;
+				}
+			}}
+			pourcentage=score/(double)Math.max(keyModif.size(),keyOrig.size())*100;
+//			double tf_value = tfidf.tf(keyOrig, term);
+//			if (tf_value > 0) {
+//				total_positive_tf++;
+//			}
+//			else {
+//				total_positive_tf--;
+//			}
+
+		return pourcentage;
+	/*	if (total_positive_tf < 0) {
+			System.out.println(total_positive_tf);
+			return 0;
+
+		}
+		else {
+			double tf_score = (float)(((double)(total_positive_tf) / (double)(keyOrig.size())) * 100);
+			System.out.println(total_positive_tf);
+			System.out.println(keyOrig.size());
+			System.out.println(tf_score);
+			return (double) Math.round(tf_score);
+
+		}*/
+	}
+	public String sepWord(String origormodif){
+		String sentence="";
+		for (String element : origormodif.split(" ")) {
+			if(!isStringUpperCase(element)){
+				String[] listword = element.split("");
+				element=listword[0];
+				for (int i=1;i<listword.length;i++){
+					if(isStringUpperCase(listword[i])){
+						element+=" ";
+					}
+					element+=listword[i];
+				}
+			}
+			sentence+=element+" ";
+	}
+		return sentence;
+	}
+	public ArrayList<String> topicModelList(String text) throws IOException {
+		FileWriter writer = new FileWriter("examples\\rawdata_process_lda.txt");
+		String[] xmlword={"article","xref", "type", "ref", "rid","aff", "italy"};
+		for (String rep:xmlword){
+			text=text.replaceAll(rep,"");
+		}
+		writer.write(text + System.lineSeparator());
+		writer.close();
+		BTM btm = new BTM("examples\\rawdata_process_lda.txt", "gbk", 15, 0.1,
+				0.01, 1000, 50, 50, "examples\\");
+		btm.MCMCSampling();
+		BufferedReader reader;
+		ArrayList<String> keyWord=new ArrayList<>();
+		try {
+			reader = new BufferedReader(new FileReader(
+					"examples\\topic_word_BTM_15.txt"));
+			String line = reader.readLine();
+			boolean topic15=false;
+			while (line != null) {
+				if(topic15){
+					if (!line.equals("")){
+					keyWord.add(line.split(" ")[0]);}
+					else{
+						break;
+					}
+				}
+				if(line.contains("Topic:15")){
+					topic15=true;
+				}
+				line = reader.readLine();
+			}
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		/*Files.delete(Path.of("examples\\doc_topic_BTM_15.txt"));
+		Files.delete(Path.of("examples\\rawdata_process_lda.txt"));
+		Files.delete(Path.of("examples\\topic_theta_BTM15.txt"));
+		Files.delete(Path.of("examples\\topic_word_BTM_15.txt"));
+		Files.delete(Path.of("examples\\topic_wordnop_BTM_15.txt"));*/
+		ArrayList<String> key=new ArrayList<String>();
+		for (String element : keyWord) {
+
+			element=element.replaceAll("-","");
+			element=element.replaceAll("article","");
+			element=element.replaceAll("[0-9]", "");
+			element = element.replaceAll("[^a-zA-Z0-9]", "");
+
+			// If this element is not present in newList
+			// then add it
+			for (String word : element.split("\\s+")) {
+				if (!key.contains(element)) {
+					key.add(element);
+				}
+			}
+		}
+		return key;
+	}
+	private static boolean isStringUpperCase(String str){
+
+		//convert String to char array
+		char[] charArray = str.toCharArray();
+
+		for(int i=0; i < charArray.length; i++){
+
+			//if any character is not in upper case, return false
+			if( !Character.isUpperCase( charArray[i] ))
+				return false;
+		}
+
+		return true;
+	}
 	public int similarword(String first, String second) {
 		int p, q, l, sum;
 		int pos1 = 0;
