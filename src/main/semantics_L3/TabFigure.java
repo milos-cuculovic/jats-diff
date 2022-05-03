@@ -187,7 +187,7 @@ public class TabFigure {
 					}
 					ChangeObject co = nCh.getChangelist().get(0);
 					Dnode noeudB = treem.getNode(Integer.parseInt(co.getNodenumB()));
-					noeudA = tree.getNode(at.atcalcul(Integer.parseInt(co.getAtB()), bd,  true));
+					noeudA = tree.getNode(at.at_calcul(Integer.parseInt(co.getAtB()), bd,  true));
 					nCh.setAtB(Integer.parseInt(co.getAtB()));
 					nCh.setAtA(noeudA.indexKey);
 					isTo = true;
@@ -197,7 +197,7 @@ public class TabFigure {
 								|| n.getNodeName().equals("table-wrap-foot")) {
 							ChangeObject co = nCh.getChangelist().get(0);
 							Dnode noeudB = treem.getNode(Integer.parseInt(co.getAtB()));
-							noeudA = tree.getNode(at.atcalcul(Integer.parseInt(co.getAtB()), bd,  true));
+							noeudA = tree.getNode(at.at_calcul(Integer.parseInt(co.getAtB()), bd,  true));
 							nCh.setAtB(noeud.getIndexKey());
 							nCh.setAtA(noeudA.getIndexKey());
 							da = noeudA.indexKey;
@@ -308,11 +308,11 @@ public class TabFigure {
 				Dnode noeudB = treem.getNode(0);
 				if (co.hasNodenumB()) {
 					noeudB = treem.getNode(Integer.parseInt(co.getNodenumB()));
-					nCh.setAtB(at.atcalcul(nna, bd,  false));
+					nCh.setAtB(at.at_calcul(nna, bd,  false));
 					nCh.setAtA(noeud.posFather);
 					noeudB = treem.getNode(noeudB.posFather);
 				} else {
-					noeudB = treem.getNode(at.atcalcul(nna, bd,  false));;
+					noeudB = treem.getNode(at.at_calcul(nna, bd,  false));;
 					nCh.setAtB(noeudB.posFather);
 					nCh.setAtA(Integer.parseInt(co.getAtA()));
 				}
@@ -328,7 +328,7 @@ public class TabFigure {
 						if (n.getNodeName().equals("caption") || n.getNodeName().equals("table")
 								|| n.getNodeName().equals("table-wrap-foot")) {
 							Dnode noeudA = tree.getNode(nCh.getAtA());
-							noeudB = treem.getNode(at.atcalcul(nCh.getAtA(), bd,  false));
+							noeudB = treem.getNode(at.at_calcul(nCh.getAtA(), bd,  false));
 							da = noeudA.indexKey;
 							pa = noeudB.indexKey;
 							da = count;
@@ -512,8 +512,6 @@ public class TabFigure {
 					NodeChanged nc = new NodeChanged(noeudobj - 1);
 					noeudobj = dn.getPosFather();
 					nc.setModified("Modified: " + Integer.toString(compmodifobj));
-					System.out.println(dn.refDomNode.getNodeName());
-					System.out.println(treem.getNode(nnbpobj).refDomNode.getNodeName());
 					int childinit = XmlFileAttributes.numChild(noeudobj, bd.getOrignal(), specobj, bd.getTreeorig());
 					nc.setInit("Initial: " + Integer.toString(childinit));
 					nc.getChangelist();
@@ -532,7 +530,7 @@ public class TabFigure {
 					nc = (NodeChanged) sim.score(esec.getTextContent(), esecm.getTextContent(),nc);
 					nc.setDepth(Integer.toString(XmlFileAttributes.getDepth(esec)));
 					nSec.setDepth(Integer.toString(XmlFileAttributes.getDepth(esec)));
-					nc.setNodetype(cgt);
+					nc.setNodetype(cgt+"s");
 					nc.setNodenumberA(noeudobj);
 					nc.setNodenumberB(nnbpobj);
 					modif.add(nc);
@@ -554,7 +552,7 @@ public class TabFigure {
 					nc = (NodeChanged) sim.score(esec.getTextContent(), esecm.getTextContent(),nc);
 					nc.setDepth(Integer.toString(XmlFileAttributes.getDepth(esec)));
 					nSec.setDepth(Integer.toString(XmlFileAttributes.getDepth(esec)));
-					nc.setNodetype(cgt);
+					nc.setNodetype(cgt+"s");
 					nc.setNodenumberA(noeudobj);
 					nc.setNodenumberB(nnbpobj);
 					modif.add(nc);

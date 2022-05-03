@@ -6,12 +6,11 @@ import main.diff_L1_L2.vdom.diffing.Dtree;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import java.util.ArrayList;
 import java.util.Vector;
 
 //at.atcalcul(nCh.getAtB(), bd,  nCh.getChangelist().get(0).isTo())
 public class AtRectif {
-    public int atcalcul(int oldat, BrowseDelta bd,boolean isto) throws InputFileException {
+    public int at_calcul(int oldat, BrowseDelta bd,boolean isto) throws InputFileException {
         int atA =oldat;
         int actualNodeNumberDiff = 0;
         int newat = oldat;
